@@ -1,17 +1,12 @@
 package com.shambhu.myapplication
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
+import com.google.android.material.tabs.TabLayoutMediator
 import com.shambhu.myapplication.databinding.ActivityPersonalBinding
 
 class PersonalActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityPersonalBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,20 +17,15 @@ class PersonalActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
-        val navController = findNavController(R.id.nav_host_fragment_content_personal)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        val adapter = PersonalPagerAdapter(this)
+        binding.content.viewPager.adapter = adapter
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .setAnchorView(R.id.fab).show()
-        }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_personal)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
+        TabLayoutMediator(binding.tabs, binding.content.viewPager) { tab, position ->
+            tab.text = when (position) {
+                0 -> "Month"
+                1 -> "Year"
+                else -> null
+            }
+        }.attach()
     }
 }
