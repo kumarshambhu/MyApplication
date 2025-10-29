@@ -1,5 +1,6 @@
 package com.shambhu.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -43,6 +44,12 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 else -> null
             }
         }.attach()
+
+        binding.fab.setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            val i = Intent(applicationContext, MainActivity::class.java)
+            startActivity(i)
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -62,11 +69,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    override fun onBackPressed() {
+   /* override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
-    }
+    }*/
 }
