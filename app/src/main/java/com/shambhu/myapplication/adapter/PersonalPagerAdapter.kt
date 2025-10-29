@@ -1,8 +1,10 @@
-package com.shambhu.myapplication
+package com.shambhu.myapplication.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.shambhu.myapplication.fragment.personal.PersonalMonthFragment
+import com.shambhu.myapplication.fragment.personal.PersonalYearFragment
 
 class PersonalPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
 

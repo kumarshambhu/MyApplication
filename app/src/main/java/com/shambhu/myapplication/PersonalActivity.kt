@@ -9,6 +9,7 @@ import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
+import com.shambhu.myapplication.adapter.PersonalPagerAdapter
 import com.shambhu.myapplication.databinding.ActivityPersonalBinding
 
 class PersonalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {

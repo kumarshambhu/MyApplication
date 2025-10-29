@@ -1,14 +1,14 @@
-package com.shambhu.myapplication
+package com.shambhu.myapplication.fragment.personal
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.databinding.FragmentPersonalMonthBinding
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
+ * A simple [androidx.fragment.app.Fragment] subclass as the default destination in the navigation.
  */
 class PersonalMonthFragment : Fragment() {
 

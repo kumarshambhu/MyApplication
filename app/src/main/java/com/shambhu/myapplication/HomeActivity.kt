@@ -11,6 +11,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.shambhu.myapplication.adapter.HomePagerAdapter
 import com.shambhu.myapplication.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -37,21 +38,28 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val viewPager = binding.contentHome.viewPager
         val tabLayout = binding.tabs
 
-        viewPager.adapter = ViewPagerAdapter(this)
+        viewPager.adapter = HomePagerAdapter(this)
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = when (position) {
-                0 -> "First"
-                1 -> "Second"
+                0 -> "Per.."
+                1 -> "Life.."
+                2 -> "Exp.."
+                3 -> "Birth"
+                4 -> "Soul"
                 else -> null
             }
         }.attach()
 
-        supportActionBar?.title = "First"
+        supportActionBar?.title = "Personality"
 
         binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                supportActionBar?.title = tab?.text
+                if(tab?.text?.equals("Per..") == true) {
+                    supportActionBar?.title = "Personality\nTesting data for big text"
+                } else{
+                    supportActionBar?.title = tab?.text
+                }
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {

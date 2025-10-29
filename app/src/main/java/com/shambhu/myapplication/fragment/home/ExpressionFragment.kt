@@ -1,19 +1,18 @@
-package com.shambhu.myapplication
+package com.shambhu.myapplication.fragment.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.shambhu.myapplication.databinding.FragmentSecondBinding
+import androidx.fragment.app.Fragment
+import com.shambhu.myapplication.databinding.FragmentExpressionBinding
 
 /**
- * A simple [Fragment] subclass as the second destination in the navigation.
+ * A simple [androidx.fragment.app.Fragment] subclass as the default destination in the navigation.
  */
-class SecondFragment : Fragment() {
+class ExpressionFragment : Fragment() {
 
-    private var _binding: FragmentSecondBinding? = null
+    private var _binding: FragmentExpressionBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,7 +23,7 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        _binding = FragmentExpressionBinding.inflate(inflater, container, false)
         return binding.root
 
     }

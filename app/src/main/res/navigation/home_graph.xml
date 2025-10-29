@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/PersonalityFragment">
+
+    <fragment
+        android:id="@+id/PersonalityFragment"
+        android:name="com.shambhu.myapplication.fragment.home.ExpressionFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_expression">
+    </fragment>
+    <fragment
+        android:id="@+id/BirthNumbersFragment"
+        android:name="com.shambhu.myapplication.fragment.home.BirthNumbersFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_birth_numbers">
+    </fragment>
+    <fragment
+        android:id="@+id/lifePathFragment"
+        android:name="com.shambhu.myapplication.fragment.home.LifePathFragment"
+        android:label="fragment_life_path"
+        tools:layout="@layout/fragment_life_path" />
+    <fragment
+        android:id="@+id/soulUrgeFragment"
+        android:name="com.shambhu.myapplication.fragment.home.SoulUrgeFragment"
+        android:label="fragment_soul_urge"
+        tools:layout="@layout/fragment_soul_urge" />
+    <fragment
+        android:id="@+id/personalityFragment"
+        android:name="com.shambhu.myapplication.fragment.home.PersonalityFragment"
+        android:label="fragment_personality"
+        tools:layout="@layout/fragment_personality" />
+</navigation>
