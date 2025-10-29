@@ -1,5 +1,7 @@
 package com.shambhu.myapplication
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -65,9 +67,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_home -> {
                 Snackbar.make(binding.root, "Home clicked", Snackbar.LENGTH_SHORT).show()
+                val i = Intent(applicationContext, HomeActivity::class.java)
+                startActivity(i)
             }
-            R.id.nav_gallery -> {
-                Snackbar.make(binding.root, "Gallery clicked", Snackbar.LENGTH_SHORT).show()
+            R.id.nav_personal -> {
+                Snackbar.make(binding.root, "Personal clicked", Snackbar.LENGTH_SHORT).show()
+                val i = Intent(applicationContext, PersonalActivity::class.java)
+                startActivity(i)
             }
             R.id.nav_slideshow -> {
                 Snackbar.make(binding.root, "Slideshow clicked", Snackbar.LENGTH_SHORT).show()
@@ -77,6 +83,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
+    @Deprecated("This method has been deprecated in favor of using the\n     " +
+            " {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.\n      " +
+            "The OnBackPressedDispatcher controls how back button events are dispatched\n      " +
+            "to one or more {@link OnBackPressedCallback} objects.")
+    @SuppressLint("GestureBackNavigation")
     override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
