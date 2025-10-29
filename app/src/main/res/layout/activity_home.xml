@@ -17,9 +17,16 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize" />
 
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_home" />
+    <include
+        android:id="@+id/content_home"
+        layout="@layout/content_home" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
