@@ -57,6 +57,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_home -> {
                 Snackbar.make(binding.root, "Home clicked", Snackbar.LENGTH_SHORT).show()
+                val i = Intent(applicationContext, HomeActivity::class.java)
+                startActivity(i)
             }
             R.id.nav_gallery -> {
                 Snackbar.make(binding.root, "Gallery clicked", Snackbar.LENGTH_SHORT).show()
