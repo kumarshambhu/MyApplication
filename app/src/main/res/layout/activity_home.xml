@@ -23,10 +23,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize" />
 
+           <!-- <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                app:tabIndicatorColor="@android:color/white"
+                app:tabTextColor="@android:color/white"
+                app:tabGravity="center"
+                app:tabMode="fixed" />-->
+
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                app:tabTextAppearance="@style/MyTabText"
+                app:tabSelectedTextColor="@color/colorAccent"
+                app:tabIndicatorColor="@color/colorAccent"
+                app:tabPaddingStart="12dp"
+                android:background="@android:color/transparent"
+                app:tabPaddingEnd="12dp"
+                app:tabIndicatorFullWidth="false"
+                />
 
         </com.google.android.material.appbar.AppBarLayout>
 

@@ -26,7 +26,13 @@
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                app:tabIndicatorColor="@android:color/white"
+                app:tabTextColor="@android:color/white"
+                app:tabGravity="center"
+                app:tabMode="fixed"
+                />
 
         </com.google.android.material.appbar.AppBarLayout>
 

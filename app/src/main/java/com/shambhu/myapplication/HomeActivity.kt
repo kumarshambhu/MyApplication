@@ -13,6 +13,12 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.shambhu.myapplication.adapter.HomePagerAdapter
 import com.shambhu.myapplication.databinding.ActivityHomeBinding
+import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_EXPRESSION
+import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_BIRTH_NUMBER
+import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_PERSONALITY
+import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_SOUL_URGE
+import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_LIFE_PATH
+
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -41,12 +47,21 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         viewPager.adapter = HomePagerAdapter(this)
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.icon = when (position) {
+                0 -> getDrawable(R.drawable.ic_mirrors)
+                1 -> getDrawable(R.drawable.ic_road )
+                2 -> getDrawable(R.drawable.ic_mic)
+                3 -> getDrawable(R.drawable.ic_sunrise)
+                4 -> getDrawable(R.drawable.ic_heart)
+
+                else -> null
+            }
             tab.text = when (position) {
-                0 -> "Per.."
-                1 -> "Life.."
-                2 -> "Exp.."
-                3 -> "Birth"
-                4 -> "Soul"
+                0 -> TAB_KEY_PERSONALITY
+                1 -> TAB_KEY_LIFE_PATH
+                2 -> TAB_KEY_EXPRESSION
+                3 -> TAB_KEY_BIRTH_NUMBER
+                4 ->TAB_KEY_SOUL_URGE
                 else -> null
             }
         }.attach()
