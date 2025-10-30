@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -47,22 +49,28 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         viewPager.adapter = HomePagerAdapter(this)
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.icon = when (position) {
-                0 -> getDrawable(R.drawable.ic_mirrors)
-                1 -> getDrawable(R.drawable.ic_road )
-                2 -> getDrawable(R.drawable.ic_mic)
-                3 -> getDrawable(R.drawable.ic_sunrise)
-                4 -> getDrawable(R.drawable.ic_heart)
-
-                else -> null
-            }
-            tab.text = when (position) {
-                0 -> TAB_KEY_PERSONALITY
-                1 -> TAB_KEY_LIFE_PATH
-                2 -> TAB_KEY_EXPRESSION
-                3 -> TAB_KEY_BIRTH_NUMBER
-                4 ->TAB_KEY_SOUL_URGE
-                else -> null
+            tab.setCustomView(R.layout.custom_tab)
+            val tabIcon = tab.customView?.findViewById<ImageView>(R.id.tab_icon)
+            val tabText = tab.customView?.findViewById<TextView>(R.id.tab_text)
+            tabIcon?.setImageDrawable(
+                when (position) {
+                    0 -> getDrawable(R.drawable.ic_mirrors)
+                    1 -> getDrawable(R.drawable.ic_road)
+                    2 -> getDrawable(R.drawable.ic_mic)
+                    3 -> getDrawable(R.drawable.ic_sunrise)
+                    4 -> getDrawable(R.drawable.ic_heart)
+                    else -> null
+                }
+            )
+            if (tabText != null) {
+                tabText.text = when (position) {
+                    0 -> TAB_KEY_PERSONALITY
+                    1 -> TAB_KEY_LIFE_PATH
+                    2 -> TAB_KEY_EXPRESSION
+                    3 -> TAB_KEY_BIRTH_NUMBER
+                    4 -> TAB_KEY_SOUL_URGE
+                    else -> null
+                }
             }
         }.attach()
 
