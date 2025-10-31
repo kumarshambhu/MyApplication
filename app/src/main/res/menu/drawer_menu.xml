@@ -6,7 +6,7 @@
             android:title="Home" />
         <item
             android:id="@+id/nav_personal"
-            android:title="Gallery" />
+            android:title="Personal" />
         <item
             android:id="@+id/nav_slideshow"
             android:title="Slideshow" />

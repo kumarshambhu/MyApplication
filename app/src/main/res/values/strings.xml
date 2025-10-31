@@ -6,45 +6,105 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="lorem_ipsum">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
-        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
-        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
-        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
-        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
-        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
-        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
-        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
-        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
-        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
-        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
-        bibendum, vel congue leo egestas.\n\n
-        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
-        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
-        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
-        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
-        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
-        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
-        est.\n\n
-        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
-        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
-        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
-        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
-        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
-        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
-        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
-        convallis.\n\n
-        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
-        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
-        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
-        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
-        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
-        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
-        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
-    </string>
+    <!-- Common strings -->
+    <string name="full_name">Full Name</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="time_of_birth">Time of Birth</string>
+    <string name="location">Location</string>
+    <string name="calculate">Calculate My Numbers</string>
+    <string name="back">Back</string>
+
+    <!-- Interpretation arrays -->
+    <string-array name="life_path_interpretations">
+        <item>The Leader - You are independent, driven, and have a natural inclination toward leadership and innovation. You set your own path and inspire others to follow. Your life is about achieving personal goals and becoming your best self.</item>
+        <item>The Diplomat - You are a mediator, peacemaker, and harmonizer. You have a strong sense of justice and are drawn to cooperative ventures. Your life path emphasizes partnerships and creating balance in all areas of life.</item>
+        <item>The Creative - You are expressive, artistic, and joyful. Your life is filled with creativity and communication. You have a natural talent for inspiring others through your words and actions, and you thrive in environments of expression and sharing.</item>
+        <item>The Organizer - You are practical, hardworking, and methodical. You excel at building stable foundations and creating order from chaos. Your life path emphasizes discipline, structure, and manifesting your vision through consistent effort.</item>
+        <item>The Free Spirit - You are adventurous, versatile, and freedom-loving. Your life is about change, growth, and expansion. You crave new experiences and are drawn to exploration, both external and internal.</item>
+        <item>The Nurturer - You are loving, responsible, and caring. Your life path emphasizes family, home, and service to others. You have a strong sense of duty and are naturally drawn to roles where you can nurture and support those around you.</item>
+        <item>The Seeker - You are introspective, spiritual, and analytical. Your life is about seeking wisdom, understanding, and deeper truths. You have a natural affinity for research, philosophy, and connecting with your higher self.</item>
+        <item>The Power Player - You are ambitious, successful, and driven by material achievements. Your life path emphasizes money, power, and self-mastery. You have the potential for great success and are drawn to positions of influence and responsibility.</item>
+        <item>The Humanitarian - You are compassionate, generous, and idealistic. Your life is about service, teaching, and making the world a better place. You have a strong humanitarian streak and are drawn to helping others and promoting peace and understanding.</item>
+    </string-array>
+
+    <string-array name="expression_interpretations">
+        <item>The Leader - You have a strong desire to lead and create. You\'re confident, independent, and have natural authority. You\'re drawn to positions of leadership and innovation, and you have the courage to pursue your vision.</item>
+        <item>The Mediator - You have excellent diplomatic and negotiation skills. You\'re sensitive, intuitive, and able to see both sides of any issue. You\'re drawn to partnership and creating harmony in relationships.</item>
+        <item>The Communicator - You\'re expressive, creative, and persuasive. You have a natural talent for communication and entertainment. You\'re drawn to artistic pursuits, teaching, and inspiring others through your words and actions.</item>
+        <item>The Worker - You\'re practical, grounded, and methodical. You have strong organizational skills and a deep sense of responsibility. You\'re drawn to building, creating, and manifesting tangible results through hard work.</item>
+        <item>The Explorer - You\'re adventurous, versatile, and freedom-loving. You have a strong desire for change, variety, and exploration. You\'re drawn to travel, new experiences, and breaking free from limitations.</item>
+        <item>The Caregiver - You\'re nurturing, responsible, and caring. You have a strong desire to help and support others. You\'re drawn to family, home, teaching, and humanitarian work that allows you to express your love and compassion.</item>
+        <item>The Researcher - You\'re introspective, analytical, and spiritual. You have a strong desire to seek knowledge, wisdom, and deeper truths. You\'re drawn to research, philosophy, healing, and connecting with your higher self.</item>
+        <item>The Achiever - You\'re ambitious, powerful, and driven by success. You have strong business acumen and financial skills. You\'re drawn to positions of power, influence, and material achievement where you can demonstrate mastery.</item>
+        <item>The Teacher - You\'re compassionate, generous, and idealistic. You have a strong desire to teach, heal, and make the world a better place. You\'re drawn to humanitarian work, spiritual teaching, and roles where you can share wisdom and compassion.</item>
+    </string-array>
+
+    <string-array name="personality_interpretations">
+        <item>The Self-Confident - You present yourself as independent, strong, and capable. People see you as a leader and someone who takes charge. You\'re direct, assertive, and have a natural presence that commands attention and respect.</item>
+        <item>The Gentle - You present yourself as cooperative, harmonious, and diplomatic. People see you as a peacekeeper and someone who values relationships. You\'re sensitive, kind, and able to adapt to different situations with grace.</item>
+        <item>The Charismatic - You present yourself as cheerful, expressive, and charming. People see you as a creative and joyful person who brings light and energy to any situation. You\'re optimistic, entertaining, and naturally magnetic.</item>
+        <item>The Practical - You present yourself as stable, grounded, and reliable. People see you as an organizer and someone who gets things done. You\'re practical, hardworking, and trustworthy, with a strong sense of duty and responsibility.</item>
+        <item>The Versatile - You present yourself as adventurous, dynamic, and unpredictable. People see you as a free spirit who loves variety and change. You\'re versatile, flexible, and always ready for new experiences and challenges.</item>
+        <item>The Devoted - You present yourself as caring, responsible, and nurturing. People see you as a devoted partner and family person who values home and relationships. You\'re loving, protective, and naturally drawn to service and care.</item>
+        <item>The Intimate - You present yourself as contemplative, reserved, and introspective. People see you as thoughtful and spiritual, with a deep inner life. You\'re selective with your friendships and prefer meaningful connections over casual interactions.</item>
+        <item>The Ambitious - You present yourself as powerful, successful, and confident. People see you as a person who knows what they want and has the determination to achieve it. You\'re authoritative, capable, and driven by success and achievement.</item>
+        <item>The Compassionate - You present yourself as generous, idealistic, and caring. People see you as a humanitarian and someone with a big heart. You\'re generous, empathetic, and naturally drawn to helping others and promoting peace and understanding.</item>
+    </string-array>
+
+    <string-array name="soul_urge_interpretations">
+        <item>You crave independence, leadership, and the ability to create your own path. Your inner desire is to be self-reliant, successful, and to achieve personal goals. You want to feel powerful, confident, and capable of leading others.</item>
+        <item>You crave harmony, balance, and peaceful relationships. Your inner desire is to mediate, serve, and create beauty. You want to feel connected, loved, and part of a harmonious community where everyone gets along.</item>
+        <item>You crave expression, creativity, and joy. Your inner desire is to create art, communicate, and share your talents with the world. You want to feel inspired, creative, and expressive, with your life filled with beauty and joy.</item>
+        <item>You crave stability, structure, and security. Your inner desire is to build, organize, and create order. You want to feel grounded, safe, and in control, with everything in its proper place and running smoothly.</item>
+        <item>You crave freedom, adventure, and variety. Your inner desire is to explore, change, and experience new things. You want to feel excited, spontaneous, and unbound by limitations, always ready for the next adventure.</item>
+        <item>You crave love, nurturing, and service. Your inner desire is to care for others, build a loving home, and create beauty through relationships. You want to feel deeply loved, needed, and connected to those around you.</item>
+        <item>You crave knowledge, wisdom, and spiritual connection. Your inner desire is to seek truth, understand deeper meanings, and connect with your higher self. You want to feel enlightened, understood, and spiritually aligned with your purpose.</item>
+        <item>You crave power, success, and material achievement. Your inner desire is to achieve financial stability, professional success, and positions of influence. You want to feel powerful, capable, and in control of your destiny.</item>
+        <item>You crave compassion, service, and humanitarian work. Your inner desire is to help others, teach, and make the world a better place. You want to feel generous, loving, and part of a larger mission to heal and uplift humanity.</item>
+    </string-array>
+
+    <string-array name="birth_day_interpretations">
+        <item>You\'re a natural leader with strong independence and innovation. You have the ability to start new projects and inspire others. Your daily energy is about taking initiative and creating.</item>
+        <item>You\'re a diplomat with strong intuition and sensitivity. You excel at partnership and creating harmony. Your daily energy is about cooperation, balance, and nurturing relationships.</item>
+        <item>You\'re a creative with strong communication skills. You\'re expressive, joyful, and naturally magnetic. Your daily energy is about sharing, creating, and inspiring others through your words and actions.</item>
+        <item>You\'re practical and grounded with strong work ethic. You\'re an excellent organizer and builder. Your daily energy is about stability, structure, and manifesting your vision through consistent effort.</item>
+        <item>You\'re adventurous and versatile with a love for freedom. You\'re drawn to change and new experiences. Your daily energy is about exploration, adaptability, and embracing variety in all areas of life.</item>
+        <item>You\'re nurturing and caring with strong sense of duty. You\'re drawn to family, home, and service. Your daily energy is about love, responsibility, and creating harmony in your environment.</item>
+        <item>You\'re introspective and spiritual with strong analytical skills. You\'re drawn to research and seeking wisdom. Your daily energy is about contemplation, understanding, and connecting with your higher self.</item>
+        <item>You\'re ambitious and powerful with strong business acumen. You\'re drawn to success and influence. Your daily energy is about achievement, power, and manifesting material goals with determination.</item>
+        <item>You\'re compassionate and generous with strong humanitarian streak. You\'re drawn to teaching and service. Your daily energy is about giving, healing, and making the world a better place through your actions.</item>
+    </string-array>
+
+    <string-array name="birth_month_interpretations">
+        <item>January energy brings strong willpower, leadership, and innovation. You\'re drawn to new beginnings, self-reliance, and taking charge. This month emphasizes personal goals and individual achievement.</item>
+        <item>February energy brings harmony, balance, and partnership. You\'re drawn to relationships, diplomacy, and creating beauty. This month emphasizes love, cooperation, and nurturing connections.</item>
+        <item>March energy brings creativity, expression, and communication. You\'re drawn to art, teaching, and sharing joy. This month emphasizes creativity, inspiration, and manifesting through words and actions.</item>
+        <item>April energy brings stability, structure, and foundation-building. You\'re drawn to organization, hard work, and creating order. This month emphasizes practicality, discipline, and manifesting tangible results.</item>
+        <item>May energy brings freedom, adventure, and versatility. You\'re drawn to change, exploration, and breaking free. This month emphasizes adaptability, variety, and embracing new experiences.</item>
+        <item>June energy brings love, nurturing, and home. You\'re drawn to family, care, and creating harmony. This month emphasizes responsibility, compassion, and building loving relationships and home life.</item>
+        <item>July energy brings spirituality, wisdom, and introspection. You\'re drawn to research, philosophy, and seeking deeper truths. This month emphasizes understanding, contemplation, and connecting with your higher self.</item>
+        <item>August energy brings power, success, and achievement. You\'re drawn to financial stability influence, and positions of authority. This month emphasizes ambition, determination, and manifesting material goals with confidence.</item>
+        <item>September energy brings compassion, service, and humanitarian work. You\'re drawn to teaching, healing, and making the world better. This month emphasizes generosity, giving back, and spiritual growth through service.</item>
+    </string-array>
+
+    <string-array name="birth_year_interpretations">
+        <item>This year emphasizes new beginnings, leadership, and innovation. You\'ll have opportunities to take charge, start new projects, and assert your independence. Focus on personal growth and achieving your goals.</item>
+        <item>This year emphasizes harmony, balance, and partnerships. You\'ll have opportunities to mediate, build relationships, and create beauty in your life and environment. Focus on cooperation and nurturing connections.</item>
+        <item>This year emphasizes creativity, expression, and communication. You\'ll have opportunities to create art, share your talents, and inspire others. Focus on creativity, joy, and manifesting through your words and actions.</item>
+        <item>This year emphasizes stability, structure, and foundation-building. You\'ll have opportunities to organize, build, and create order. Focus on hard work, discipline, and manifesting tangible results through consistent effort.</item>
+        <item>This year emphasizes freedom, adventure, and versatility. You\'ll have opportunities to explore, change, and break free from limitations. Focus on adaptability, variety, and embracing new experiences and challenges.</item>
+        <item>This year emphasizes love, nurturing, and home. You\'ll have opportunities to care for others, build family, and create harmony. Focus on responsibility, compassion, and building loving relationships and home life.</item>
+        <item>This year emphasizes spirituality, wisdom, and introspection. You\'ll have opportunities to research, seek knowledge, and connect with your higher self. Focus on understanding, contemplation, and spiritual growth.</item>
+        <item>This year emphasizes power, success, and achievement. You\'ll have opportunities to gain financial stability, influence, and positions of authority. Focus on ambition, determination, and manifesting material goals with confidence and power.</item>
+        <item>This year emphasizes compassion, service, and humanitarian work. You\'ll have opportunities to teach, heal, and make the world better. Focus on generosity, giving back, and spiritual growth through service to others.</item>
+    </string-array>
     <string name="calculate_numerology">Calculate</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+    </string>
 </resources>

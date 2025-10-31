@@ -4,32 +4,47 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.shambhu.myapplication.databinding.FragmentExpressionBinding
+import com.shambhu.myapplication.R
 
-/**
- * A simple [androidx.fragment.app.Fragment] subclass as the default destination in the navigation.
- */
 class ExpressionFragment : Fragment() {
 
-    private var _binding: FragmentExpressionBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var tvFullName: TextView
+    private lateinit var tvDateOfBirth: TextView
+    private lateinit var tvTimeOfBirth: TextView
+    private lateinit var tvLocation: TextView
+    private lateinit var tvExpressionNumber: TextView
+    private lateinit var tvExpressionInterpretation: TextView
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-
-        _binding = FragmentExpressionBinding.inflate(inflater, container, false)
-        return binding.root
-
+    ): View? {
+        return inflater.inflate(R.layout.fragment_expression, container, false)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        tvFullName = view.findViewById(R.id.tvFullName)
+        tvDateOfBirth = view.findViewById(R.id.tvDateOfBirth)
+        tvTimeOfBirth = view.findViewById(R.id.tvTimeOfBirth)
+        tvLocation = view.findViewById(R.id.tvLocation)
+        tvExpressionNumber = view.findViewById(R.id.tvExpressionNumber)
+        tvExpressionInterpretation = view.findViewById(R.id.tvExpressionInterpretation)
+    }
+
+    fun updateData(fullName: String, dob: String, time: String, location: String, expression: Int) {
+        tvFullName.text = fullName
+        tvDateOfBirth.text = dob
+        tvTimeOfBirth.text = time
+        tvLocation.text = location
+        tvExpressionNumber.text = expression.toString()
+
+        // Set interpretation
+        val interpretations = resources.getStringArray(R.array.expression_interpretations)
+        tvExpressionInterpretation.text = interpretations[expression - 1]
     }
 }
