@@ -34,23 +34,51 @@ class PersonalityFragment : Fragment() {
         tvLocation = view.findViewById(R.id.tvLocation)
         tvPersonalityNumber = view.findViewById(R.id.tvPersonalityNumber)
         tvPersonalityInterpretation = view.findViewById(R.id.tvPersonalityInterpretation)
+
+        arguments?.let {
+            val fullName = it.getString(ARG_FULL_NAME) ?: ""
+            val dob = it.getString(ARG_DOB) ?: ""
+            val time = it.getString(ARG_TIME) ?: ""
+            val location = it.getString(ARG_LOCATION) ?: ""
+            val personality = it.getInt(ARG_PERSONALITY)
+
+            tvFullName.text = fullName
+            tvDateOfBirth.text = dob
+            tvTimeOfBirth.text = time
+            tvLocation.text = location
+            tvPersonalityNumber.text = personality.toString()
+
+            // Set interpretation
+            val interpretations = resources.getStringArray(R.array.personality_interpretations)
+            if (personality > 0 && personality <= interpretations.size) {
+                tvPersonalityInterpretation.text = interpretations[personality - 1]
+            }
+        }
     }
 
-    fun updateData(
-        fullName: String,
-        dob: String,
-        time: String,
-        location: String,
-        personality: Int
-    ) {
-        tvFullName.text = fullName
-        tvDateOfBirth.text = dob
-        tvTimeOfBirth.text = time
-        tvLocation.text = location
-        tvPersonalityNumber.text = personality.toString()
+    companion object {
+        private const val ARG_FULL_NAME = "fullName"
+        private const val ARG_DOB = "dob"
+        private const val ARG_TIME = "time"
+        private const val ARG_LOCATION = "location"
+        private const val ARG_PERSONALITY = "personality"
 
-        // Set interpretation
-        val interpretations = resources.getStringArray(R.array.personality_interpretations)
-        tvPersonalityInterpretation.text = interpretations[personality - 1]
+        fun newInstance(
+            fullName: String,
+            dob: String,
+            time: String,
+            location: String,
+            personality: Int
+        ): PersonalityFragment {
+            val fragment = PersonalityFragment()
+            val args = Bundle()
+            args.putString(ARG_FULL_NAME, fullName)
+            args.putString(ARG_DOB, dob)
+            args.putString(ARG_TIME, time)
+            args.putString(ARG_LOCATION, location)
+            args.putInt(ARG_PERSONALITY, personality)
+            fragment.arguments = args
+            return fragment
+        }
     }
 }

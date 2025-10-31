@@ -34,17 +34,45 @@ class ExpressionFragment : Fragment() {
         tvLocation = view.findViewById(R.id.tvLocation)
         tvExpressionNumber = view.findViewById(R.id.tvExpressionNumber)
         tvExpressionInterpretation = view.findViewById(R.id.tvExpressionInterpretation)
+
+        arguments?.let {
+            val fullName = it.getString(ARG_FULL_NAME) ?: ""
+            val dob = it.getString(ARG_DOB) ?: ""
+            val time = it.getString(ARG_TIME) ?: ""
+            val location = it.getString(ARG_LOCATION) ?: ""
+            val expression = it.getInt(ARG_EXPRESSION)
+
+            tvFullName.text = fullName
+            tvDateOfBirth.text = dob
+            tvTimeOfBirth.text = time
+            tvLocation.text = location
+            tvExpressionNumber.text = expression.toString()
+
+            // Set interpretation
+            val interpretations = resources.getStringArray(R.array.expression_interpretations)
+            if (expression > 0 && expression <= interpretations.size) {
+                tvExpressionInterpretation.text = interpretations[expression - 1]
+            }
+        }
     }
 
-    fun updateData(fullName: String, dob: String, time: String, location: String, expression: Int) {
-        tvFullName.text = fullName
-        tvDateOfBirth.text = dob
-        tvTimeOfBirth.text = time
-        tvLocation.text = location
-        tvExpressionNumber.text = expression.toString()
+    companion object {
+        private const val ARG_FULL_NAME = "fullName"
+        private const val ARG_DOB = "dob"
+        private const val ARG_TIME = "time"
+        private const val ARG_LOCATION = "location"
+        private const val ARG_EXPRESSION = "expression"
 
-        // Set interpretation
-        val interpretations = resources.getStringArray(R.array.expression_interpretations)
-        tvExpressionInterpretation.text = interpretations[expression - 1]
+        fun newInstance(fullName: String, dob: String, time: String, location: String, expression: Int): ExpressionFragment {
+            val fragment = ExpressionFragment()
+            val args = Bundle()
+            args.putString(ARG_FULL_NAME, fullName)
+            args.putString(ARG_DOB, dob)
+            args.putString(ARG_TIME, time)
+            args.putString(ARG_LOCATION, location)
+            args.putInt(ARG_EXPRESSION, expression)
+            fragment.arguments = args
+            return fragment
+        }
     }
 }

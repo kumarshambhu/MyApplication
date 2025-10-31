@@ -34,11 +34,7 @@ import java.util.Locale
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private lateinit var binding: ActivityHomeBinding
-
-    fun getAllFragments(): List<Fragment> {
-        return supportFragmentManager.fragments
-    }
+    private lateinit var binding: ActivityHomebinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -63,10 +59,33 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val location = intent.getStringExtra("location") ?: "Unknown Location"
 
 
+        // Calculate numerology numbers
+        val birthDate = parseDate(dob)
+        val lifePath = calculateLifePath(birthDate)
+        val expression = calculateExpression(fullName)
+        val personality = calculatePersonality(fullName)
+        val soulUrge = calculateSoulUrge(fullName)
+        val birthDay = birthDate.dayOfMonth
+        val birthMonth = birthDate.monthValue
+        val birthYear = birthDate.year
+
         val viewPager = binding.contentHome.viewPager
         val tabLayout = binding.tabs
 
-        viewPager.adapter = HomePagerAdapter(this)
+        viewPager.adapter = HomePagerAdapter(
+            this,
+            fullName,
+            dob,
+            time,
+            location,
+            lifePath,
+            expression,
+            personality,
+            soulUrge,
+            birthDay,
+            birthMonth,
+            birthYear
+        )
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.setCustomView(R.layout.custom_tab)
@@ -95,57 +114,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }.attach()
 
         supportActionBar?.title = "Personality"
-        // Calculate numerology numbers
-        val birthDate = parseDate(dob)
-        val lifePath = calculateLifePath(birthDate)
-        val expression = calculateExpression(fullName)
-        val personality = calculatePersonality(fullName)
-        val soulUrge = calculateSoulUrge(fullName)
-        val birthDay = birthDate.dayOfMonth
-        val birthMonth = birthDate.monthValue
-        val birthYear = birthDate.year
-
-
-        val allFragments = getAllFragments()
-        allFragments.forEach { fragment ->
-            when (fragment) {
-                is LifePathFragment -> {
-                    println("LifePathFragment")
-                    fragment.updateData(fullName, dob, time, location, lifePath)
-                }
-                is ExpressionFragment -> {
-                    println("ExpressionFragment")
-                    fragment.updateData(fullName, dob, time, location, expression) }
-                is PersonalityFragment -> {
-                    println("PersonalityFragment")
-                    fragment.updateData(fullName, dob, time, location, personality) }
-                is SoulUrgeFragment -> {
-                    println("SoulUrgeFragment")
-                    fragment.updateData(fullName, dob, time, location, soulUrge)
-                }
-                is BirthNumbersFragment -> {
-                    println("BirthNumbersFragment")
-                    fragment.updateData(fullName, dob, time, location, birthDay, birthMonth, birthYear)
-                }
-            }
-        }
-
-
-        // Pass data to fragments
-        val lifePathFragment = supportFragmentManager.findFragmentByTag("LifePathFragment") as? LifePathFragment
-        lifePathFragment?.updateData(fullName, dob, time, location, lifePath)
-
-        val expressionFragment = supportFragmentManager.findFragmentByTag("ExpressionFragment") as? ExpressionFragment
-        expressionFragment?.updateData(fullName, dob, time, location, expression)
-
-        val personalityFragment = supportFragmentManager.findFragmentByTag("PersonalityFragment") as? PersonalityFragment
-        personalityFragment?.updateData(fullName, dob, time, location, personality)
-
-        val soulUrgeFragment = supportFragmentManager.findFragmentByTag("SoulUrgeFragment") as? SoulUrgeFragment
-        soulUrgeFragment?.updateData(fullName, dob, time, location, soulUrge)
-
-        val birthNumbersFragment = supportFragmentManager.findFragmentByTag("BirthNumbersFragment") as? BirthNumbersFragment
-        birthNumbersFragment?.updateData(fullName,dob, time, location, birthDay, birthMonth, birthYear)
 
         binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {

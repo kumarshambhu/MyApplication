@@ -34,17 +34,45 @@ class LifePathFragment : Fragment() {
         tvLocation = view.findViewById(R.id.tvLocation)
         tvLifePathNumber = view.findViewById(R.id.tvLifePathNumber)
         tvLifePathInterpretation = view.findViewById(R.id.tvLifePathInterpretation)
+
+        arguments?.let {
+            val fullName = it.getString(ARG_FULL_NAME) ?: ""
+            val dob = it.getString(ARG_DOB) ?: ""
+            val time = it.getString(ARG_TIME) ?: ""
+            val location = it.getString(ARG_LOCATION) ?: ""
+            val lifePath = it.getInt(ARG_LIFE_PATH)
+
+            tvFullName.text = fullName
+            tvDateOfBirth.text = dob
+            tvTimeOfBirth.text = time
+            tvLocation.text = location
+            tvLifePathNumber.text = lifePath.toString()
+
+            // Set interpretation
+            val interpretations = resources.getStringArray(R.array.life_path_interpretations)
+            if (lifePath > 0 && lifePath <= interpretations.size) {
+                tvLifePathInterpretation.text = interpretations[lifePath - 1]
+            }
+        }
     }
 
-    fun updateData(fullName: String, dob: String, time: String, location: String, lifePath: Int) {
-        tvFullName.text = fullName
-        tvDateOfBirth.text = dob
-        tvTimeOfBirth.text = time
-        tvLocation.text = location
-        tvLifePathNumber.text = lifePath.toString()
+    companion object {
+        private const val ARG_FULL_NAME = "fullName"
+        private const val ARG_DOB = "dob"
+        private const val ARG_TIME = "time"
+        private const val ARG_LOCATION = "location"
+        private const val ARG_LIFE_PATH = "lifePath"
 
-        // Set interpretation
-        val interpretations = resources.getStringArray(R.array.life_path_interpretations)
-        tvLifePathInterpretation.text = interpretations[lifePath - 1]
+        fun newInstance(fullName: String, dob: String, time: String, location: String, lifePath: Int): LifePathFragment {
+            val fragment = LifePathFragment()
+            val args = Bundle()
+            args.putString(ARG_FULL_NAME, fullName)
+            args.putString(ARG_DOB, dob)
+            args.putString(ARG_TIME, time)
+            args.putString(ARG_LOCATION, location)
+            args.putInt(ARG_LIFE_PATH, lifePath)
+            fragment.arguments = args
+            return fragment
+        }
     }
 }

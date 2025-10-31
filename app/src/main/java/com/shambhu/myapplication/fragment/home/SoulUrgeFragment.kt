@@ -35,17 +35,51 @@ class SoulUrgeFragment : Fragment() {
         tvLocation = view.findViewById(R.id.tvLocation)
         tvSoulUrgeNumber = view.findViewById(R.id.tvSoulUrgeNumber)
         tvSoulUrgeInterpretation = view.findViewById(R.id.tvSoulUrgeInterpretation)
+
+        arguments?.let {
+            val fullName = it.getString(ARG_FULL_NAME) ?: ""
+            val dob = it.getString(ARG_DOB) ?: ""
+            val time = it.getString(ARG_TIME) ?: ""
+            val location = it.getString(ARG_LOCATION) ?: ""
+            val soulUrge = it.getInt(ARG_SOUL_URGE)
+
+            tvFullName.text = fullName
+            tvDateOfBirth.text = dob
+            tvTimeOfBirth.text = time
+            tvLocation.text = location
+            tvSoulUrgeNumber.text = soulUrge.toString()
+
+            // Set interpretation
+            val interpretations = resources.getStringArray(R.array.soul_urge_interpretations)
+            if (soulUrge > 0 && soulUrge <= interpretations.size) {
+                tvSoulUrgeInterpretation.text = interpretations[soulUrge - 1]
+            }
+        }
     }
 
-    fun updateData(fullName: String, dob: String, time: String, location: String, soulUrge: Int) {
-        tvFullName.text = fullName
-        tvDateOfBirth.text = dob
-        tvTimeOfBirth.text = time
-        tvLocation.text = location
-        tvSoulUrgeNumber.text = soulUrge.toString()
+    companion object {
+        private const val ARG_FULL_NAME = "fullName"
+        private const val ARG_DOB = "dob"
+        private const val ARG_TIME = "time"
+        private const val ARG_LOCATION = "location"
+        private const val ARG_SOUL_URGE = "soulUrge"
 
-        // Set interpretation
-        val interpretations = resources.getStringArray(R.array.soul_urge_interpretations)
-        tvSoulUrgeInterpretation.text = interpretations[soulUrge - 1]
+        fun newInstance(
+            fullName: String,
+            dob: String,
+            time: String,
+            location: String,
+            soulUrge: Int
+        ): SoulUrgeFragment {
+            val fragment = SoulUrgeFragment()
+            val args = Bundle()
+            args.putString(ARG_FULL_NAME, fullName)
+            args.putString(ARG_DOB, dob)
+            args.putString(ARG_TIME, time)
+            args.putString(ARG_LOCATION, location)
+            args.putInt(ARG_SOUL_URGE, soulUrge)
+            fragment.arguments = args
+            return fragment
+        }
     }
 }
