@@ -33,6 +33,15 @@ class PersonalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         binding.navView.setNavigationItemSelectedListener(this)
 
+        // Extract data from intent and update nav header
+        val fullName = intent.getStringExtra("fullName") ?: "Guest"
+        val dob = intent.getStringExtra("dob") ?: "0000-00-00"
+        val headerView = binding.navView.getHeaderView(0)
+        val navHeaderFullName = headerView.findViewById<TextView>(R.id.nav_header_full_name)
+        val navHeaderDob = headerView.findViewById<TextView>(R.id.nav_header_dob)
+        navHeaderFullName.text = fullName
+        navHeaderDob.text = dob
+
         val adapter = PersonalPagerAdapter(this)
         binding.content.viewPager.adapter = adapter
 

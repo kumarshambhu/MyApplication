@@ -58,6 +58,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val time = intent.getStringExtra("time") ?: "00:00"
         val location = intent.getStringExtra("location") ?: "Unknown Location"
 
+        // Update the navigation header
+        val headerView = binding.navView.getHeaderView(0)
+        val navHeaderFullName = headerView.findViewById<TextView>(R.id.nav_header_full_name)
+        val navHeaderDob = headerView.findViewById<TextView>(R.id.nav_header_dob)
+        navHeaderFullName.text = fullName
+        navHeaderDob.text = dob
+
 
         // Calculate numerology numbers
         val birthDate = parseDate(dob)
@@ -140,6 +147,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_personal -> {
                 Snackbar.make(binding.root, "Personal clicked", Snackbar.LENGTH_SHORT).show()
                 val i = Intent(applicationContext, PersonalActivity::class.java)
+                i.putExtra("fullName", intent.getStringExtra("fullName"))
+                i.putExtra("dob", intent.getStringExtra("dob"))
                 startActivity(i)
             }
             R.id.nav_slideshow -> {
