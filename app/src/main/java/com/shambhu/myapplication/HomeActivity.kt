@@ -34,7 +34,7 @@ import java.util.Locale
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private lateinit var binding: ActivityHomebinding
+    private lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -117,11 +117,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                if(tab?.text?.equals("Per..") == true) {
-                    supportActionBar?.title = "Personality\nTesting data for big text"
-                } else{
-                    supportActionBar?.title = tab?.text
-                }
+                val tabTextView = tab?.customView?.findViewById<TextView>(R.id.tab_text)
+                supportActionBar?.title = tabTextView?.text
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
