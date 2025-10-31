@@ -10,10 +10,6 @@ import com.shambhu.myapplication.R
 
 class LifePathFragment : Fragment() {
 
-    private lateinit var tvFullName: TextView
-    private lateinit var tvDateOfBirth: TextView
-    private lateinit var tvTimeOfBirth: TextView
-    private lateinit var tvLocation: TextView
     private lateinit var tvLifePathNumber: TextView
     private lateinit var tvLifePathInterpretation: TextView
 
@@ -28,24 +24,12 @@ class LifePathFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        tvFullName = view.findViewById(R.id.tvFullName)
-        tvDateOfBirth = view.findViewById(R.id.tvDateOfBirth)
-        tvTimeOfBirth = view.findViewById(R.id.tvTimeOfBirth)
-        tvLocation = view.findViewById(R.id.tvLocation)
         tvLifePathNumber = view.findViewById(R.id.tvLifePathNumber)
         tvLifePathInterpretation = view.findViewById(R.id.tvLifePathInterpretation)
 
         arguments?.let {
-            val fullName = it.getString(ARG_FULL_NAME) ?: ""
-            val dob = it.getString(ARG_DOB) ?: ""
-            val time = it.getString(ARG_TIME) ?: ""
-            val location = it.getString(ARG_LOCATION) ?: ""
             val lifePath = it.getInt(ARG_LIFE_PATH)
 
-            tvFullName.text = fullName
-            tvDateOfBirth.text = dob
-            tvTimeOfBirth.text = time
-            tvLocation.text = location
             tvLifePathNumber.text = lifePath.toString()
 
             // Set interpretation
@@ -57,19 +41,11 @@ class LifePathFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_FULL_NAME = "fullName"
-        private const val ARG_DOB = "dob"
-        private const val ARG_TIME = "time"
-        private const val ARG_LOCATION = "location"
         private const val ARG_LIFE_PATH = "lifePath"
 
-        fun newInstance(fullName: String, dob: String, time: String, location: String, lifePath: Int): LifePathFragment {
+        fun newInstance(lifePath: Int): LifePathFragment {
             val fragment = LifePathFragment()
             val args = Bundle()
-            args.putString(ARG_FULL_NAME, fullName)
-            args.putString(ARG_DOB, dob)
-            args.putString(ARG_TIME, time)
-            args.putString(ARG_LOCATION, location)
             args.putInt(ARG_LIFE_PATH, lifePath)
             fragment.arguments = args
             return fragment

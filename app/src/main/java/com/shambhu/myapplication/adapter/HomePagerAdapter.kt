@@ -31,7 +31,7 @@ class HomePagerAdapter(
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> PersonalityFragment.newInstance(fullName, dob, time, location, personality)
-            1 -> LifePathFragment.newInstance(fullName, dob, time, location, lifePath)
+            1 -> LifePathFragment.newInstance(lifePath)
             2 -> ExpressionFragment.newInstance(fullName, dob, time, location, expression)
             3 -> BirthNumbersFragment.newInstance(fullName, dob, time, location, birthDay, birthMonth, birthYear)
             4 -> SoulUrgeFragment.newInstance(fullName, dob, time, location, soulUrge)

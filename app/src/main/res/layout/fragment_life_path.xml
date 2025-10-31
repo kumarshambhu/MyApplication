@@ -1,234 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:id="@+id/life_path_fragment"
-    tools:context=".fragment.home.LifePathFragment"
-    android:tag="LifePathFragment">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingTop="30dp">
+        android:layout_height="wrap_content"
+        android:padding="16dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/mystical_font"
-            android:text="Life Path Number"
+            android:id="@+id/column1"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:padding="8dp"
+            android:text="@string/life_path_number"
+            app:layout_constraintStart_toStartOf="parent"
             android:textColor="@color/gold"
-            android:textSize="28sp" />
+            android:fontFamily="@font/mystical_font"
+            android:textSize="28sp"
+            android:gravity="end"
+            app:layout_constraintWidth_percent="0.8" />
 
+        <!-- Group of 3 views to the right of Col 1 -->
+        <TextView
+            android:id="@+id/tvLifePathNumber"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:padding="8dp"
+            android:text="Row 1.1"
+            android:textColor="@color/gold"
+            android:fontFamily="@font/mystical_font"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/column1"
+            />
         <ImageView
+            android:id="@+id/image"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/ic_road" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="vertical"
-        android:padding="20dp">
+            android:layout_marginTop="10dp"
+            android:contentDescription="TODO"
+            android:src="@drawable/ic_road"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@id/column1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/row2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:text="The path you're meant to walk"
             android:fontFamily="@font/mystical_font"
-            android:text="Your Birth Details"
             android:textColor="@color/gold"
-            android:textSize="20sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_person" />
-
-            <TextView
-                android:id="@+id/tvFullName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/mystical_font"
-                android:text="Full Name"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_calendar" />
-
-            <TextView
-                android:id="@+id/tvDateOfBirth"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/mystical_font"
-                android:text="Date of Birth"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_clock" />
-
-            <TextView
-                android:id="@+id/tvTimeOfBirth"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/mystical_font"
-                android:text="Time of Birth"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_map_marker" />
-
-            <TextView
-                android:id="@+id/tvLocation"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/mystical_font"
-                android:text="Location"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tvLifePathNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:text="0"
-                android:textColor="@color/gold"
-                android:textSize="48sp" />
-        </LinearLayout>
-
+            android:gravity="center"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="16sp"/>
         <View
+            android:id="@+id/view_line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="20dp"
-            android:background="@color/gold" />
+            android:layout_marginBottom="30dp"
+            android:background="@color/gold"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@id/row2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-        <LinearLayout
+        <!-- Third Row -->
+        <TextView
+            android:id="@+id/tvLifePathInterpretation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
+            app:layout_constraintTop_toBottomOf="@id/view_line"
+            app:layout_constraintStart_toStartOf="parent"
+            android:padding="16dp"
+            android:fontFamily="@font/mystical_font"
+            android:textColor="@color/gold"
+            android:text="Interpretation"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/mystical_font"
-                android:text="The path you're meant to walk"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/tvLifePathInterpretation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mystical_font"
-                android:text="Interpretation"
-                android:textColor="@color/white"
-                android:textSize="15sp" />
-        </LinearLayout>
-    </LinearLayout>
-    <!-- Inspirational section -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Fourth Row -->
+   <!--     <TextView
+            android:id="@+id/row4"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="80dp"
             android:fontFamily="@font/mystical_font"
             android:text="Your numbers reveal your divine blueprint"
+            android:padding="20dp"
             android:textColor="@color/gold"
-            android:textSize="16sp" />
-
+            app:layout_constraintTop_toBottomOf="@id/tvLifePathInterpretation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:src="@drawable/mystical_orb" />
-    </LinearLayout>
-</LinearLayout>
+            android:src="@drawable/mystical_orb"
+            app:layout_constraintTop_toBottomOf="@id/row4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
