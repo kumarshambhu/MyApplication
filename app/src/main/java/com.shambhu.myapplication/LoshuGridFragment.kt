@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.databinding.FragmentLoshuGridBinding
 
@@ -24,33 +23,7 @@ class LoshuGridFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        arguments?.getString(ARG_DOB)?.let { dob ->
-            val digits = dob.filter { it.isDigit() }
-            val numberCounts = IntArray(10)
-            for (digitChar in digits) {
-                val digit = digitChar.toString().toInt()
-                numberCounts[digit]++
-            }
-
-            updateCell(binding.cell1, 1, numberCounts[1])
-            updateCell(binding.cell2, 2, numberCounts[2])
-            updateCell(binding.cell3, 3, numberCounts[3])
-            updateCell(binding.cell4, 4, numberCounts[4])
-            updateCell(binding.cell5, 5, numberCounts[5])
-            updateCell(binding.cell6, 6, numberCounts[6])
-            updateCell(binding.cell7, 7, numberCounts[7])
-            updateCell(binding.cell8, 8, numberCounts[8])
-            updateCell(binding.cell9, 9, numberCounts[9])
-        }
-    }
-
-    private fun updateCell(textView: TextView, number: Int, count: Int) {
-        if (count > 0) {
-            textView.text = number.toString().repeat(count)
-        } else {
-            textView.text = ""
-        }
+        // You can add any logic here that needs to be executed when the view is created.
     }
 
     override fun onDestroyView() {
