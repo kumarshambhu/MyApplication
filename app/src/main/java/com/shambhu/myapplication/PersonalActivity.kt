@@ -21,6 +21,7 @@ import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_CHALLENGE_NUM
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_KARMIC_NUMBER
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_PERSONAL_MONTH
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_PERSONAL_YEAR
+import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_PINNACLE_NUMBER
 
 class PersonalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -74,6 +75,7 @@ class PersonalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                     1 -> getDrawable(R.drawable.ic_road)
                     2 -> getDrawable(R.drawable.ic_road)
                     3 -> getDrawable(R.drawable.ic_road)
+                    4 -> getDrawable(R.drawable.ic_road)
                     else -> null
                 }
             )
@@ -83,6 +85,7 @@ class PersonalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                     1 -> TAB_KEY_PERSONAL_YEAR
                     2 -> TAB_KEY_KARMIC_NUMBER
                     3 -> TAB_KEY_CHALLENGE_NUMBER
+                    4 -> TAB_KEY_PINNACLE_NUMBER
                     else -> null
                 }
             }

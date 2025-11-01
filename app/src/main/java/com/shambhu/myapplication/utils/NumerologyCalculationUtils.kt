@@ -182,4 +182,31 @@ object NumerologyCalculationUtils {
             "Ages $endOfThirdChallenge onwards"
         )
     }
+
+    fun calculatePinnacleNumbers(day: Int, month: Int, year: Int): List<Int> {
+        val reducedDay = CommonUtils.reduceNumber(day)
+        val reducedMonth = CommonUtils.reduceNumber(month)
+        val reducedYear = CommonUtils.reduceNumber(year)
+
+        val firstPinnacle = CommonUtils.reduceNumber(reducedMonth + reducedDay)
+        val secondPinnacle = CommonUtils.reduceNumber(reducedDay + reducedYear)
+        val thirdPinnacle = CommonUtils.reduceNumber(firstPinnacle + secondPinnacle)
+        val fourthPinnacle = CommonUtils.reduceNumber(reducedMonth + reducedYear)
+
+        return listOf(firstPinnacle, secondPinnacle, thirdPinnacle, fourthPinnacle)
+    }
+
+    fun calculatePinnacleNumberAgeRanges(day: Int, month: Int, year: Int): List<String> {
+        val lifePathNumber = calculateLifePath(day, month, year)
+        val endOfFirstPinnacle = 36 - lifePathNumber
+        val endOfSecondPinnacle = endOfFirstPinnacle + 9
+        val endOfThirdPinnacle = endOfSecondPinnacle + 9
+
+        return listOf(
+            "Ages 0 - $endOfFirstPinnacle",
+            "Ages $endOfFirstPinnacle - $endOfSecondPinnacle",
+            "Ages $endOfSecondPinnacle - $endOfThirdPinnacle",
+            "Ages $endOfThirdPinnacle onwards"
+        )
+    }
 }
