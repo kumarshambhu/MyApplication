@@ -32,17 +32,13 @@ object NumerologyCalculationUtils {
     }
 
     // Life Path Number Calculation
-    fun calculateLifePath(date: LocalDate): Int {
-        val day = date.dayOfMonth
-        val month = date.monthValue
-        val year = date.year
-
-        // Reduce to single digit or master numbers
-        var sum = day + month + year
-        while (sum > 9) {
-            sum = sum.toString().map { it.toString().toInt() }.sum()
-        }
-        return sum
+    fun calculateLifePath(day: Int, month: Int, year: Int): Int {
+        val reducedDay = CommonUtils.reduceNumber(day)
+        val reducedMonth = CommonUtils.reduceNumber(month)
+        val reducedYear = CommonUtils.reduceNumber(year)
+        val sum = reducedDay + reducedMonth + reducedYear
+        // For challenge age calculation, we need a single digit Life Path number.
+        return CommonUtils.reduceNumber(sum)
     }
 
     // Expression (Destiny) Number Calculation
@@ -173,4 +169,17 @@ object NumerologyCalculationUtils {
         return listOf(firstChallenge, secondChallenge, thirdChallenge, fourthChallenge)
     }
 
+    fun calculateChallengeNumberAgeRanges(day: Int, month: Int, year: Int): List<String> {
+        val lifePathNumber = calculateLifePath(day, month, year)
+        val endOfFirstChallenge = 36 - lifePathNumber
+        val endOfSecondChallenge = endOfFirstChallenge + 9
+        val endOfThirdChallenge = endOfSecondChallenge + 9
+
+        return listOf(
+            "Ages 0 - $endOfFirstChallenge",
+            "Ages $endOfFirstChallenge - $endOfSecondChallenge",
+            "Ages $endOfSecondChallenge - $endOfThirdChallenge",
+            "Ages $endOfThirdChallenge onwards"
+        )
+    }
 }

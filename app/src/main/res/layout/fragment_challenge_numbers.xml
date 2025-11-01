@@ -23,6 +23,17 @@
             app:layout_constraintWidth_percent="0.7" />
 
         <TextView
+            android:id="@+id/tvFirstChallengeAgeRange"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textColor="@color/gold"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Ages 0-35" />
+
+        <TextView
             android:id="@+id/tvFirstChallengeValue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -30,7 +41,7 @@
             android:textColor="@color/gold"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFirstChallengeAgeRange"
             tools:text="0" />
 
         <TextView
@@ -58,15 +69,26 @@
             app:layout_constraintWidth_percent="0.7" />
 
         <TextView
-            android:id="@+id/tvSecondChallengeValue"
+            android:id="@+id/tvSecondChallengeAgeRange"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="end"
             android:textColor="@color/gold"
-            android:textSize="24sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvFirstChallengeExplanation"
+            tools:text="Ages 35-44" />
+
+        <TextView
+            android:id="@+id/tvSecondChallengeValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textColor="@color/gold"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSecondChallengeAgeRange"
             tools:text="0" />
 
         <TextView
@@ -94,15 +116,26 @@
             app:layout_constraintWidth_percent="0.7" />
 
         <TextView
-            android:id="@+id/tvThirdChallengeValue"
+            android:id="@+id/tvThirdChallengeAgeRange"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="end"
             android:textColor="@color/gold"
-            android:textSize="24sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSecondChallengeExplanation"
+            tools:text="Ages 44-53" />
+
+        <TextView
+            android:id="@+id/tvThirdChallengeValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textColor="@color/gold"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvThirdChallengeAgeRange"
             tools:text="0" />
 
         <TextView
@@ -130,15 +163,26 @@
             app:layout_constraintWidth_percent="0.7" />
 
         <TextView
-            android:id="@+id/tvFourthChallengeValue"
+            android:id="@+id/tvFourthChallengeAgeRange"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="end"
             android:textColor="@color/gold"
-            android:textSize="24sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvThirdChallengeExplanation"
+            tools:text="Ages 53 onwards" />
+
+        <TextView
+            android:id="@+id/tvFourthChallengeValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textColor="@color/gold"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFourthChallengeAgeRange"
             tools:text="0" />
 
         <TextView

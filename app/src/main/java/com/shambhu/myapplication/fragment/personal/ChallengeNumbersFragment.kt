@@ -30,18 +30,23 @@ class ChallengeNumbersFragment : Fragment() {
             val year = it.getInt(ARG_YEAR)
 
             val challengeNumbers = NumerologyCalculationUtils.calculateChallengeNumbers(day, month, year)
+            val ageRanges = NumerologyCalculationUtils.calculateChallengeNumberAgeRanges(day, month, year)
             val explanations = resources.getStringArray(R.array.challenge_number_interpretations)
 
             binding.tvFirstChallengeValue.text = challengeNumbers[0].toString()
+            binding.tvFirstChallengeAgeRange.text = ageRanges[0]
             binding.tvFirstChallengeExplanation.text = explanations[challengeNumbers[0]]
 
             binding.tvSecondChallengeValue.text = challengeNumbers[1].toString()
+            binding.tvSecondChallengeAgeRange.text = ageRanges[1]
             binding.tvSecondChallengeExplanation.text = explanations[challengeNumbers[1]]
 
             binding.tvThirdChallengeValue.text = challengeNumbers[2].toString()
+            binding.tvThirdChallengeAgeRange.text = ageRanges[2]
             binding.tvThirdChallengeExplanation.text = explanations[challengeNumbers[2]]
 
             binding.tvFourthChallengeValue.text = challengeNumbers[3].toString()
+            binding.tvFourthChallengeAgeRange.text = ageRanges[3]
             binding.tvFourthChallengeExplanation.text = explanations[challengeNumbers[3]]
         }
     }
