@@ -1,6 +1,7 @@
 package com.shambhu.myapplication
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
@@ -9,27 +10,19 @@ import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.shambhu.myapplication.adapter.HomePagerAdapter
 import com.shambhu.myapplication.databinding.ActivityHomeBinding
-import com.shambhu.myapplication.fragment.home.BirthNumbersFragment
-import com.shambhu.myapplication.fragment.home.ExpressionFragment
-import com.shambhu.myapplication.fragment.home.LifePathFragment
-import com.shambhu.myapplication.fragment.home.PersonalityFragment
-import com.shambhu.myapplication.fragment.home.SoulUrgeFragment
+import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_BIRTH_NUMBER
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_EXPRESSION
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_LIFE_PATH
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_PERSONALITY
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_SOUL_URGE
-import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.ZoneId
-import java.util.Locale
+import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -53,25 +46,26 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding.navView.setNavigationItemSelectedListener(this)
 
         // Extract data from intent
-        val fullName = intent.getStringExtra("fullName") ?: "Guest"
-        val dob = intent.getStringExtra("dob") ?: "0000-00-00"
-        val time = intent.getStringExtra("time") ?: "00:00"
-        val location = intent.getStringExtra("location") ?: "Unknown Location"
+        val sharedPref = this.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val fullName = sharedPref?.getString("fullName", "Guest").toString()
+        val dob = sharedPref?.getString("date_of_birth","0000-00-00").toString()
+        val time = sharedPref?.getString("time_of_birth", "00:00")
+        val location = sharedPref?.getString("place_of_birth", "Unknown Location")
 
         // Update the navigation header
         val headerView = binding.navView.getHeaderView(0)
-        val navHeaderFullName = headerView.findViewById<TextView>(R.id.nav_header_full_name)
-        val navHeaderDob = headerView.findViewById<TextView>(R.id.nav_header_dob)
-        navHeaderFullName.text = fullName
-        navHeaderDob.text = dob
+        headerView.findViewById<TextView>(R.id.nav_header_full_name)
+        headerView.findViewById<TextView>(R.id.nav_header_dob)
+        headerView.findViewById<TextView>(R.id.nav_header_time).text = time
+        headerView.findViewById<TextView>(R.id.nav_header_location).text = location
 
 
         // Calculate numerology numbers
-        val birthDate = parseDate(dob)
-        val lifePath = calculateLifePath(birthDate)
-        val expression = calculateExpression(fullName)
-        val personality = calculatePersonality(fullName)
-        val soulUrge = calculateSoulUrge(fullName)
+        val birthDate = CommonUtils.parseDate(dob)
+        val lifePath =NumerologyCalculationUtils.calculateLifePath(birthDate)
+        val expression = NumerologyCalculationUtils.calculateExpression(fullName)
+        val personality = NumerologyCalculationUtils.calculatePersonality(fullName)
+        val soulUrge = NumerologyCalculationUtils.calculateSoulUrge(fullName)
         val birthDay = birthDate.dayOfMonth
         val birthMonth = birthDate.monthValue
         val birthYear = birthDate.year
@@ -81,10 +75,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         viewPager.adapter = HomePagerAdapter(
             this,
-            fullName,
-            dob,
-            time,
-            location,
             lifePath,
             expression,
             personality,
@@ -149,6 +139,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val i = Intent(applicationContext, PersonalActivity::class.java)
                 i.putExtra("fullName", intent.getStringExtra("fullName"))
                 i.putExtra("dob", intent.getStringExtra("dob"))
+                i.putExtra("time", intent.getStringExtra("time"))
+                i.putExtra("location", intent.getStringExtra("location"))
                 startActivity(i)
             }
             R.id.nav_slideshow -> {
@@ -177,7 +169,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
     // Helper function to set interpretations based on number
-    private fun setInterpretation(
+   /* private fun setInterpretation(
         textView: TextView,
         number: Int,
         type: String
@@ -188,115 +180,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         } else {
             textView.text = "Interpretation not available"
         }
-    }
+    }*/
 
-    // Helper function to parse date
-    private fun parseDate(dateString: String): LocalDate {
-        return try {
-            val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-            sdf.parse(dateString)?.let { sdf.format(it) } ?: "Invalid Date"
-            val sdfParse = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-            sdfParse.parse(dateString)?.toInstant()?.atZone(ZoneId.systemDefault())?.toLocalDate()
-                ?: LocalDate.of(0, 1, 1)
-        } catch (_: Exception) {
-            LocalDate.of(0, 1, 1)
-        }
-    }
-
-    // Life Path Number Calculation
-    private fun calculateLifePath(date: LocalDate): Int {
-        val day = date.dayOfMonth
-        val month = date.monthValue
-        val year = date.year
-
-        // Reduce to single digit or master numbers
-        var sum = day + month + year
-        while (sum > 9) {
-            sum = sum.toString().map { it.toString().toInt() }.sum()
-        }
-        return sum
-    }
-
-    // Expression (Destiny) Number Calculation
-    private fun calculateExpression(name: String): Int {
-        // Convert name to all uppercase and remove spaces
-        val cleanedName = name.replace(" ", "").uppercase(Locale.getDefault())
-
-        // Assign numerology values to each letter
-        var total = 0
-        for (char in cleanedName) {
-            val value = when (char) {
-                'A', 'J', 'S' -> 1
-                'B', 'K', 'T' -> 2
-                'C', 'L', 'U' -> 3
-                'D', 'M', 'V' -> 4
-                'E', 'N', 'W' -> 5
-                'F', 'O', 'X' -> 6
-                'G', 'P', 'Y' -> 7
-                'H', 'Q', 'Z' -> 8
-                'I', 'R' -> 9
-                else -> 0 // For non-alphabet characters
-            }
-            total += value
-        }
-
-        // Reduce to single digit or master numbers
-        while (total > 9) {
-            total = total.toString().map { it.toString().toInt() }.sum()
-        }
-        return total
-    }
-
-    // Personality Number Calculation
-    private fun calculatePersonality(name: String): Int {
-        // Convert name to all uppercase and remove spaces
-        val cleanedName = name.replace(" ", "").uppercase(Locale.getDefault())
-
-        // Assign numerology values to each letter
-        var total = 0
-        for (char in cleanedName) {
-            val value = when (char) {
-                'B', 'K', 'T' -> 2
-                'C', 'L', 'U' -> 3
-                'D', 'M', 'V' -> 4
-                'F', 'O', 'X' -> 6
-                'G', 'P', 'Y' -> 7
-                'H', 'Q', 'Z' -> 8
-                else -> 0 // For non-alphabet characters
-            }
-            total += value
-        }
-
-        // Reduce to single digit or master numbers
-        while (total > 9) {
-            total = total.toString().map { it.toString().toInt() }.sum()
-        }
-        return total
-    }
-
-    // Soul Urge (Heart's Desire) Number Calculation
-    private fun calculateSoulUrge(name: String): Int {
-        // Convert name to all lowercase to handle vowels properly
-        val cleanedName = name.replace(" ", "").lowercase(Locale.getDefault())
-
-        // Count the vowels (a, e, i, o, u) and assign values
-        var total = 0
-        for (char in cleanedName) {
-            val value = when (char) {
-                'a' -> 1
-                'e' -> 5
-                'i' -> 9
-                'o' -> 6
-                'u' -> 3
-                else -> 0 // For consonants
-            }
-            total += value
-        }
-
-        // Reduce to single digit or master numbers
-        while (total > 9) {
-            total = total.toString().map { it.toString().toInt() }.sum()
-        }
-        return total
-    }
 }

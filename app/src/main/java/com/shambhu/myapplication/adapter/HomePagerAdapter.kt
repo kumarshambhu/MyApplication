@@ -11,10 +11,6 @@ import com.shambhu.myapplication.fragment.home.SoulUrgeFragment
 
 class HomePagerAdapter(
     fragmentActivity: FragmentActivity,
-    private val fullName: String,
-    private val dob: String,
-    private val time: String,
-    private val location: String,
     private val lifePath: Int,
     private val expression: Int,
     private val personality: Int,
@@ -30,11 +26,11 @@ class HomePagerAdapter(
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> PersonalityFragment.newInstance(fullName, dob, time, location, personality)
+            0 -> PersonalityFragment.newInstance(personality)
             1 -> LifePathFragment.newInstance(lifePath)
-            2 -> ExpressionFragment.newInstance(fullName, dob, time, location, expression)
-            3 -> BirthNumbersFragment.newInstance(fullName, dob, time, location, birthDay, birthMonth, birthYear)
-            4 -> SoulUrgeFragment.newInstance(fullName, dob, time, location, soulUrge)
+            2 -> ExpressionFragment.newInstance(expression)
+            3 -> BirthNumbersFragment.newInstance( birthDay, birthMonth, birthYear)
+            4 -> SoulUrgeFragment.newInstance(soulUrge)
             else -> throw IllegalArgumentException("Invalid position")
         }
     }

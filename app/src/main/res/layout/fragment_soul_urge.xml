@@ -1,234 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:tag="SoulUrgeFragment"
-    tools:context=".fragment.home.SoulUrgeFragment">
+    android:background="@drawable/mystical_gradient_background"
+    android:tag="ExpressionFragment"
+    tools:context=".fragment.home.ExpressionFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:paddingTop="30dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Soul Urge Number"
-            android:textSize="28sp"
-            android:textColor="@color/gold"
-            android:fontFamily="@font/mystical_font"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"/>
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_heart"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="vertical"
-        android:padding="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Your Birth Details"
-            android:textSize="20sp"
-            android:textColor="@color/gold"
-            android:fontFamily="@font/mystical_font"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_person" />
-
-            <TextView
-                android:id="@+id/tvFullName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/mystical_font"
-                android:text="Full Name"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_calendar" />
-
-            <TextView
-                android:id="@+id/tvDateOfBirth"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/mystical_font"
-                android:text="Date of Birth"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_clock" />
-
-            <TextView
-                android:id="@+id/tvTimeOfBirth"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/mystical_font"
-                android:text="Time of Birth"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_map_marker" />
-
-            <TextView
-                android:id="@+id/tvLocation"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/mystical_font"
-                android:text="Location"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp">
-
-            <TextView
-                android:id="@+id/tvSoulUrgeNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:textSize="48sp"
-                android:textColor="@color/gold"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"/>
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gold"
-            android:layout_marginTop="20dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Your inner desires"
-                android:textSize="16sp"
-                android:textColor="@color/white"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/mystical_font"/>
-
-            <TextView
-                android:id="@+id/tvSoulUrgeInterpretation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="pretation"
-                android:textSize="15sp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/mystical_font"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Inspirational section -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="20dp">
+        android:padding="16dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Your heart's deepest longing"
-            android:textSize="16sp"
+            android:id="@+id/column1"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:fontFamily="@font/mystical_font"
+            android:gravity="end"
+            android:padding="8dp"
+            android:text="@string/soul_urge_number"
             android:textColor="@color/gold"
-            android:layout_gravity="center"
-            android:layout_marginTop="80dp"
-            android:fontFamily="@font/mystical_font"/>
+            android:textSize="28sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.8"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Group of 3 views to the right of Col 1 -->
+        <TextView
+            android:id="@+id/tvSoulUrgeNumber"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:fontFamily="@font/mystical_font"
+            android:padding="8dp"
+            android:text="0"
+            android:textColor="@color/gold"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/column1"
+            tools:ignore="MissingConstraints" />
 
         <ImageView
+            android:id="@+id/karmic_by_date"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/mystical_orb"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"/>
-    </LinearLayout>
-</LinearLayout>
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/soul_number_meaning"
+            android:src="@drawable/ic_heart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/column1"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/row2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mystical_font"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/soul_number_meaning"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/karmic_by_date" />
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:background="@color/gold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/row2"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Third Row -->
+        <TextView
+            android:id="@+id/tvSoulUrgeInterpretation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mystical_font"
+            android:padding="16dp"
+            android:text="@string/interpretation"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_line" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,359 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:tag="BirthNumbersFragment"
-    tools:context=".fragment.home.BirthNumbersFragment">
+    android:background="@drawable/mystical_gradient_background">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingTop="30dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/mystical_font"
-            android:text="Birth Numbers"
-            android:textColor="@color/gold"
-            android:textSize="28sp" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_sunrise" />
-
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_moon" />
-
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_earth" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="vertical"
-        android:padding="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/mystical_font"
-            android:text="Your Birth Details"
-            android:textColor="@color/gold"
-            android:textSize="20sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_person" />
-
-            <TextView
-                android:id="@+id/tvFullName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/mystical_font"
-                android:text="Full Name"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_calendar" />
-
-            <TextView
-                android:id="@+id/tvDateOfBirth"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/mystical_font"
-                android:text="Date of Birth"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_clock" />
-
-            <TextView
-                android:id="@+id/tvTimeOfBirth"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/mystical_font"
-                android:text="Time of Birth"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_map_marker" />
-
-            <TextView
-                android:id="@+id/tvLocation"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/mystical_font"
-                android:text="Location"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!-- Row 1 -->
+        <TextView
+            android:id="@+id/row1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:orientation="horizontal">
+            android:fontFamily="@font/mystical_font"
+            android:text="@string/birth_numbers"
+            android:textColor="@color/gold"
+            android:textAlignment="center"
+            android:textSize="28sp" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/mystical_font"
-                    android:text="Birth Day"
-                    android:textColor="@color/gold"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/tvBirthDayNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="0"
-                    android:textColor="@color/gold"
-                    android:textSize="48sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/mystical_font"
-                    android:text="Birth Month"
-                    android:textColor="@color/gold"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/tvBirthMonthNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="0"
-                    android:textColor="@color/gold"
-                    android:textSize="48sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/mystical_font"
-                    android:text="Birth Year"
-                    android:textColor="@color/gold"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/tvBirthYearNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="0"
-                    android:textColor="@color/gold"
-                    android:textSize="48sp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/gold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!-- Row 2: Three Columns -->
+        <TextView
+            android:id="@+id/row2_col1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/mystical_font"
-                android:text="Your daily, monthly, and yearly cycles"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tvBirthDayInterpretation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/mystical_font"
-                    android:text="Interpretation"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@color/white" />
-
-                <TextView
-                    android:id="@+id/tvBirthMonthInterpretation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/mystical_font"
-                    android:text="Interpretation"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@color/white" />
-
-                <TextView
-                    android:id="@+id/tvBirthYearInterpretation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/mystical_font"
-                    android:text="Interpretation"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Inspirational section -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="20dp">
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/mystical_font"
+            android:text="@string/birth_day"
+            android:textColor="@color/gold"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/row2_col2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/row1"
+            app:layout_constraintWidth_percent="0.33" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/row2_col2"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="80dp"
+            app:layout_constraintTop_toBottomOf="@id/row1"
+            app:layout_constraintStart_toEndOf="@id/row2_col1"
+            app:layout_constraintEnd_toStartOf="@id/row2_col3"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/mystical_font"
-            android:text="Your temporal blueprint"
+            android:text="@string/birth_month"
             android:textColor="@color/gold"
-            android:textSize="16sp" />
+            android:textSize="18sp"
+            android:textAlignment="center"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <TextView
+            android:id="@+id/row2_col3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/row1"
+            app:layout_constraintStart_toEndOf="@id/row2_col2"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/birth_year"
+            android:fontFamily="@font/mystical_font"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/gold"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <!-- Row 3: Three Columns -->
+        <TextView
+            android:id="@+id/tvBirthDayNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="00"
+            app:layout_constraintTop_toBottomOf="@id/row2_col1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvBirthMonthNumber"
+            android:fontFamily="@font/mystical_font"
+            android:textColor="@color/gold"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <TextView
+            android:id="@+id/tvBirthMonthNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="00"
+            app:layout_constraintTop_toBottomOf="@id/row2_col1"
+            app:layout_constraintStart_toEndOf="@id/tvBirthDayNumber"
+            app:layout_constraintEnd_toStartOf="@id/tvBirthYearNumber"
+            android:fontFamily="@font/mystical_font"
+            android:textColor="@color/gold"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            app:layout_constraintWidth_percent="0.33" />
+
+
+        <TextView
+            android:id="@+id/tvBirthYearNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="0000"
+            app:layout_constraintTop_toBottomOf="@id/row2_col1"
+            app:layout_constraintStart_toEndOf="@id/tvBirthMonthNumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:textColor="@color/gold"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <View
+            android:id="@+id/seperator1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/tvBirthDayNumber"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/gold"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
 
         <ImageView
+            android:id="@+id/sun_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:contentDescription="Sun"
+            app:layout_constraintTop_toBottomOf="@id/seperator1"
+            android:src="@drawable/ic_earth"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/mystical_orb" />
-    </LinearLayout>
-</LinearLayout>
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Row 4 -->
+        <TextView
+            android:id="@+id/row4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/birth_cycles_text"
+            app:layout_constraintTop_toBottomOf="@id/sun_image"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:id="@+id/seperator2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/row4"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/gold"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Row 5 -->
+        <TextView
+            android:id="@+id/tvBirthDayInterpretation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/interpretation"
+            app:layout_constraintTop_toBottomOf="@id/seperator2"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:id="@+id/seperator3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tvBirthDayInterpretation"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+        <TextView
+            android:id="@+id/tvBirthMonthInterpretation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/interpretation"
+            app:layout_constraintTop_toBottomOf="@id/seperator3"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:id="@+id/seperator4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tvBirthMonthInterpretation"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvBirthYearInterpretation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/interpretation"
+            app:layout_constraintTop_toBottomOf="@id/seperator4"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

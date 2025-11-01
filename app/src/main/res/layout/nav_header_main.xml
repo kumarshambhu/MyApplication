@@ -90,7 +90,7 @@
             android:src="@drawable/ic_clock" />
 
         <TextView
-            android:id="@+id/tvTimeOfBirth"
+            android:id="@+id/nav_header_time"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -117,7 +117,7 @@
             android:src="@drawable/ic_map_marker" />
 
         <TextView
-            android:id="@+id/tvLocation"
+            android:id="@+id/nav_header_location"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@drawable/mystical_gradient_background"
     tools:context=".PersonalActivity">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -27,27 +28,29 @@
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                app:tabIndicatorColor="@android:color/white"
-                app:tabTextColor="@android:color/white"
-                app:tabGravity="center"
-                app:tabMode="fixed"
+                app:tabTextAppearance="@style/MyTabText"
+                app:tabPaddingStart="12dp"
+                android:background="@android:color/transparent"
+                app:tabPaddingEnd="12dp"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorColor="@color/gold"
+                app:tabIndicatorHeight="4dp"
+                app:tabSelectedTextColor="@color/gold"
                 />
-
         </com.google.android.material.appbar.AppBarLayout>
 
         <include
             android:id="@+id/content"
             layout="@layout/content_personal" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+       <!-- <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="@dimen/fab_margin"
             android:layout_marginBottom="16dp"
-            app:srcCompat="@android:drawable/ic_dialog_email" />
+            app:srcCompat="@android:drawable/ic_dialog_email" />-->
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

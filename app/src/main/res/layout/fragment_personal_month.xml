@@ -1,35 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.personal.PersonalMonthFragment">
+    android:background="@drawable/mystical_gradient_background"
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <Button
-            android:id="@+id/button_first"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/next"
-            app:layout_constraintBottom_toTopOf="@id/textview_first"
-            app:layout_constraintEnd_toEndOf="parent"
+        <TextView
+            android:id="@+id/column1"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:padding="8dp"
+            android:text="@string/personal_month"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textColor="@color/gold"
+            android:fontFamily="@font/mystical_font"
+            android:textSize="28sp"
+            android:gravity="end"
+            app:layout_constraintWidth_percent="0.8"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Group of 3 views to the right of Col 1 -->
+        <TextView
+            android:id="@+id/tvPersonalMonth"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:padding="8dp"
+            android:text="0"
+            android:textColor="@color/gold"
+            android:fontFamily="@font/mystical_font"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/column1"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/karmic_by_date"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:contentDescription="TODO"
+            android:src="@drawable/ic_road"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@id/column1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
-            android:id="@+id/textview_first"
-            android:layout_width="wrap_content"
+            android:id="@+id/row2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/lorem_ipsum"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="The path you're meant to walk"
+            android:fontFamily="@font/mystical_font"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/karmic_by_date"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_first" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="16sp"/>
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:background="@color/gold"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@id/row2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Third Row -->
+        <TextView
+            android:id="@+id/tvPersonalMonthInterpretation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/view_line"
+            app:layout_constraintStart_toStartOf="parent"
+            android:padding="16dp"
+            android:fontFamily="@font/mystical_font"
+            android:textColor="@color/white"
+            android:text="@string/interpretation"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+</ScrollView>
