@@ -151,4 +151,16 @@
         <item>This month emphasizes power, success, and achievement. You\'ll have opportunities to gain financial stability, influence, and positions of authority. Focus on ambition, determination, and manifesting material goals. (8)</item>
         <item>This month emphasizes compassion, service, and humanitarian work. You\'ll have opportunities to teach, heal, and make the world better. Focus on generosity, giving back, and spiritual growth through service. (9)</item>
     </string-array>
+
+    <string-array name="challenge_number_interpretations">
+        <item>No significant challenges. You have a clear path and are likely to overcome obstacles with ease.</item>
+        <item>Lack of independence or self-confidence. You must learn to stand up for yourself and your rights.</item>
+        <item>Problems with emotional boundaries, sensitive. You must learn to maintain your sensitivity without feeling personally hurt.</item>
+        <item>Problems with self-expression or creativity. You must learn to overcome barriers to the free expression of your natural talents.</item>
+        <item>Problems with limitation and stability. You must learn to be more flexible and adaptable to change.</item>
+        <item>Handling freedom and avoiding impulsivity. You must learn to use your freedom constructively and avoid scattering your energies.</item>
+        <item>Balancing responsibility and personal needs. You must learn to balance your desire to help others with your own needs.</item>
+        <item>Overcoming isolation and developing faith. You must learn to trust others and develop a deeper connection to your spiritual side.</item>
+        <item>Problems with power, control, or material success. You must learn to use your power and influence wisely and for the good of others.</item>
+    </string-array>
 </resources>

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentChallengeNumbersBinding
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 
@@ -29,10 +30,19 @@ class ChallengeNumbersFragment : Fragment() {
             val year = it.getInt(ARG_YEAR)
 
             val challengeNumbers = NumerologyCalculationUtils.calculateChallengeNumbers(day, month, year)
+            val explanations = resources.getStringArray(R.array.challenge_number_interpretations)
+
             binding.tvFirstChallengeValue.text = challengeNumbers[0].toString()
+            binding.tvFirstChallengeExplanation.text = explanations[challengeNumbers[0]]
+
             binding.tvSecondChallengeValue.text = challengeNumbers[1].toString()
+            binding.tvSecondChallengeExplanation.text = explanations[challengeNumbers[1]]
+
             binding.tvThirdChallengeValue.text = challengeNumbers[2].toString()
+            binding.tvThirdChallengeExplanation.text = explanations[challengeNumbers[2]]
+
             binding.tvFourthChallengeValue.text = challengeNumbers[3].toString()
+            binding.tvFourthChallengeExplanation.text = explanations[challengeNumbers[3]]
         }
     }
 
