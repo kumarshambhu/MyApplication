@@ -12,7 +12,7 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/column1"
+            android:id="@+id/tvKarmicByDateLabel"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:padding="8dp"
@@ -25,9 +25,8 @@
             app:layout_constraintWidth_percent="0.8"
             tools:ignore="MissingConstraints" />
 
-        <!-- Group of 3 views to the right of Col 1 -->
         <TextView
-            android:id="@+id/tvPersonalYear"
+            android:id="@+id/tvKarmicByDateValue"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:padding="8dp"
@@ -36,8 +35,9 @@
             android:fontFamily="@font/mystical_font"
             android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/column1"
+            app:layout_constraintStart_toEndOf="@id/tvKarmicByDateLabel"
             tools:ignore="MissingConstraints" />
+
         <TextView
             android:id="@+id/karmic_by_date"
             android:layout_width="0dp"
@@ -46,9 +46,10 @@
             android:layout_marginTop="10dp"
             android:textColor="@color/gold"
             android:text="@string/interpretation"
-            app:layout_constraintTop_toBottomOf="@id/tvPersonalYear"
+            app:layout_constraintTop_toBottomOf="@id/tvKarmicByDateValue"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+
         <View
             android:id="@+id/view_line1"
             android:layout_width="match_parent"
@@ -60,37 +61,39 @@
             app:layout_constraintTop_toBottomOf="@id/karmic_by_date"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+
         <TextView
-            android:id="@+id/row2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="The path you're meant to walk"
+            android:id="@+id/tvKarmicByNameLabel"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:padding="8dp"
+            android:text="Karmic By Name"
+            android:textColor="@color/gold"
             android:fontFamily="@font/mystical_font"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:padding="16dp"
+            android:textSize="28sp"
+            android:gravity="end"
             app:layout_constraintTop_toBottomOf="@id/view_line1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:textSize="16sp"/>
-        <View
-            android:id="@+id/view_line"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="30dp"
-            android:background="@color/gold"
-            tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toBottomOf="@id/row2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintWidth_percent="0.8" />
 
-        <!-- Third Row -->
+        <TextView
+            android:id="@+id/tvKarmicByNameValue"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:padding="8dp"
+            android:text="0"
+            android:textColor="@color/gold"
+            android:fontFamily="@font/mystical_font"
+            android:textSize="28sp"
+            app:layout_constraintTop_toBottomOf="@id/view_line1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvKarmicByNameLabel" />
+
         <TextView
             android:id="@+id/karmic_by_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/view_line"
+            app:layout_constraintTop_toBottomOf="@id/tvKarmicByNameValue"
             app:layout_constraintStart_toStartOf="parent"
             android:padding="16dp"
             android:fontFamily="@font/mystical_font"
@@ -98,5 +101,6 @@
             android:text="@string/interpretation"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
