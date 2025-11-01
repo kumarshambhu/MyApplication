@@ -151,4 +151,33 @@
         <item>This month emphasizes power, success, and achievement. You\'ll have opportunities to gain financial stability, influence, and positions of authority. Focus on ambition, determination, and manifesting material goals. (8)</item>
         <item>This month emphasizes compassion, service, and humanitarian work. You\'ll have opportunities to teach, heal, and make the world better. Focus on generosity, giving back, and spiritual growth through service. (9)</item>
     </string-array>
+
+    <string-array name="challenge_number_interpretations">
+        <item>No significant challenges. You have a clear path and are likely to overcome obstacles with ease.</item>
+        <item>Lack of independence or self-confidence. You must learn to stand up for yourself and your rights.</item>
+        <item>Problems with emotional boundaries, sensitive. You must learn to maintain your sensitivity without feeling personally hurt.</item>
+        <item>Problems with self-expression or creativity. You must learn to overcome barriers to the free expression of your natural talents.</item>
+        <item>Problems with limitation and stability. You must learn to be more flexible and adaptable to change.</item>
+        <item>Handling freedom and avoiding impulsivity. You must learn to use your freedom constructively and avoid scattering your energies.</item>
+        <item>Balancing responsibility and personal needs. You must learn to balance your desire to help others with your own needs.</item>
+        <item>Overcoming isolation and developing faith. You must learn to trust others and develop a deeper connection to your spiritual side.</item>
+        <item>Problems with power, control, or material success. You must learn to use your power and influence wisely and for the good of others.</item>
+    </string-array>
+
+    <string-array name="pinnacle_number_interpretations">
+        <item>A time of new beginnings, leadership, and independence. You will be challenged to stand on your own two feet and take initiative.</item>
+        <item>A time of cooperation, harmony, and relationships. You will be challenged to work with others and develop your diplomatic skills.</item>
+        <item>A time of creativity, self-expression, and communication. You will be challenged to express your unique talents and share your voice with the world.</item>
+        <item>A time of hard work, stability, and building foundations. You will be challenged to be practical, organized, and disciplined.</item>
+        <item>A time of freedom, adventure, and change. You will be challenged to embrace new experiences and adapt to the unexpected.</item>
+        <item>A time of responsibility, family, and service. You will be challenged to nurture your relationships and care for others.</item>
+        <item>A time of introspection, wisdom, and spiritual growth. You will be challenged to look within and connect with your deeper self.</item>
+        <item>A time of power, ambition, and material success. You will be challenged to take charge of your career and achieve your goals.</item>
+        <item>A time of compassion, humanitarianism, and global awareness. You will be challenged to make a difference in the world.</item>
+        <item>A time of spiritual enlightenment and intuition. You will be challenged to trust your instincts and follow your higher calling.</item>
+        <item>A time of mastery and large-scale achievement. You will be challenged to build something of lasting value for the world.</item>
+    </string-array>
+
+    <string name="lucky_number">Lucky Number</string>
+    <string name="lucky_number_meaning">Your personal lucky number, derived from your day of birth.</string>
 </resources>

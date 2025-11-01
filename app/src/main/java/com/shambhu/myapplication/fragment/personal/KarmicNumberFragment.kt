@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentKarmicNumberBinding
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 
@@ -15,8 +13,6 @@ import com.shambhu.myapplication.utils.NumerologyCalculationUtils
  */
 class KarmicNumberFragment : Fragment() {
 
-    private lateinit var karmic_by_date: TextView
-    private lateinit var karmic_by_name: TextView
     private var _binding: FragmentKarmicNumberBinding? = null
 
     // This property is only valid between onCreateView and
@@ -35,19 +31,17 @@ class KarmicNumberFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        karmic_by_name = view.findViewById(R.id.karmic_by_name)
-        karmic_by_date = view.findViewById(R.id.karmic_by_date)
         arguments?.let {
             val day = it.getInt(ARG_DAY)
             val month = it.getInt(ARG_MONTH)
             val year = it.getInt(ARG_YEAR)
-            //tvMonth.text = "$day $month $year"
+            val fullName = it.getString(ARG_FULL_NAME)
 
-            karmic_by_date.text = NumerologyCalculationUtils.calculateKarmicNumber(day, month, year)
-
-           karmic_by_name.text = NumerologyCalculationUtils.calculateKarmicFromName("Shambhu Kumar")
+            binding.tvKarmicByDateValue.text = NumerologyCalculationUtils.calculateKarmicNumber(day, month, year)
+            if (fullName != null) {
+                binding.tvKarmicByNameValue.text = NumerologyCalculationUtils.calculateKarmicFromName(fullName)
+            }
         }
-
     }
 
     override fun onDestroyView() {

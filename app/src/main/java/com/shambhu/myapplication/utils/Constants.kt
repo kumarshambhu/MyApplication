@@ -10,5 +10,7 @@ class Constants {
         const val TAB_KEY_PERSONAL_YEAR = "Personal Year"
         const val TAB_KEY_PERSONAL_MONTH = "Personal Month"
         const val TAB_KEY_KARMIC_NUMBER = "Karmic Number"
+        const val TAB_KEY_CHALLENGE_NUMBER = "Challenge Number"
+        const val TAB_KEY_PINNACLE_NUMBER = "Pinnacle Number"
     }
 }
