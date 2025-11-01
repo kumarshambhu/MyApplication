@@ -62,14 +62,14 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         // Calculate numerology numbers
         val birthDate = CommonUtils.parseDate(dob)
-        val lifePath =NumerologyCalculationUtils.calculateLifePath(birthDate)
+
         val expression = NumerologyCalculationUtils.calculateExpression(fullName)
         val personality = NumerologyCalculationUtils.calculatePersonality(fullName)
         val soulUrge = NumerologyCalculationUtils.calculateSoulUrge(fullName)
         val birthDay = birthDate.dayOfMonth
         val birthMonth = birthDate.monthValue
         val birthYear = birthDate.year
-
+        val lifePath =NumerologyCalculationUtils.calculateLifePath(birthDay, birthMonth, birthYear)
         val viewPager = binding.contentHome.viewPager
         val tabLayout = binding.tabs
 
@@ -130,12 +130,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_home -> {
-                Snackbar.make(binding.root, "Home clicked", Snackbar.LENGTH_SHORT).show()
                 val i = Intent(applicationContext, HomeActivity::class.java)
                 startActivity(i)
             }
             R.id.nav_personal -> {
-                Snackbar.make(binding.root, "Personal clicked", Snackbar.LENGTH_SHORT).show()
                 val i = Intent(applicationContext, PersonalActivity::class.java)
                 i.putExtra("fullName", intent.getStringExtra("fullName"))
                 i.putExtra("dob", intent.getStringExtra("dob"))
@@ -144,7 +142,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(i)
             }
             R.id.nav_slideshow -> {
-                Snackbar.make(binding.root, "Slideshow clicked", Snackbar.LENGTH_SHORT).show()
+                val i = Intent(applicationContext, OtherActivity::class.java)
+                startActivity(i)
             }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
@@ -164,22 +163,4 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             super.onBackPressed()
         }
     }
-
-
-
-
-    // Helper function to set interpretations based on number
-   /* private fun setInterpretation(
-        textView: TextView,
-        number: Int,
-        type: String
-    ) {
-        val resourceId = resources.getIdentifier("$type" + if (number == 11 || number == 22) "_${number}" else "_${number % 9}", "string", packageName)
-        if (resourceId != 0) {
-            textView.text = resources.getString(resourceId)
-        } else {
-            textView.text = "Interpretation not available"
-        }
-    }*/
-
 }
