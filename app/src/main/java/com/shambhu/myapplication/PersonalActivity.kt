@@ -17,6 +17,7 @@ import com.shambhu.myapplication.adapter.PersonalPagerAdapter
 import com.shambhu.myapplication.databinding.ActivityPersonalBinding
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
+import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_CHALLENGE_NUMBER
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_KARMIC_NUMBER
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_PERSONAL_MONTH
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_PERSONAL_YEAR
@@ -72,6 +73,7 @@ class PersonalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                     0 -> getDrawable(R.drawable.ic_mirrors)
                     1 -> getDrawable(R.drawable.ic_road)
                     2 -> getDrawable(R.drawable.ic_road)
+                    3 -> getDrawable(R.drawable.ic_road)
                     else -> null
                 }
             )
@@ -80,6 +82,7 @@ class PersonalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                     0 -> TAB_KEY_PERSONAL_MONTH
                     1 -> TAB_KEY_PERSONAL_YEAR
                     2 -> TAB_KEY_KARMIC_NUMBER
+                    3 -> TAB_KEY_CHALLENGE_NUMBER
                     else -> null
                 }
             }

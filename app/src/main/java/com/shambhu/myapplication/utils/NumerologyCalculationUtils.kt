@@ -160,6 +160,17 @@ object NumerologyCalculationUtils {
             "No karmic debt. Core Number: ${reduce(total)}"
         }
     }
+    fun calculateChallengeNumbers(day: Int, month: Int, year: Int): List<Int> {
+        val reducedDay = CommonUtils.reduceNumber(day)
+        val reducedMonth = CommonUtils.reduceNumber(month)
+        val reducedYear = CommonUtils.reduceNumber(year)
 
+        val firstChallenge = Math.abs(reducedDay - reducedMonth)
+        val secondChallenge = Math.abs(reducedDay - reducedYear)
+        val thirdChallenge = Math.abs(firstChallenge - secondChallenge)
+        val fourthChallenge = Math.abs(reducedMonth - reducedYear)
+
+        return listOf(firstChallenge, secondChallenge, thirdChallenge, fourthChallenge)
+    }
 
 }
