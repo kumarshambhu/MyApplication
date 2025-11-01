@@ -209,4 +209,8 @@ object NumerologyCalculationUtils {
             "Ages $endOfThirdPinnacle onwards"
         )
     }
+
+    fun calculateLuckyNumber(day: Int): Int {
+        return CommonUtils.reduceNumber(day)
+    }
 }

@@ -174,9 +174,10 @@
         <item>A time of introspection, wisdom, and spiritual growth. You will be challenged to look within and connect with your deeper self.</item>
         <item>A time of power, ambition, and material success. You will be challenged to take charge of your career and achieve your goals.</item>
         <item>A time of compassion, humanitarianism, and global awareness. You will be challenged to make a difference in the world.</item>
-        <item></item>
         <item>A time of spiritual enlightenment and intuition. You will be challenged to trust your instincts and follow your higher calling.</item>
-        <item></item><item></item><item></item><item></item><item></item><item></item><item></item><item></item><item></item><item></item>
         <item>A time of mastery and large-scale achievement. You will be challenged to build something of lasting value for the world.</item>
     </string-array>
+
+    <string name="lucky_number">Lucky Number</string>
+    <string name="lucky_number_meaning">Your personal lucky number, derived from your day of birth.</string>
 </resources>

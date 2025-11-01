@@ -30,11 +30,9 @@ class ChallengeNumbersFragment : Fragment() {
             val year = it.getInt(ARG_YEAR)
 
             val challengeNumbers = NumerologyCalculationUtils.calculateChallengeNumbers(day, month, year)
-            val ageRanges = NumerologyCalculationUtils.calculateChallengeNumberAgeRanges(day, month, year)
             val explanations = resources.getStringArray(R.array.challenge_number_interpretations)
 
             binding.tvFirstChallengeValue.text = challengeNumbers[0].toString()
-            binding.tvFirstChallengeAgeRange.text = ageRanges[0]
             if (challengeNumbers[0] < explanations.size) {
                 binding.tvFirstChallengeExplanation.text = explanations[challengeNumbers[0]]
             } else {
@@ -43,7 +41,6 @@ class ChallengeNumbersFragment : Fragment() {
 
 
             binding.tvSecondChallengeValue.text = challengeNumbers[1].toString()
-            binding.tvSecondChallengeAgeRange.text = ageRanges[1]
             if (challengeNumbers[1] < explanations.size) {
                 binding.tvSecondChallengeExplanation.text = explanations[challengeNumbers[1]]
             } else {
@@ -51,7 +48,6 @@ class ChallengeNumbersFragment : Fragment() {
             }
 
             binding.tvThirdChallengeValue.text = challengeNumbers[2].toString()
-            binding.tvThirdChallengeAgeRange.text = ageRanges[2]
             if (challengeNumbers[2] < explanations.size) {
                 binding.tvThirdChallengeExplanation.text = explanations[challengeNumbers[2]]
             } else {
@@ -59,7 +55,6 @@ class ChallengeNumbersFragment : Fragment() {
             }
 
             binding.tvFourthChallengeValue.text = challengeNumbers[3].toString()
-            binding.tvFourthChallengeAgeRange.text = ageRanges[3]
             if (challengeNumbers[3] < explanations.size) {
                 binding.tvFourthChallengeExplanation.text = explanations[challengeNumbers[3]]
             } else {
