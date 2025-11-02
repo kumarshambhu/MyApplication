@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mystical_gradient_background"
     android:fillViewport="true"
     tools:context=".LoshuGridFragment">
 
@@ -23,7 +22,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textColor="@color/gold"
             android:layout_marginBottom="16dp"/>
 
         <GridLayout
@@ -76,6 +74,46 @@
                 style="@style/LoshuGridCellStyle"
                 android:text="6"/>
         </GridLayout>
+
+        <TextView
+            android:id="@+id/tv_personality_number_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personality Number:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/loshu_grid"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/tv_personality_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="@id/tv_personality_number_label"
+            app:layout_constraintStart_toEndOf="@id/tv_personality_number_label"
+            android:layout_marginStart="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_destiny_number_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Destiny Number:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_personality_number_label"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_destiny_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="@id/tv_destiny_number_label"
+            app:layout_constraintStart_toEndOf="@id/tv_destiny_number_label"
+            android:layout_marginStart="8dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

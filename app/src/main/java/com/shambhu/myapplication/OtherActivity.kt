@@ -39,11 +39,12 @@ class OtherActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         // Extract data from intent
         val sharedPref = this.getSharedPreferences("PREFERENCE_NAME", android.content.Context.MODE_PRIVATE)
         val dob = sharedPref?.getString("date_of_birth","0000-00-00").toString()
+        val fullName = sharedPref?.getString("fullName", "Guest").toString()
 
         val viewPager = binding.contentOther.viewPager
         val tabLayout = binding.tabs
 
-        viewPager.adapter = OtherPagerAdapter(this, dob)
+        viewPager.adapter = OtherPagerAdapter(this, dob, fullName)
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.setCustomView(R.layout.custom_tab)

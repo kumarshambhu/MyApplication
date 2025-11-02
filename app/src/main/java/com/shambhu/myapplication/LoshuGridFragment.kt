@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.databinding.FragmentLoshuGridBinding
+import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 
 class LoshuGridFragment : Fragment() {
 
@@ -43,6 +44,14 @@ class LoshuGridFragment : Fragment() {
             updateCell(binding.cell8, 8, numberCounts[8])
             updateCell(binding.cell9, 9, numberCounts[9])
         }
+
+        arguments?.getString(ARG_FULL_NAME)?.let { fullName ->
+            val personalityNumber = NumerologyCalculationUtils.calculatePersonality(fullName)
+            val destinyNumber = NumerologyCalculationUtils.calculateExpression(fullName)
+
+            binding.tvPersonalityNumber.text = personalityNumber.toString()
+            binding.tvDestinyNumber.text = destinyNumber.toString()
+        }
     }
 
     private fun updateCell(textView: TextView, number: Int, count: Int) {
@@ -60,11 +69,13 @@ class LoshuGridFragment : Fragment() {
 
     companion object {
         private const val ARG_DOB = "dob"
+        private const val ARG_FULL_NAME = "fullName"
 
-        fun newInstance(dob: String): LoshuGridFragment {
+        fun newInstance(dob: String, fullName: String): LoshuGridFragment {
             val fragment = LoshuGridFragment()
             val args = Bundle()
             args.putString(ARG_DOB, dob)
+            args.putString(ARG_FULL_NAME, fullName)
             fragment.arguments = args
             return fragment
         }
