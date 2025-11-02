@@ -12,5 +12,6 @@ class Constants {
         const val TAB_KEY_KARMIC_NUMBER = "Karmic Number"
         const val TAB_KEY_CHALLENGE_NUMBER = "Challenge Number"
         const val TAB_KEY_PINNACLE_NUMBER = "Pinnacle Number"
+        const val TAB_KEY_NUMEROLOGY_PLAIN = "Numerology Plain"
     }
 }

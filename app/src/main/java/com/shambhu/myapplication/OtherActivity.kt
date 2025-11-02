@@ -14,6 +14,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.shambhu.myapplication.adapter.OtherPagerAdapter
 import com.shambhu.myapplication.databinding.ActivityOtherBinding
+import com.shambhu.myapplication.utils.Constants
 
 class OtherActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -53,12 +54,14 @@ class OtherActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             tabIcon?.setImageDrawable(
                 when (position) {
                     0 -> getDrawable(R.drawable.ic_grid)
+                    1 -> getDrawable(R.drawable.ic_person)
                     else -> null
                 }
             )
             if (tabText != null) {
                 tabText.text = when (position) {
                     0 -> "Loshu Grid"
+                    1 -> Constants.TAB_KEY_NUMEROLOGY_PLAIN
                     else -> null
                 }
             }
