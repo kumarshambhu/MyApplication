@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="@drawable/mystical_gradient_background"
     tools:context=".LoshuGridFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,6 +22,7 @@
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/gold"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginBottom="16dp"/>
 
@@ -82,6 +84,7 @@
             android:text="Personality Number:"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:textColor="@color/gold"
             app:layout_constraintTop_toBottomOf="@id/loshu_grid"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="16dp"/>
@@ -91,6 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
+            android:textColor="@color/white"
             app:layout_constraintTop_toTopOf="@id/tv_personality_number_label"
             app:layout_constraintStart_toEndOf="@id/tv_personality_number_label"
             android:layout_marginStart="8dp"/>
@@ -102,6 +106,7 @@
             android:text="Destiny Number:"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:textColor="@color/gold"
             app:layout_constraintTop_toBottomOf="@id/tv_personality_number_label"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="8dp"/>
@@ -111,6 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
+            android:textColor="@color/white"
             app:layout_constraintTop_toTopOf="@id/tv_destiny_number_label"
             app:layout_constraintStart_toEndOf="@id/tv_destiny_number_label"
             android:layout_marginStart="8dp"/>
