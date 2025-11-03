@@ -1,4 +1,4 @@
-package com.shambhu.myapplication
+package com.shambhu.myapplication.fragment.other
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.databinding.FragmentLoshuGridBinding
+import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
+import kotlin.text.iterator
 
 class LoshuGridFragment : Fragment() {
 
@@ -25,14 +27,32 @@ class LoshuGridFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        arguments?.getString(ARG_FULL_NAME)?.let { fullName ->
+            val personalityNumber = NumerologyCalculationUtils.calculatePersonality(fullName)
+            val destinyNumber = NumerologyCalculationUtils.calculateExpression(fullName)
 
+            binding.tvPersonalityNumber.text = personalityNumber.toString()
+            binding.tvDestinyNumber.text = destinyNumber.toString()
+        }
         arguments?.getString(ARG_DOB)?.let { dob ->
-            val digits = dob.filter { it.isDigit() }
+            var digits = dob.filter { it.isDigit() }
+
+            // Calculate numerology numbers
+            val birthDate = CommonUtils.parseDate(dob)
+            val birthDay = birthDate.dayOfMonth
+            val birthMonth = birthDate.monthValue
+            val birthYear = birthDate.year
+
+
+            println("DOB: $digits")
+            digits = digits+ CommonUtils.reduceNumber(birthDay) +  NumerologyCalculationUtils.calculateLifePath(birthDay, birthMonth, birthYear)
+            println("DOB: $digits")
             val numberCounts = IntArray(10)
             for (digitChar in digits) {
                 val digit = digitChar.toString().toInt()
                 numberCounts[digit]++
             }
+
 
             updateCell(binding.cell1, 1, numberCounts[1])
             updateCell(binding.cell2, 2, numberCounts[2])
@@ -45,13 +65,7 @@ class LoshuGridFragment : Fragment() {
             updateCell(binding.cell9, 9, numberCounts[9])
         }
 
-        arguments?.getString(ARG_FULL_NAME)?.let { fullName ->
-            val personalityNumber = NumerologyCalculationUtils.calculatePersonality(fullName)
-            val destinyNumber = NumerologyCalculationUtils.calculateExpression(fullName)
 
-            binding.tvPersonalityNumber.text = personalityNumber.toString()
-            binding.tvDestinyNumber.text = destinyNumber.toString()
-        }
     }
 
     private fun updateCell(textView: TextView, number: Int, count: Int) {

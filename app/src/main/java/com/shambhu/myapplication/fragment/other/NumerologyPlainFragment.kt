@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.databinding.FragmentNumerologyPlainBinding
+import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import java.time.LocalDate
 
@@ -31,7 +32,7 @@ class NumerologyPlainFragment : Fragment() {
             val fullName = it.getString(ARG_FULL_NAME)
 
             if (dob != null && fullName != null) {
-                val date = LocalDate.parse(dob)
+                val date = CommonUtils.parseDate(dob)
                 val day = date.dayOfMonth
                 val month = date.monthValue
                 val year = date.year

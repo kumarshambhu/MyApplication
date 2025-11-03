@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         binding.calculateButton.setOnClickListener {
             val fullName = "Shambhu Kumar"//binding.nameEditText.text.toString()
             //val dob = "17/03/1979"//binding.dobEditText.text.toString()
-            val dob = "17/03/1979"//binding.dobEditText.text.toString()
+            val dob = "16/03/1979"//binding.dobEditText.text.toString()
             val time = "01:45";//binding.timeEditText.text.toString()
             val location = "Gaya";//binding.locationEditText.text.toString()
 

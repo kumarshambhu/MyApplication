@@ -55,6 +55,7 @@ class OtherActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
                 when (position) {
                     0 -> getDrawable(R.drawable.ic_grid)
                     1 -> getDrawable(R.drawable.ic_person)
+                    2 -> getDrawable(R.drawable.ic_person)
                     else -> null
                 }
             )
@@ -62,6 +63,7 @@ class OtherActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
                 tabText.text = when (position) {
                     0 -> "Loshu Grid"
                     1 -> Constants.TAB_KEY_NUMEROLOGY_PLAIN
+                    2 -> "Testing"
                     else -> null
                 }
             }

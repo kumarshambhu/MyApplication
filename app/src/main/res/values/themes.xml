@@ -23,6 +23,8 @@
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:outlineSpotShadowColor">@color/gold</item>
+        <item name="android:outlineAmbientShadowColor">@color/gold</item>
         <item name="android:background">@drawable/grid_border</item>
     </style>
 </resources>

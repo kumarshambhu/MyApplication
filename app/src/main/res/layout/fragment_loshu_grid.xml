@@ -6,11 +6,12 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:background="@drawable/mystical_gradient_background"
-    tools:context=".LoshuGridFragment">
+    tools:context=".fragment.other.LoshuGridFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:padding="16dp">
 
         <TextView

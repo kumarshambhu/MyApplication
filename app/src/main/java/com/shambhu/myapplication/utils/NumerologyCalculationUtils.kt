@@ -31,6 +31,10 @@ object NumerologyCalculationUtils {
         return total
     }
 
+    fun getBirthdayNumber(day: Int): Int {
+        return CommonUtils.reduceNumber(day)
+    }
+
     // Life Path Number Calculation
     fun calculateLifePath(day: Int, month: Int, year: Int): Int {
         val reducedDay = CommonUtils.reduceNumber(day)

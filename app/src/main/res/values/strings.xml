@@ -180,4 +180,7 @@
 
     <string name="lucky_number">Lucky Number</string>
     <string name="lucky_number_meaning">Your personal lucky number, derived from your day of birth.</string>
+    <string name="birthday_number">Birthday Number:</string>
+    <string name="lifepath_number">Lifepath Number:</string>
+    <string name="soulurge_number">Soul Urge Number:</string>
 </resources>
