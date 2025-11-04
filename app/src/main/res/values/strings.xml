@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">MyApplication</string>
-    <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
@@ -11,8 +10,48 @@
     <string name="date_of_birth">Date of Birth</string>
     <string name="time_of_birth">Time of Birth</string>
     <string name="location">Location</string>
+
     <string name="calculate">Calculate My Numbers</string>
     <string name="back">Back</string>
+
+    <string name="calculate_numerology">Calculate</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+    </string>
+    <string name="nav_header_desc">Description</string>
+    <string name="nav_header_title">Title</string>
+    <string name="nav_header_subtitle">Subtitle</string>
+
+    <string name="interpretation">Interpretation</string>
+    <string name="personality_meaning">How you appear to others</string>
+
+    <string name="expression_meaning">Your natural expression</string>
+
+    <string name="soul_number_meaning">Your inner desires</string>
+    <string name="birth_cycles_text">Your daily, monthly, and yearly cycles</string>
+
+    <string name="soul_urge_number">Soul Urge Number: </string>
+    <string name="expression_number">Expression Number: </string>
+    <string name="life_path_number">Life Path Number :</string>
+    <string name="personality_number">Personality Number:</string>
+    <string name="birth_numbers">Birth Numbers</string>
+    <string name="birth_day">Birth Day</string>
+    <string name="birth_month">Birth Month</string>
+    <string name="birth_year">Birth Year</string>
+    <string name="personal_month">Personal Month:</string>
+    <string name="personal_year">Personal Year:</string>
+    <string name="lucky_number">Lucky Number</string>
+    <string name="lucky_number_meaning">Your personal lucky number, derived from your day of birth.</string>
+    <string name="birthday_number">Birthday Number:</string>
+    <string name="lifepath_number">Lifepath Number:</string>
+    <string name="soulurge_number">Soul Urge Number:</string>
+    <string name="destiny_number">Destiny Number</string>
+
+
 
     <!-- Interpretation arrays -->
     <string-array name="life_path_interpretations">
@@ -98,35 +137,7 @@
         <item>This year emphasizes power, success, and achievement. You\'ll have opportunities to gain financial stability, influence, and positions of authority. Focus on ambition, determination, and manifesting material goals with confidence and power.</item>
         <item>This year emphasizes compassion, service, and humanitarian work. You\'ll have opportunities to teach, heal, and make the world better. Focus on generosity, giving back, and spiritual growth through service to others.</item>
     </string-array>
-    <string name="calculate_numerology">Calculate</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="lorem_ipsum">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
-        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
-    </string>
-    <string name="nav_header_desc">Description</string>
-    <string name="nav_header_title">Title</string>
-    <string name="nav_header_subtitle">Subtitle</string>
-    <string name="life_path_number">Life Path Number :</string>
-    <string name="personality_number">Personality Number:</string>
-    <string name="interpretation">Interpretation</string>
-    <string name="personality_meaning">How you appear to others</string>
-    <string name="expression_number">"Expression Number: "</string>
-    <string name="expression_meaning">Your natural expression</string>
-    <string name="soul_urge_number">"Soul Urge Number: "</string>
-    <string name="soul_number_meaning">Your inner desires</string>
-    <string name="birth_cycles_text">Your daily, monthly, and yearly cycles</string>
-    <string name="birth_numbers">Birth Numbers</string>
-    <string name="birth_day">Birth Day</string>
-    <string name="birth_month">Birth Month</string>
-    <string name="birth_year">Birth Year</string>
-    <string name="personal_month">Personal Month:</string>
-    <string name="personal_year">Personal Year:</string>
 
-    <!-- Personal Year Interpretations -->
     <string-array name="personal_year_interpretations">
         <item>This year emphasizes new beginnings, leadership, and innovation. You\'ll have opportunities to take charge, start new projects, and assert your independence. Focus on personal growth and achieving your goals. (1)</item>
         <item>This year emphasizes harmony, balance, and partnerships. You\'ll have opportunities to mediate, build relationships, and create beauty in your life and environment. Focus on cooperation and nurturing connections. (2)</item>
@@ -139,7 +150,6 @@
         <item>This year emphasizes compassion, service, and humanitarian work. You\'ll have opportunities to teach, heal, and make the world better. Focus on generosity, giving back, and spiritual growth through service. (9)</item>
     </string-array>
 
-    <!-- Personal Month Interpretations -->
     <string-array name="personal_month_interpretations">
         <item>This month emphasizes new beginnings, leadership, and innovation. You\'ll have opportunities to take charge, start new projects, and assert your independence. Focus on personal growth and achieving goals. (1)</item>
         <item>This month emphasizes harmony, balance, and partnerships. You\'ll have opportunities to mediate, build relationships, and create beauty. Focus on cooperation and nurturing connections. (2)</item>
@@ -178,9 +188,5 @@
         <item>A time of mastery and large-scale achievement. You will be challenged to build something of lasting value for the world.</item>
     </string-array>
 
-    <string name="lucky_number">Lucky Number</string>
-    <string name="lucky_number_meaning">Your personal lucky number, derived from your day of birth.</string>
-    <string name="birthday_number">Birthday Number:</string>
-    <string name="lifepath_number">Lifepath Number:</string>
-    <string name="soulurge_number">Soul Urge Number:</string>
+
 </resources>

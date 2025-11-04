@@ -67,6 +67,21 @@ class TestingFragment : Fragment() {
         binding.soulUrgeDescription.text = soulUrgeInterpretations[ soulUrgeValue- 1]
 
 
+        val personalityNumberValue = NumerologyCalculationUtils.calculateSoulUrge(fullName.toString())
+        binding.personalityNumberKey.text =  getString(R.string.personality_number) +  ": " + personalityNumberValue.toString()
+        val personalityNumberInterpretations = resources.getStringArray(R.array.soul_urge_interpretations)
+        binding.personalityNumberDescription.text = personalityNumberInterpretations[ personalityNumberValue- 1]
+
+
+        val destinyNumberValue = NumerologyCalculationUtils.calculateSoulUrge(fullName.toString())
+        binding.destinyNumberKey.text =  getString(R.string.destiny_number) + ":" + destinyNumberValue.toString()
+        val destinyNumberInterpretations = resources.getStringArray(R.array.soul_urge_interpretations)
+        binding.destinyNumberDescription.text = destinyNumberInterpretations[ soulUrgeValue- 1]
+
+
+
+
+
         Log.i("Testing Fragment", "Birthday Value: $birthdayValue")
 
     }

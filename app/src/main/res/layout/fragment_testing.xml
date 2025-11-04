@@ -182,7 +182,7 @@
                     android:id="@+id/personality_number_key"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Personality Number"
+                    android:text="@string/personality_number"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -219,7 +219,7 @@
                     android:id="@+id/destiny_number_key"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Destiny Number"
+                    android:text="@string/destiny_number"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
