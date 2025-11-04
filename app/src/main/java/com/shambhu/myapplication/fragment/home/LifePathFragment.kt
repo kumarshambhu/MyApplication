@@ -33,10 +33,24 @@ class LifePathFragment : Fragment() {
             tvLifePathNumber.text = lifePath.toString()
 
             // Set interpretation
-            val interpretations = resources.getStringArray(R.array.life_path_interpretations)
-            if (lifePath > 0 && lifePath <= interpretations.size) {
-                tvLifePathInterpretation.text = interpretations[lifePath - 1]
-            }
+            tvLifePathInterpretation.text = getLifePathDescription(lifePath)
+        }
+    }
+
+    private fun getLifePathDescription(lifePath: Int): String {
+        try {
+            val inputStream = requireContext().assets.open("life_path_meaning.json")
+            val size = inputStream.available()
+            val buffer = ByteArray(size)
+            inputStream.read(buffer)
+            inputStream.close()
+            val json = String(buffer, Charsets.UTF_8)
+            val jsonObject = org.json.JSONObject(json)
+            val lifePathObject = jsonObject.getJSONObject(lifePath.toString())
+            return lifePathObject.getString("description")
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+            return ""
         }
     }
 
