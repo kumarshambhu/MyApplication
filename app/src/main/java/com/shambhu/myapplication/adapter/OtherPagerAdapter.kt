@@ -6,6 +6,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.shambhu.myapplication.fragment.other.NumerologyPlainFragment
 import com.shambhu.myapplication.fragment.other.JsonBulletFragment
 import com.shambhu.myapplication.fragment.other.LoshuGridFragment
+import com.shambhu.myapplication.fragment.other.MultilineTextFragment
 import com.shambhu.myapplication.fragment.other.TestingFragment
 
 class OtherPagerAdapter(
@@ -15,7 +16,7 @@ class OtherPagerAdapter(
 ) : FragmentStateAdapter(fa) {
 
     override fun getItemCount(): Int {
-        return 4
+        return 5
     }
 
     override fun createFragment(position: Int): Fragment {
@@ -24,6 +25,7 @@ class OtherPagerAdapter(
             1 -> NumerologyPlainFragment.newInstance(dob, fullName)
             2 -> TestingFragment.newInstance(dob, fullName)
             3 -> JsonBulletFragment.newInstance(dob, fullName)
+            4 -> MultilineTextFragment.newInstance(dob, fullName)
             else -> throw IllegalStateException("Invalid position: $position")
         }
     }
