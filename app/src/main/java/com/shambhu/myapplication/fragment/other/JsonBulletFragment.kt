@@ -14,6 +14,8 @@ import java.io.IOException
 import java.nio.charset.Charset
 import android.widget.TextView
 
+data class BulletItem(val title: String, val description: String)
+
 class JsonBulletFragment : Fragment() {
 
     private var _binding: FragmentJsonBulletBinding? = null
@@ -36,8 +38,8 @@ class JsonBulletFragment : Fragment() {
         binding.recyclerView.adapter = BulletListAdapter(items)
     }
 
-    private fun loadItemsFromJson(): List<String> {
-        val items = mutableListOf<String>()
+    private fun loadItemsFromJson(): List<BulletItem> {
+        val items = mutableListOf<BulletItem>()
         try {
             val inputStream = requireContext().assets.open("data.json")
             val size = inputStream.available()
@@ -48,7 +50,10 @@ class JsonBulletFragment : Fragment() {
             val jsonObject = JSONObject(json)
             val jsonArray = jsonObject.getJSONArray("items")
             for (i in 0 until jsonArray.length()) {
-                items.add(jsonArray.getString(i))
+                val itemObject = jsonArray.getJSONObject(i)
+                val title = itemObject.getString("title")
+                val description = itemObject.getString("description")
+                items.add(BulletItem(title, description))
             }
         } catch (ex: IOException) {
             ex.printStackTrace()
@@ -71,23 +76,28 @@ class JsonBulletFragment : Fragment() {
         }
     }
 
-    private class BulletListAdapter(private val items: List<String>) :
+    private class BulletListAdapter(private val items: List<BulletItem>) :
         RecyclerView.Adapter<BulletListAdapter.ViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.list_item_bullet, parent, false) as TextView
+                .inflate(R.layout.list_item_bullet, parent, false)
             return ViewHolder(view)
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.textView.text = items[position]
+            val item = items[position]
+            holder.titleTextView.text = item.title
+            holder.descriptionTextView.text = item.description
         }
 
         override fun getItemCount(): Int {
             return items.size
         }
 
-        class ViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
+        class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
+            val descriptionTextView: TextView = itemView.findViewById(R.id.descriptionTextView)
+        }
     }
 }

@@ -1,7 +1,16 @@
 {
   "items": [
-    "This is the first bullet point.",
-    "This is the second bullet point.",
-    "This is the third bullet point."
+    {
+      "title": "First Bullet Point",
+      "description": "This is the description for the first bullet point."
+    },
+    {
+      "title": "Second Bullet Point",
+      "description": "This is the description for the second bullet point."
+    },
+    {
+      "title": "Third Bullet Point",
+      "description": "This is the description for the third bullet point."
+    }
   ]
 }
