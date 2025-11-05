@@ -22,10 +22,12 @@
             android:id="@+id/titleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/gold"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/descriptionTextView"
+            android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

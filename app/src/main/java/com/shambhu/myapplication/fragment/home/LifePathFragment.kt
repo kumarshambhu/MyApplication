@@ -1,40 +1,44 @@
 package com.shambhu.myapplication.fragment.home
 
 import android.os.Bundle
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.R
+import com.shambhu.myapplication.databinding.FragmentBirthNumbersBinding
+import com.shambhu.myapplication.databinding.FragmentLifePathBinding
+import com.shambhu.myapplication.utils.Constants.Companion.MY_DATA
+import org.json.JSONObject
+import java.nio.charset.Charset
 
 class LifePathFragment : Fragment() {
 
-    private lateinit var tvLifePathNumber: TextView
-    private lateinit var tvLifePathInterpretation: TextView
+    private var _binding: FragmentLifePathBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_life_path, container, false)
+        _binding = FragmentLifePathBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        tvLifePathNumber = view.findViewById(R.id.tvLifePathNumber)
-        tvLifePathInterpretation = view.findViewById(R.id.tvLifePathInterpretation)
-
         arguments?.let {
             val lifePath = it.getInt(ARG_LIFE_PATH)
-
-            tvLifePathNumber.text = lifePath.toString()
-
-            // Set interpretation
-            tvLifePathInterpretation.text = getLifePathDescription(lifePath)
+            binding.tvLifePathNumber.text = lifePath.toString()
+            binding.tvLifePathInterpretation.text = getLifePathDescription(lifePath)
         }
+
+        binding.row4.text = Html.fromHtml(MY_DATA, HtmlCompat.FROM_HTML_MODE_LEGACY)
     }
 
     private fun getLifePathDescription(lifePath: Int): String {
@@ -51,8 +55,11 @@ class LifePathFragment : Fragment() {
         } catch (ex: Exception) {
             ex.printStackTrace()
             return ""
+
         }
     }
+
+
 
     companion object {
         private const val ARG_LIFE_PATH = "lifePath"
