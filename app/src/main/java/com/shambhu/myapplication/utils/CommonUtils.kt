@@ -1,5 +1,6 @@
 package com.shambhu.myapplication.utils
 
+import android.content.Context
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.ZoneId
@@ -29,5 +30,12 @@ object CommonUtils {
             number = number.toString().map { it.toString().toInt() }.sum()
         }
         return number
+    }
+
+    fun readAssetFile(context: Context, filename: String): String {
+        // Use context.assets to access AssetManager
+        context.assets.open(filename).bufferedReader().use {
+            return it.readText()
+        }
     }
 }

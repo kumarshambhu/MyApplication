@@ -15,5 +15,12 @@ class Constants {
         const val TAB_KEY_NUMEROLOGY_PLAIN = "Numerology Plain"
 
         const val MY_DATA = "<ul><li><b>Responsibility & Self-Control:</b> You’re encouraged to face your responsibilities head-on and avoid escapism. You have the potential to solve problems creatively if you apply yourself.</li><li><b>Confidence & Independence:</b> A dynamic, risk-taking individual who prefers forging your own path. You value originality and admire resilience in others.</li></ul>"
+
+        val LETTER_VALUES = mapOf(
+            'A' to 1, 'B' to 2, 'C' to 3, 'D' to 4, 'E' to 5, 'F' to 6, 'G' to 7, 'H' to 8, 'I' to 9,
+            'J' to 1, 'K' to 2, 'L' to 3, 'M' to 4, 'N' to 5, 'O' to 6, 'P' to 7, 'Q' to 8, 'R' to 9,
+            'S' to 1, 'T' to 2, 'U' to 3, 'V' to 4, 'W' to 5, 'X' to 6, 'Y' to 7, 'Z' to 8
+        )
+
     }
 }

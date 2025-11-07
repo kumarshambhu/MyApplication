@@ -1,0 +1,51 @@
+{
+  "element": {
+    "1": "EARTH",
+    "2": "WATER",
+    "3": "FIRE",
+    "4": "EARTH",
+    "5": "AIR",
+    "6": "0.5 EARTH + 0.5 AIR",
+    "7": "WATER",
+    "8": "EARTH",
+    "9": "FIRE",
+    "11": "AIR",
+    "22": "WATER"
+  },
+  "definition": {
+    "AIR": {
+      "description": "Social, Speech, Change, Originality",
+      "details": "<b>Fire</b> is associated with energy and the life force. It represents being <i>creative</i>, <i>adventurous</i>, <i>emotional</i>, and <i>intelligent</i>."
+    },
+    "EARTH": {
+      "description": "sensual, practical, conservative",
+      "details": "<b>Earth</b> is associated with the sensual part of us, with being practical, and conservative. We are <i>down to earth</i>, <i>grounded.</i>"
+    },
+    "FIRE": {
+      "description": "energetic, creative, adventurous, emotional, intelligent",
+      "details": "<b>Air</b> is associated with speech and being in contact with other people, being social. It represents <i>change</i> and <i>originality</i>."
+    },
+    "WATER": {
+      "description": "mystical, silent, alone, perceptive, the arts.",
+      "details": "<b>Water</b> is associated with the mystical, being silent and alone. It represents being <i>perceptive</i> and having <i>artistic creativity</i>."
+    }
+  },
+  "excess": {
+    "AIR": {
+      "details": "If there is a lot more air in the person’s name, they will be <i>flighty</i>, an <b>air head</b>. They will not make sense. They will be so changeable that you will not be able to depend on them. They will always need others around and will want to dominate any conversation."
+    },
+    "EARTH": {
+      "details": "If there is a lot more earth in the name, the person will be very conservative, practical, and <i>earth bound</i>. They may be rigid in their thinking, practical to a fault and very materialistic in beliefs and in the accumulation of money, power, and things."
+    },
+    "FIRE": {
+      "details": "If there is a lot of fire in the person’s name, they will be a <i>go‐getter</i>. They will have lots of energy, love to be daring and seek lots of adventures. They will be very intelligent and creative. They will be on the move most of the time."
+    },
+    "WATER": {
+      "details": "If there is a lot of water in the name, this person will be very Spiritual, quiet, and a loner. They will not do well in the practical world of earning money and dealing with power. They will not seek out others often or be interested in physical activity."
+    }
+  }
+}
+
+
+
+

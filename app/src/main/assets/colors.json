@@ -1,0 +1,79 @@
+{
+  "color_by_number": {
+    "1": {
+      "color": "RED",
+      "detail": "Life energy, desires and impulses."
+    },
+    "2": {
+      "color": "ORANGE",
+      "detail": "Money, fertility, wisdom and leadership."
+    },
+    "3": {
+      "color": "YELLOW",
+      "detail": "Psychic, the intuition and spiritual wisdom."
+    },
+    "4": {
+      "color": "GREEN",
+      "detail": "Healing, bringing dreams into reality and concentration."
+    },
+    "5": {
+      "color": "TAN",
+      "detail": "Dependable, trustworthy and organized."
+    },
+    "6": {
+      "color": "BLUE",
+      "detail": "Harmony, will power and discipline."
+    },
+    "7": {
+      "color": "PURPLE",
+      "detail": "God Self within and spirituality."
+    },
+    "8": {
+      "color": "BLACK",
+      "detail": "Rebellion, a negative outlook and the will."
+    },
+    "9": {
+      "color": "GOLD",
+      "detail": "Wisdom, counseling and the spiritual realms."
+    },
+    "11": {
+      "color": "PINK",
+      "detail": "Peace, devotion, endurance and the mystical."
+    },
+    "22": {
+      "color": "BROWN",
+      "detail": "Being dependable and being who you are."
+    }
+  },
+  "color_group": {
+    "group1": {
+      "colors": [
+        "GREEN",
+        "BLUE",
+        "BLACK",
+        "RED"
+      ],
+      "description": "healing, will power, concentration, life energy, desire",
+      "details": "The conservative and practical earth because the qualities of colors in group one can all relate to the earth qualities. Healing can be on the physical level. Will power and concentration can help you be conservative and practical. The life energy and desire can all manifest on the earth plane. <br/>\\tthe sociable, changeable, original qualities of air because healing can occur on a social level. <br/>\\tWill power, concentration, the life energy, and desire can all aid in changes and in bringing out your originality. the life energy, impulse, and adventure qualities of fire because they are so alike. <br/>\\tThe silent, prospective, mystical qualities of water. Healing deals with all levels and healing on the spiritual level is enhanced with the group one colors. Concentration and will power are needed for introspection, meditation, and the discipline of entering the silence within."
+    },
+    "group2": {
+      "colors": [
+        "BROWN",
+        "TAN",
+        "ORANGE"
+      ],
+      "description": "money, dependability, and organization",
+      "details": "practical, conservative earth for these qualities all deal with the material plane.<br/> The social, and changeable air as long as it does not dominate it and put too many limitations on it.<br/><i>It may weaken</i> the adventurous, active, and action of the life force of fireand provide the things needed so that silent, mystical, and meditative water can be reflective and solitary. However, some group 2 qualities can keep the water energies more practical."
+    },
+    "group3": {
+      "colors": [
+        "PINK",
+        "GOLD",
+        "PURPLE",
+        "YELLOW"
+      ],
+      "description": "the spiritual colors",
+      "details": "the silent, introspective, mystical, and being alone qualities of water.<br/><i>It may weaken</i> the flesh loving, action filled life of fire and keep it from a total <i>living for today</i>, Devil may care life style.<br/><i>It may lead</i> the social loving, speaking, and changeable aspects of air to a career in ministry or some sort of charitable work where the care and helping of others is important."
+    }
+  }
+}

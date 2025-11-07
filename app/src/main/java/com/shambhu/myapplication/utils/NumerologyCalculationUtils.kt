@@ -1,7 +1,10 @@
 package com.shambhu.myapplication.utils
 
+import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
 import java.time.LocalDate
 import java.util.Locale
+import kotlin.collections.component1
+import kotlin.collections.component2
 
 object NumerologyCalculationUtils {
 
@@ -135,14 +138,8 @@ object NumerologyCalculationUtils {
     }
 
     fun calculateKarmicFromName(fullName: String): String {
-        val letterValues = mapOf(
-            'A' to 1, 'B' to 2, 'C' to 3, 'D' to 4, 'E' to 5, 'F' to 6, 'G' to 7, 'H' to 8, 'I' to 9,
-            'J' to 1, 'K' to 2, 'L' to 3, 'M' to 4, 'N' to 5, 'O' to 6, 'P' to 7, 'Q' to 8, 'R' to 9,
-            'S' to 1, 'T' to 2, 'U' to 3, 'V' to 4, 'W' to 5, 'X' to 6, 'Y' to 7, 'Z' to 8
-        )
-
-        val cleanedName = fullName.uppercase().filter { it in letterValues }
-        val total = cleanedName.map { letterValues[it] ?: 0 }.sum()
+        val cleanedName = fullName.uppercase().filter { it in LETTER_VALUES }
+        val total = cleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
 
         // Reduce to single digit unless it's a karmic debt number
         fun reduce(n: Int): Int {
@@ -216,5 +213,59 @@ object NumerologyCalculationUtils {
 
     fun calculateLuckyNumber(day: Int): Int {
         return CommonUtils.reduceNumber(day)
+    }
+
+    fun calculateElements(fullName: String, jsonString: String){
+        val result = nameToIntArray(fullName);
+        val emptyArray = arrayOf<String>()
+
+        val jsonObject = org.json.JSONObject(jsonString)
+        val lifePathObject = jsonObject.getJSONObject("element")
+
+        result.forEach { it ->
+             lifePathObject[it.toString()]
+        }
+       /* result.toList()
+            .mapNotNull { lifePathObject[it] } // skip characters not in map
+            .toTypedArray()*/
+
+        val result1 = result.toList().mapNotNull { lifePathObject[it.toString()] }.toTypedArray()
+        println(result1.contentToString())
+
+
+
+    }
+
+    private fun nameToIntArray(name: String): IntArray {
+        return name.uppercase()
+            .mapNotNull { LETTER_VALUES[it] } // skip characters not in map
+            .toIntArray()
+    }
+
+    private fun sortedByCountFrequency(numbers: IntArray): List<Map.Entry<Int, Int>> {
+        val sorted = numbers.toList().groupingBy { it }.eachCount()
+            .entries
+            .sortedWith(compareByDescending<Map.Entry<Int, Int>> { it.value }
+                .thenBy { it.key })
+
+        println("Sorted by frequency (desc) then by number (asc):")
+        sorted.forEach { (number, count) ->
+            println("$number -> $count times")
+        }
+
+        return sorted
+    }
+
+    private fun sortedByNumber(numbers: IntArray): List<Map.Entry<Int, Int>> {
+        val sortedByFrequency = numbers.toList().groupingBy { it }.eachCount()
+            .entries
+            .sortedBy { it.key }
+
+        println("Sorted by frequency (most repeated first):")
+        sortedByFrequency.forEach { (number, count) ->
+            println("$number -> $count times")
+        }
+
+        return sortedByFrequency
     }
 }
