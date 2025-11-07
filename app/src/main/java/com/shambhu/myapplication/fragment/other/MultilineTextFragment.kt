@@ -1,14 +1,16 @@
 package com.shambhu.myapplication.fragment.other
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.databinding.FragmentMultilineTextBinding
+import com.shambhu.myapplication.utils.CommonUtils
+import com.shambhu.myapplication.utils.Constants
 import org.json.JSONObject
 import java.io.IOException
-import java.nio.charset.Charset
 
 class MultilineTextFragment : Fragment() {
 
@@ -26,6 +28,27 @@ class MultilineTextFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        arguments?.let {
+            val fullName = it.getString(Constants.ARG_FULL_NAME)
+            var result = CommonUtils.nameToIntArray(fullName.toString())
+            var numberList = result.toList();
+            //println(result.joinToString(", "))
+            var elementArray =  arrayOfNulls<String> (numberList.size)
+            val json = CommonUtils.readAssetFile(requireContext(), "elements.json")
+            val jsonObject = JSONObject(json)
+            val jsonArray = jsonObject.getJSONObject("element")
+            for (i in 0 until numberList.size) {
+                val element = jsonArray.getString(result[i].toString())
+                Log.i("ELEMENT", element.toString())
+                elementArray[i] = element
+            }
+            val sorted = elementArray.toList().groupingBy { it }.eachCount()
+
+            sorted.forEach { (data, count) ->
+                println("$data -> $count times")
+            }
+
+        }
 
         binding.multilineTextView.text = loadContentFromJson()
     }
@@ -33,12 +56,7 @@ class MultilineTextFragment : Fragment() {
     private fun loadContentFromJson(): String {
         var content = ""
         try {
-            val inputStream = requireContext().assets.open("multiline_data.json")
-            val size = inputStream.available()
-            val buffer = ByteArray(size)
-            inputStream.read(buffer)
-            inputStream.close()
-            val json = String(buffer, Charset.defaultCharset())
+            val json = CommonUtils.readAssetFile(requireContext(), "multiline_data.json")
             val jsonObject = JSONObject(json)
             content = jsonObject.getString("content")
         } catch (ex: IOException) {
@@ -56,7 +74,8 @@ class MultilineTextFragment : Fragment() {
         fun newInstance(dob: String, fullName: String): MultilineTextFragment {
             val fragment = MultilineTextFragment()
             val args = Bundle()
-            // We don't need dob and fullName for this fragment, but keeping the signature consistent
+            args.putString(Constants.ARG_DOB, dob)
+            args.putString(Constants.ARG_FULL_NAME, fullName)
             fragment.arguments = args
             return fragment
         }

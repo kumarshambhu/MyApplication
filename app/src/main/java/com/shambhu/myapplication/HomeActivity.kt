@@ -54,8 +54,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         // Update the navigation header
         val headerView = binding.navView.getHeaderView(0)
-        headerView.findViewById<TextView>(R.id.nav_header_full_name)
-        headerView.findViewById<TextView>(R.id.nav_header_dob)
+        headerView.findViewById<TextView>(R.id.nav_header_full_name).text = fullName
+        headerView.findViewById<TextView>(R.id.nav_header_dob).text = dob
         headerView.findViewById<TextView>(R.id.nav_header_time).text = time
         headerView.findViewById<TextView>(R.id.nav_header_location).text = location
 

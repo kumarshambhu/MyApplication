@@ -1,7 +1,11 @@
 package com.shambhu.myapplication.utils
 
+import org.json.JSONObject
+
 class Constants {
     companion object {
+        const val ARG_DOB = "dob"
+        const val ARG_FULL_NAME = "fullName"
         const val TAB_KEY_PERSONALITY = "Personality"
         const val TAB_KEY_BIRTH_NUMBER = "Birth Number"
         const val TAB_KEY_SOUL_URGE = "Soul Urge"

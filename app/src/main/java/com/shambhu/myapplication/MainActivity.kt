@@ -3,6 +3,7 @@ package com.shambhu.myapplication
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
@@ -34,6 +35,8 @@ class MainActivity : AppCompatActivity() {
 
             // Validate inputs
             if (fullName.isNotEmpty() && dob.isNotEmpty() && time.isNotEmpty() && location.isNotEmpty()) {
+                Log.i("MainActivity", "Full Name: $fullName")
+                Log.i("MainActivity", "Date of Birth: $dob")
                 val sharedPref = this.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
                 sharedPref.edit {
                     putString("full_name", fullName)

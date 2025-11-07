@@ -1,6 +1,8 @@
 package com.shambhu.myapplication.utils
 
 import android.content.Context
+import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
+import java.nio.charset.Charset
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.ZoneId
@@ -33,9 +35,17 @@ object CommonUtils {
     }
 
     fun readAssetFile(context: Context, filename: String): String {
-        // Use context.assets to access AssetManager
-        context.assets.open(filename).bufferedReader().use {
-            return it.readText()
-        }
+        val inputStream =context.assets.open(filename)
+        val size = inputStream.available()
+        val buffer = ByteArray(size)
+        inputStream.read(buffer)
+        inputStream.close()
+        return String(buffer, Charset.defaultCharset())
+    }
+
+    fun nameToIntArray(name: String): IntArray {
+        return name.uppercase()
+            .mapNotNull { LETTER_VALUES[it] } // skip characters not in map
+            .toIntArray()
     }
 }

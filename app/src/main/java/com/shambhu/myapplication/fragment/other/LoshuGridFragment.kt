@@ -8,6 +8,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.databinding.FragmentLoshuGridBinding
 import com.shambhu.myapplication.utils.CommonUtils
+import com.shambhu.myapplication.utils.Constants
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import kotlin.text.iterator
 
@@ -82,9 +85,6 @@ class LoshuGridFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_DOB = "dob"
-        private const val ARG_FULL_NAME = "fullName"
-
         fun newInstance(dob: String, fullName: String): LoshuGridFragment {
             val fragment = LoshuGridFragment()
             val args = Bundle()
