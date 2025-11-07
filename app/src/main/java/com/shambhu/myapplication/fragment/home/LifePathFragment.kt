@@ -57,6 +57,8 @@ class LifePathFragment : Fragment() {
             return ""
 
         }
+        val json = String(MY_DATA.toByteArray(), Charset.defaultCharset())
+        binding.row4.text = json
     }
 
 
