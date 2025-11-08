@@ -1,6 +1,7 @@
 package com.shambhu.myapplication.fragment.other
 
 import android.os.Bundle
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,15 +32,20 @@ class MultilineTextFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let {
             val fullName = it.getString(Constants.ARG_FULL_NAME) ?: return
-            val colorNumbers = NumerologyCalculationUtils.nameToColorNumbers(fullName)
             val colorsJson = CommonUtils.loadJSONFromAsset(requireContext(), "colors.json") ?: return
-            val colorsObject = JSONObject(colorsJson).getJSONObject("color_by_number")
 
+            // Color Group
+            val (description, details) = NumerologyCalculationUtils.calculateColorGroup(fullName, colorsJson)
+            binding.colorGroupDescriptionTextView.text = description
+            binding.colorGroupDetailsTextView.text = Html.fromHtml(details, Html.FROM_HTML_MODE_COMPACT)
+
+            // Color List
+            val colorNumbers = NumerologyCalculationUtils.nameToColorNumbers(fullName)
+            val colorsObject = JSONObject(colorsJson).getJSONObject("color_by_number")
             val colorCounts = colorNumbers.groupingBy { it }.eachCount()
             val colorsToShow = colorCounts.mapNotNull { (number, count) ->
                 colorsObject.optJSONObject(number.toString())?.let { it to count }
             }
-
             binding.colorsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             binding.colorsRecyclerView.adapter = ColorAdapter(colorsToShow)
         }

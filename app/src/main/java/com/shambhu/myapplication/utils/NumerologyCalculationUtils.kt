@@ -215,31 +215,40 @@ object NumerologyCalculationUtils {
         return CommonUtils.reduceNumber(day)
     }
 
-    fun calculateElements(fullName: String, jsonString: String): String {
-        val nameNumbers = nameToIntArray(fullName)
-        val elementScores = mutableMapOf("AIR" to 0.0, "EARTH" to 0.0, "FIRE" to 0.0, "WATER" to 0.0)
+    fun calculateColorGroup(fullName: String, jsonString: String): Pair<String, String> {
+        val nameNumbers = nameToColorNumbers(fullName)
 
         val jsonObject = org.json.JSONObject(jsonString)
-        val elementMap = jsonObject.getJSONObject("element")
-        val excessMap = jsonObject.getJSONObject("excess")
+        val colorByNumber = jsonObject.getJSONObject("color_by_number")
+        val colorGroup = jsonObject.getJSONObject("color_group")
 
-        for (number in nameNumbers) {
-            if (elementMap.has(number.toString())) {
-                val elements = elementMap.getJSONArray(number.toString())
-                for (i in 0 until elements.length()) {
-                    val elementObject = elements.getJSONObject(i)
-                    val elementName = elementObject.getString("element")
-                    val quantity = elementObject.getDouble("quantity")
-                    elementScores[elementName] = elementScores.getOrDefault(elementName, 0.0) + quantity
-                }
+        val colorToGroupMap = mutableMapOf<String, String>()
+        val groupIterator = colorGroup.keys()
+        while (groupIterator.hasNext()) {
+            val groupName = groupIterator.next()
+            val groupObject = colorGroup.getJSONObject(groupName)
+            val colorsInGroup = groupObject.getJSONArray("colors")
+            for (i in 0 until colorsInGroup.length()) {
+                val colorName = colorsInGroup.getString(i)
+                colorToGroupMap[colorName] = groupName
             }
         }
 
-        val highestElement = elementScores.maxByOrNull { it.value }?.key
-        return if (highestElement != null && excessMap.has(highestElement)) {
-            excessMap.getJSONObject(highestElement).getString("details")
+        val groupCounts = nameNumbers
+            .mapNotNull { colorByNumber.optJSONObject(it.toString())?.optString("color") }
+            .mapNotNull { colorToGroupMap[it] }
+            .groupingBy { it }
+            .eachCount()
+
+        val dominantGroup = groupCounts.maxByOrNull { it.value }?.key
+
+        return if (dominantGroup != null && colorGroup.has(dominantGroup)) {
+            val groupObject = colorGroup.getJSONObject(dominantGroup)
+            val description = groupObject.getString("description")
+            val details = groupObject.getString("details")
+            Pair(description, details)
         } else {
-            "No dominant element found."
+            Pair("No dominant color group found.", "")
         }
     }
 
