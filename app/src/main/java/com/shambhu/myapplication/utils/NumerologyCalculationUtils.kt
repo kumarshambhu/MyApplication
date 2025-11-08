@@ -243,6 +243,12 @@ object NumerologyCalculationUtils {
         }
     }
 
+    fun nameToColorNumbers(name: String): List<Int> {
+        return name.uppercase()
+            .mapNotNull { LETTER_VALUES[it] } // skip characters not in map
+            .toList()
+    }
+
     private fun nameToIntArray(name: String): IntArray {
         return name.uppercase()
             .mapNotNull { LETTER_VALUES[it] } // skip characters not in map

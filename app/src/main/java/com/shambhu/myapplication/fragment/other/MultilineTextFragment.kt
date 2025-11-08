@@ -1,17 +1,17 @@
 package com.shambhu.myapplication.fragment.other
 
 import android.os.Bundle
-import android.text.Html
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.shambhu.myapplication.adapter.ColorAdapter
 import com.shambhu.myapplication.databinding.FragmentMultilineTextBinding
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
+import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import org.json.JSONObject
-import java.io.IOException
 
 class MultilineTextFragment : Fragment() {
 
@@ -30,60 +30,18 @@ class MultilineTextFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let {
-            val fullName = it.getString(Constants.ARG_FULL_NAME)
-            var result = CommonUtils.nameToIntArray(fullName.toString())
-            var numberList = result.toList();
-            //println(result.joinToString(", "))
-            var elementArray =  arrayOfNulls<String> (numberList.size)
-            val json = CommonUtils.readAssetFile(requireContext(), "elements.json")
-            val jsonObject = JSONObject(json)
-            val jsonArray = jsonObject.getJSONObject("element")
-            val definitionArray = jsonObject.getJSONObject("excess")
-            var repeatedSix = 0;
-            for (i in 0 until numberList.size) {
-                if(result[i] == 6){
-                    repeatedSix += 1;
-                } else{
-                    val element = jsonArray.getString(result[i].toString())
-                    Log.i("ELEMENT", element.toString())
-                    elementArray[i] = element
-                }
+            val fullName = it.getString(Constants.ARG_FULL_NAME) ?: return
+            val colorNumbers = NumerologyCalculationUtils.nameToColorNumbers(fullName)
+            val colorsJson = CommonUtils.loadJSONFromAsset(requireContext(), "colors.json") ?: return
+            val colorsObject = JSONObject(colorsJson).getJSONObject("color_by_number")
 
+            val colorsToShow = colorNumbers.mapNotNull { number ->
+                colorsObject.optJSONObject(number.toString())
             }
-            val sorted = elementArray.toList().groupingBy { it }.eachCount()
-            //Fix for 6
-            /*if(repeatedSix > 0){
-                var earthCount = sorted["EARTH"]?.plus((repeatedSix * 0.5))
-                var airCount = sorted["AIR"]?.plus((repeatedSix * 0.5))
 
-                sorted.put("EARTH", earthCount!!.toInt())
-                sorted.put("AIR", airCount!!.toInt())
-
-            }*/
-
-
-            var elements = ""
-            sorted.forEach { (data, count) ->
-                println("$data -> $count times")
-                elements += "<b>$data</b>: $count <br/>"
-            }
-            binding.elementsCountTextView.text = Html.fromHtml(elements)
-
+            binding.colorsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+            binding.colorsRecyclerView.adapter = ColorAdapter(colorsToShow)
         }
-
-        binding.multilineTextView.text = loadContentFromJson()
-    }
-
-    private fun loadContentFromJson(): String {
-        var content = ""
-        try {
-            val json = CommonUtils.readAssetFile(requireContext(), "multiline_data.json")
-            val jsonObject = JSONObject(json)
-            content = jsonObject.getString("content")
-        } catch (ex: IOException) {
-            ex.printStackTrace()
-        }
-        return content
     }
 
     override fun onDestroyView() {
