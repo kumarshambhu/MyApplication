@@ -33,6 +33,13 @@
         android:padding="16dp">
 
         <TextView
+            android:id="@+id/colorGroupNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <TextView
             android:id="@+id/colorGroupDescriptionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

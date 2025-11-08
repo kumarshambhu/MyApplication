@@ -215,7 +215,7 @@ object NumerologyCalculationUtils {
         return CommonUtils.reduceNumber(day)
     }
 
-    fun calculateColorGroup(fullName: String, jsonString: String): Triple<String, String, String> {
+    fun calculateColorGroup(fullName: String, jsonString: String): Quadruple<String, String, String, String> {
         val nameNumbers = nameToColorNumbers(fullName)
 
         val jsonObject = org.json.JSONObject(jsonString)
@@ -254,9 +254,10 @@ object NumerologyCalculationUtils {
             }
 
             val matchedColors = userColors.filter { colorsInDominantGroup.contains(it) }.distinct().joinToString(", ")
-            Triple(description, details, "Matched Colors: $matchedColors")
+            Quadruple(description, details, "Matched Colors: $matchedColors", dominantGroup)
+
         } else {
-            Triple("No dominant color group found.", "", "")
+            Quadruple("No dominant color group found.", "", "", "")
         }
     }
 

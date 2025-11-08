@@ -29,10 +29,11 @@ class MultilineTextFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let {
             val fullName = it.getString(Constants.ARG_FULL_NAME) ?: return
-            val colorsJson = CommonUtils.loadJSONFromAsset(requireContext(), "colors.json") ?: return
+            val colorsJson = CommonUtils.readAssetFile(requireContext(), "colors.json") ?: return
 
             // Color Group
-            val (description, details, matchedColors) = NumerologyCalculationUtils.calculateColorGroup(fullName, colorsJson)
+            val (description, details, matchedColors, group) = NumerologyCalculationUtils.calculateColorGroup(fullName, colorsJson)
+            binding.colorGroupNameTextView.text = group
             binding.colorGroupDescriptionTextView.text = description
             binding.colorGroupDetailsTextView.text = Html.fromHtml(details, Html.FROM_HTML_MODE_COMPACT)
             binding.matchedColorsTextView.text = matchedColors
