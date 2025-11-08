@@ -15,6 +15,10 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.shambhu.myapplication.adapter.OtherPagerAdapter
 import com.shambhu.myapplication.databinding.ActivityOtherBinding
 import com.shambhu.myapplication.utils.Constants
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_DATE_OF_BIRTH
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_FULL_NAME
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_PLACE_OF_BIRTH
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_TIME_OF_BIRTH
 
 class OtherActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -39,8 +43,16 @@ class OtherActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
         // Extract data from intent
         val sharedPref = this.getSharedPreferences("PREFERENCE_NAME", android.content.Context.MODE_PRIVATE)
-        val dob = sharedPref?.getString("date_of_birth","0000-00-00").toString()
-        val fullName = sharedPref?.getString("fullName", "Guest").toString()
+        val fullName = sharedPref?.getString(PREFERENCE_FULL_NAME, "Guest").toString()
+        val dob = sharedPref?.getString(PREFERENCE_DATE_OF_BIRTH,"0000-00-00").toString()
+        val time = sharedPref?.getString(PREFERENCE_TIME_OF_BIRTH, "00:00")
+        val location = sharedPref?.getString(PREFERENCE_PLACE_OF_BIRTH, "Unknown Location")
+
+        val headerView = binding.navView.getHeaderView(0)
+        headerView.findViewById<TextView>(R.id.nav_header_full_name).text = fullName
+        headerView.findViewById<TextView>(R.id.nav_header_dob).text = dob
+        headerView.findViewById<TextView>(R.id.nav_header_time).text = time
+        headerView.findViewById<TextView>(R.id.nav_header_location).text = location
 
         val viewPager = binding.contentOther.viewPager
         val tabLayout = binding.tabs

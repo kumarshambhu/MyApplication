@@ -4,6 +4,11 @@ import org.json.JSONObject
 
 class Constants {
     companion object {
+        const val PREFERENCE_FULL_NAME = "full_name"
+        const val PREFERENCE_DATE_OF_BIRTH = "date_of_birth"
+        const val PREFERENCE_TIME_OF_BIRTH = "time_of_birth"
+        const val PREFERENCE_PLACE_OF_BIRTH = "place_of_birth"
+
         const val ARG_DOB = "dob"
         const val ARG_FULL_NAME = "fullName"
         const val TAB_KEY_PERSONALITY = "Personality"

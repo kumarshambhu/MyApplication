@@ -8,6 +8,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import com.shambhu.myapplication.databinding.ActivityMainBinding
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_FULL_NAME
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_DATE_OF_BIRTH
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_PLACE_OF_BIRTH
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_TIME_OF_BIRTH
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,10 +44,10 @@ class MainActivity : AppCompatActivity() {
                 Log.i("MainActivity", "Date of Birth: $dob")
                 val sharedPref = this.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
                 sharedPref.edit {
-                    putString("full_name", fullName)
-                    putString("date_of_birth", dob)
-                    putString("time_of_birth", time)
-                    putString("place_of_birth", location)
+                    putString(PREFERENCE_FULL_NAME, fullName)
+                    putString(PREFERENCE_DATE_OF_BIRTH, dob)
+                    putString(PREFERENCE_TIME_OF_BIRTH, time)
+                    putString(PREFERENCE_PLACE_OF_BIRTH, location)
                     //putString("state_of_birth", state.selectedItem as String)
                 }
                 val i = Intent(applicationContext, HomeActivity::class.java)

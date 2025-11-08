@@ -1,6 +1,7 @@
 package com.shambhu.myapplication.fragment.other
 
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -37,16 +38,36 @@ class MultilineTextFragment : Fragment() {
             val json = CommonUtils.readAssetFile(requireContext(), "elements.json")
             val jsonObject = JSONObject(json)
             val jsonArray = jsonObject.getJSONObject("element")
+            val definitionArray = jsonObject.getJSONObject("excess")
+            var repeatedSix = 0;
             for (i in 0 until numberList.size) {
-                val element = jsonArray.getString(result[i].toString())
-                Log.i("ELEMENT", element.toString())
-                elementArray[i] = element
+                if(result[i] == 6){
+                    repeatedSix += 1;
+                } else{
+                    val element = jsonArray.getString(result[i].toString())
+                    Log.i("ELEMENT", element.toString())
+                    elementArray[i] = element
+                }
+
             }
             val sorted = elementArray.toList().groupingBy { it }.eachCount()
+            //Fix for 6
+            /*if(repeatedSix > 0){
+                var earthCount = sorted["EARTH"]?.plus((repeatedSix * 0.5))
+                var airCount = sorted["AIR"]?.plus((repeatedSix * 0.5))
 
+                sorted.put("EARTH", earthCount!!.toInt())
+                sorted.put("AIR", airCount!!.toInt())
+
+            }*/
+
+
+            var elements = ""
             sorted.forEach { (data, count) ->
                 println("$data -> $count times")
+                elements += "<b>$data</b>: $count <br/>"
             }
+            binding.elementsCountTextView.text = Html.fromHtml(elements)
 
         }
 

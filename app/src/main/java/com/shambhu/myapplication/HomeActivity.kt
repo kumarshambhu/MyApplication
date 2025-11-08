@@ -17,6 +17,10 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.shambhu.myapplication.adapter.HomePagerAdapter
 import com.shambhu.myapplication.databinding.ActivityHomeBinding
 import com.shambhu.myapplication.utils.CommonUtils
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_DATE_OF_BIRTH
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_FULL_NAME
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_PLACE_OF_BIRTH
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_TIME_OF_BIRTH
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_BIRTH_NUMBER
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_EXPRESSION
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_LIFE_PATH
@@ -47,10 +51,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         // Extract data from intent
         val sharedPref = this.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
-        val fullName = sharedPref?.getString("fullName", "Guest").toString()
-        val dob = sharedPref?.getString("date_of_birth","0000-00-00").toString()
-        val time = sharedPref?.getString("time_of_birth", "00:00")
-        val location = sharedPref?.getString("place_of_birth", "Unknown Location")
+        val fullName = sharedPref?.getString(PREFERENCE_FULL_NAME, "Guest").toString()
+        val dob = sharedPref?.getString(PREFERENCE_DATE_OF_BIRTH,"0000-00-00").toString()
+        val time = sharedPref?.getString(PREFERENCE_TIME_OF_BIRTH, "00:00")
+        val location = sharedPref?.getString(PREFERENCE_PLACE_OF_BIRTH, "Unknown Location")
 
         // Update the navigation header
         val headerView = binding.navView.getHeaderView(0)

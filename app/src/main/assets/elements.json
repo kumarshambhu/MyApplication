@@ -1,16 +1,75 @@
 {
   "element": {
-    "1": "EARTH",
-    "2": "WATER",
-    "3": "FIRE",
-    "4": "EARTH",
-    "5": "AIR",
-    "6": "0.5 EARTH + 0.5 AIR",
-    "7": "WATER",
-    "8": "EARTH",
-    "9": "FIRE",
-    "11": "AIR",
-    "22": "WATER"
+    "1": [
+      {
+        "quantity": 1,
+        "element": "EARTH"
+      }
+    ],
+    "2": [
+      {
+        "quantity": 1,
+        "element": "WATER"
+      }
+    ],
+    "3": [
+      {
+        "quantity": 1,
+        "element": "FIRE"
+      }
+    ],
+    "4": [
+      {
+        "quantity": 1,
+        "element": "EARTH"
+      }
+    ],
+    "5": [
+      {
+        "quantity": 1,
+        "element": "AIR"
+      }
+    ],
+    "6": [
+      {
+        "quantity": 0.5,
+        "element": "EARTH"
+      },
+      {
+        "quantity": 0.5,
+        "element": "AIR"
+      }
+    ],
+    "7": [
+      {
+        "quantity": 1,
+        "element": "WATER"
+      }
+    ],
+    "8": [
+      {
+        "quantity": 1,
+        "element": "EARTH"
+      }
+    ],
+    "9": [
+      {
+        "quantity": 1,
+        "element": "FIRE"
+      }
+    ],
+    "11": [
+      {
+        "quantity": 1,
+        "element": "AIR"
+      }
+    ],
+    "22": [
+      {
+        "quantity": 1,
+        "element": "WATER"
+      }
+    ]
   },
   "definition": {
     "AIR": {
@@ -35,7 +94,7 @@
       "details": "If there is a lot more air in the person’s name, they will be <i>flighty</i>, an <b>air head</b>. They will not make sense. They will be so changeable that you will not be able to depend on them. They will always need others around and will want to dominate any conversation."
     },
     "EARTH": {
-      "details": "If there is a lot more earth in the name, the person will be very conservative, practical, and <i>earth bound</i>. They may be rigid in their thinking, practical to a fault and very materialistic in beliefs and in the accumulation of money, power, and things."
+      "details": "The person will be very conservative, practical, and <i>earth bound</i>. They may be rigid in their thinking, practical to a fault and very materialistic in beliefs and in the accumulation of money, power, and things."
     },
     "FIRE": {
       "details": "If there is a lot of fire in the person’s name, they will be a <i>go‐getter</i>. They will have lots of energy, love to be daring and seek lots of adventures. They will be very intelligent and creative. They will be on the move most of the time."
