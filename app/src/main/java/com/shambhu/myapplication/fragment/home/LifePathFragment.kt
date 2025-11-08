@@ -39,7 +39,7 @@ class LifePathFragment : Fragment() {
             binding.tvLifePathInterpretation.text = getLifePathDescription(lifePath)
         }
 
-        binding.row4.text = Html.fromHtml(MY_DATA, HtmlCompat.FROM_HTML_MODE_LEGACY)
+        //binding.row4.text = Html.fromHtml(MY_DATA, HtmlCompat.FROM_HTML_MODE_LEGACY)
     }
 
     private fun getLifePathDescription(lifePath: Int): String {
@@ -58,8 +58,8 @@ class LifePathFragment : Fragment() {
             return ""
 
         }
-        val json = String(MY_DATA.toByteArray(), Charset.defaultCharset())
-        binding.row4.text = json
+        /*val json = String(MY_DATA.toByteArray(), Charset.defaultCharset())
+        binding.row4.text = json*/
     }
 
 

@@ -105,13 +105,21 @@ object NumerologyCalculationUtils {
         return total
     }
 
-    fun calculatePersonalYear(day: Int, month: Int, year: Int = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR)): Int {
-        val birthSum = CommonUtils.reduceNumber(day) +  CommonUtils.reduceNumber(month)
+    fun calculatePersonalYear(
+        day: Int,
+        month: Int,
+        year: Int = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR)
+    ): Int {
+        val birthSum = CommonUtils.reduceNumber(day) + CommonUtils.reduceNumber(month)
         val yearSum = year.toString().map { it.toString().toInt() }.sum()
-        return  CommonUtils.reduceNumber(birthSum + yearSum)
+        return CommonUtils.reduceNumber(birthSum + yearSum)
     }
 
-    fun calculatePersonalMonth(day: Int, month: Int, targetMonth: Int = java.util.Calendar.getInstance().get(java.util.Calendar.MONTH) + 1): Int {
+    fun calculatePersonalMonth(
+        day: Int,
+        month: Int,
+        targetMonth: Int = java.util.Calendar.getInstance().get(java.util.Calendar.MONTH) + 1
+    ): Int {
         val currentYear = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR)
         val birthSum = CommonUtils.reduceNumber(day) + CommonUtils.reduceNumber(month)
         val yearSum = currentYear.toString().map { it.toString().toInt() }.sum()
@@ -157,6 +165,7 @@ object NumerologyCalculationUtils {
             "No karmic debt. Core Number: ${reduce(total)}"
         }
     }
+
     fun calculateChallengeNumbers(day: Int, month: Int, year: Int): List<Int> {
         val reducedDay = CommonUtils.reduceNumber(day)
         val reducedMonth = CommonUtils.reduceNumber(month)
@@ -215,13 +224,14 @@ object NumerologyCalculationUtils {
         return CommonUtils.reduceNumber(day)
     }
 
-    fun calculateElements(fullName: String, jsonString: String): String {
+    fun calculateElements(fullName: String, jsonString: String): Map<String, Double> {
         val nameNumbers = nameToIntArray(fullName)
-        val elementScores = mutableMapOf("AIR" to 0.0, "EARTH" to 0.0, "FIRE" to 0.0, "WATER" to 0.0)
+        val elementScores =
+            mutableMapOf("AIR" to 0.0, "EARTH" to 0.0, "FIRE" to 0.0, "WATER" to 0.0)
 
         val jsonObject = org.json.JSONObject(jsonString)
         val elementMap = jsonObject.getJSONObject("element")
-        val excessMap = jsonObject.getJSONObject("excess")
+
 
         for (number in nameNumbers) {
             if (elementMap.has(number.toString())) {
@@ -230,11 +240,22 @@ object NumerologyCalculationUtils {
                     val elementObject = elements.getJSONObject(i)
                     val elementName = elementObject.getString("element")
                     val quantity = elementObject.getDouble("quantity")
-                    elementScores[elementName] = elementScores.getOrDefault(elementName, 0.0) + quantity
+                    elementScores[elementName] =
+                        elementScores.getOrDefault(elementName, 0.0) + quantity
                 }
             }
         }
 
+        return elementScores
+
+    }
+
+    fun calculateElementDescription(
+        elementScores: Map<String, Double>,
+        jsonString: String
+    ): String {
+        val jsonObject = org.json.JSONObject(jsonString)
+        val excessMap = jsonObject.getJSONObject("excess")
         val highestElement = elementScores.maxByOrNull { it.value }?.key
         return if (highestElement != null && excessMap.has(highestElement)) {
             excessMap.getJSONObject(highestElement).getString("details")

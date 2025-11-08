@@ -6,10 +6,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.databinding.FragmentMultilineTextBinding
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
+import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import org.json.JSONObject
 import java.io.IOException
 
@@ -31,47 +33,20 @@ class MultilineTextFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let {
             val fullName = it.getString(Constants.ARG_FULL_NAME)
-            var result = CommonUtils.nameToIntArray(fullName.toString())
-            var numberList = result.toList();
-            //println(result.joinToString(", "))
-            var elementArray =  arrayOfNulls<String> (numberList.size)
-            val json = CommonUtils.readAssetFile(requireContext(), "elements.json")
-            val jsonObject = JSONObject(json)
-            val jsonArray = jsonObject.getJSONObject("element")
-            val definitionArray = jsonObject.getJSONObject("excess")
-            var repeatedSix = 0;
-            for (i in 0 until numberList.size) {
-                if(result[i] == 6){
-                    repeatedSix += 1;
-                } else{
-                    val element = jsonArray.getString(result[i].toString())
-                    Log.i("ELEMENT", element.toString())
-                    elementArray[i] = element
-                }
 
+            val elementsJson = CommonUtils.readAssetFile(requireContext(), "elements.json")
+            val elementPrediction = elementsJson.let {
+                val score = NumerologyCalculationUtils.calculateElements(fullName.toString(), it)
+                binding.airElementValue.text = score.get(Constants.Companion.ELEMENT_KEY_AIR).toString()
+                binding.earthElementValue.text = score.get(Constants.Companion.ELEMENT_KEY_EARTH).toString()
+                binding.fireElementValue.text = score.get(Constants.Companion.ELEMENT_KEY_FIRE).toString()
+                binding.waterElementValue.text = score.get(Constants.Companion.ELEMENT_KEY_WATER).toString()
+                Log.i("score", score.toString())
+                var elementDescription = NumerologyCalculationUtils.calculateElementDescription(score, it)
+                binding.elementDescription.text = Html.fromHtml(elementDescription, HtmlCompat.FROM_HTML_MODE_LEGACY)
             }
-            val sorted = elementArray.toList().groupingBy { it }.eachCount()
-            //Fix for 6
-            /*if(repeatedSix > 0){
-                var earthCount = sorted["EARTH"]?.plus((repeatedSix * 0.5))
-                var airCount = sorted["AIR"]?.plus((repeatedSix * 0.5))
-
-                sorted.put("EARTH", earthCount!!.toInt())
-                sorted.put("AIR", airCount!!.toInt())
-
-            }*/
-
-
-            var elements = ""
-            sorted.forEach { (data, count) ->
-                println("$data -> $count times")
-                elements += "<b>$data</b>: $count <br/>"
-            }
-            binding.elementsCountTextView.text = Html.fromHtml(elements)
 
         }
-
-        binding.multilineTextView.text = loadContentFromJson()
     }
 
     private fun loadContentFromJson(): String {

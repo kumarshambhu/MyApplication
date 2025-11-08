@@ -32,6 +32,11 @@ class Constants {
         const val TAB_KEY_CHALLENGE_NUMBER = "Challenge Number"
         const val TAB_KEY_PINNACLE_NUMBER = "Pinnacle Number"
         const val TAB_KEY_NUMEROLOGY_PLAIN = "Numerology Plain"
+        const val ELEMENT_KEY_AIR = "AIR"
+        const val ELEMENT_KEY_EARTH = "EARTH"
+        const val ELEMENT_KEY_FIRE = "FIRE"
+        const val ELEMENT_KEY_WATER = "WATER"
+
 
         const val MY_DATA = "<ul><li><b>Responsibility & Self-Control:</b> You’re encouraged to face your responsibilities head-on and avoid escapism. You have the potential to solve problems creatively if you apply yourself.</li><li><b>Confidence & Independence:</b> A dynamic, risk-taking individual who prefers forging your own path. You value originality and admire resilience in others.</li></ul>"
 

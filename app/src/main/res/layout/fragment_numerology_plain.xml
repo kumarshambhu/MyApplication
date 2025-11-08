@@ -78,6 +78,7 @@
             android:id="@+id/tvPersonalYearValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_marginBottom="16dp" />
 
         <TextView
@@ -91,6 +92,7 @@
             android:id="@+id/tvPersonalMonthValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_marginBottom="16dp" />
 
         <TextView
@@ -104,6 +106,7 @@
             android:id="@+id/tvKarmicNumberValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_marginBottom="16dp" />
 
         <TextView
@@ -117,6 +120,7 @@
             android:id="@+id/tvKarmicFromNameValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_marginBottom="16dp" />
 
         <TextView
@@ -130,6 +134,7 @@
             android:id="@+id/tvChallengeNumbersValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_marginBottom="16dp" />
 
         <TextView
@@ -143,6 +148,7 @@
             android:id="@+id/tvChallengeNumberAgeRangesValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_marginBottom="16dp" />
 
         <TextView
@@ -156,6 +162,7 @@
             android:id="@+id/tvPinnacleNumbersValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_marginBottom="16dp" />
 
         <TextView
@@ -169,6 +176,7 @@
             android:id="@+id/tvPinnacleNumberAgeRangesValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_marginBottom="16dp" />
 
         <TextView
@@ -182,6 +190,7 @@
             android:id="@+id/tvLuckyNumberValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_marginBottom="16dp" />
 
         <TextView
@@ -195,6 +204,7 @@
             android:id="@+id/tvElementPredictionValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_marginBottom="16dp" />
 
     </LinearLayout>

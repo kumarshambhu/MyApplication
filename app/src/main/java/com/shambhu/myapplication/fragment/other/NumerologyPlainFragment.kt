@@ -1,6 +1,8 @@
 package com.shambhu.myapplication.fragment.other
 
 import android.os.Bundle
+import android.text.Html
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,16 +47,24 @@ class NumerologyPlainFragment : Fragment() {
                 val personality = NumerologyCalculationUtils.calculatePersonality(fullName)
                 val personalYear = NumerologyCalculationUtils.calculatePersonalYear(day, month)
                 val personalMonth = NumerologyCalculationUtils.calculatePersonalMonth(day, month)
-                val karmicNumber = NumerologyCalculationUtils.calculateKarmicNumber(day, month, year)
+                val karmicNumber =
+                    NumerologyCalculationUtils.calculateKarmicNumber(day, month, year)
                 val karmicFromName = NumerologyCalculationUtils.calculateKarmicFromName(fullName)
-                val challengeNumbers = NumerologyCalculationUtils.calculateChallengeNumbers(day, month, year)
-                val challengeNumberAgeRanges = NumerologyCalculationUtils.calculateChallengeNumberAgeRanges(day, month, year)
-                val pinnacleNumbers = NumerologyCalculationUtils.calculatePinnacleNumbers(day, month, year)
-                val pinnacleNumberAgeRanges = NumerologyCalculationUtils.calculatePinnacleNumberAgeRanges(day, month, year)
+                val challengeNumbers =
+                    NumerologyCalculationUtils.calculateChallengeNumbers(day, month, year)
+                val challengeNumberAgeRanges =
+                    NumerologyCalculationUtils.calculateChallengeNumberAgeRanges(day, month, year)
+                val pinnacleNumbers =
+                    NumerologyCalculationUtils.calculatePinnacleNumbers(day, month, year)
+                val pinnacleNumberAgeRanges =
+                    NumerologyCalculationUtils.calculatePinnacleNumberAgeRanges(day, month, year)
                 val luckyNumber = NumerologyCalculationUtils.calculateLuckyNumber(day)
-                val elementsJson = CommonUtils.loadJSONFromAsset(requireContext(), "elements.json")
-                val elementPrediction = elementsJson?.let {
-                    NumerologyCalculationUtils.calculateElements(fullName, it)
+                val elementsJson = CommonUtils.readAssetFile(requireContext(), "elements.json")
+                val elementPrediction = elementsJson.let {
+                    val score = NumerologyCalculationUtils.calculateElements(fullName, it)
+                    Log.i("score", score.toString())
+                    NumerologyCalculationUtils.calculateElementDescription(score, it)
+                    //NumerologyCalculationUtils.calculateElementDescription( NumerologyCalculationUtils.calculateElements(fullName, it), it)
                 }
 
                 binding.tvSoulUrgeValue.text = soulUrge.toString()
@@ -66,11 +76,13 @@ class NumerologyPlainFragment : Fragment() {
                 binding.tvKarmicNumberValue.text = karmicNumber
                 binding.tvKarmicFromNameValue.text = karmicFromName
                 binding.tvChallengeNumbersValue.text = challengeNumbers.joinToString(", ")
-                binding.tvChallengeNumberAgeRangesValue.text = challengeNumberAgeRanges.joinToString("\n")
+                binding.tvChallengeNumberAgeRangesValue.text =
+                    challengeNumberAgeRanges.joinToString("\n")
                 binding.tvPinnacleNumbersValue.text = pinnacleNumbers.joinToString(", ")
-                binding.tvPinnacleNumberAgeRangesValue.text = pinnacleNumberAgeRanges.joinToString("\n")
+                binding.tvPinnacleNumberAgeRangesValue.text =
+                    pinnacleNumberAgeRanges.joinToString("\n")
                 binding.tvLuckyNumberValue.text = luckyNumber.toString()
-                binding.tvElementPredictionValue.text = elementPrediction
+                binding.tvElementPredictionValue.text = Html.fromHtml(elementPrediction)
             }
         }
     }
