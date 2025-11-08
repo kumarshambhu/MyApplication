@@ -17,6 +17,7 @@ import com.shambhu.myapplication.adapter.PersonalPagerAdapter
 import com.shambhu.myapplication.databinding.ActivityPersonalBinding
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_NAME
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_CHALLENGE_NUMBER
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_KARMIC_NUMBER
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_PERSONAL_MONTH
@@ -48,11 +49,13 @@ class PersonalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         binding.navView.setNavigationItemSelectedListener(this)
 
 
-        val sharedPref = this.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+
+         val sharedPref = this.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
         val fullName = sharedPref?.getString(PREFERENCE_FULL_NAME, "Guest").toString()
         val dob = sharedPref?.getString(PREFERENCE_DATE_OF_BIRTH,"0000-00-00").toString()
         val time = sharedPref?.getString(PREFERENCE_TIME_OF_BIRTH, "00:00")
         val location = sharedPref?.getString(PREFERENCE_PLACE_OF_BIRTH, "Unknown Location")
+
 
         // Update the navigation header
         val headerView = binding.navView.getHeaderView(0)
