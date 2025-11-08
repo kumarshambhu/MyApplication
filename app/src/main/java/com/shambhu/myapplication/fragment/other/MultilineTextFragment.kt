@@ -35,8 +35,9 @@ class MultilineTextFragment : Fragment() {
             val colorsJson = CommonUtils.loadJSONFromAsset(requireContext(), "colors.json") ?: return
             val colorsObject = JSONObject(colorsJson).getJSONObject("color_by_number")
 
-            val colorsToShow = colorNumbers.mapNotNull { number ->
-                colorsObject.optJSONObject(number.toString())
+            val colorCounts = colorNumbers.groupingBy { it }.eachCount()
+            val colorsToShow = colorCounts.mapNotNull { (number, count) ->
+                colorsObject.optJSONObject(number.toString())?.let { it to count }
             }
 
             binding.colorsRecyclerView.layoutManager = LinearLayoutManager(requireContext())

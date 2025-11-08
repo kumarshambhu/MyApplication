@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.shambhu.myapplication.databinding.ItemColorBinding
 import org.json.JSONObject
 
-class ColorAdapter(private val colors: List<JSONObject>) : RecyclerView.Adapter<ColorAdapter.ColorViewHolder>() {
+class ColorAdapter(private val colors: List<Pair<JSONObject, Int>>) : RecyclerView.Adapter<ColorAdapter.ColorViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorViewHolder {
         val binding = ItemColorBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -14,9 +14,10 @@ class ColorAdapter(private val colors: List<JSONObject>) : RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: ColorViewHolder, position: Int) {
-        val color = colors[position]
+        val (color, count) = colors[position]
         holder.binding.colorNameTextView.text = color.getString("color")
         holder.binding.colorDetailTextView.text = color.getString("detail")
+        holder.binding.colorCountTextView.text = count.toString()
     }
 
     override fun getItemCount() = colors.size
