@@ -32,14 +32,10 @@ class MultilineTextFragment : Fragment() {
             val colorsJson = CommonUtils.loadJSONFromAsset(requireContext(), "colors.json") ?: return
 
             // Color Group
-            val (description, details) = NumerologyCalculationUtils.calculateColorGroup(fullName, colorsJson)
+            val (description, details, matchedColors) = NumerologyCalculationUtils.calculateColorGroup(fullName, colorsJson)
             binding.colorGroupDescriptionTextView.text = description
             binding.colorGroupDetailsTextView.text = Html.fromHtml(details, Html.FROM_HTML_MODE_COMPACT)
-
-            // Max Color Match
-            val (colorName, colorDetail) = NumerologyCalculationUtils.calculateMaxColorMatch(fullName, colorsJson)
-            binding.maxColorNameTextView.text = colorName
-            binding.maxColorDetailTextView.text = colorDetail
+            binding.matchedColorsTextView.text = matchedColors
         }
     }
 

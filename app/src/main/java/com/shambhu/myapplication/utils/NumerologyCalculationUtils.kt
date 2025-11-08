@@ -215,7 +215,7 @@ object NumerologyCalculationUtils {
         return CommonUtils.reduceNumber(day)
     }
 
-    fun calculateColorGroup(fullName: String, jsonString: String): Pair<String, String> {
+    fun calculateColorGroup(fullName: String, jsonString: String): Triple<String, String, String> {
         val nameNumbers = nameToColorNumbers(fullName)
 
         val jsonObject = org.json.JSONObject(jsonString)
@@ -234,8 +234,8 @@ object NumerologyCalculationUtils {
             }
         }
 
-        val groupCounts = nameNumbers
-            .mapNotNull { colorByNumber.optJSONObject(it.toString())?.optString("color") }
+        val userColors = nameNumbers.mapNotNull { colorByNumber.optJSONObject(it.toString())?.optString("color") }
+        val groupCounts = userColors
             .mapNotNull { colorToGroupMap[it] }
             .groupingBy { it }
             .eachCount()
@@ -246,28 +246,17 @@ object NumerologyCalculationUtils {
             val groupObject = colorGroup.getJSONObject(dominantGroup)
             val description = groupObject.getString("description")
             val details = groupObject.getString("details")
-            Pair(description, details)
+
+            val colorsInDominantGroup = mutableListOf<String>()
+            val colorsArray = groupObject.getJSONArray("colors")
+            for (i in 0 until colorsArray.length()) {
+                colorsInDominantGroup.add(colorsArray.getString(i))
+            }
+
+            val matchedColors = userColors.filter { colorsInDominantGroup.contains(it) }.distinct().joinToString(", ")
+            Triple(description, details, "Matched Colors: $matchedColors")
         } else {
-            Pair("No dominant color group found.", "")
-        }
-    }
-
-    fun calculateMaxColorMatch(fullName: String, jsonString: String): Pair<String, String> {
-        val nameNumbers = nameToColorNumbers(fullName)
-
-        val jsonObject = org.json.JSONObject(jsonString)
-        val colorByNumber = jsonObject.getJSONObject("color_by_number")
-
-        val colorCounts = nameNumbers.groupingBy { it }.eachCount()
-        val maxColorNumber = colorCounts.maxByOrNull { it.value }?.key
-
-        return if (maxColorNumber != null && colorByNumber.has(maxColorNumber.toString())) {
-            val colorObject = colorByNumber.getJSONObject(maxColorNumber.toString())
-            val colorName = colorObject.getString("color")
-            val detail = colorObject.getString("detail")
-            Pair(colorName, detail)
-        } else {
-            Pair("No max color found.", "")
+            Triple("No dominant color group found.", "", "")
         }
     }
 
