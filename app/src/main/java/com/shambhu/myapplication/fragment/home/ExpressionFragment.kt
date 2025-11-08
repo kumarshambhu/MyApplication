@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.R
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_EXPRESSION
 
 class ExpressionFragment : Fragment() {
 
@@ -41,7 +42,6 @@ class ExpressionFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_EXPRESSION = "expression"
 
         fun newInstance(expression: Int): ExpressionFragment {
             val fragment = ExpressionFragment()

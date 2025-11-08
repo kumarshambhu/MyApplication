@@ -11,10 +11,10 @@ import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentLoshuGridBinding
 import com.shambhu.myapplication.databinding.FragmentTestingBinding
 import com.shambhu.myapplication.utils.CommonUtils
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 
-private const val ARG_FULL_NAME = "fullName"
-private const val ARG_DOB = "dob"
 
 class TestingFragment : Fragment() {
     private var _binding: FragmentTestingBinding? = null

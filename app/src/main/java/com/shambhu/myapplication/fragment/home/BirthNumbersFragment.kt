@@ -10,7 +10,9 @@ import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentBirthNumbersBinding
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
-
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_DAY
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_MONTH
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_YEAR
 class BirthNumbersFragment : Fragment() {
 
     private var _binding: FragmentBirthNumbersBinding? = null
@@ -29,9 +31,9 @@ class BirthNumbersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         arguments?.let {
-            val birthDay = it.getInt(ARG_BIRTH_DAY)
-            val birthMonth = it.getInt(ARG_BIRTH_MONTH)
-            val birthYear = it.getInt(ARG_BIRTH_YEAR)
+            val birthDay = it.getInt(ARG_DAY)
+            val birthMonth = it.getInt(ARG_MONTH)
+            val birthYear = it.getInt(ARG_YEAR)
 
             binding.tvBirthDayNumber.text = birthDay.toString()
             binding.tvBirthMonthNumber.text = birthMonth.toString()
@@ -65,9 +67,6 @@ class BirthNumbersFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_BIRTH_DAY = "birthDay"
-        private const val ARG_BIRTH_MONTH = "birthMonth"
-        private const val ARG_BIRTH_YEAR = "birthYear"
 
         fun newInstance(
             birthDay: Int,
@@ -76,9 +75,9 @@ class BirthNumbersFragment : Fragment() {
         ): BirthNumbersFragment {
             val fragment = BirthNumbersFragment()
             val args = Bundle()
-            args.putInt(ARG_BIRTH_DAY, birthDay)
-            args.putInt(ARG_BIRTH_MONTH, birthMonth)
-            args.putInt(ARG_BIRTH_YEAR, birthYear)
+            args.putInt(ARG_DAY, birthDay)
+            args.putInt(ARG_MONTH, birthMonth)
+            args.putInt(ARG_YEAR, birthYear)
             fragment.arguments = args
             return fragment
         }

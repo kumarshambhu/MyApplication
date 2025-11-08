@@ -6,6 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.databinding.FragmentKarmicNumberBinding
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_DAY
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_MONTH
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_YEAR
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 
 /**
@@ -50,10 +54,6 @@ class KarmicNumberFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_DAY = "day"
-        private const val ARG_MONTH = "month"
-        private const val ARG_YEAR = "year"
-        private const val ARG_FULL_NAME = "full_name"
 
         fun newInstance(
             day: Int, month: Int, year: Int, fullName: String

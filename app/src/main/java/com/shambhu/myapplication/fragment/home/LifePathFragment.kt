@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentBirthNumbersBinding
 import com.shambhu.myapplication.databinding.FragmentLifePathBinding
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_LIFE_PATH
 import com.shambhu.myapplication.utils.Constants.Companion.MY_DATA
 import org.json.JSONObject
 import java.nio.charset.Charset
@@ -64,8 +65,6 @@ class LifePathFragment : Fragment() {
 
 
     companion object {
-        private const val ARG_LIFE_PATH = "lifePath"
-
         fun newInstance(lifePath: Int): LifePathFragment {
             val fragment = LifePathFragment()
             val args = Bundle()

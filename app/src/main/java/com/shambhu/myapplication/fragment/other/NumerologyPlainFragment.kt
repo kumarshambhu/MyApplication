@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.databinding.FragmentNumerologyPlainBinding
 import com.shambhu.myapplication.utils.CommonUtils
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import java.time.LocalDate
 
@@ -74,9 +76,6 @@ class NumerologyPlainFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_DOB = "dob"
-        private const val ARG_FULL_NAME = "fullName"
-
         fun newInstance(dob: String, fullName: String): NumerologyPlainFragment {
             val fragment = NumerologyPlainFragment()
             val args = Bundle()

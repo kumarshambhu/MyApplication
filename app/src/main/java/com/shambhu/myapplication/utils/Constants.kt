@@ -11,6 +11,13 @@ class Constants {
 
         const val ARG_DOB = "dob"
         const val ARG_FULL_NAME = "fullName"
+        const val ARG_DAY = "day"
+        const val ARG_MONTH = "month"
+        const val ARG_YEAR = "year"
+        const val ARG_EXPRESSION = "expression"
+        const val ARG_LIFE_PATH = "lifePath"
+        const val ARG_PERSONALITY = "personality"
+        const val ARG_SOUL_URGE = "soulUrge"
         const val TAB_KEY_PERSONALITY = "Personality"
         const val TAB_KEY_BIRTH_NUMBER = "Birth Number"
         const val TAB_KEY_SOUL_URGE = "Soul Urge"

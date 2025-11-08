@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.R
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_SOUL_URGE
 
 class SoulUrgeFragment : Fragment() {
 
@@ -42,7 +43,7 @@ class SoulUrgeFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_SOUL_URGE = "soulUrge"
+
 
         fun newInstance(
             soulUrge: Int

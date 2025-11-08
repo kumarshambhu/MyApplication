@@ -8,6 +8,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentPersonalMonthBinding
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_DAY
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_MONTH
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_YEAR
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 
 /**
@@ -58,9 +61,6 @@ class PersonalMonthFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_DAY = "day"
-        private const val ARG_MONTH = "month"
-        private const val ARG_YEAR = "year"
 
         fun newInstance(
             day: Int, month: Int, year: Int
