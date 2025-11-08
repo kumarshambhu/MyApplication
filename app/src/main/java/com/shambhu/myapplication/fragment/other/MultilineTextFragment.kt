@@ -6,13 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.shambhu.myapplication.adapter.ColorAdapter
 import com.shambhu.myapplication.databinding.FragmentMultilineTextBinding
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
-import org.json.JSONObject
 
 class MultilineTextFragment : Fragment() {
 
@@ -39,15 +36,10 @@ class MultilineTextFragment : Fragment() {
             binding.colorGroupDescriptionTextView.text = description
             binding.colorGroupDetailsTextView.text = Html.fromHtml(details, Html.FROM_HTML_MODE_COMPACT)
 
-            // Color List
-            val colorNumbers = NumerologyCalculationUtils.nameToColorNumbers(fullName)
-            val colorsObject = JSONObject(colorsJson).getJSONObject("color_by_number")
-            val colorCounts = colorNumbers.groupingBy { it }.eachCount()
-            val colorsToShow = colorCounts.mapNotNull { (number, count) ->
-                colorsObject.optJSONObject(number.toString())?.let { it to count }
-            }
-            binding.colorsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-            binding.colorsRecyclerView.adapter = ColorAdapter(colorsToShow)
+            // Max Color Match
+            val (colorName, colorDetail) = NumerologyCalculationUtils.calculateMaxColorMatch(fullName, colorsJson)
+            binding.maxColorNameTextView.text = colorName
+            binding.maxColorDetailTextView.text = colorDetail
         }
     }
 

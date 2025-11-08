@@ -252,6 +252,25 @@ object NumerologyCalculationUtils {
         }
     }
 
+    fun calculateMaxColorMatch(fullName: String, jsonString: String): Pair<String, String> {
+        val nameNumbers = nameToColorNumbers(fullName)
+
+        val jsonObject = org.json.JSONObject(jsonString)
+        val colorByNumber = jsonObject.getJSONObject("color_by_number")
+
+        val colorCounts = nameNumbers.groupingBy { it }.eachCount()
+        val maxColorNumber = colorCounts.maxByOrNull { it.value }?.key
+
+        return if (maxColorNumber != null && colorByNumber.has(maxColorNumber.toString())) {
+            val colorObject = colorByNumber.getJSONObject(maxColorNumber.toString())
+            val colorName = colorObject.getString("color")
+            val detail = colorObject.getString("detail")
+            Pair(colorName, detail)
+        } else {
+            Pair("No max color found.", "")
+        }
+    }
+
     fun nameToColorNumbers(name: String): List<Int> {
         return name.uppercase()
             .mapNotNull { LETTER_VALUES[it] } // skip characters not in map
