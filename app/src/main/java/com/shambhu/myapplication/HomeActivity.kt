@@ -17,6 +17,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.shambhu.myapplication.adapter.HomePagerAdapter
 import com.shambhu.myapplication.databinding.ActivityHomeBinding
 import com.shambhu.myapplication.utils.CommonUtils
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_NAME
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_BIRTH_NUMBER
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_EXPRESSION
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_LIFE_PATH
@@ -46,7 +47,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding.navView.setNavigationItemSelectedListener(this)
 
         // Extract data from intent
-        val sharedPref = this.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val sharedPref = this.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
         val fullName = sharedPref?.getString("fullName", "Guest").toString()
         val dob = sharedPref?.getString("date_of_birth","0000-00-00").toString()
         val time = sharedPref?.getString("time_of_birth", "00:00")

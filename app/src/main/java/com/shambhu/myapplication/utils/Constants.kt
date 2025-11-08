@@ -4,6 +4,7 @@ import org.json.JSONObject
 
 class Constants {
     companion object {
+        const val PREFERENCE_NAME = "PREFERENCE_NAME"
         const val ARG_DOB = "dob"
         const val ARG_FULL_NAME = "fullName"
         const val TAB_KEY_PERSONALITY = "Personality"

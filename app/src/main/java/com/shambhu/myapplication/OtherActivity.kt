@@ -15,6 +15,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.shambhu.myapplication.adapter.OtherPagerAdapter
 import com.shambhu.myapplication.databinding.ActivityOtherBinding
 import com.shambhu.myapplication.utils.Constants
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_NAME
 
 class OtherActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -38,7 +39,7 @@ class OtherActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         binding.navView.setNavigationItemSelectedListener(this)
 
         // Extract data from intent
-        val sharedPref = this.getSharedPreferences("PREFERENCE_NAME", android.content.Context.MODE_PRIVATE)
+        val sharedPref = this.getSharedPreferences(PREFERENCE_NAME, android.content.Context.MODE_PRIVATE)
         val dob = sharedPref?.getString("date_of_birth","0000-00-00").toString()
         val fullName = sharedPref?.getString("fullName", "Guest").toString()
 
