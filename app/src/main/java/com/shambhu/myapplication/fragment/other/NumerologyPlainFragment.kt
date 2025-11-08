@@ -52,6 +52,10 @@ class NumerologyPlainFragment : Fragment() {
                 val pinnacleNumbers = NumerologyCalculationUtils.calculatePinnacleNumbers(day, month, year)
                 val pinnacleNumberAgeRanges = NumerologyCalculationUtils.calculatePinnacleNumberAgeRanges(day, month, year)
                 val luckyNumber = NumerologyCalculationUtils.calculateLuckyNumber(day)
+                val elementsJson = CommonUtils.loadJSONFromAsset(requireContext(), "elements.json")
+                val elementPrediction = elementsJson?.let {
+                    NumerologyCalculationUtils.calculateElements(fullName, it)
+                }
 
                 binding.tvSoulUrgeValue.text = soulUrge.toString()
                 binding.tvLifePathValue.text = lifePath.toString()
@@ -66,6 +70,7 @@ class NumerologyPlainFragment : Fragment() {
                 binding.tvPinnacleNumbersValue.text = pinnacleNumbers.joinToString(", ")
                 binding.tvPinnacleNumberAgeRangesValue.text = pinnacleNumberAgeRanges.joinToString("\n")
                 binding.tvLuckyNumberValue.text = luckyNumber.toString()
+                binding.tvElementPredictionValue.text = elementPrediction
             }
         }
     }

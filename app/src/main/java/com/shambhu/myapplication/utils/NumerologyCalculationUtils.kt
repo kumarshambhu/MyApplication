@@ -215,25 +215,32 @@ object NumerologyCalculationUtils {
         return CommonUtils.reduceNumber(day)
     }
 
-    fun calculateElements(fullName: String, jsonString: String){
-        val result = nameToIntArray(fullName);
-        val emptyArray = arrayOf<String>()
+    fun calculateElements(fullName: String, jsonString: String): String {
+        val nameNumbers = nameToIntArray(fullName)
+        val elementScores = mutableMapOf("AIR" to 0.0, "EARTH" to 0.0, "FIRE" to 0.0, "WATER" to 0.0)
 
         val jsonObject = org.json.JSONObject(jsonString)
-        val lifePathObject = jsonObject.getJSONObject("element")
+        val elementMap = jsonObject.getJSONObject("element")
+        val excessMap = jsonObject.getJSONObject("excess")
 
-        result.forEach { it ->
-             lifePathObject[it.toString()]
+        for (number in nameNumbers) {
+            if (elementMap.has(number.toString())) {
+                val elements = elementMap.getJSONArray(number.toString())
+                for (i in 0 until elements.length()) {
+                    val elementObject = elements.getJSONObject(i)
+                    val elementName = elementObject.getString("element")
+                    val quantity = elementObject.getDouble("quantity")
+                    elementScores[elementName] = elementScores.getOrDefault(elementName, 0.0) + quantity
+                }
+            }
         }
-       /* result.toList()
-            .mapNotNull { lifePathObject[it] } // skip characters not in map
-            .toTypedArray()*/
 
-        val result1 = result.toList().mapNotNull { lifePathObject[it.toString()] }.toTypedArray()
-        println(result1.contentToString())
-
-
-
+        val highestElement = elementScores.maxByOrNull { it.value }?.key
+        return if (highestElement != null && excessMap.has(highestElement)) {
+            excessMap.getJSONObject(highestElement).getString("details")
+        } else {
+            "No dominant element found."
+        }
     }
 
     private fun nameToIntArray(name: String): IntArray {
