@@ -618,6 +618,69 @@
 
 
         <!-- Karmic Debt Numbers -->
+        <TextView
+            android:id="@+id/allNumberKarmicDebtKey"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="Karmic Debt Numbers"
+            android:textColor="@color/gold"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberKarmicLessonSeparator" />
+        <TextView
+            android:id="@+id/allNumberKarmicDebtValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="KD0"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberKarmicLessonSeparator" />
+        <TextView
+            android:id="@+id/allNumberKarmicDebtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="Row 4 - Full Width"
+            android:textColor="@color/gold"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberKarmicDebtKey" />
+
+
+        <com.shambhu.myapplication.utils.ExpandableTextView
+            android:id="@+id/allNumberKarmicDebtDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/sample_text_long"
+            android:textSize="16sp"
+            app:collapsedMaxLines="2"
+            app:showMoreText="Read more"
+            app:showLessText="Read less"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberKarmicDebtTitle"
+            tools:ignore="MissingConstraints"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            tools:ignore="MissingConstraints" />
         
         <!-- Guideline for 50% split -->
         <androidx.constraintlayout.widget.Guideline
