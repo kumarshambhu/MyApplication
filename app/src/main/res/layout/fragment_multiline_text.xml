@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/mystical_gradient_background"
     android:fillViewport="true"
     tools:ignore="ScrollViewCount">
 
-   <!-- <TextView
-        android:id="@+id/multilineTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:textColor="@color/white"
-        android:lineSpacingExtra="8dp" />
+    <!-- <TextView
+         android:id="@+id/multilineTextView"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:padding="16dp"
+         android:textColor="@color/white"
+         android:lineSpacingExtra="8dp" />
 
 
-    <TextView
-        android:id="@+id/elementsCountTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:textColor="@color/white"
-        android:lineSpacingExtra="8dp" />
--->
+     <TextView
+         android:id="@+id/elementsCountTextView"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:padding="16dp"
+         android:textColor="@color/white"
+         android:lineSpacingExtra="8dp" />
+ -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -32,161 +32,258 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/row1"
+            android:id="@+id/multiline_row1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/row2_col1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/mystical_font"
+            android:gravity="center"
             android:text="Elements"
-            android:textColor="@color/gold"
             android:textAlignment="center"
-            android:textSize="28sp"/>
+            android:textColor="@color/gold"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toTopOf="@+id/multiline_row2_col1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Row 2 - Horizontal Chain -->
         <TextView
-            android:id="@+id/row2_col1"
+            android:id="@+id/multiline_row2_col1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Air"
-            android:gravity="center"
+            android:textAlignment="center"
             android:textColor="@color/gold"
             android:textSize="18sp"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@id/row1"
             app:layout_constraintBottom_toTopOf="@id/airElementValue"
+            app:layout_constraintEnd_toStartOf="@+id/multiline_row2_col2"
+            app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/row2_col2"
-            app:layout_constraintHorizontal_chainStyle="spread" />
+            app:layout_constraintTop_toBottomOf="@id/multiline_row1" />
 
         <TextView
-            android:id="@+id/row2_col2"
+            android:id="@+id/multiline_row2_col2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Earth"
-            android:gravity="center"
+            android:textAlignment="center"
             android:textColor="@color/gold"
             android:textSize="18sp"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@id/row1"
             app:layout_constraintBottom_toTopOf="@id/earthElementValue"
-            app:layout_constraintStart_toEndOf="@id/row2_col1"
-            app:layout_constraintEnd_toStartOf="@+id/row2_col3" />
+            app:layout_constraintEnd_toStartOf="@+id/multiline_row2_col3"
+            app:layout_constraintStart_toEndOf="@id/multiline_row2_col1"
+            app:layout_constraintTop_toBottomOf="@id/multiline_row1" />
 
         <TextView
-            android:id="@+id/row2_col3"
+            android:id="@+id/multiline_row2_col3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Fire"
-            android:gravity="center"
+            android:textAlignment="center"
             android:textColor="@color/gold"
             android:textSize="18sp"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@id/row1"
             app:layout_constraintBottom_toTopOf="@id/fireElementValue"
-            app:layout_constraintStart_toEndOf="@id/row2_col2"
-            app:layout_constraintEnd_toStartOf="@+id/row2_col4" />
+            app:layout_constraintEnd_toStartOf="@+id/multiline_row2_col4"
+            app:layout_constraintStart_toEndOf="@id/multiline_row2_col2"
+            app:layout_constraintTop_toBottomOf="@id/multiline_row1" />
 
         <TextView
-            android:id="@+id/row2_col4"
+            android:id="@+id/multiline_row2_col4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Water"
             android:gravity="center"
+            android:text="Water"
+            android:textAlignment="center"
             android:textColor="@color/gold"
             android:textSize="18sp"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@id/row1"
             app:layout_constraintBottom_toTopOf="@id/waterElementValue"
-            app:layout_constraintStart_toEndOf="@id/row2_col3"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/multiline_row2_col3"
+            app:layout_constraintTop_toBottomOf="@id/multiline_row1" />
 
         <!-- Row 3 - Horizontal Chain -->
         <TextView
             android:id="@+id/airElementValue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="0.0"
-            android:gravity="center"
             android:fontFamily="@font/mystical_font"
+            android:gravity="center"
+            android:text="0.0"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@id/row2_col1"
             app:layout_constraintBottom_toTopOf="@id/elementDescription"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/earthElementValue"
-            app:layout_constraintHorizontal_chainStyle="spread" />
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/multiline_row2_col1" />
 
         <TextView
             android:id="@+id/earthElementValue"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="0.0"
-            android:gravity="center"
             android:fontFamily="@font/mystical_font"
+            android:gravity="center"
+            android:text="0.0"
             android:textColor="@color/white"
             android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/row2_col2"
             app:layout_constraintBottom_toTopOf="@id/elementDescription"
+            app:layout_constraintEnd_toStartOf="@+id/fireElementValue"
             app:layout_constraintStart_toEndOf="@id/airElementValue"
-            app:layout_constraintEnd_toStartOf="@+id/fireElementValue" />
+            app:layout_constraintTop_toBottomOf="@id/multiline_row2_col2" />
 
         <TextView
             android:id="@+id/fireElementValue"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="0.0"
-            android:gravity="center"
             android:fontFamily="@font/mystical_font"
+            android:gravity="center"
+            android:text="0.0"
             android:textColor="@color/white"
             android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/row2_col3"
             app:layout_constraintBottom_toTopOf="@id/elementDescription"
+            app:layout_constraintEnd_toStartOf="@+id/waterElementValue"
             app:layout_constraintStart_toEndOf="@id/earthElementValue"
-            app:layout_constraintEnd_toStartOf="@+id/waterElementValue" />
+            app:layout_constraintTop_toBottomOf="@id/multiline_row2_col3" />
 
         <TextView
             android:id="@+id/waterElementValue"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="0.0"
-            android:gravity="center"
             android:fontFamily="@font/mystical_font"
+            android:gravity="center"
+            android:text="0.0"
             android:textColor="@color/white"
             android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/row2_col4"
             app:layout_constraintBottom_toTopOf="@id/elementDescription"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/fireElementValue"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/multiline_row2_col4" />
 
         <!-- Row 4 -->
         <TextView
             android:id="@+id/elementDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Row 4"
             android:gravity="center"
+            android:text="Row 4"
             android:textColor="@color/gold"
-            app:layout_constraintTop_toBottomOf="@id/airElementValue"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/airElementValue" />
+
         <View
             android:id="@+id/seperator1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:background="@color/gold"
-            app:layout_constraintTop_toBottomOf="@id/elementDescription"
-            app:layout_constraintStart_toStartOf="parent"
             android:fontFamily="@font/mystical_font"
-            android:layout_marginTop="15dp"
             android:textColor="@color/gold"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/elementDescription" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/seperator1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/colorGroupName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Color Group: "
+                    android:textColor="@color/gold"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/colorGroupNameTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Group 1"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/colorGroupDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Matched Colors: "
+                    android:textColor="@color/gold"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/matchedColorsTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/colorGroupDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Description: "
+                    android:textColor="@color/gold"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/colorGroupDescriptionTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/colorGroupDetailsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:text="Sample" />
+
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

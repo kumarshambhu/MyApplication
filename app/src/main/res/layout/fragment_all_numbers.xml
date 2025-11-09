@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/mystical_gradient_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/allNumberHeaderTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:background="@drawable/item_background"
+            android:padding="16dp"
+            android:text="@string/all_number_details"
+            android:textColor="@color/gold"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+       <!-- Life Path -->
+        <TextView
+            android:id="@+id/allNumberLifePathKey"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:padding="6dp"
+            android:text="@string/life_path_number"
+            android:textColor="@color/gold"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"
+
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/colorAccent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberHeaderTitle" />
+        <TextView
+            android:id="@+id/allNumberLifePathValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="4dp"
+            android:padding="6dp"
+            android:text="LP0"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:background="@color/colorAccent"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberHeaderTitle" />
+        <TextView
+            android:id="@+id/allNumberLifePathTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="Row 4 - Full Width"
+            android:textColor="@color/gold"
+            android:textSize="14sp"
+            android:background="@color/colorAccent"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberLifePathKey" />
+        <com.shambhu.myapplication.utils.ExpandableTextView
+            android:id="@+id/allNumberLifePathDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/sample_text_long"
+            android:textSize="16sp"
+            android:layout_margin="4dp"
+            app:collapsedMaxLines="2"
+            app:showMoreText="Read more"
+            app:showLessText="Read less"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberLifePathTitle"
+            tools:ignore="MissingConstraints"/>
+        <View
+            android:id="@+id/allNumberLifePathSeparator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/allNumberLifePathDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/gold"
+
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Destiny Number -->
+        <TextView
+            android:id="@+id/allNumberDestinyKey"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="@string/destiny_number"
+            android:textColor="@color/gold"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/allNumberLifePathSeparator" />
+        <TextView
+            android:id="@+id/allNumberDestinyValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="D0"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberLifePathSeparator" />
+        <TextView
+            android:id="@+id/allNumberDestinyTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="Row 4 - Full Width"
+            android:textColor="@color/gold"
+            android:textSize="14sp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberDestinyKey" />
+        <com.shambhu.myapplication.utils.ExpandableTextView
+            android:id="@+id/allNumberDestinyDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/sample_text_long"
+            android:textSize="16sp"
+            app:collapsedMaxLines="2"
+            app:showMoreText="Read more"
+            app:showLessText="Read less"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberDestinyTitle"
+            tools:ignore="MissingConstraints"/>
+        <View
+            android:id="@+id/allNumberDestinySeparator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/allNumberDestinyDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/gold"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Soul Number -->
+        <TextView
+            android:id="@+id/allNumberSoulKey"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="@string/soul_urge_number"
+            android:textColor="@color/gold"
+            android:textSize="16sp"
+            android:textStyle="bold"
+
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberDestinySeparator" />
+        <TextView
+            android:id="@+id/allNumberSoulValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="S0"
+
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberDestinySeparator" />
+        <TextView
+            android:id="@+id/allNumberSoulTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="Row 4 - Full Width"
+
+            android:textColor="@color/gold"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberSoulKey" />
+        <com.shambhu.myapplication.utils.ExpandableTextView
+            android:id="@+id/allNumberSoulDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/sample_text_long"
+            android:textSize="16sp"
+            app:collapsedMaxLines="2"
+            app:showMoreText="Read more"
+            app:showLessText="Read less"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberSoulTitle"
+            tools:ignore="MissingConstraints"/>
+        <View
+            android:id="@+id/allNumberSoulSeparator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/allNumberSoulDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/gold"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Personality Number -->
+        <TextView
+            android:id="@+id/allNumberPersonalityKey"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="@string/personality_number"
+            android:textColor="@color/gold"
+            android:textSize="16sp"
+            android:textStyle="bold"
+
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberSoulSeparator" />
+        <TextView
+            android:id="@+id/allNumberPersonalityValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="P0"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberSoulSeparator" />
+        <TextView
+            android:id="@+id/allNumberPersonalityTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="Row 4 - Full Width"
+            android:textColor="@color/gold"
+            android:textSize="14sp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberPersonalityKey" />
+        <com.shambhu.myapplication.utils.ExpandableTextView
+            android:id="@+id/allNumberPersonalityDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/sample_text_long"
+            android:textSize="16sp"
+            app:collapsedMaxLines="2"
+            app:showMoreText="Read more"
+            app:showLessText="Read less"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberPersonalityTitle"
+            tools:ignore="MissingConstraints"/>
+        <View
+            android:id="@+id/allNumberPersonalitySeparator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/allNumberPersonalityDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/gold"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Maturity Number -->
+        <TextView
+            android:id="@+id/allNumberMaturityKey"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="Maturity Number"
+            android:textColor="@color/gold"
+            android:textSize="16sp"
+            android:textStyle="bold"
+
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberPersonalitySeparator" />
+        <TextView
+            android:id="@+id/allNumberMaturityValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="M0"
+
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberPersonalitySeparator" />
+        <TextView
+            android:id="@+id/allNumberMaturityTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="Row 4 - Full Width"
+            android:textColor="@color/gold"
+            android:textSize="14sp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberMaturityKey" />
+        <com.shambhu.myapplication.utils.ExpandableTextView
+            android:id="@+id/allNumberMaturityDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/sample_text_long"
+            android:textSize="16sp"
+            app:collapsedMaxLines="2"
+            app:showMoreText="Read more"
+            app:showLessText="Read less"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberMaturityTitle"
+            tools:ignore="MissingConstraints"/>
+        <View
+            android:id="@+id/allNumberMaturitySeparator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/allNumberMaturityDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/gold"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- BirthDay Number-->
+
+        <TextView
+            android:id="@+id/allNumberBirthDayKey"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="@string/birthday_number"
+            android:textColor="@color/gold"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberMaturitySeparator" />
+        <TextView
+            android:id="@+id/allNumberBirthDayValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="BD00"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberMaturitySeparator" />
+        <TextView
+            android:id="@+id/allNumberBirthDayTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="BirthDay - Full Width"
+            android:textColor="@color/gold"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberBirthDayKey" />
+        <com.shambhu.myapplication.utils.ExpandableTextView
+            android:id="@+id/allNumberBirthDayDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/sample_text_long"
+            android:textSize="16sp"
+            app:collapsedMaxLines="2"
+            app:showMoreText="Read more"
+            app:showLessText="Read less"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberBirthDayTitle"
+            tools:ignore="MissingConstraints"/>
+        <View
+            android:id="@+id/allNumberBirthDaySeparator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/allNumberBirthDayDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/gold"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- CurrentName Number-->
+
+        <TextView
+            android:id="@+id/allNumberCurrentNameKey"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="CurrentName Number"
+            android:textColor="@color/gold"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberBirthDaySeparator" />
+        <TextView
+            android:id="@+id/allNumberCurrentNameValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="CN0"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberBirthDaySeparator" />
+        <TextView
+            android:id="@+id/allNumberCurrentNameTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="Row 4 - Full Width"
+            android:textColor="@color/gold"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberCurrentNameKey" />
+        <com.shambhu.myapplication.utils.ExpandableTextView
+            android:id="@+id/allNumberCurrentNameDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/sample_text_long"
+            android:textSize="16sp"
+            app:collapsedMaxLines="2"
+            app:showMoreText="Read more"
+            app:showLessText="Read less"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberCurrentNameTitle"
+            tools:ignore="MissingConstraints"/>
+        <View
+            android:id="@+id/allNumberCurrentNameSeparator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/allNumberCurrentNameDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/gold"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- KarmicLesson Numbers -->
+        <TextView
+            android:id="@+id/allNumberKarmicLessonKey"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="Karmic Lesson Numbers"
+            android:textColor="@color/gold"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberCurrentNameSeparator" />
+        <TextView
+            android:id="@+id/allNumberKarmicLessonValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="KL0"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberCurrentNameSeparator" />
+        <TextView
+            android:id="@+id/allNumberKarmicLessonTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="KarmicLesson Numbers - Full Width"
+            android:textColor="@color/gold"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberKarmicLessonKey" />
+        <com.shambhu.myapplication.utils.ExpandableTextView
+            android:id="@+id/allNumberKarmicLessonDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/sample_text_long"
+            android:textSize="16sp"
+            app:collapsedMaxLines="2"
+            app:showMoreText="Read more"
+            app:showLessText="Read less"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allNumberKarmicLessonTitle"
+            tools:ignore="MissingConstraints"/>
+        <View
+            android:id="@+id/allNumberKarmicLessonSeparator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/allNumberKarmicLessonDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/gold"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <!-- Karmic Debt Numbers -->
+        
+        <!-- Guideline for 50% split -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.70" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -1,0 +1,22 @@
+{
+  "mental": {
+    "letters": ["A","G","H","J","L","N","P"],
+    "description": ""
+  },
+  "physical": {
+    "letters": ["D","E","M","W"
+    ],
+    "description": ""
+  },
+  "emotional": {
+    "letters": ["B","I","O","R","S","T","X","Z"],
+    "description": "whatever numbers are strong,\nemotions will play a part. The job, the relationship, the book, etc. will need to\nappeal to the emotional side of the person. If the emotional, it will also be apart\nof the life force, activity of fire, the silent, meditative side of water, the social,\nchangeable part of air. Same with the colors.\nIf the mental is strong, then the mind"
+  },
+  "intuitive": {
+    "letters": ["C","F","K","Q","U","V","Y"],
+    "description": ""
+  }
+}
+
+
+

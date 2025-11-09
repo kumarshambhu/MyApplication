@@ -73,6 +73,7 @@ class OtherActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
                     2 -> getDrawable(R.drawable.ic_person)
                     3 -> getDrawable(R.drawable.ic_grid)
                     4 -> getDrawable(R.drawable.ic_person)
+                    5 -> getDrawable(R.drawable.ic_person)
                     else -> null
                 }
             )
@@ -83,6 +84,7 @@ class OtherActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
                     2 -> "Testing"
                     3 -> "Data"
                     4 -> "Multiline"
+                    5 -> "Numbers"
                     else -> null
                 }
             }

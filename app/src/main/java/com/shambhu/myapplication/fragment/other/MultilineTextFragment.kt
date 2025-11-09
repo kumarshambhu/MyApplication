@@ -12,8 +12,6 @@ import com.shambhu.myapplication.databinding.FragmentMultilineTextBinding
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
-import org.json.JSONObject
-import java.io.IOException
 
 class MultilineTextFragment : Fragment() {
 
@@ -36,29 +34,25 @@ class MultilineTextFragment : Fragment() {
 
             val elementsJson = CommonUtils.readAssetFile(requireContext(), "elements.json")
             val elementPrediction = elementsJson.let {
-                val score = NumerologyCalculationUtils.calculateElements(fullName.toString(), it)
+                val (dominantElement, score) = NumerologyCalculationUtils.calculateElements(fullName.toString(), it)
                 binding.airElementValue.text = score.get(Constants.Companion.ELEMENT_KEY_AIR).toString()
                 binding.earthElementValue.text = score.get(Constants.Companion.ELEMENT_KEY_EARTH).toString()
                 binding.fireElementValue.text = score.get(Constants.Companion.ELEMENT_KEY_FIRE).toString()
                 binding.waterElementValue.text = score.get(Constants.Companion.ELEMENT_KEY_WATER).toString()
                 Log.i("score", score.toString())
-                var elementDescription = NumerologyCalculationUtils.calculateElementDescription(score, it)
-                binding.elementDescription.text = Html.fromHtml(elementDescription, HtmlCompat.FROM_HTML_MODE_LEGACY)
+                binding.elementDescription.text = Html.fromHtml(dominantElement, HtmlCompat.FROM_HTML_MODE_LEGACY)
+
+                val colorsJson = CommonUtils.readAssetFile(requireContext(), "colors.json") ?: return
+
+                // Color Group
+                val (description, details, matchedColors, group) = NumerologyCalculationUtils.calculateColorGroup(fullName.toString(), colorsJson)
+                binding.colorGroupNameTextView.text = group
+                binding.colorGroupDescriptionTextView.text = description
+                binding.colorGroupDetailsTextView.text = Html.fromHtml(details, Html.FROM_HTML_MODE_COMPACT)
+                binding.matchedColorsTextView.text = matchedColors
             }
 
         }
-    }
-
-    private fun loadContentFromJson(): String {
-        var content = ""
-        try {
-            val json = CommonUtils.readAssetFile(requireContext(), "multiline_data.json")
-            val jsonObject = JSONObject(json)
-            content = jsonObject.getString("content")
-        } catch (ex: IOException) {
-            ex.printStackTrace()
-        }
-        return content
     }
 
     override fun onDestroyView() {

@@ -13,7 +13,7 @@
 
         <!-- Row 1 -->
         <TextView
-            android:id="@+id/row1"
+            android:id="@+id/birth_number_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,7 +29,7 @@
 
         <!-- Row 2: Three Columns -->
         <TextView
-            android:id="@+id/row2_col1"
+            android:id="@+id/birth_number__year_title_col1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -39,19 +39,19 @@
             android:textColor="@color/gold"
             android:textSize="18sp"
             android:textAlignment="center"
-            app:layout_constraintEnd_toStartOf="@+id/row2_col2"
+            app:layout_constraintEnd_toStartOf="@+id/birth_number__year_title_col2"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/row1"
+            app:layout_constraintTop_toBottomOf="@id/birth_number_title"
             app:layout_constraintWidth_percent="0.33" />
 
         <TextView
-            android:id="@+id/row2_col2"
+            android:id="@+id/birth_number__year_title_col2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/row1"
-            app:layout_constraintStart_toEndOf="@id/row2_col1"
-            app:layout_constraintEnd_toStartOf="@id/row2_col3"
+            app:layout_constraintTop_toBottomOf="@id/birth_number_title"
+            app:layout_constraintStart_toEndOf="@id/birth_number__year_title_col1"
+            app:layout_constraintEnd_toStartOf="@id/birth_number__year_title_col3"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/mystical_font"
             android:text="@string/birth_month"
@@ -61,11 +61,11 @@
             app:layout_constraintWidth_percent="0.33" />
 
         <TextView
-            android:id="@+id/row2_col3"
+            android:id="@+id/birth_number__year_title_col3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/row1"
-            app:layout_constraintStart_toEndOf="@id/row2_col2"
+            app:layout_constraintTop_toBottomOf="@id/birth_number_title"
+            app:layout_constraintStart_toEndOf="@id/birth_number__year_title_col2"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/birth_year"
             android:fontFamily="@font/mystical_font"
@@ -81,7 +81,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="00"
-            app:layout_constraintTop_toBottomOf="@id/row2_col1"
+            app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/tvBirthMonthNumber"
             android:fontFamily="@font/mystical_font"
@@ -95,7 +95,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="00"
-            app:layout_constraintTop_toBottomOf="@id/row2_col1"
+            app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
             app:layout_constraintStart_toEndOf="@id/tvBirthDayNumber"
             app:layout_constraintEnd_toStartOf="@id/tvBirthYearNumber"
             android:fontFamily="@font/mystical_font"
@@ -110,7 +110,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="0000"
-            app:layout_constraintTop_toBottomOf="@id/row2_col1"
+            app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
             app:layout_constraintStart_toEndOf="@id/tvBirthMonthNumber"
             app:layout_constraintEnd_toEndOf="parent"
             android:fontFamily="@font/mystical_font"
@@ -148,7 +148,7 @@
 
         <!-- Row 4 -->
         <TextView
-            android:id="@+id/elementDescription"
+            android:id="@+id/birth_number__title_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/birth_cycles_text"
@@ -167,7 +167,7 @@
             android:layout_height="1dp"
             android:layout_marginBottom="10dp"
             android:background="@color/gold"
-            app:layout_constraintTop_toBottomOf="@id/elementDescription"
+            app:layout_constraintTop_toBottomOf="@id/birth_number__title_title"
             app:layout_constraintStart_toStartOf="parent"
             android:fontFamily="@font/mystical_font"
             android:layout_marginTop="15dp"

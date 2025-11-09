@@ -105,21 +105,13 @@ object NumerologyCalculationUtils {
         return total
     }
 
-    fun calculatePersonalYear(
-        day: Int,
-        month: Int,
-        year: Int = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR)
-    ): Int {
-        val birthSum = CommonUtils.reduceNumber(day) + CommonUtils.reduceNumber(month)
+    fun calculatePersonalYear(day: Int, month: Int, year: Int = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR)): Int {
+        val birthSum = CommonUtils.reduceNumber(day) +  CommonUtils.reduceNumber(month)
         val yearSum = year.toString().map { it.toString().toInt() }.sum()
-        return CommonUtils.reduceNumber(birthSum + yearSum)
+        return  CommonUtils.reduceNumber(birthSum + yearSum)
     }
 
-    fun calculatePersonalMonth(
-        day: Int,
-        month: Int,
-        targetMonth: Int = java.util.Calendar.getInstance().get(java.util.Calendar.MONTH) + 1
-    ): Int {
+    fun calculatePersonalMonth(day: Int, month: Int, targetMonth: Int = java.util.Calendar.getInstance().get(java.util.Calendar.MONTH) + 1): Int {
         val currentYear = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR)
         val birthSum = CommonUtils.reduceNumber(day) + CommonUtils.reduceNumber(month)
         val yearSum = currentYear.toString().map { it.toString().toInt() }.sum()
@@ -224,14 +216,15 @@ object NumerologyCalculationUtils {
         return CommonUtils.reduceNumber(day)
     }
 
-    fun calculateElements(fullName: String, jsonString: String): Map<String, Double> {
+    fun calculateElements(fullName: String, jsonString: String): Pair<String, Map<String, Double>> {
         val nameNumbers = nameToIntArray(fullName)
+        var dominantElement = ""
         val elementScores =
             mutableMapOf("AIR" to 0.0, "EARTH" to 0.0, "FIRE" to 0.0, "WATER" to 0.0)
 
         val jsonObject = org.json.JSONObject(jsonString)
         val elementMap = jsonObject.getJSONObject("element")
-
+        val excessMap = jsonObject.getJSONObject("excess")
 
         for (number in nameNumbers) {
             if (elementMap.has(number.toString())) {
@@ -242,26 +235,69 @@ object NumerologyCalculationUtils {
                     val quantity = elementObject.getDouble("quantity")
                     elementScores[elementName] =
                         elementScores.getOrDefault(elementName, 0.0) + quantity
+
+                    val highestElement = elementScores.maxByOrNull { it.value }?.key
+                    if (highestElement != null && excessMap.has(highestElement)) {
+                        dominantElement = excessMap.getJSONObject(highestElement).getString("details")
+                    } else {
+                        dominantElement ="No dominant element found."
+                    }
                 }
             }
         }
-
-        return elementScores
-
+        return Pair(dominantElement,elementScores)
     }
 
-    fun calculateElementDescription(
-        elementScores: Map<String, Double>,
-        jsonString: String
-    ): String {
+    fun calculateColorGroup(fullName: String, jsonString: String): Quadruple<String, String, String, String> {
+        val nameNumbers = nameToColorNumbers(fullName)
+
         val jsonObject = org.json.JSONObject(jsonString)
-        val excessMap = jsonObject.getJSONObject("excess")
-        val highestElement = elementScores.maxByOrNull { it.value }?.key
-        return if (highestElement != null && excessMap.has(highestElement)) {
-            excessMap.getJSONObject(highestElement).getString("details")
-        } else {
-            "No dominant element found."
+        val colorByNumber = jsonObject.getJSONObject("color_by_number")
+        val colorGroup = jsonObject.getJSONObject("color_group")
+
+        val colorToGroupMap = mutableMapOf<String, String>()
+        val groupIterator = colorGroup.keys()
+        while (groupIterator.hasNext()) {
+            val groupName = groupIterator.next()
+            val groupObject = colorGroup.getJSONObject(groupName)
+            val colorsInGroup = groupObject.getJSONArray("colors")
+            for (i in 0 until colorsInGroup.length()) {
+                val colorName = colorsInGroup.getString(i)
+                colorToGroupMap[colorName] = groupName
+            }
         }
+
+        val userColors = nameNumbers.mapNotNull { colorByNumber.optJSONObject(it.toString())?.optString("color") }
+        val groupCounts = userColors
+            .mapNotNull { colorToGroupMap[it] }
+            .groupingBy { it }
+            .eachCount()
+
+        val dominantGroup = groupCounts.maxByOrNull { it.value }?.key
+
+        return if (dominantGroup != null && colorGroup.has(dominantGroup)) {
+            val groupObject = colorGroup.getJSONObject(dominantGroup)
+            val description = groupObject.getString("description")
+            val details = groupObject.getString("details")
+
+            val colorsInDominantGroup = mutableListOf<String>()
+            val colorsArray = groupObject.getJSONArray("colors")
+            for (i in 0 until colorsArray.length()) {
+                colorsInDominantGroup.add(colorsArray.getString(i))
+            }
+
+            val matchedColors = userColors.filter { colorsInDominantGroup.contains(it) }.distinct().joinToString(", ")
+            Quadruple(description, details, matchedColors, dominantGroup)
+
+        } else {
+            Quadruple("No dominant color group found.", "", "", "")
+        }
+    }
+
+    fun nameToColorNumbers(name: String): List<Int> {
+        return name.uppercase()
+            .mapNotNull { LETTER_VALUES[it] } // skip characters not in map
+            .toList()
     }
 
     private fun nameToIntArray(name: String): IntArray {

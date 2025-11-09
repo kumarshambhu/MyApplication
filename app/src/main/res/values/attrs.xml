@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ExpandableTextView">
+        <attr name="android:text" />
+        <attr name="android:textColor" />
+        <attr name="android:textSize" />
+        <attr name="android:textStyle" />
+        <attr name="android:fontFamily" />
+        <attr name="collapsedMaxLines" format="integer" />
+        <attr name="showMoreText" format="string" />
+        <attr name="showLessText" format="string" />
+        <attr name="animationDuration" format="integer" />
+        <attr name="showToggleIfNotNeeded" format="boolean" />
+    </declare-styleable>
+</resources>

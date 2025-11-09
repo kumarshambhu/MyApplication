@@ -52,7 +52,7 @@
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
-            android:id="@+id/row2"
+            android:id="@+id/life_path_title_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="The path you're meant to walk"
@@ -72,7 +72,7 @@
             android:layout_marginBottom="30dp"
             android:background="@color/gold"
             tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toBottomOf="@id/row2"
+            app:layout_constraintTop_toBottomOf="@id/life_path_title_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -94,7 +94,7 @@
 
         <!-- Fourth Row -->
         <TextView
-            android:id="@+id/elementDescription"
+            android:id="@+id/life_path_title_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mystical_font"
@@ -110,7 +110,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:src="@drawable/mystical_orb"
-            app:layout_constraintTop_toBottomOf="@id/row4"
+            app:layout_constraintTop_toBottomOf="@id/life_path_title_description"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>-->
     </androidx.constraintlayout.widget.ConstraintLayout>

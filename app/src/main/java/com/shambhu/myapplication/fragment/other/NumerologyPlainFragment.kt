@@ -1,8 +1,6 @@
 package com.shambhu.myapplication.fragment.other
 
 import android.os.Bundle
-import android.text.Html
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +10,6 @@ import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
-import java.time.LocalDate
 
 class NumerologyPlainFragment : Fragment() {
 
@@ -59,13 +56,6 @@ class NumerologyPlainFragment : Fragment() {
                 val pinnacleNumberAgeRanges =
                     NumerologyCalculationUtils.calculatePinnacleNumberAgeRanges(day, month, year)
                 val luckyNumber = NumerologyCalculationUtils.calculateLuckyNumber(day)
-                val elementsJson = CommonUtils.readAssetFile(requireContext(), "elements.json")
-                val elementPrediction = elementsJson.let {
-                    val score = NumerologyCalculationUtils.calculateElements(fullName, it)
-                    Log.i("score", score.toString())
-                    NumerologyCalculationUtils.calculateElementDescription(score, it)
-                    //NumerologyCalculationUtils.calculateElementDescription( NumerologyCalculationUtils.calculateElements(fullName, it), it)
-                }
 
                 binding.tvSoulUrgeValue.text = soulUrge.toString()
                 binding.tvLifePathValue.text = lifePath.toString()
@@ -82,7 +72,7 @@ class NumerologyPlainFragment : Fragment() {
                 binding.tvPinnacleNumberAgeRangesValue.text =
                     pinnacleNumberAgeRanges.joinToString("\n")
                 binding.tvLuckyNumberValue.text = luckyNumber.toString()
-                binding.tvElementPredictionValue.text = Html.fromHtml(elementPrediction)
+
             }
         }
     }

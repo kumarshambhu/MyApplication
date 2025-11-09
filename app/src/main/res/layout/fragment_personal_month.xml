@@ -52,7 +52,7 @@
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
-            android:id="@+id/row2"
+            android:id="@+id/personal_month_row2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="The path you're meant to walk"
@@ -72,7 +72,7 @@
             android:layout_marginBottom="30dp"
             android:background="@color/gold"
             tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toBottomOf="@id/row2"
+            app:layout_constraintTop_toBottomOf="@id/personal_month_row2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ExpandableTextView Examples"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Example 1: Basic Usage -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. Basic Usage"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <com.shambhu.myapplication.utils.ExpandableTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/sample_text_medium"
+            android:textSize="14sp" />
+
+        <!-- Example 2: Custom Max Lines -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. Custom Max Lines (2 lines)"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <com.shambhu.myapplication.utils.ExpandableTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/sample_text_long"
+            android:textSize="14sp"
+            app:collapsedMaxLines="2"
+            app:showMoreText="Read more"
+            app:showLessText="Read less" />
+
+        <!-- Example 3: Long Text with Animation -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. Long Text with Custom Animation"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <com.shambhu.myapplication.utils.ExpandableTextView
+            android:id="@+id/expandableText3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/sample_text_very_long"
+            android:textSize="14sp"
+            app:collapsedMaxLines="4"
+            app:animationDuration="500"
+            app:showMoreText="Expand ↑"
+            app:showLessText="Collapse ↓" />
+
+        <!-- Example 4: Short Text (No toggle needed) -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4. Short Text (No toggle needed)"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <com.shambhu.myapplication.utils.ExpandableTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/sample_text_short"
+            android:textSize="14sp" />
+
+        <!-- Example 5: Custom Styling -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5. Custom Styling"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <com.shambhu.myapplication.utils.ExpandableTextView
+            android:id="@+id/expandableText5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="@string/sample_text_long"
+            android:textSize="16sp"
+            android:textColor="#2E7D32"
+            android:textStyle="italic"
+            app:collapsedMaxLines="3" />
+
+        <Button
+            android:id="@+id/btnToggleAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle All"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+</ScrollView>
