@@ -34,10 +34,10 @@
     <string name="soul_number_meaning">Your inner desires</string>
     <string name="birth_cycles_text">Your daily, monthly, and yearly cycles</string>
 
-    <string name="soul_urge_number">Soul Urge Number: </string>
+
     <string name="expression_number">Expression Number: </string>
     <string name="life_path_number">Life Path Number :</string>
-    <string name="personality_number">Personality Number:</string>
+
     <string name="birth_numbers">Birth Numbers</string>
     <string name="birth_day">Birth Day</string>
     <string name="birth_month">Birth Month</string>
@@ -46,12 +46,31 @@
     <string name="personal_year">Personal Year:</string>
     <string name="lucky_number">Lucky Number</string>
     <string name="lucky_number_meaning">Your personal lucky number, derived from your day of birth.</string>
-    <string name="birthday_number">Birthday Number:</string>
-    <string name="lifepath_number">Lifepath Number:</string>
-    <string name="soulurge_number">Soul Urge Number:</string>
-    <string name="destiny_number">Destiny Number</string>
-    <string name="long_text_example">"Random-Access Memory (RAM): A type of high-speed, volatile computer memory that stores data for quick access by the CPU. It is used for running programs and temporarily storing working data. Because it is volatile, RAM loses its contents when the power is turned off. \nIn religion and culture\nLord Rama: A principal deity of Hinduism, the seventh avatar of the god Vishnu. The epic Ramayana tells the story of his life and is a central text in many South and Southeast Asian cultures.\n\"Ram-Ram\": In some Indian regions, students are being asked to write the name \"Ram\" to foster discipline, as a spiritual method of encouraging good behavior, according to India.com. \nIn the automotive industry\nRam Trucks: A brand of pickup trucks manufactured by Chrysler's Ram Trucks division. "</string>
 
+
+    <string name="all_number_details">All Number Details</string>
+
+
+    <string name="lifepath_number">Lifepath Number:</string>
+    <string name="destiny_number">Destiny Number</string>
+    <string name="soul_urge_number">Soul Urge Number: </string>
+    <string name="personality_number">Personality Number:</string>
+    <string name="maturity_number">Maturity Number</string>
+    <string name="birthday_number">Birthday Number:</string>
+    <string name="current_name_number">Current Name Number</string>
+    <string name="karmic_lesson_numbers">Karmic Lesson Numbers</string>
+    <string name="karmic_debt_numbers">Karmic Debt Numbers</string>
+
+
+    <string name="lifepath_title">Who you are, your life purpose, the path you will walk in this life.</string>
+    <string name="destiny_title">Who you are destined to become as it already resides within you.</string>
+    <string name="soul_title">Who your soul desires you to be so it can feel content and complete.</string>
+    <string name="personality_title">How others perceive you.</string>
+    <string name="maturity_title">Your future potential, where your life is steering you from 45+.</string>
+    <string name="birth_day_title">Additional personality traits, talents and abilities that assist you on your life path.</string>
+    <string name="current_name_title">The vibration you project to the world when you use this name.</string>
+    <string name="karmic_lesson_title">Your inherent weaknesses and lessons that must be learned.</string>
+    <string name="karmic_debt_title">Additional life lessons for numbers 13/4, 14/5, 16/7, 19/1.</string>
 
     <!-- Interpretation arrays -->
     <string-array name="life_path_interpretations">
@@ -188,13 +207,14 @@
         <item>A time of mastery and large-scale achievement. You will be challenged to build something of lasting value for the world.</item>
     </string-array>
 
+    <string name="sample_text_short">This is a short text that doesn\'t need expansion.</string>
 
-        <string name="sample_text_short">This is a short text that doesn\'t need expansion.</string>
+    <string name="sample_text_medium">This is a medium length text that might need expansion depending on the screen size and configuration. Let\'s see how it behaves.</string>
 
-        <string name="sample_text_medium">This is a medium length text that might need expansion depending on the screen size and configuration. Let\'s see how it behaves.</string>
+    <string name="sample_text_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</string>
 
-        <string name="sample_text_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</string>
+    <string name="sample_text_very_long">Android is a mobile operating system based on a modified version of the Linux kernel and other open-source software, designed primarily for touchscreen mobile devices such as smartphones and tablets. Android is developed by a consortium of developers known as the Open Handset Alliance and commercially sponsored by Google. It was unveiled in November 2007, with the first commercial Android device launched in September 2008. It is free and open-source software; its source code is known as Android Open Source Project (AOSP), which is primarily licensed under the Apache License. However, most Android devices ship with additional proprietary software pre-installed, most notably Google Mobile Services (GMS) which includes core apps such as Google Chrome, the digital distribution platform Google Play, and the associated Google Play Services development platform.</string>
+    <string name="long_text_example">"Random-Access Memory (RAM): A type of high-speed, volatile computer memory that stores data for quick access by the CPU. It is used for running programs and temporarily storing working data. Because it is volatile, RAM loses its contents when the power is turned off. \nIn religion and culture\nLord Rama: A principal deity of Hinduism, the seventh avatar of the god Vishnu. The epic Ramayana tells the story of his life and is a central text in many South and Southeast Asian cultures.\n\"Ram-Ram\": In some Indian regions, students are being asked to write the name \"Ram\" to foster discipline, as a spiritual method of encouraging good behavior, according to India.com. \nIn the automotive industry\nRam Trucks: A brand of pickup trucks manufactured by Chrysler's Ram Trucks division. "</string>
 
-        <string name="sample_text_very_long">Android is a mobile operating system based on a modified version of the Linux kernel and other open-source software, designed primarily for touchscreen mobile devices such as smartphones and tablets. Android is developed by a consortium of developers known as the Open Handset Alliance and commercially sponsored by Google. It was unveiled in November 2007, with the first commercial Android device launched in September 2008. It is free and open-source software; its source code is known as Android Open Source Project (AOSP), which is primarily licensed under the Apache License. However, most Android devices ship with additional proprietary software pre-installed, most notably Google Mobile Services (GMS) which includes core apps such as Google Chrome, the digital distribution platform Google Play, and the associated Google Play Services development platform.</string>
-    <string name="all_number_details">All Number Details</string>
+
 </resources>

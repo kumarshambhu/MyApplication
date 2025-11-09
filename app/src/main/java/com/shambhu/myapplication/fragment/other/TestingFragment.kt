@@ -62,7 +62,7 @@ class TestingFragment : Fragment() {
 
 
         val soulUrgeValue = NumerologyCalculationUtils.calculateSoulUrge(fullName.toString())
-        binding.soulUrgeKey.text =  getString(R.string.soulurge_number) + soulUrgeValue.toString()
+        binding.soulUrgeKey.text =  getString(R.string.soul_urge_number) + soulUrgeValue.toString()
         val soulUrgeInterpretations = resources.getStringArray(R.array.soul_urge_interpretations)
         binding.soulUrgeDescription.text = soulUrgeInterpretations[ soulUrgeValue- 1]
 
