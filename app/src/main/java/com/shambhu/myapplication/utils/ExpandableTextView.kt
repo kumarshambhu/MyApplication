@@ -63,7 +63,7 @@ class ExpandableTextView @JvmOverloads constructor(
             // Make it look like a button
             val padding = resources.getDimensionPixelSize(R.dimen.toggle_button_padding)
             setPadding(padding, padding / 2, padding, padding / 2)
-            background = ContextCompat.getDrawable(context, R.drawable.toggle_bg)
+            background = ContextCompat.getDrawable(context, R.drawable.mystical_button)
         }
 
         addView(textView)

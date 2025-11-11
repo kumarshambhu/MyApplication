@@ -27,7 +27,7 @@ class OtherPagerAdapter(
             2 -> TestingFragment.newInstance(dob, fullName)
             3 -> JsonBulletFragment.newInstance(dob, fullName)
             4 -> MultilineTextFragment.newInstance(dob, fullName)
-            5 -> AllNumbersFragment()
+            5 -> AllNumbersFragment.newInstance(dob, fullName)
             else -> throw IllegalStateException("Invalid position: $position")
         }
     }

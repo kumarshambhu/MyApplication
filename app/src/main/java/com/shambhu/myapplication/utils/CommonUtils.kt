@@ -1,6 +1,7 @@
 package com.shambhu.myapplication.utils
 
 import android.content.Context
+import android.text.Html
 import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
 import java.nio.charset.Charset
 import java.text.SimpleDateFormat
@@ -41,6 +42,12 @@ object CommonUtils {
         inputStream.read(buffer)
         inputStream.close()
         return String(buffer, Charset.defaultCharset())
+    }
+
+    fun getDescriptionFromAssetFile(context: Context, filename: String, key: String): String {
+        val elementsJson = readAssetFile(context, filename)
+        val jsonObject = org.json.JSONObject(elementsJson)
+        return Html.fromHtml(jsonObject.getString(key).toString(), Html.FROM_HTML_MODE_LEGACY).toString()
     }
 
     fun nameToIntArray(name: String): IntArray {

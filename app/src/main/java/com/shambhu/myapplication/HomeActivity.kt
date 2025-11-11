@@ -99,7 +99,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val tabText = tab.customView?.findViewById<TextView>(R.id.tab_text)
             tabIcon?.setImageDrawable(
                 when (position) {
-                    0 -> getDrawable(R.drawable.ic_mirrors)
+                    0 -> getDrawable(R.drawable.ic_personality)
                     1 -> getDrawable(R.drawable.ic_road)
                     2 -> getDrawable(R.drawable.ic_mic)
                     3 -> getDrawable(R.drawable.ic_sunrise)
