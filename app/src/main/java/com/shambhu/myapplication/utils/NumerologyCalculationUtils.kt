@@ -332,4 +332,9 @@ object NumerologyCalculationUtils {
 
         return sortedByFrequency
     }
+
+    fun calculateCombinationNumber(destiny: Int, soul: Int, personality: Int): Int {
+        val sum = destiny + soul + personality
+        return CommonUtils.reduceNumber(sum)
+    }
 }
