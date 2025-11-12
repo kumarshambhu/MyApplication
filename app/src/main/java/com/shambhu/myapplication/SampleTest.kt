@@ -1,36 +1,40 @@
-import com.shambhu.myapplication.utils.Constants
+import com.shambhu.myapplication.utils.CommonUtils
+import com.shambhu.myapplication.utils.CommonUtils.nameToIntArray
+import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 
-fun retainOnlyVowels(input: String): String {
-    return input.replace(Regex("[^aeiouAEIOU]"), "")
+
+fun missingNumbers(numList: MutableList<Int>): List<Int> {
+    val fullRange = (1..9).toSet()
+    val present = numList.toSet()
+    return (fullRange - present).toList().sorted()
 }
-
-fun removeVowels(input: String): String {
-    return input.replace(Regex("[aeiouAEIOU]"), "")
-}
-
-val LETTER_VALUES = mapOf(
-    'A' to 1, 'B' to 2, 'C' to 3, 'D' to 4, 'E' to 5, 'F' to 6, 'G' to 7, 'H' to 8, 'I' to 9,
-    'J' to 1, 'K' to 2, 'L' to 3, 'M' to 4, 'N' to 5, 'O' to 6, 'P' to 7, 'Q' to 8, 'R' to 9,
-    'S' to 1, 'T' to 2, 'U' to 3, 'V' to 4, 'W' to 5, 'X' to 6, 'Y' to 7, 'Z' to 8
-)
 
 fun main() {
     val fullName = "Shambhu Kumar"
-    println(retainOnlyVowels(fullName))  // Output: oiaoi
 
-    println(removeVowels(fullName))
+    val nameNumbers = nameToIntArray(fullName)
+    val numList: MutableList<Int> = nameNumbers.toMutableList()
+    println(numList)
 
-    val personalityName = removeVowels(fullName)
-    val soulName = retainOnlyVowels(fullName)
+    val dateOfBirth = "17/03/1979"
+    val date = CommonUtils.parseDate(dateOfBirth)
+    val day = date.dayOfMonth
+    val month = date.monthValue
+    val year = date.year
 
-    val personalityCleanedName = removeVowels(fullName).uppercase().filter { it in Constants.Companion.LETTER_VALUES }
-    val soulCleanedName = retainOnlyVowels(fullName).uppercase().filter { it in Constants.Companion.LETTER_VALUES }
-    val destinyCleanedName = fullName.uppercase().filter { it in Constants.Companion.LETTER_VALUES }
+    val lifePathNumber = NumerologyCalculationUtils.calculateLifePath(day, month, year)
+    numList.add(lifePathNumber)
 
-    val personalitySum = personalityCleanedName.map { Constants.Companion.LETTER_VALUES[it] ?: 0 }.sum()
-    val soulSum = soulCleanedName.map { Constants.Companion.LETTER_VALUES[it] ?: 0 }.sum()
-    val destinySum = destinyCleanedName.map { Constants.Companion.LETTER_VALUES[it] ?: 0 }.sum()
+    val birthPathNumber = NumerologyCalculationUtils.calculateBirthdayNumber(day)
+    numList.add(birthPathNumber)
 
-    print("${personalitySum} ${soulSum} ${destinySum}")
-    print("${personalityCleanedName} ${soulCleanedName} ${destinyCleanedName}")
+    val uniqueList = numList.distinct().toMutableList()
+
+    println(uniqueList) // [1, 2, 3, 4, 5]
+
+    println(numList)
+
+    val missing = missingNumbers(uniqueList)
+    println("Missing numbers: $missing")
+
 }

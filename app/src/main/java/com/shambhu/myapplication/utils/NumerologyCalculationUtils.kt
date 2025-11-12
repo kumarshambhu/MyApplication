@@ -2,24 +2,17 @@ package com.shambhu.myapplication.utils
 
 import android.text.Html
 import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
-import com.shambhu.myapplication.utils.Constants.Companion.VOWELS
 import org.json.JSONArray
-import removeVowels
-import retainOnlyVowels
-import java.time.LocalDate
-import java.util.Locale
-import kotlin.collections.component1
-import kotlin.collections.component2
 
 object NumerologyCalculationUtils {
 
     // Soul Urge (Heart's Desire) Number Calculation
     fun calculateSoulUrge(name: String): Int {
         val cleanedName = retainOnlyVowels(name).uppercase().filter { it in LETTER_VALUES }
-        var total =  cleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
+        var total = cleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
 
         // Reduce to single digit or master numbers
-        if(total == 11 || total == 22 || total == 33)
+        if (total == 11 || total == 22 || total == 33)
             return total
         while (total > 9) {
             total = total.toString().map { it.toString().toInt() }.sum()
@@ -33,7 +26,7 @@ object NumerologyCalculationUtils {
         var total = personalityCleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
 
         // Reduce to single digit or master numbers
-        if(total == 11 || total == 22 || total == 33)
+        if (total == 11 || total == 22 || total == 33)
             return total
         while (total > 9) {
             total = total.toString().map { it.toString().toInt() }.sum()
@@ -49,7 +42,7 @@ object NumerologyCalculationUtils {
 
         var total = cleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
         // Reduce to single digit or master numbers
-        if(total == 11 || total == 22 || total == 33)
+        if (total == 11 || total == 22 || total == 33)
             return total
         while (total > 9) {
             total = total.toString().map { it.toString().toInt() }.sum()
@@ -57,7 +50,7 @@ object NumerologyCalculationUtils {
         return total
     }
 
-    fun getBirthdayNumber(day: Int): Int {
+    fun calculateBirthdayNumber(day: Int): Int {
         return CommonUtils.reduceNumber(day)
     }
 
@@ -72,13 +65,10 @@ object NumerologyCalculationUtils {
     }
 
 
-
-
-
     fun calculatePersonalYear(day: Int, month: Int, year: Int = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR)): Int {
-        val birthSum = CommonUtils.reduceNumber(day) +  CommonUtils.reduceNumber(month)
+        val birthSum = CommonUtils.reduceNumber(day) + CommonUtils.reduceNumber(month)
         val yearSum = year.toString().map { it.toString().toInt() }.sum()
-        return  CommonUtils.reduceNumber(birthSum + yearSum)
+        return CommonUtils.reduceNumber(birthSum + yearSum)
     }
 
     fun calculatePersonalMonth(day: Int, month: Int, targetMonth: Int = java.util.Calendar.getInstance().get(java.util.Calendar.MONTH) + 1): Int {
@@ -107,8 +97,17 @@ object NumerologyCalculationUtils {
         }
     }
 
-    fun calculateKarmicFromName(fullName: String): String {
-        val cleanedName = fullName.uppercase().filter { it in LETTER_VALUES }
+    fun calculateKarmicFromName(fullName: String): List<Int> {
+        val nameNumbers = CommonUtils.nameToIntArray(fullName)
+        val numList: MutableList<Int> = nameNumbers.toMutableList()
+        val uniqueList = numList.distinct().toMutableList()
+
+        return missingNumbers(uniqueList)
+
+
+
+
+        /*val cleanedName = fullName.uppercase().filter { it in LETTER_VALUES }
         val total = cleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
 
         // Reduce to single digit unless it's a karmic debt number
@@ -125,7 +124,7 @@ object NumerologyCalculationUtils {
             "Karmic Debt Number: $total (Core Number: ${reduce(total)})"
         } else {
             "No karmic debt. Core Number: ${reduce(total)}"
-        }
+        }*/
     }
 
     fun calculateChallengeNumbers(day: Int, month: Int, year: Int): List<Int> {
@@ -208,14 +207,15 @@ object NumerologyCalculationUtils {
 
                     val highestElement = elementScores.maxByOrNull { it.value }?.key
                     if (highestElement != null && excessMap.has(highestElement)) {
-                        dominantElement = excessMap.getJSONObject(highestElement).getString("details")
+                        dominantElement =
+                            excessMap.getJSONObject(highestElement).getString("details")
                     } else {
-                        dominantElement ="No dominant element found."
+                        dominantElement = "No dominant element found."
                     }
                 }
             }
         }
-        return Pair(dominantElement,elementScores)
+        return Pair(dominantElement, elementScores)
     }
 
     fun calculateColorGroup(fullName: String, jsonString: String): Quadruple<String, String, String, String> {
@@ -237,7 +237,9 @@ object NumerologyCalculationUtils {
             }
         }
 
-        val userColors = nameNumbers.mapNotNull { colorByNumber.optJSONObject(it.toString())?.optString("color") }
+        val userColors = nameNumbers.mapNotNull {
+            colorByNumber.optJSONObject(it.toString())?.optString("color")
+        }
         val groupCounts = userColors
             .mapNotNull { colorToGroupMap[it] }
             .groupingBy { it }
@@ -256,7 +258,8 @@ object NumerologyCalculationUtils {
                 colorsInDominantGroup.add(colorsArray.getString(i))
             }
 
-            val matchedColors = userColors.filter { colorsInDominantGroup.contains(it) }.distinct().joinToString(", ")
+            val matchedColors = userColors.filter { colorsInDominantGroup.contains(it) }.distinct()
+                .joinToString(", ")
             Quadruple(description, details, matchedColors, dominantGroup)
 
         } else {
@@ -303,18 +306,14 @@ object NumerologyCalculationUtils {
         return sortedByFrequency
     }
 
-    fun calculateCombinationNumber1(destiny: Int, soul: Int, personality: Int): Int {
-        val sum = destiny + soul + personality
-        return CommonUtils.reduceNumber(sum)
-    }
-
     fun calculateCombinationNumber(jsonData: String, destiny: Int, soul: Int, personality: Int): String? {
         val jsonArray = JSONArray(jsonData)
         for (i in 0 until jsonArray.length()) {
             val item = jsonArray.getJSONObject(i)
             if (item.getInt("destiny") == destiny &&
                 item.getInt("soul") == soul &&
-                item.getInt("personality") == personality) {
+                item.getInt("personality") == personality
+            ) {
                 return convertToHtml(item.getString("summary"))
             }
         }
@@ -331,5 +330,11 @@ object NumerologyCalculationUtils {
 
     fun convertToHtml(input: String): String {
         return Html.fromHtml(input, Html.FROM_HTML_MODE_LEGACY).toString()
+    }
+
+    fun missingNumbers(numList: MutableList<Int>): List<Int> {
+        val fullRange = (1..9).toSet()
+        val present = numList.toSet()
+        return (fullRange - present).toList().sorted()
     }
 }

@@ -1,21 +1,16 @@
 package com.shambhu.myapplication.fragment.other
 
 import android.os.Bundle
-import android.text.Html
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentAllNumbersBinding
-import com.shambhu.myapplication.databinding.FragmentNumerologyPlainBinding
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
-import kotlin.toString
 
 
 class AllNumbersFragment : Fragment() {
@@ -86,7 +81,7 @@ class AllNumbersFragment : Fragment() {
 
 
                 val maturity = lifePath + destinyNumberValue
-                val birthday = NumerologyCalculationUtils.getBirthdayNumber(day)
+                val birthday = NumerologyCalculationUtils.calculateBirthdayNumber(day)
 
 
 

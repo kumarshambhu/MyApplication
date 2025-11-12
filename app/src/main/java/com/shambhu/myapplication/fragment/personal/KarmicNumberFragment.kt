@@ -43,7 +43,7 @@ class KarmicNumberFragment : Fragment() {
 
             binding.tvKarmicByDateValue.text = NumerologyCalculationUtils.calculateKarmicNumber(day, month, year)
             if (fullName != null) {
-                binding.tvKarmicByNameValue.text = NumerologyCalculationUtils.calculateKarmicFromName(fullName)
+                binding.tvKarmicByNameValue.text = NumerologyCalculationUtils.calculateKarmicFromName(fullName).joinToString(", ")
             }
         }
     }

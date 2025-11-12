@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.shambhu.myapplication.R
-import com.shambhu.myapplication.databinding.FragmentLoshuGridBinding
 import com.shambhu.myapplication.databinding.FragmentTestingBinding
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
@@ -49,7 +48,7 @@ class TestingFragment : Fragment() {
         val birthMonth = birthDate.monthValue
         val birthYear = birthDate.year
 
-        val birthdayValue = NumerologyCalculationUtils.getBirthdayNumber(birthDay)
+        val birthdayValue = NumerologyCalculationUtils.calculateBirthdayNumber(birthDay)
         binding.birthdayNumberKey.text =  getString(R.string.birthday_number) + birthdayValue.toString()
         val dayInterpretations = resources.getStringArray(R.array.birth_day_interpretations)
         binding.birthdayNumberDescription.text = dayInterpretations[ birthdayValue- 1]

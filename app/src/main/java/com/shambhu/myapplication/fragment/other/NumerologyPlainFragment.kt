@@ -64,7 +64,7 @@ class NumerologyPlainFragment : Fragment() {
                 binding.tvPersonalYearValue.text = personalYear.toString()
                 binding.tvPersonalMonthValue.text = personalMonth.toString()
                 binding.tvKarmicNumberValue.text = karmicNumber
-                binding.tvKarmicFromNameValue.text = karmicFromName
+                binding.tvKarmicFromNameValue.text = karmicFromName.joinToString(", ")
                 binding.tvChallengeNumbersValue.text = challengeNumbers.joinToString(", ")
                 binding.tvChallengeNumberAgeRangesValue.text =
                     challengeNumberAgeRanges.joinToString("\n")
