@@ -1,6 +1,11 @@
 package com.shambhu.myapplication.utils
 
+import android.text.Html
 import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
+import com.shambhu.myapplication.utils.Constants.Companion.VOWELS
+import org.json.JSONArray
+import removeVowels
+import retainOnlyVowels
 import java.time.LocalDate
 import java.util.Locale
 import kotlin.collections.component1
@@ -10,24 +15,42 @@ object NumerologyCalculationUtils {
 
     // Soul Urge (Heart's Desire) Number Calculation
     fun calculateSoulUrge(name: String): Int {
-        // Convert name to all lowercase to handle vowels properly
-        val cleanedName = name.replace(" ", "").lowercase(Locale.getDefault())
-
-        // Count the vowels (a, e, i, o, u) and assign values
-        var total = 0
-        for (char in cleanedName) {
-            val value = when (char) {
-                'a' -> 1
-                'e' -> 5
-                'i' -> 9
-                'o' -> 6
-                'u' -> 3
-                else -> 0 // For consonants
-            }
-            total += value
-        }
+        val cleanedName = retainOnlyVowels(name).uppercase().filter { it in LETTER_VALUES }
+        var total =  cleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
 
         // Reduce to single digit or master numbers
+        if(total == 11 || total == 22 || total == 33)
+            return total
+        while (total > 9) {
+            total = total.toString().map { it.toString().toInt() }.sum()
+        }
+        return total
+    }
+
+    // Personality Number Calculation
+    fun calculatePersonality(name: String): Int {
+        val personalityCleanedName = removeVowels(name).uppercase().filter { it in LETTER_VALUES }
+        var total = personalityCleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
+
+        // Reduce to single digit or master numbers
+        if(total == 11 || total == 22 || total == 33)
+            return total
+        while (total > 9) {
+            total = total.toString().map { it.toString().toInt() }.sum()
+        }
+        return total
+    }
+
+
+    // Expression (Destiny) Number Calculation
+    fun calculateExpression(name: String): Int {
+        // Convert name to all uppercase and remove spaces
+        val cleanedName = name.uppercase().filter { it in LETTER_VALUES }
+
+        var total = cleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
+        // Reduce to single digit or master numbers
+        if(total == 11 || total == 22 || total == 33)
+            return total
         while (total > 9) {
             total = total.toString().map { it.toString().toInt() }.sum()
         }
@@ -48,62 +71,9 @@ object NumerologyCalculationUtils {
         return CommonUtils.reduceNumber(sum)
     }
 
-    // Expression (Destiny) Number Calculation
-    fun calculateExpression(name: String): Int {
-        // Convert name to all uppercase and remove spaces
-        val cleanedName = name.replace(" ", "").uppercase(Locale.getDefault())
 
-        // Assign numerology values to each letter
-        var total = 0
-        for (char in cleanedName) {
-            val value = when (char) {
-                'A', 'J', 'S' -> 1
-                'B', 'K', 'T' -> 2
-                'C', 'L', 'U' -> 3
-                'D', 'M', 'V' -> 4
-                'E', 'N', 'W' -> 5
-                'F', 'O', 'X' -> 6
-                'G', 'P', 'Y' -> 7
-                'H', 'Q', 'Z' -> 8
-                'I', 'R' -> 9
-                else -> 0 // For non-alphabet characters
-            }
-            total += value
-        }
 
-        // Reduce to single digit or master numbers
-        while (total > 9) {
-            total = total.toString().map { it.toString().toInt() }.sum()
-        }
-        return total
-    }
 
-    // Personality Number Calculation
-    fun calculatePersonality(name: String): Int {
-        // Convert name to all uppercase and remove spaces
-        val cleanedName = name.replace(" ", "").uppercase(Locale.getDefault())
-
-        // Assign numerology values to each letter
-        var total = 0
-        for (char in cleanedName) {
-            val value = when (char) {
-                'B', 'K', 'T' -> 2
-                'C', 'L', 'U' -> 3
-                'D', 'M', 'V' -> 4
-                'F', 'O', 'X' -> 6
-                'G', 'P', 'Y' -> 7
-                'H', 'Q', 'Z' -> 8
-                else -> 0 // For non-alphabet characters
-            }
-            total += value
-        }
-
-        // Reduce to single digit or master numbers
-        while (total > 9) {
-            total = total.toString().map { it.toString().toInt() }.sum()
-        }
-        return total
-    }
 
     fun calculatePersonalYear(day: Int, month: Int, year: Int = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR)): Int {
         val birthSum = CommonUtils.reduceNumber(day) +  CommonUtils.reduceNumber(month)
@@ -333,8 +303,33 @@ object NumerologyCalculationUtils {
         return sortedByFrequency
     }
 
-    fun calculateCombinationNumber(destiny: Int, soul: Int, personality: Int): Int {
+    fun calculateCombinationNumber1(destiny: Int, soul: Int, personality: Int): Int {
         val sum = destiny + soul + personality
         return CommonUtils.reduceNumber(sum)
+    }
+
+    fun calculateCombinationNumber(jsonData: String, destiny: Int, soul: Int, personality: Int): String? {
+        val jsonArray = JSONArray(jsonData)
+        for (i in 0 until jsonArray.length()) {
+            val item = jsonArray.getJSONObject(i)
+            if (item.getInt("destiny") == destiny &&
+                item.getInt("soul") == soul &&
+                item.getInt("personality") == personality) {
+                return convertToHtml(item.getString("summary"))
+            }
+        }
+        return null
+    }
+
+    fun retainOnlyVowels(input: String): String {
+        return input.replace(Regex("[^aeiouAEIOU]"), "")
+    }
+
+    fun removeVowels(input: String): String {
+        return input.replace(Regex("[aeiouAEIOU]"), "")
+    }
+
+    fun convertToHtml(input: String): String {
+        return Html.fromHtml(input, Html.FROM_HTML_MODE_LEGACY).toString()
     }
 }

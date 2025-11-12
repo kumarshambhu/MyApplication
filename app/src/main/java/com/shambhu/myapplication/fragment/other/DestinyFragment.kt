@@ -40,7 +40,8 @@ class DestinyFragment : Fragment() {
                 val destiny = NumerologyCalculationUtils.calculateExpression(fullName)
                 val soul = NumerologyCalculationUtils.calculateSoulUrge(fullName)
                 val personality = NumerologyCalculationUtils.calculatePersonality(fullName)
-                val combination = NumerologyCalculationUtils.calculateCombinationNumber(destiny, soul, personality)
+                val elementsJson = CommonUtils.readAssetFile(requireContext(), "combination.json")
+                val combination = NumerologyCalculationUtils.calculateCombinationNumber(elementsJson, destiny, soul, personality)
 
                 binding.tvDestinyValue.text = destiny.toString()
                 binding.tvSoulValue.text = soul.toString()

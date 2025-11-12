@@ -46,5 +46,9 @@ class Constants {
             'S' to 1, 'T' to 2, 'U' to 3, 'V' to 4, 'W' to 5, 'X' to 6, 'Y' to 7, 'Z' to 8
         )
 
+        const val CONSTANTS = "constants"
+        const val VOWELS = "vowels"
+
+
     }
 }

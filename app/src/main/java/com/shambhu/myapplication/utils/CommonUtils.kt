@@ -47,7 +47,7 @@ object CommonUtils {
     fun getDescriptionFromAssetFile(context: Context, filename: String, key: String): String {
         val elementsJson = readAssetFile(context, filename)
         val jsonObject = org.json.JSONObject(elementsJson)
-        return Html.fromHtml(jsonObject.getString(key).toString(), Html.FROM_HTML_MODE_LEGACY).toString()
+        return NumerologyCalculationUtils.convertToHtml(jsonObject.getString(key))
     }
 
     fun nameToIntArray(name: String): IntArray {

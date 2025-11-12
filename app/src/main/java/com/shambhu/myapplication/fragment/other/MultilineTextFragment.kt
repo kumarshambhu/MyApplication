@@ -40,7 +40,7 @@ class MultilineTextFragment : Fragment() {
                 binding.fireElementValue.text = score.get(Constants.Companion.ELEMENT_KEY_FIRE).toString()
                 binding.waterElementValue.text = score.get(Constants.Companion.ELEMENT_KEY_WATER).toString()
                 Log.i("score", score.toString())
-                binding.elementDescription.text = Html.fromHtml(dominantElement, HtmlCompat.FROM_HTML_MODE_LEGACY)
+                binding.elementDescription.text = NumerologyCalculationUtils.convertToHtml(dominantElement)
 
                 val colorsJson = CommonUtils.readAssetFile(requireContext(), "colors.json") ?: return
 
@@ -48,7 +48,7 @@ class MultilineTextFragment : Fragment() {
                 val (description, details, matchedColors, group) = NumerologyCalculationUtils.calculateColorGroup(fullName.toString(), colorsJson)
                 binding.colorGroupNameTextView.text = group
                 binding.colorGroupDescriptionTextView.text = description
-                binding.colorGroupDetailsTextView.text = Html.fromHtml(details, Html.FROM_HTML_MODE_COMPACT)
+                binding.colorGroupDetailsTextView.text = NumerologyCalculationUtils.convertToHtml(details)
                 binding.matchedColorsTextView.text = matchedColors
             }
 

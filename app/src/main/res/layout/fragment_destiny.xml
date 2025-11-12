@@ -1,5 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mystical_gradient_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Row 1 -->
+        <TextView
+            android:id="@+id/birth_number_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/mystical_font"
+            android:text="Combination Number:"
+            android:textColor="@color/gold"
+            android:textAlignment="center"
+            android:textSize="28sp" />
+
+        <!-- Row 2: Three Columns -->
+        <TextView
+            android:id="@+id/birth_number__year_title_col1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/mystical_font"
+            android:text="Personality"
+            android:textColor="@color/gold"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/birth_number__year_title_col2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/birth_number_title"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <TextView
+            android:id="@+id/birth_number__year_title_col2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/birth_number_title"
+            app:layout_constraintStart_toEndOf="@id/birth_number__year_title_col1"
+            app:layout_constraintEnd_toStartOf="@id/birth_number__year_title_col3"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/mystical_font"
+            android:text="Soul"
+            android:textColor="@color/gold"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <TextView
+            android:id="@+id/birth_number__year_title_col3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/birth_number_title"
+            app:layout_constraintStart_toEndOf="@id/birth_number__year_title_col2"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Destiny"
+            android:fontFamily="@font/mystical_font"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/gold"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <!-- Row 3: Three Columns -->
+        <TextView
+            android:id="@+id/tvPersonalityValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="00"
+            app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvSoulValue"
+            android:fontFamily="@font/mystical_font"
+            android:textColor="@color/gold"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <TextView
+            android:id="@+id/tvSoulValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="00"
+            app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
+            app:layout_constraintStart_toEndOf="@id/tvPersonalityValue"
+            app:layout_constraintEnd_toStartOf="@id/tvDestinyValue"
+            android:fontFamily="@font/mystical_font"
+            android:textColor="@color/gold"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            app:layout_constraintWidth_percent="0.33" />
+
+
+        <TextView
+            android:id="@+id/tvDestinyValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="0000"
+            app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
+            app:layout_constraintStart_toEndOf="@id/tvSoulValue"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:textColor="@color/gold"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <TextView
+            android:id="@+id/tvCombinationValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="all comination"
+            android:textColor="@color/white"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tvPersonalityValue"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/mystical_gradient_background"
@@ -69,3 +205,4 @@
 
     </LinearLayout>
 </ScrollView>
+-->
