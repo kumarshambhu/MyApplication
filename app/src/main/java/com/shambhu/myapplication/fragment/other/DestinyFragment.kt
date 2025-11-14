@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.shambhu.myapplication.adapter.KarmicLessonAdapter
 import com.shambhu.myapplication.databinding.FragmentDestinyBinding
 import com.shambhu.myapplication.utils.CommonUtils
-import com.shambhu.myapplication.utils.CommonUtils.nameToIntArray
 import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
-import missingNumbers
-import kotlin.toString
+import org.json.JSONObject
 
 class DestinyFragment : Fragment() {
 
@@ -64,9 +64,18 @@ class DestinyFragment : Fragment() {
 
     private fun updateKarmicNumber(fullName: String) {
         val missing = NumerologyCalculationUtils.calculateKarmicFromName(fullName)
-        println("Missing numbers: $missing")
-
         binding.karmicLessonNumberValue.text = missing.joinToString(", ")
+
+        val karmicLessonsJson = CommonUtils.readAssetFile(requireContext(), "karmic_lesson_debt.json")
+        val karmicLessonsObject = JSONObject(karmicLessonsJson).getJSONObject("karmic_lesson")
+
+        val karmicLessons = missing.map { number ->
+            val detail = karmicLessonsObject.optString(number.toString(), "No description available.")
+            Pair(number.toString(), detail)
+        }
+
+        binding.karmicLessonRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.karmicLessonRecyclerView.adapter = KarmicLessonAdapter(karmicLessons)
     }
 
     override fun onDestroyView() {
