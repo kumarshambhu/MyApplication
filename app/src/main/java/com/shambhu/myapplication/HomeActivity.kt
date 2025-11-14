@@ -94,7 +94,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         )
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.setCustomView(R.layout.custom_tab)
+            tab.setCustomView(R.layout.custom_tab_top)
             val tabIcon = tab.customView?.findViewById<ImageView>(R.id.tab_icon)
             val tabText = tab.customView?.findViewById<TextView>(R.id.tab_text)
             tabIcon?.setImageDrawable(
