@@ -72,7 +72,7 @@ class PersonalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         binding.content.viewPager.adapter = adapter
 
         TabLayoutMediator(binding.tabs, binding.content.viewPager) { tab, position ->
-            tab.setCustomView(R.layout.custom_tab_top)
+            tab.setCustomView(R.layout.custom_tab)
             val tabIcon = tab.customView?.findViewById<ImageView>(R.id.tab_icon)
             val tabText = tab.customView?.findViewById<TextView>(R.id.tab_text)
             tabIcon?.setImageDrawable(

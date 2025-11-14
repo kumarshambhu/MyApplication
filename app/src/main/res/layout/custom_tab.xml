@@ -9,7 +9,6 @@
         android:id="@+id/tab_icon"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginTop="15dp"
         android:src="@drawable/ic_home"/>
 
     <TextView
@@ -17,10 +16,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Home"
-        android:textColor="@color/white"
+        android:textColor="@color/colorAccent"
         android:textSize="12sp"
-        android:shadowColor="@color/gold"
         android:maxLines="2"
-        android:layout_marginBottom="15dp"
         android:singleLine="false"/>
 </LinearLayout>

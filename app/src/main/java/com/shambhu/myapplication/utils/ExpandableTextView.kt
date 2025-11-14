@@ -7,11 +7,11 @@ import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import com.shambhu.myapplication.R
 
 class ExpandableTextView @JvmOverloads constructor(
@@ -21,11 +21,9 @@ class ExpandableTextView @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
     private lateinit var textView: TextView
-    private lateinit var toggleButton: TextView
+    private lateinit var toggleButton: ImageView
     private var isExpanded = false
     private var collapsedMaxLines = 3
-    private var showMoreText = "Show More"
-    private var showLessText = "Show Less"
     private var animationDuration = 300L
     private var showToggleIfNotNeeded = false
     private var originalText: CharSequence? = null
@@ -49,21 +47,15 @@ class ExpandableTextView @JvmOverloads constructor(
         }
 
         // Create toggle button
-        toggleButton = TextView(context).apply {
+        toggleButton = ImageView(context).apply {
             layoutParams = LayoutParams(
                 LayoutParams.WRAP_CONTENT,
                 LayoutParams.WRAP_CONTENT
             ).apply {
                 topMargin = resources.getDimensionPixelSize(R.dimen.toggle_button_margin)
             }
-
-            setTextColor(ContextCompat.getColor(context, R.color.colorAccent))
+            setImageResource(R.drawable.ic_more_horiz)
             setOnClickListener { toggle() }
-
-            // Make it look like a button
-            val padding = resources.getDimensionPixelSize(R.dimen.toggle_button_padding)
-            setPadding(padding, padding / 2, padding, padding / 2)
-            background = ContextCompat.getDrawable(context, R.drawable.mystical_button)
         }
 
         addView(textView)
@@ -108,14 +100,6 @@ class ExpandableTextView @JvmOverloads constructor(
                     3
                 )
 
-                showMoreText = typedArray.getString(
-                    R.styleable.ExpandableTextView_showMoreText
-                ) ?: "Show More"
-
-                showLessText = typedArray.getString(
-                    R.styleable.ExpandableTextView_showLessText
-                ) ?: "Show Less"
-
                 animationDuration = typedArray.getInt(
                     R.styleable.ExpandableTextView_animationDuration,
                     300
@@ -134,8 +118,6 @@ class ExpandableTextView @JvmOverloads constructor(
                 typedArray.recycle()
             }
         }
-
-        updateToggleButton()
     }
 
     override fun onAttachedToWindow() {
@@ -150,7 +132,6 @@ class ExpandableTextView @JvmOverloads constructor(
         textView.text = text
         isExpanded = false
         applyToggleState()
-        updateToggleButton()
         checkTextLength()
     }
 
@@ -164,16 +145,6 @@ class ExpandableTextView @JvmOverloads constructor(
             textView.maxLines = maxLines
         }
         checkTextLength()
-    }
-
-    fun setShowMoreText(text: String) {
-        showMoreText = text
-        updateToggleButton()
-    }
-
-    fun setShowLessText(text: String) {
-        showLessText = text
-        updateToggleButton()
     }
 
     fun expand() {
@@ -203,7 +174,6 @@ class ExpandableTextView @JvmOverloads constructor(
             applyToggleState()
         }
 
-        updateToggleButton()
         onExpandListener?.invoke(isExpanded)
     }
 
@@ -252,19 +222,5 @@ class ExpandableTextView @JvmOverloads constructor(
             showToggleIfNotNeeded -> View.VISIBLE
             else -> View.GONE
         }
-
-        updateToggleButton()
-    }
-
-    private fun updateToggleButton() {
-        toggleButton.text = if (isExpanded) showLessText else showMoreText
-    }
-
-    fun setToggleButtonTextColor(color: Int) {
-        toggleButton.setTextColor(color)
-    }
-
-    fun setToggleButtonBackground(backgroundRes: Int) {
-        toggleButton.setBackgroundResource(backgroundRes)
     }
 }
