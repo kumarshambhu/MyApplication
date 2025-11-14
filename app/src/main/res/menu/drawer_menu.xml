@@ -5,10 +5,10 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:title="Home" />
+            android:title="Core Numerology" />
         <item
             android:id="@+id/nav_personal"
-            android:title="Personal" />
+            android:title="Other" />
         <item
             android:id="@+id/nav_slideshow"
             android:title="Slideshow" />
