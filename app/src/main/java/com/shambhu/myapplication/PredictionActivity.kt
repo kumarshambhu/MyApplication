@@ -32,6 +32,17 @@ class PredictionActivity : AppCompatActivity() {
                 7 -> "Astrology"
                 else -> null
             }
+            tab.icon = when (position) {
+                0 -> getDrawable(R.drawable.ic_moon)
+                1 -> getDrawable(R.drawable.ic_karmic)
+                2 -> getDrawable(R.drawable.ic_personality)
+                3 -> getDrawable(R.drawable.mystical_orb)
+                4 -> getDrawable(R.drawable.ic_grid)
+                5 -> getDrawable(R.drawable.mystical_symbol)
+                6 -> getDrawable(R.drawable.ic_earth)
+                7 -> getDrawable(R.drawable.ic_sunrise)
+                else -> null
+            }
         }.attach()
     }
 }
