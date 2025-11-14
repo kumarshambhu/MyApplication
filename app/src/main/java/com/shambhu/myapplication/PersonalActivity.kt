@@ -127,6 +127,10 @@ class PersonalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                 val i = Intent(applicationContext, OtherActivity::class.java)
                 startActivity(i)
             }
+            R.id.nav_prediction -> {
+                val i = Intent(applicationContext, PredictionActivity::class.java)
+                startActivity(i)
+            }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
