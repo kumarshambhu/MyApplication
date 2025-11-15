@@ -36,7 +36,7 @@ class LifePathFragment : Fragment() {
         arguments?.let {
             val lifePath = it.getInt(ARG_LIFE_PATH)
             binding.tvLifePathNumber.text = lifePath.toString()
-            binding.tvLifePathInterpretation.text = getLifePathDescription(lifePath)
+            binding.tvLifePathInterpretation.setText(getLifePathDescription(lifePath))
         }
     }
 

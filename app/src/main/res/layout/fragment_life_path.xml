@@ -77,18 +77,18 @@
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <!-- Third Row -->
-        <TextView
+        <com.shambhu.myapplication.utils.ExpandableTextView
             android:id="@+id/tvLifePathInterpretation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/view_line"
             app:layout_constraintStart_toStartOf="parent"
             android:padding="16dp"
-            android:fontFamily="@font/mystical_font"
-            android:textColor="@color/white"
-            android:text="Interpretation"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:text="Interpretation"
+            app:textColor="@color/white"
+            app:textSize="15sp"
+            app:fontFamily="@font/mystical_font"/>
 
 
 
