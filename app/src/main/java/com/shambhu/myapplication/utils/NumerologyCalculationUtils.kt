@@ -7,59 +7,48 @@ import org.json.JSONArray
 object NumerologyCalculationUtils {
 
     // Soul Urge (Heart's Desire) Number Calculation
-    fun calculateSoulUrge(name: String): Int {
+    fun calculateSoulUrge(name: String, reduce: Boolean = true): Int {
         val cleanedName = retainOnlyVowels(name).uppercase().filter { it in LETTER_VALUES }
-        var total = cleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
+        val total = cleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
+        if (!reduce) return total
 
         // Reduce to single digit or master numbers
-        if (total == 11 || total == 22 || total == 33)
-            return total
-        while (total > 9) {
-            total = total.toString().map { it.toString().toInt() }.sum()
-        }
-        return total
+        return CommonUtils.reduceNumber(total)
     }
 
     // Personality Number Calculation
-    fun calculatePersonality(name: String): Int {
+    fun calculatePersonality(name: String, reduce: Boolean = true): Int {
         val personalityCleanedName = removeVowels(name).uppercase().filter { it in LETTER_VALUES }
-        var total = personalityCleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
+        val total = personalityCleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
+        if (!reduce) return total
 
         // Reduce to single digit or master numbers
-        if (total == 11 || total == 22 || total == 33)
-            return total
-        while (total > 9) {
-            total = total.toString().map { it.toString().toInt() }.sum()
-        }
-        return total
+        return CommonUtils.reduceNumber(total)
     }
 
 
     // Expression (Destiny) Number Calculation
-    fun calculateExpression(name: String): Int {
+    fun calculateExpression(name: String, reduce: Boolean = true): Int {
         // Convert name to all uppercase and remove spaces
         val cleanedName = name.uppercase().filter { it in LETTER_VALUES }
-
-        var total = cleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
+        val total = cleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
+        if (!reduce) return total
         // Reduce to single digit or master numbers
-        if (total == 11 || total == 22 || total == 33)
-            return total
-        while (total > 9) {
-            total = total.toString().map { it.toString().toInt() }.sum()
-        }
-        return total
+        return CommonUtils.reduceNumber(total)
     }
 
-    fun calculateBirthdayNumber(day: Int): Int {
+    fun calculateBirthdayNumber(day: Int, reduce: Boolean = true): Int {
+        if (!reduce) return day
         return CommonUtils.reduceNumber(day)
     }
 
     // Life Path Number Calculation
-    fun calculateLifePath(day: Int, month: Int, year: Int): Int {
+    fun calculateLifePath(day: Int, month: Int, year: Int, reduce: Boolean = true): Int {
         val reducedDay = CommonUtils.reduceNumber(day)
         val reducedMonth = CommonUtils.reduceNumber(month)
         val reducedYear = CommonUtils.reduceNumber(year)
         val sum = reducedDay + reducedMonth + reducedYear
+        if (!reduce) return sum
         // For challenge age calculation, we need a single digit Life Path number.
         return CommonUtils.reduceNumber(sum)
     }
@@ -80,24 +69,39 @@ object NumerologyCalculationUtils {
         return CommonUtils.reduceNumber(personalYear + targetMonth)
     }
 
-    fun calculateKarmicNumber(day: Int, month: Int, year: Int): String {
-        fun digitSum(n: Int): Int = n.toString().map { it.toString().toInt() }.sum()
+    fun calculateKarmicDebtNumbers(day: Int, month: Int, year: Int, fullName: String): List<Pair<String, Int>> {
+        val karmicDebtNumbers = listOf(13, 14, 16, 19)
+        val results = mutableListOf<Pair<String, Int>>()
 
-        val daySum = digitSum(day)
-        val monthSum = digitSum(month)
-        val yearSum = year.toString().map { it.toString().toInt() }.sum()
-
-        val total = daySum + monthSum + yearSum
-        val reduced = generateSequence(total) { digitSum(it) }
-            .first { it < 10 }
-
-        return when (total) {
-            13, 14, 16, 19 -> "Karmic Debt Number: $total (Life Path: $reduced)"
-            else -> "No karmic debt. Life Path Number: $reduced"
+        val lifePathTotal = calculateLifePath(day, month, year, reduce = false)
+        if (lifePathTotal in karmicDebtNumbers) {
+            results.add("Life Path" to lifePathTotal)
         }
+
+        val expressionTotal = calculateExpression(fullName, reduce = false)
+        if (expressionTotal in karmicDebtNumbers) {
+            results.add("Expression" to expressionTotal)
+        }
+
+        val soulUrgeTotal = calculateSoulUrge(fullName, reduce = false)
+        if (soulUrgeTotal in karmicDebtNumbers) {
+            results.add("Soul Urge" to soulUrgeTotal)
+        }
+
+        val personalityTotal = calculatePersonality(fullName, reduce = false)
+        if (personalityTotal in karmicDebtNumbers) {
+            results.add("Personality" to personalityTotal)
+        }
+
+        val birthdayTotal = calculateBirthdayNumber(day, reduce = false)
+        if (birthdayTotal in karmicDebtNumbers) {
+            results.add("Birthday" to birthdayTotal)
+        }
+
+        return results
     }
 
-    fun calculateKarmicFromName(fullName: String): List<Int> {
+    fun calculateKarmicLesson(fullName: String): List<Int> {
         val nameNumbers = CommonUtils.nameToIntArray(fullName)
         val numList: MutableList<Int> = nameNumbers.toMutableList()
         val uniqueList = numList.distinct().toMutableList()
@@ -141,7 +145,7 @@ object NumerologyCalculationUtils {
     }
 
     fun calculateChallengeNumberAgeRanges(day: Int, month: Int, year: Int): List<String> {
-        val lifePathNumber = calculateLifePath(day, month, year)
+        val lifePathNumber = calculateLifePath(day, month, year, reduce = true)
         val endOfFirstChallenge = 36 - lifePathNumber
         val endOfSecondChallenge = endOfFirstChallenge + 9
         val endOfThirdChallenge = endOfSecondChallenge + 9
@@ -168,7 +172,7 @@ object NumerologyCalculationUtils {
     }
 
     fun calculatePinnacleNumberAgeRanges(day: Int, month: Int, year: Int): List<String> {
-        val lifePathNumber = calculateLifePath(day, month, year)
+        val lifePathNumber = calculateLifePath(day, month, year, reduce = true)
         val endOfFirstPinnacle = 36 - lifePathNumber
         val endOfSecondPinnacle = endOfFirstPinnacle + 9
         val endOfThirdPinnacle = endOfSecondPinnacle + 9

@@ -19,6 +19,7 @@ import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_NAME
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_CHALLENGE_NUMBER
+import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_KARMIC_DEBT
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_KARMIC_NUMBER
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_PERSONAL_MONTH
 import com.shambhu.myapplication.utils.Constants.Companion.TAB_KEY_PERSONAL_YEAR
@@ -82,6 +83,7 @@ class PersonalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                     2 -> getDrawable(R.drawable.ic_karmic)
                     3 -> getDrawable(R.drawable.ic_road)
                     4 -> getDrawable(R.drawable.ic_pinnacle)
+                    5 -> getDrawable(R.drawable.ic_karmic)
                     else -> null
                 }
             )
@@ -92,6 +94,7 @@ class PersonalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                     2 -> TAB_KEY_KARMIC_NUMBER
                     3 -> TAB_KEY_CHALLENGE_NUMBER
                     4 -> TAB_KEY_PINNACLE_NUMBER
+                    5 -> TAB_KEY_KARMIC_DEBT
                     else -> null
                 }
             }
