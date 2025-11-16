@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.shambhu.myapplication.adapter.KarmicDebtAdapter
 import com.shambhu.myapplication.adapter.KarmicLessonAdapter
 import com.shambhu.myapplication.databinding.FragmentKarmicNumberBinding
 import com.shambhu.myapplication.utils.CommonUtils
@@ -35,12 +36,12 @@ class KarmicNumberFragment : Fragment() {
         arguments?.let {
             val dob = it.getString(Constants.ARG_DOB)
             val fullName = it.getString(Constants.ARG_FULL_NAME)
-            updateKarmicNumber(fullName.toString())
+            updateKarmicNumber(fullName.toString(), dob.toString())
         }
     }
 
 
-    private fun updateKarmicNumber(fullName: String) {
+    private fun updateKarmicNumber(fullName: String, dateOfBirth: String) {
         val missing = NumerologyCalculationUtils.calculateKarmicFromName(fullName)
         binding.karmicLessonNumberValue.text = missing.joinToString(", ")
 
@@ -54,8 +55,48 @@ class KarmicNumberFragment : Fragment() {
 
         binding.karmicLessonRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.karmicLessonRecyclerView.adapter = KarmicLessonAdapter(karmicLessons)
+
+        val date = CommonUtils.parseDate(dateOfBirth)
+        val day = date.dayOfMonth
+        val month = date.monthValue
+        val year = date.year
+
+        val karmicDebtNumbers = NumerologyCalculationUtils.calculateKarmicDebtNumbers(day, month, year, fullName)
+
+        if (karmicDebtNumbers.isEmpty()) {
+            binding.tvNoKarmicDebt.visibility = View.VISIBLE
+            binding.rvKarmicDebt.visibility = View.GONE
+        } else {
+            binding.tvNoKarmicDebt.visibility = View.GONE
+            binding.rvKarmicDebt.visibility = View.VISIBLE
+            setupRecyclerView(karmicDebtNumbers)
+        }
     }
 
+    private fun setupRecyclerView(karmicDebtNumbers: List<Pair<String, Int>>) {
+        val interpretations = loadInterpretations()
+        val adapter = KarmicDebtAdapter(karmicDebtNumbers, interpretations)
+        binding.rvKarmicDebt.layoutManager = LinearLayoutManager(context)
+        binding.rvKarmicDebt.adapter = adapter
+    }
+
+    private fun loadInterpretations(): Map<String, String> {
+        val interpretations = mutableMapOf<String, String>()
+        try {
+            val inputStream = context?.assets?.open("karmic_lesson_debt.json")
+            val json = inputStream?.bufferedReader().use { it?.readText() }
+            val jsonObject = JSONObject(json)
+            val karmicDebtObject = jsonObject.getJSONObject("karmic_debt")
+            val keys = karmicDebtObject.keys()
+            while (keys.hasNext()) {
+                val key = keys.next()
+                interpretations[key] = karmicDebtObject.getString(key)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return interpretations
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

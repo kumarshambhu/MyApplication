@@ -40,37 +40,6 @@
             app:layout_constraintStart_toEndOf="@id/karmic_number_title"
             app:layout_constraintWidth_percent="0.25" />
 
-       <!-- <TextView
-            android:id="@+id/karmicLessonNumberTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/mystical_font"
-            android:text="Karmic Number:"
-            android:textAlignment="center"
-            android:textColor="@color/gold"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/karmic_number_title"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/karmic_number_title"
-            app:layout_constraintWidth_percent="0.75" />-->
-
-       <!-- <TextView
-            android:id="@+id/karmicLessonNumberValue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/mystical_font"
-            android:text="Soul"
-            android:layout_marginTop="12dp"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@id/karmicLessonNumberTitle"
-            app:layout_constraintTop_toBottomOf="@id/karmic_number_title"
-            app:layout_constraintWidth_percent="0.25" />-->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/karmicLessonRecyclerView"
             android:layout_width="match_parent"
@@ -92,5 +61,36 @@
             android:fontFamily="@font/mystical_font"
             android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/kartmicDebtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mystical_font"
+            android:text="Karmic Debt numbers"
+            android:textColor="@color/gold"
+            android:textAlignment="center"
+            android:textSize="28sp"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/karmicNumberSeparator"
+            app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/tvNoKarmicDebt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Karmic Debt numbers found."
+            android:textColor="@color/gold"
+            android:textAlignment="center"
+            android:textSize="28sp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/kartmicDebtTitle"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvKarmicDebt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/kartmicDebtTitle"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
