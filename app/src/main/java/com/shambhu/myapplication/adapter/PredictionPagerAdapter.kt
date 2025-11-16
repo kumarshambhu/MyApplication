@@ -3,29 +3,23 @@ package com.shambhu.myapplication.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.shambhu.myapplication.fragment.prediction.HoroscopeFragment
-import com.shambhu.myapplication.fragment.prediction.TarotFragment
-import com.shambhu.myapplication.fragment.prediction.PalmistryFragment
-import com.shambhu.myapplication.fragment.prediction.CrystalBallFragment
+import com.shambhu.myapplication.fragment.prediction.CoreNumberFragment
+import com.shambhu.myapplication.fragment.prediction.KarmicNumberFragment
 import com.shambhu.myapplication.fragment.prediction.IChingFragment
-import com.shambhu.myapplication.fragment.prediction.RunesFragment
-import com.shambhu.myapplication.fragment.prediction.TeaLeafFragment
-import com.shambhu.myapplication.fragment.prediction.AstrologyFragment
 
-class PredictionPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
+class PredictionPagerAdapter(
+    fa: FragmentActivity,
+    private val dob: String,
+    private val fullName: String
+) : FragmentStateAdapter(fa) {
 
-    override fun getItemCount(): Int = 8
+    override fun getItemCount(): Int = 4
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> HoroscopeFragment()
-            1 -> TarotFragment()
-            2 -> PalmistryFragment()
-            3 -> CrystalBallFragment()
-            4 -> IChingFragment()
-            5 -> RunesFragment()
-            6 -> TeaLeafFragment()
-            7 -> AstrologyFragment()
+            0 -> CoreNumberFragment.newInstance(dob,fullName)
+            1 -> KarmicNumberFragment.newInstance(dob, fullName)
+            2 -> IChingFragment.newInstance(dob,fullName)
             else -> throw IllegalStateException("Invalid position: $position")
         }
     }

@@ -3,11 +3,11 @@ package com.shambhu.myapplication.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.shambhu.myapplication.fragment.home.BirthNumbersFragment
-import com.shambhu.myapplication.fragment.home.ExpressionFragment
-import com.shambhu.myapplication.fragment.home.LifePathFragment
-import com.shambhu.myapplication.fragment.home.PersonalityFragment
-import com.shambhu.myapplication.fragment.home.SoulUrgeFragment
+import com.shambhu.myapplication.fragment.core_number.BirthNumbersFragment
+import com.shambhu.myapplication.fragment.core_number.ExpressionFragment
+import com.shambhu.myapplication.fragment.core_number.LifePathFragment
+import com.shambhu.myapplication.fragment.core_number.PersonalityFragment
+import com.shambhu.myapplication.fragment.core_number.SoulUrgeFragment
 
 class HomePagerAdapter(
     fragmentActivity: FragmentActivity,

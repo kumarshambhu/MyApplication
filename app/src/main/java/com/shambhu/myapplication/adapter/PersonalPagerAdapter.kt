@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.shambhu.myapplication.fragment.personal.ChallengeNumbersFragment
-import com.shambhu.myapplication.fragment.personal.KarmicNumberFragment
+import com.shambhu.myapplication.fragment.personal.KarmicNumberPersonalFragment
 import com.shambhu.myapplication.fragment.personal.PersonalMonthFragment
 import com.shambhu.myapplication.fragment.personal.PersonalYearFragment
 import com.shambhu.myapplication.fragment.personal.PinnacleNumbersFragment
@@ -25,7 +25,7 @@ class PersonalPagerAdapter(
         return when (position) {
             0 -> PersonalMonthFragment.newInstance(birthDay, birthMonth, birthYear)
             1 -> PersonalYearFragment.newInstance(birthDay, birthMonth, birthYear)
-            2 -> KarmicNumberFragment.newInstance(birthDay, birthMonth, birthYear, fullName)
+            2 -> KarmicNumberPersonalFragment.newInstance(birthDay, birthMonth, birthYear, fullName)
             3 -> ChallengeNumbersFragment.newInstance(birthDay, birthMonth, birthYear)
             4 -> PinnacleNumbersFragment.newInstance(birthDay, birthMonth, birthYear)
             else -> throw IllegalArgumentException("Invalid position")

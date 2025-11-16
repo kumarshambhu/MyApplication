@@ -7,29 +7,29 @@
 
     <fragment
         android:id="@+id/PersonalityFragment"
-        android:name="com.shambhu.myapplication.fragment.home.ExpressionFragment"
+        android:name="com.shambhu.myapplication.fragment.core_number.ExpressionFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_expression">
     </fragment>
     <fragment
         android:id="@+id/BirthNumbersFragment"
-        android:name="com.shambhu.myapplication.fragment.home.BirthNumbersFragment"
+        android:name="com.shambhu.myapplication.fragment.core_number.BirthNumbersFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_birth_numbers">
     </fragment>
     <fragment
         android:id="@+id/lifePathFragment"
-        android:name="com.shambhu.myapplication.fragment.home.LifePathFragment"
+        android:name="com.shambhu.myapplication.fragment.core_number.LifePathFragment"
         android:label="fragment_life_path"
         tools:layout="@layout/fragment_life_path" />
     <fragment
         android:id="@+id/soulUrgeFragment"
-        android:name="com.shambhu.myapplication.fragment.home.SoulUrgeFragment"
+        android:name="com.shambhu.myapplication.fragment.core_number.SoulUrgeFragment"
         android:label="fragment_soul_urge"
         tools:layout="@layout/fragment_soul_urge" />
     <fragment
         android:id="@+id/personalityFragment"
-        android:name="com.shambhu.myapplication.fragment.home.PersonalityFragment"
+        android:name="com.shambhu.myapplication.fragment.core_number.PersonalityFragment"
         android:label="fragment_personality"
         tools:layout="@layout/fragment_personality" />
 </navigation>

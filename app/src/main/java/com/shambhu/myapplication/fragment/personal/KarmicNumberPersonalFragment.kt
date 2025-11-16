@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.databinding.FragmentKarmicNumberBinding
+import com.shambhu.myapplication.databinding.FragmentKarmicNumberPersonalBinding
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_DAY
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_MONTH
@@ -15,9 +16,9 @@ import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 /**
  * A simple [androidx.fragment.app.Fragment] subclass as the default destination in the navigation.
  */
-class KarmicNumberFragment : Fragment() {
+class KarmicNumberPersonalFragment : Fragment() {
 
-    private var _binding: FragmentKarmicNumberBinding? = null
+    private var _binding: FragmentKarmicNumberPersonalBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -28,7 +29,7 @@ class KarmicNumberFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentKarmicNumberBinding.inflate(inflater, container, false)
+        _binding = FragmentKarmicNumberPersonalBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -57,8 +58,8 @@ class KarmicNumberFragment : Fragment() {
 
         fun newInstance(
             day: Int, month: Int, year: Int, fullName: String
-        ): KarmicNumberFragment {
-            val fragment = KarmicNumberFragment()
+        ): KarmicNumberPersonalFragment {
+            val fragment = KarmicNumberPersonalFragment()
             val args = Bundle()
             args.putInt(ARG_DAY, day)
             args.putInt(ARG_MONTH, month)

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@drawable/mystical_gradient_background"
+    android:background="#1F1F30"
     tools:context=".PredictionActivity">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -16,11 +16,13 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent">
+            android:background="#2A2B37"
+            android:minHeight="70dp">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
+                app:titleTextColor="@color/gold"
                 android:layout_height="?attr/actionBarSize" />
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -42,8 +44,8 @@
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"
                 android:layout_width="0dp"
-                android:background="@drawable/toggle_bg"
-                android:layout_height="wrap_content"
+                android:background="#2A2B37"
+                android:layout_height="80dp"
                 android:layout_marginBottom="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

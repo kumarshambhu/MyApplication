@@ -1,20 +1,12 @@
-package com.shambhu.myapplication.fragment.home
+package com.shambhu.myapplication.fragment.core_number
 
 import android.os.Bundle
-import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
-import com.shambhu.myapplication.R
-import com.shambhu.myapplication.databinding.FragmentBirthNumbersBinding
 import com.shambhu.myapplication.databinding.FragmentLifePathBinding
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_LIFE_PATH
-import com.shambhu.myapplication.utils.Constants.Companion.MY_DATA
-import org.json.JSONObject
-import java.nio.charset.Charset
 
 class LifePathFragment : Fragment() {
 

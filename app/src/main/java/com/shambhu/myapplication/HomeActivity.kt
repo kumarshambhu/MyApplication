@@ -79,7 +79,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val birthMonth = birthDate.monthValue
         val birthYear = birthDate.year
         val lifePath =NumerologyCalculationUtils.calculateLifePath(birthDay, birthMonth, birthYear)
-        val viewPager = binding.contentHome.viewPager
+        val viewPager = binding.viewPager
         val tabLayout = binding.tabs
 
         viewPager.adapter = HomePagerAdapter(

@@ -5,8 +5,8 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_background"
     android:fitsSystemWindows="true"
-    android:background="@drawable/mystical_gradient_background"
     tools:context=".HomeActivity">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -23,42 +23,49 @@
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize" />
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:tabTextAppearance="@style/MyTabText"
-                app:tabPaddingStart="12dp"
-                android:background="@android:color/transparent"
-                app:tabPaddingEnd="12dp"
-                app:tabIndicatorFullWidth="false"
-                app:tabIndicatorColor="@color/gold"
-                app:tabIndicatorHeight="4dp"
-                app:tabSelectedTextColor="@color/gold"
-                />
+                android:layout_height="?attr/actionBarSize"
+                app:titleTextColor="@color/dark_gold"
+                app:subtitleTextColor="@color/gold"
+                app:collapseIcon="@color/white"
+                android:background="@color/dark_tab" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <include
-            android:id="@+id/content_home"
-            layout="@layout/content_home" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-      <!--  <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="@dimen/fab_margin"
-            android:layout_marginBottom="16dp"
-            app:srcCompat="@android:drawable/ic_dialog_email" />-->
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginBottom="0dp"
+                android:background="#2A2B37"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:tabIndicatorColor="@color/gold"
+                app:tabIndicatorGravity="top"
+                app:tabIndicatorHeight="3dp"
+                app:tabMode="scrollable"
+                app:tabSelectedTextColor="@color/gold"
+                app:tabTextColor="@color/white" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header_main"

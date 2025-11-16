@@ -40,19 +40,6 @@ class AllNumbersFragment : Fragment() {
                 val month = date.monthValue
                 val year = date.year
 
-                /*
-                Life Path Number(DDMMYYYY)
-                Destiny Number(ALL LETTER IN NAME)
-                Soul Number(ALL VOWEL IN NAME)
-                Personality Number(ALL CONSTANTS IN NAME)
-                Maturity Number(LIFE PATH + DESTINY)
-                Birth Day Number(DD)
-                Current Name Number(CALLING NAME)
-                Karmic Lesson Numbers(MISSING NUMBER IN NAME)
-                Karmic Debt Numbers
-                 */
-
-
                 val lifePath = NumerologyCalculationUtils.calculateLifePath(day, month, year)
                 binding.allNumberLifePathValue.text = lifePath.toString()
                 val lifepathInterpretations =

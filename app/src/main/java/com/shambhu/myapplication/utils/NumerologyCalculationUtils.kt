@@ -1,5 +1,6 @@
 package com.shambhu.myapplication.utils
 
+import android.content.Context
 import android.text.Html
 import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
 import org.json.JSONArray
@@ -62,6 +63,27 @@ object NumerologyCalculationUtils {
         val sum = reducedDay + reducedMonth + reducedYear
         // For challenge age calculation, we need a single digit Life Path number.
         return CommonUtils.reduceNumber(sum)
+    }
+
+    fun getLifePathDescription(context: Context, lifePath: Int): String {
+        try {
+            val inputStream = context.assets.open("life_path_meaning.json")
+            val size = inputStream.available()
+            val buffer = ByteArray(size)
+            inputStream.read(buffer)
+            inputStream.close()
+            val json = String(buffer, Charsets.UTF_8)
+            val jsonObject = org.json.JSONObject(json)
+            val lifePathObject = jsonObject.getJSONObject(lifePath.toString())
+            var description = "<ul>"
+            description += "<li>" + lifePathObject.getString("description") + "</li>"
+            description += "<li>" + lifePathObject.getString("positive") + "</li>"
+            description += "</ul>"
+            return  NumerologyCalculationUtils.convertToHtml(description)
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+            return ""
+        }
     }
 
 
