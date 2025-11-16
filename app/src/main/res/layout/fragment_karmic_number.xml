@@ -1,16 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.prediction.KarmicNumberFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/mystical_gradient_background">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Tarot Fragment"
-        android:textColor="@color/white"
-        android:textSize="24sp" />
+        android:layout_height="wrap_content"
+        android:padding="16dp">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/karmic_number_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/mystical_font"
+            android:text="Karmic Number"
+            android:textColor="@color/gold"
+            android:textAlignment="center"
+            android:textSize="28sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.75"
+            />
+
+        <TextView
+            android:id="@+id/karmicLessonNumberValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mystical_font"
+            android:text="Soul"
+            android:layout_marginTop="15dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/karmic_number_title"
+            app:layout_constraintWidth_percent="0.25" />
+
+       <!-- <TextView
+            android:id="@+id/karmicLessonNumberTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/mystical_font"
+            android:text="Karmic Number:"
+            android:textAlignment="center"
+            android:textColor="@color/gold"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/karmic_number_title"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/karmic_number_title"
+            app:layout_constraintWidth_percent="0.75" />-->
+
+       <!-- <TextView
+            android:id="@+id/karmicLessonNumberValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mystical_font"
+            android:text="Soul"
+            android:layout_marginTop="12dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/karmicLessonNumberTitle"
+            app:layout_constraintTop_toBottomOf="@id/karmic_number_title"
+            app:layout_constraintWidth_percent="0.25" />-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/karmicLessonRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/karmic_number_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:id="@+id/karmicNumberSeparator"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:textSize="20sp"
+            android:background="@color/gold"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintTop_toBottomOf="@id/karmicLessonRecyclerView"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/mystical_font"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
