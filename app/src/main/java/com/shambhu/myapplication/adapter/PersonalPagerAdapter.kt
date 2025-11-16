@@ -24,12 +24,12 @@ class PersonalPagerAdapter(
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> PersonalMonthFragment.newInstance(birthDay, birthMonth, birthYear)
+            0 -> KarmicDebtFragment.newInstance(birthDay, birthMonth, birthYear, fullName)
             1 -> PersonalYearFragment.newInstance(birthDay, birthMonth, birthYear)
             2 -> KarmicLessonFragment.newInstance(birthDay, birthMonth, birthYear, fullName)
             3 -> ChallengeNumbersFragment.newInstance(birthDay, birthMonth, birthYear)
             4 -> PinnacleNumbersFragment.newInstance(birthDay, birthMonth, birthYear)
-            5 -> KarmicDebtFragment.newInstance(birthDay, birthMonth, birthYear, fullName)
+            5 -> PersonalMonthFragment.newInstance(birthDay, birthMonth, birthYear)
             else -> throw IllegalArgumentException("Invalid position")
         }
     }

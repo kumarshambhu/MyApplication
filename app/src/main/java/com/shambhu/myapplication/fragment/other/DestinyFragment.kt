@@ -34,7 +34,7 @@ class DestinyFragment : Fragment() {
             val dob = it.getString(Constants.ARG_DOB)
             val fullName = it.getString(Constants.ARG_FULL_NAME)
             updateNumberCombination(fullName.toString())
-            updateKarmicNumber(fullName.toString())
+            //updateKarmicNumber(fullName.toString())
             if (dob != null && fullName != null) {
                 val date = CommonUtils.parseDate(dob)
                 val day = date.dayOfMonth
@@ -62,7 +62,7 @@ class DestinyFragment : Fragment() {
         binding.tvCombinationValue.text = combination.toString()
     }
 
-    private fun updateKarmicNumber(fullName: String) {
+   /* private fun updateKarmicNumber(fullName: String) {
         val missing = NumerologyCalculationUtils.calculateKarmicFromName(fullName)
         binding.karmicLessonNumberValue.text = missing.joinToString(", ")
 
@@ -76,7 +76,7 @@ class DestinyFragment : Fragment() {
 
         binding.karmicLessonRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.karmicLessonRecyclerView.adapter = KarmicLessonAdapter(karmicLessons)
-    }
+    }*/
 
     override fun onDestroyView() {
         super.onDestroyView()

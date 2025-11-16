@@ -44,9 +44,9 @@ class NumerologyPlainFragment : Fragment() {
                 val personality = NumerologyCalculationUtils.calculatePersonality(fullName)
                 val personalYear = NumerologyCalculationUtils.calculatePersonalYear(day, month)
                 val personalMonth = NumerologyCalculationUtils.calculatePersonalMonth(day, month)
-                val karmicNumber =
-                    NumerologyCalculationUtils.calculateKarmicNumber(day, month, year)
-                val karmicFromName = NumerologyCalculationUtils.calculateKarmicFromName(fullName)
+//                val karmicNumber =
+//                    NumerologyCalculationUtils.calculateKarmicNumber(day, month, year)
+//                val karmicFromName = NumerologyCalculationUtils.calculateKarmicFromName(fullName)
                 val challengeNumbers =
                     NumerologyCalculationUtils.calculateChallengeNumbers(day, month, year)
                 val challengeNumberAgeRanges =
@@ -63,8 +63,8 @@ class NumerologyPlainFragment : Fragment() {
                 binding.tvPersonalityValue.text = personality.toString()
                 binding.tvPersonalYearValue.text = personalYear.toString()
                 binding.tvPersonalMonthValue.text = personalMonth.toString()
-                binding.tvKarmicNumberValue.text = karmicNumber
-                binding.tvKarmicFromNameValue.text = karmicFromName.joinToString(", ")
+                //binding.tvKarmicNumberValue.text = karmicNumber
+                //binding.tvKarmicFromNameValue.text = karmicFromName.joinToString(", ")
                 binding.tvChallengeNumbersValue.text = challengeNumbers.joinToString(", ")
                 binding.tvChallengeNumberAgeRangesValue.text =
                     challengeNumberAgeRanges.joinToString("\n")
