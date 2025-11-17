@@ -96,10 +96,6 @@ class CoreNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             R.id.nav_home -> {
 
             }
-            R.id.nav_personal -> {
-                val i = Intent(this, PersonalActivity::class.java)
-                startActivity(i)
-            }
             R.id.nav_slideshow -> {
                 val i = Intent(this, SecondaryNumberActivity::class.java)
                 startActivity(i)
