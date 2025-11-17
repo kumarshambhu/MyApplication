@@ -1,13 +1,15 @@
 package com.shambhu.myapplication.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.shambhu.myapplication.databinding.ItemKarmicDebtBinding
+import com.shambhu.myapplication.model.KarmicAccordionItem
 
 class KarmicDebtAdapter(
-    private val karmicDebtNumbers: List<Pair<String, Int>>,
-    private val interpretations: Map<String, String>
+    private val karmicDebtNumbers: List<KarmicAccordionItem>,
+    private val onItemClick: (Int) -> Unit
 ) : RecyclerView.Adapter<KarmicDebtAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -16,10 +18,23 @@ class KarmicDebtAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val (source, number) = karmicDebtNumbers[position]
-        holder.binding.tvKarmicDebtNumber.text = "Karmic Debt Number: $number"
-        holder.binding.tvKarmicDebtSource.text = "Source: $source"
-        holder.binding.tvKarmicDebtInterpretation.text = interpretations[number.toString()]
+        val (header, title, content, expanded) = karmicDebtNumbers[position]
+        holder.binding.tvKarmicDebtNumber.text = "Karmic Debt Number: $header"
+        holder.binding.tvKarmicDebtSource.text = "Source: $title"
+        holder.binding.tvKarmicDebtInterpretation.text = content
+
+
+        if (expanded) {
+            holder.binding.contentLayout.visibility = View.VISIBLE
+            holder.binding.ivExpand.rotation = 180f
+        } else {
+            holder.binding.contentLayout.visibility = View.GONE
+            holder.binding.ivExpand.rotation = 0f
+        }
+
+        holder.itemView.setOnClickListener {
+            onItemClick(position)
+        }
     }
 
     override fun getItemCount(): Int {

@@ -75,7 +75,7 @@ class DestinyFragment : Fragment() {
         }
 
         binding.karmicLessonRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.karmicLessonRecyclerView.adapter = KarmicLessonAdapter(karmicLessons)
+        //binding.karmicLessonRecyclerView.adapter = KarmicLessonAdapter(karmicLessons)
     }
 
     override fun onDestroyView() {

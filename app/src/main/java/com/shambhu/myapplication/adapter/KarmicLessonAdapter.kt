@@ -6,30 +6,41 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shambhu.myapplication.R
+import com.shambhu.myapplication.adapter.KarmicDebtAdapter.ViewHolder
+import com.shambhu.myapplication.databinding.ItemKarmicDebtBinding
+import com.shambhu.myapplication.databinding.ItemKarmicLessonBinding
+import com.shambhu.myapplication.model.KarmicAccordionItem
 
-class KarmicLessonAdapter(private val karmicLessons: List<Pair<String, String>>) :
-    RecyclerView.Adapter<KarmicLessonAdapter.KarmicLessonViewHolder>() {
+class KarmicLessonAdapter( private val karmicLessonNumbers: List<KarmicAccordionItem>,
+                           private val onItemClick: (Int) -> Unit) :
+    RecyclerView.Adapter<KarmicLessonAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KarmicLessonViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_karmic_lesson, parent, false)
-        return KarmicLessonViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = ItemKarmicLessonBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: KarmicLessonViewHolder, position: Int) {
-        val (number, detail) = karmicLessons[position]
-        holder.bind(number, detail)
-    }
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val (header, title, content, expanded) = karmicLessonNumbers[position]
+        holder.binding.karmicLessonNumber.text = "Karmic Lesson Number $header"
+        //holder.binding.tvKarmicDebtSource.text = "Source: $title"
+        holder.binding.karmicLessonDetail.text = content
 
-    override fun getItemCount(): Int = karmicLessons.size
 
-    class KarmicLessonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val numberTextView: TextView = itemView.findViewById(R.id.karmicLessonNumber)
-        private val detailTextView: TextView = itemView.findViewById(R.id.karmicLessonDetail)
+        if (expanded) {
+            holder.binding.contentLayout.visibility = View.VISIBLE
+            holder.binding.ivExpand.rotation = 180f
+        } else {
+            holder.binding.contentLayout.visibility = View.GONE
+            holder.binding.ivExpand.rotation = 0f
+        }
 
-        fun bind(number: String, detail: String) {
-            numberTextView.text = "Karmic Lesson Number $number"
-            detailTextView.text = detail
+        holder.itemView.setOnClickListener {
+            onItemClick(position)
         }
     }
+
+    override fun getItemCount(): Int = karmicLessonNumbers.size
+
+   class ViewHolder(val binding: ItemKarmicLessonBinding) : RecyclerView.ViewHolder(binding.root)
 }
