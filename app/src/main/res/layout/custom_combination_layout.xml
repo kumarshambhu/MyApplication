@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- Row 1 -->
+    <TextView
+        android:id="@+id/birth_number_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/mystical_font"
+        android:text="Combination Number:"
+        android:textAlignment="center"
+        android:textColor="@color/gold"
+        android:textSize="28sp" />
+
+    <!-- Row 2: Three Columns -->
+    <TextView
+        android:id="@+id/birth_number__year_title_col1"
+        app:layout_constraintEnd_toStartOf="@+id/birth_number__year_title_col2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/birth_number_title"
+        app:layout_constraintWidth_percent="0.33"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/mystical_font"
+        android:text="Personality"
+        android:textAlignment="center"
+        android:textColor="@color/gold"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/birth_number__year_title_col2"
+        app:layout_constraintEnd_toStartOf="@id/birth_number__year_title_col3"
+        app:layout_constraintStart_toEndOf="@id/birth_number__year_title_col1"
+        app:layout_constraintTop_toBottomOf="@id/birth_number_title"
+        app:layout_constraintWidth_percent="0.33"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/mystical_font"
+        android:text="Soul"
+        android:textAlignment="center"
+        android:textColor="@color/gold"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/birth_number__year_title_col3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/birth_number__year_title_col2"
+        app:layout_constraintTop_toBottomOf="@id/birth_number_title"
+        app:layout_constraintWidth_percent="0.33"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/mystical_font"
+        android:text="Destiny"
+        android:textAlignment="center"
+        android:textColor="@color/gold"
+        android:textSize="18sp" />
+
+    <!-- Row 3: Three Columns -->
+    <TextView
+        android:id="@+id/tvPersonalityValue"
+        app:layout_constraintEnd_toStartOf="@id/tvSoulValue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
+        app:layout_constraintWidth_percent="0.33"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mystical_font"
+        android:text="00"
+        android:textAlignment="center"
+        android:textColor="@color/gold"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/tvSoulValue"
+        app:layout_constraintEnd_toStartOf="@id/tvDestinyValue"
+        app:layout_constraintStart_toEndOf="@id/tvPersonalityValue"
+        app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
+        app:layout_constraintWidth_percent="0.33"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mystical_font"
+        android:text="00"
+        android:textAlignment="center"
+        android:textColor="@color/gold"
+        android:textSize="30sp" />
+
+
+    <TextView
+        android:id="@+id/tvDestinyValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvSoulValue"
+        app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
+        app:layout_constraintWidth_percent="0.33"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mystical_font"
+        android:text="0000"
+        android:textAlignment="center"
+        android:textColor="@color/gold"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/tvCombinationValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPersonalityValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/mystical_font"
+        android:text="all comination"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+
+    <View
+        android:id="@+id/combinationNumberSeparator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCombinationValue"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/gold"
+        android:fontFamily="@font/mystical_font"
+        android:textSize="20sp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

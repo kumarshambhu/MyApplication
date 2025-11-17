@@ -1,0 +1,95 @@
+package com.shambhu.myapplication.fragment.core_number
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import com.shambhu.myapplication.databinding.FragmentLoshuGridBinding
+import com.shambhu.myapplication.utils.CommonUtils
+import com.shambhu.myapplication.utils.Constants
+import com.shambhu.myapplication.utils.NumerologyCalculationUtils
+import kotlin.text.iterator
+
+class LoshuGridFragment : Fragment() {
+
+    private var _binding: FragmentLoshuGridBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentLoshuGridBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        arguments?.getString(Constants.Companion.ARG_FULL_NAME)?.let { fullName ->
+            val personalityNumber = NumerologyCalculationUtils.calculatePersonality(fullName)
+            val destinyNumber = NumerologyCalculationUtils.calculateExpression(fullName)
+
+            binding.tvPersonalityNumber.text = personalityNumber.toString()
+            binding.tvDestinyNumber.text = destinyNumber.toString()
+        }
+        arguments?.getString(Constants.Companion.ARG_DOB)?.let { dob ->
+            var digits = dob.filter { it.isDigit() }
+
+            // Calculate numerology numbers
+            val birthDate = CommonUtils.parseDate(dob)
+            val birthDay = birthDate.dayOfMonth
+            val birthMonth = birthDate.monthValue
+            val birthYear = birthDate.year
+
+
+            println("DOB: $digits")
+            digits = digits+ CommonUtils.reduceNumber(birthDay) +  NumerologyCalculationUtils.calculateLifePath(birthDay, birthMonth, birthYear)
+            println("DOB: $digits")
+            val numberCounts = IntArray(10)
+            for (digitChar in digits) {
+                val digit = digitChar.toString().toInt()
+                numberCounts[digit]++
+            }
+
+
+            updateCell(binding.cell1, 1, numberCounts[1])
+            updateCell(binding.cell2, 2, numberCounts[2])
+            updateCell(binding.cell3, 3, numberCounts[3])
+            updateCell(binding.cell4, 4, numberCounts[4])
+            updateCell(binding.cell5, 5, numberCounts[5])
+            updateCell(binding.cell6, 6, numberCounts[6])
+            updateCell(binding.cell7, 7, numberCounts[7])
+            updateCell(binding.cell8, 8, numberCounts[8])
+            updateCell(binding.cell9, 9, numberCounts[9])
+        }
+
+
+    }
+
+    private fun updateCell(textView: TextView, number: Int, count: Int) {
+        if (count > 0) {
+            textView.text = number.toString().repeat(count)
+        } else {
+            textView.text = ""
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    companion object {
+        fun newInstance(dob: String, fullName: String): LoshuGridFragment {
+            val fragment = LoshuGridFragment()
+            val args = Bundle()
+            args.putString(Constants.Companion.ARG_DOB, dob)
+            args.putString(Constants.Companion.ARG_FULL_NAME, fullName)
+            fragment.arguments = args
+            return fragment
+        }
+    }
+}

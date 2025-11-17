@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                     putString(PREFERENCE_PLACE_OF_BIRTH, location)
                     //putString("state_of_birth", state.selectedItem as String)
                 }
-                val i = Intent(applicationContext, HomeActivity::class.java)
+                val i = Intent(applicationContext, CoreNumberActivity::class.java)
                 startActivity(i)
             } else {
                 // Show error message for empty fields

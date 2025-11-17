@@ -12,24 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".ExpandableActivity"
-            android:exported="false">
-
-        </activity>
-        <activity
-            android:name=".PredictionActivity"
+            android:name=".fragment.secondary_number.PersonalYearMonthActivity"
             android:exported="false"
             android:theme="@style/Theme.MyApplication" />
         <activity
-            android:name=".OtherActivity"
+            android:name=".ExpandableActivity"
+            android:exported="false"></activity>
+        <activity
+            android:name=".CoreNumberActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyApplication" />
+        <activity
+            android:name=".SecondaryNumberActivity"
             android:exported="false"
             android:theme="@style/Theme.MyApplication" />
         <activity
             android:name=".PersonalActivity"
-            android:exported="false"
-            android:theme="@style/Theme.MyApplication" />
-        <activity
-            android:name=".HomeActivity"
             android:exported="false"
             android:theme="@style/Theme.MyApplication" />
         <activity

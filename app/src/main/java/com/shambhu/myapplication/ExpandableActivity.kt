@@ -1,19 +1,13 @@
 package com.shambhu.myapplication
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.shambhu.myapplication.adapter.SampleAdapter
+import com.shambhu.myapplication.adapter.ExpandableRecyclerViewAdapter
 import com.shambhu.myapplication.databinding.ActivityExpandableBinding
-import com.shambhu.myapplication.databinding.ActivityMainBinding
-import com.shambhu.myapplication.utils.ExpandableTextView
 
 class ExpandableActivity : AppCompatActivity() {
     private lateinit var binding: ActivityExpandableBinding
@@ -74,7 +68,7 @@ class ExpandableActivity : AppCompatActivity() {
     private fun showRecyclerView(data: List<String>) {
         val recyclerView = RecyclerView(this).apply {
             layoutManager = LinearLayoutManager(this@ExpandableActivity)
-            adapter = SampleAdapter(data)
+            adapter = ExpandableRecyclerViewAdapter(data)
         }
 
         //findViewById<LinearLayout>(R.id.mainLayout).addView(recyclerView)
