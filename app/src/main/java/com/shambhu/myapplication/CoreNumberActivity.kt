@@ -100,6 +100,10 @@ class CoreNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 val i = Intent(this, SecondaryNumberActivity::class.java)
                 startActivity(i)
             }
+            R.id.nav_personal -> {
+                val i = Intent(applicationContext, ExpandableActivity::class.java)
+                startActivity(i)
+            }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true

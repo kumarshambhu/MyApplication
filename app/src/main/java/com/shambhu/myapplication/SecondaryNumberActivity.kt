@@ -57,7 +57,7 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
         headerView.findViewById<TextView>(R.id.nav_header_location).text = location
 
 
-        val viewPager = binding.contentOther.viewPager
+        val viewPager = binding.viewPager
         val tabLayout = binding.tabs
 
         viewPager.adapter = SecondaryNumberPagerAdapter(this, dob, fullName)
@@ -109,6 +109,10 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
             }
             R.id.nav_slideshow -> {
                 val i = Intent(applicationContext, SecondaryNumberActivity::class.java)
+                startActivity(i)
+            }
+            R.id.nav_personal -> {
+                val i = Intent(applicationContext, ExpandableActivity::class.java)
                 startActivity(i)
             }
 

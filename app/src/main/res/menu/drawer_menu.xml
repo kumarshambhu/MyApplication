@@ -5,15 +5,18 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:title="Core Number" />
+            android:textSize="25dp"
+            android:icon="@drawable/ic_earth"
+            android:title="@string/core_number" />
         <item
             android:id="@+id/nav_slideshow"
-            android:title="Secondary Number" />
+            android:textSize="20sp"
+            android:icon="@drawable/ic_moon"
+            android:title="@string/secondary_number" />
         <item
             android:id="@+id/nav_personal"
+            android:textSize="30sp"
+            android:icon="@drawable/ic_pinnacle"
             android:title="Personal" />
-        <item
-            android:id="@+id/nav_prediction"
-            android:title="Prediction" />
     </group>
 </menu>

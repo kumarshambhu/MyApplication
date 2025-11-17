@@ -9,11 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.utils.ExpandableTextView
 
-class ExpandableRecyclerViewAdapter(private val items: List<String>) : RecyclerView.Adapter<ExpandableRecyclerViewAdapter.ViewHolder>() {
+class ExpandableRecyclerViewAdapter(private val items: List<String>) :
+    RecyclerView.Adapter<ExpandableRecyclerViewAdapter.ViewHolder>() {
 
     private val expandedPositions = mutableSetOf<Int>()
 
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
         private val title: TextView = itemView.findViewById(R.id.tvTitle)
         private val expandableText: ExpandableTextView = itemView.findViewById(R.id.expandableText)
 
@@ -41,7 +44,7 @@ class ExpandableRecyclerViewAdapter(private val items: List<String>) : RecyclerV
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_sample, parent, false)
+            .inflate(R.layout.item_expandable, parent, false)
         return ViewHolder(view)
     }
 
