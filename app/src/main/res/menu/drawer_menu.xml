@@ -5,11 +5,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_earth"
+            android:icon="@drawable/twotone_home_24"
+            android:iconTint="@color/teal_200"
             android:title="@string/core_number" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_moon"
             android:title="@string/secondary_number" />
         <item
             android:id="@+id/nav_personal"

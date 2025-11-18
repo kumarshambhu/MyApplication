@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
@@ -50,11 +51,11 @@ class CoreNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             }
             tabIcon?.setImageDrawable(
                 when (position) {
-                    0 -> getDrawable(R.drawable.ic_moon)
-                    1 -> getDrawable(R.drawable.ic_karmic)
-                    2 -> getDrawable(R.drawable.ic_pinnacle)
-                    3 -> getDrawable(R.drawable.ic_clock)
-                    4 -> getDrawable(R.drawable.ic_grid)
+                    0 -> ContextCompat.getDrawable(this,R.drawable.ic_moon)
+                    1 -> ContextCompat.getDrawable(this,R.drawable.ic_karmic)
+                    2 -> ContextCompat.getDrawable(this,R.drawable.ic_pinnacle)
+                    3 -> ContextCompat.getDrawable(this,R.drawable.ic_clock)
+                    4 -> ContextCompat.getDrawable(this,R.drawable.ic_grid)
                     else -> null
                 }
             )
