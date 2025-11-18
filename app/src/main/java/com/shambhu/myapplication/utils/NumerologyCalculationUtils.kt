@@ -284,10 +284,17 @@ object NumerologyCalculationUtils {
         return Pair(dominantElement, elementScores)
     }
 
+data class Quintuple<A, B, C, D, E>(
+    val first: A,
+    val second: B,
+    val third: C,
+    val fourth: D,
+    val fifth: E
+)
     fun calculateColorGroup(
         fullName: String,
         jsonString: String
-    ): Quadruple<String, String, String, String> {
+    ): Quintuple<String, String, String, String, Int> {
         val nameNumbers = nameToColorNumbers(fullName)
 
         val jsonObject = org.json.JSONObject(jsonString)
@@ -328,11 +335,10 @@ object NumerologyCalculationUtils {
             }
 
             val matchedColors = userColors.filter { colorsInDominantGroup.contains(it) }.distinct()
-                .joinToString(", ")
-            Quadruple(description, details, matchedColors, dominantGroup)
+            Quintuple(description, details, matchedColors.joinToString(", "), dominantGroup, matchedColors.size)
 
         } else {
-            Quadruple("No dominant color group found.", "", "", "")
+            Quintuple("No dominant color group found.", "", "", "", 0)
         }
     }
 

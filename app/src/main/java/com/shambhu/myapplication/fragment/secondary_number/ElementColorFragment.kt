@@ -49,12 +49,13 @@ class ElementColorFragment : Fragment() {
         val colorsJson = CommonUtils.readAssetFile(requireContext(), "colors.json") ?: return
 
         // Color Group
-        val (description, details, matchedColors, group) = NumerologyCalculationUtils.calculateColorGroup(
+        val (description, details, matchedColors, group, matchedColorsCount) = NumerologyCalculationUtils.calculateColorGroup(
             fullName, colorsJson)
         binding.colorGroupNameTextView.text = group
         binding.colorGroupDescriptionTextView.text = description
         binding.colorGroupDetailsTextView.text = NumerologyCalculationUtils.convertToHtml(details)
         binding.matchedColorsTextView.text = matchedColors
+        binding.matchedColorsCountTextView.text = matchedColorsCount.toString()
     }
 
     override fun onDestroyView() {
