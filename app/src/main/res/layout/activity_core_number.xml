@@ -44,19 +44,20 @@
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"
-                android:layout_width="0dp"
-                android:background="#2A2B37"
                 android:layout_height="80dp"
+                android:layout_width="0dp"
                 android:layout_marginBottom="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:tabGravity="fill"
                 app:tabMode="scrollable"
-                app:tabIndicatorColor="@color/gold"
-                app:tabIndicatorHeight="3dp"
-                app:tabIndicatorGravity="top"
-                app:tabSelectedTextColor="@color/gold"
-                app:tabTextColor="@color/white" />
+                app:tabSelectedTextColor="#ffffff"
+                app:tabIndicatorColor="@null"
+                app:tabRippleColor="@null"
+                android:outlineSpotShadowColor="@color/dark_gold"
+                android:outlineAmbientShadowColor="@color/gold"
+                tools:ignore="MissingConstraints" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

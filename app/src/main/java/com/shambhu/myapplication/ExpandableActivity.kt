@@ -29,7 +29,7 @@ class ExpandableActivity : AppCompatActivity() {
         binding.btnToggleAll = findViewById(R.id.btnToggleAll)*/
 
         // Customize programmatically
-        binding.expandableText5.setToggleButtonTextColor(getColor(R.color.purple_700))
+        binding.expandableText5.setToggleButtonTextColor(getColor(R.color.card_content))
         binding.expandableText5.setShowMoreText("Show more content")
         binding.expandableText5.setShowLessText("Hide content")
 
