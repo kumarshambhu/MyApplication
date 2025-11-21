@@ -43,7 +43,7 @@
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabs"
+                android:id="@+id/tabLayoutPillsPrimary"
                 android:layout_height="80dp"
                 android:layout_width="0dp"
                 android:layout_marginBottom="0dp"
@@ -55,9 +55,31 @@
                 app:tabSelectedTextColor="#ffffff"
                 app:tabIndicatorColor="@null"
                 app:tabRippleColor="@null"
+                android:visibility="gone"
                 android:outlineSpotShadowColor="@color/dark_gold"
                 android:outlineAmbientShadowColor="@color/gold"
                 tools:ignore="MissingConstraints" />
+
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_height="80dp"
+                android:layout_width="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                android:layout_marginBottom="10dp"
+                app:tabBackground="@drawable/tab_pill_primary_selector"
+                app:tabGravity="center"
+                app:tabMode="scrollable"
+                app:tabRippleColor="?attr/colorOnPrimaryContainer"
+                app:tabIndicatorColor="@android:color/transparent"
+                app:tabIndicatorHeight="0dp"
+                app:tabSelectedTextColor="?attr/colorOnPrimary"
+                app:tabTextColor="?attr/colorOnSurfaceVariant"
+                app:tabIconTint="@color/tab_pill_icon_tint_primary"
+                app:tabTextAppearance="@style/TabTextAppearance.Pill.Primary"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

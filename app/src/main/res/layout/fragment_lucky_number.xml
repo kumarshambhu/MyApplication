@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="@drawable/mystical_gradient_background"
     tools:context=".fragment.secondary_number.LuckyNumberFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -71,10 +72,30 @@
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintTop_toBottomOf="@id/unluckyNumbersLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"
-            tools:text="13, 14, 16, 19"/>
+            tools:text="13, 14, 16, 19"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/unluckyNumbersValueTextView1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mystical_font"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintTop_toBottomOf="@id/unluckyNumbersValueTextView"
+            android:layout_marginTop="8dp"
+            tools:text="13, 14, 16, 19"
+            tools:ignore="MissingConstraints" />
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/tab_pills_with_icons"
+            android:layout_marginTop="40dp"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@+id/unluckyNumbersValueTextView1"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

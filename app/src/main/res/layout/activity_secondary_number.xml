@@ -44,19 +44,23 @@
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"
-                android:layout_width="0dp"
-                android:background="#2A2B37"
                 android:layout_height="80dp"
-                android:layout_marginBottom="0dp"
+                android:layout_width="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+
+                android:layout_marginBottom="10dp"
+                app:tabBackground="@drawable/tab_pill_primary_selector"
+                app:tabGravity="center"
                 app:tabMode="scrollable"
-                app:tabIndicatorColor="@color/gold"
-                app:tabIndicatorHeight="3dp"
-                app:tabIndicatorGravity="top"
-                app:tabSelectedTextColor="@color/gold"
-                app:tabTextColor="@color/white" />
+                app:tabRippleColor="?attr/colorOnPrimaryContainer"
+                app:tabIndicatorColor="@android:color/transparent"
+                app:tabIndicatorHeight="0dp"
+                app:tabSelectedTextColor="?attr/colorOnPrimary"
+                app:tabTextColor="?attr/colorOnSurfaceVariant"
+                app:tabIconTint="@color/tab_pill_icon_tint_primary"
+                app:tabTextAppearance="@style/TabTextAppearance.Pill.Primary" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

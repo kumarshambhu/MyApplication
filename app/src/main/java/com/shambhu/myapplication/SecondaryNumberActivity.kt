@@ -23,7 +23,8 @@ import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_TIME_OF_BI
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_NAME
 
 
-class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class SecondaryNumberActivity : AppCompatActivity(),
+    NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivitySecondaryNumberBinding
 
@@ -45,9 +46,10 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
         binding.navView.setNavigationItemSelectedListener(this)
 
         // Extract data from intent
-        val sharedPref = this.getSharedPreferences(PREFERENCE_NAME, android.content.Context.MODE_PRIVATE)
+        val sharedPref =
+            this.getSharedPreferences(PREFERENCE_NAME, android.content.Context.MODE_PRIVATE)
         val fullName = sharedPref?.getString(PREFERENCE_FULL_NAME, "Guest").toString()
-        val dob = sharedPref?.getString(PREFERENCE_DATE_OF_BIRTH,"0000-00-00").toString()
+        val dob = sharedPref?.getString(PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
         val time = sharedPref?.getString(PREFERENCE_TIME_OF_BIRTH, "00:00")
         val location = sharedPref?.getString(PREFERENCE_PLACE_OF_BIRTH, "Unknown Location")
 
@@ -64,24 +66,18 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
         viewPager.adapter = SecondaryNumberPagerAdapter(this, dob, fullName)
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.setCustomView(R.layout.custom_tab_top)
-            val tabIcon = tab.customView?.findViewById<ImageView>(R.id.tab_icon)
-            val tabText = tab.customView?.findViewById<TextView>(R.id.tab_text)
-            tabIcon?.setImageDrawable(
-                when (position) {
-                    0 -> ContextCompat.getDrawable(this,R.drawable.ic_mic)
-                    1 -> ContextCompat.getDrawable(this,R.drawable.ic_mirrors)
-                    2 -> ContextCompat.getDrawable(this,R.drawable.ic_mirrors)
-                    else -> null
-                }
-            )
-            if (tabText != null) {
-                tabText.text = when (position) {
-                    0 -> "Elements"
-                    1 -> "Personal"
-                    2 -> "Lucky"
-                    else -> null
-                }
+            when (position) {
+                0 -> tab.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_mic))
+                1 -> tab.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_mirrors))
+                2 -> tab.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_mirrors))
+                else -> null
+            }
+
+            when (position) {
+                0 -> tab.setText("Elements")
+                1 -> tab.setText("Personal")
+                2 -> tab.setText("Lucky")
+                else -> null
             }
         }.attach()
 
@@ -89,8 +85,7 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
 
         binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                val tabTextView = tab?.customView?.findViewById<TextView>(R.id.tab_text)
-                supportActionBar?.title = tabTextView?.text
+                supportActionBar?.title = tab?.text
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -108,10 +103,12 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
                 val i = Intent(applicationContext, CoreNumberActivity::class.java)
                 startActivity(i)
             }
+
             R.id.nav_slideshow -> {
                 val i = Intent(applicationContext, SecondaryNumberActivity::class.java)
                 startActivity(i)
             }
+
             R.id.nav_personal -> {
                 val i = Intent(applicationContext, ExpandableActivity::class.java)
                 startActivity(i)
@@ -123,10 +120,12 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
         return true
     }
 
-    @Deprecated("This method has been deprecated in favor of using the\n     " +
-            " {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.\n      " +
-            "The OnBackPressedDispatcher controls how back button events are dispatched\n      " +
-            "to one or more {@link OnBackPressedCallback} objects.")
+    @Deprecated(
+        "This method has been deprecated in favor of using the\n     " +
+                " {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.\n      " +
+                "The OnBackPressedDispatcher controls how back button events are dispatched\n      " +
+                "to one or more {@link OnBackPressedCallback} objects."
+    )
     @SuppressLint("GestureBackNavigation")
     override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {

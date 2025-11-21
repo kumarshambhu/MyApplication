@@ -33,39 +33,34 @@ class CoreNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
 
         val sharedPref = this.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
         val fullName = sharedPref?.getString(PREFERENCE_FULL_NAME, "Guest").toString()
-        val dob = sharedPref?.getString(PREFERENCE_DATE_OF_BIRTH,"0000-00-00").toString()
+        val dob = sharedPref?.getString(PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
 
-        viewPager.adapter = CoreNumberPagerAdapter(this, dob, fullName )
+        viewPager.adapter = CoreNumberPagerAdapter(this, dob, fullName)
         TabLayoutMediator(tabs, viewPager) { tab, position ->
-            tab.setCustomView(R.layout.custom_tab)
-            val tabIcon = tab.customView?.findViewById<ImageView>(R.id.tab_icon)
-            val tabText = tab.customView?.findViewById<TextView>(R.id.tab_text)
+            when (position) {
+                0 -> tab.setText("Core")
+                1 -> tab.setText("Karmic")
+                2 -> tab.setText("Pinnacle")
+                3 -> tab.setText("Challenge")
+                4 -> tab.setText("Grid")
+            }
 
-            tabText?.text = when (position) {
-                0 -> "Core"
-                1 -> "Karmic"
-                2 -> "Pinnacle"
-                3 -> "Challenge"
-                4 -> "Grid"
+            when (position) {
+                0 -> tab.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_home_filled))
+                1 -> tab.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_karmic))
+                2 -> tab.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_favorite_filled))
+                3 -> tab.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_search_filled))
+                4 -> tab.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_heart))
                 else -> null
             }
-            tabIcon?.setImageDrawable(
-                when (position) {
-                    0 -> ContextCompat.getDrawable(this,R.drawable.ic_moon)
-                    1 -> ContextCompat.getDrawable(this,R.drawable.ic_karmic)
-                    2 -> ContextCompat.getDrawable(this,R.drawable.ic_pinnacle)
-                    3 -> ContextCompat.getDrawable(this,R.drawable.ic_clock)
-                    4 -> ContextCompat.getDrawable(this,R.drawable.ic_grid)
-                    else -> null
-                }
-            )
+
         }.attach()
         supportActionBar?.title = "Core Numbers"
 
         binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                val tabTextView = tab?.customView?.findViewById<TextView>(R.id.tab_text)
-                supportActionBar?.title = "${tabTextView?.text} Numbers"
+                //val tabTextView = tab?.text
+                supportActionBar?.title = "${tab?.text} Numbers"
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -97,10 +92,12 @@ class CoreNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             R.id.nav_home -> {
 
             }
+
             R.id.nav_slideshow -> {
                 val i = Intent(this, SecondaryNumberActivity::class.java)
                 startActivity(i)
             }
+
             R.id.nav_personal -> {
                 val i = Intent(applicationContext, ExpandableActivity::class.java)
                 startActivity(i)
