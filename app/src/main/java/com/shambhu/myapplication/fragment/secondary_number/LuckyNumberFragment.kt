@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentLuckyNumberBinding
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
@@ -41,18 +43,19 @@ class LuckyNumberFragment : Fragment() {
         val month = date.monthValue
         val year = date.year
 
-        // Calculate and display lucky number
-        val luckyNumber = NumerologyCalculationUtils.calculateLuckyNumber(day)
-        binding.luckyNumberValue.text = luckyNumber.toString()
-
-        // Get and display the lucky number description
-        val luckyNumberDescription = NumerologyCalculationUtils.getLuckyNumberDescription(requireContext(), luckyNumber)
-        binding.luckyNumberDescription.text = luckyNumberDescription
+        // Calculate and display lucky numbers
+        val luckyNumbers = NumerologyCalculationUtils.calculatePrimaryLuckyNumbers(day, month, year, fullName)
+        binding.luckyNumbersContainer.removeAllViews()
+        for ((name, number) in luckyNumbers) {
+            val textView = inflater.inflate(R.layout.item_lucky_number, binding.luckyNumbersContainer, false) as TextView
+            textView.text = "$name: $number"
+            binding.luckyNumbersContainer.addView(textView)
+        }
 
         // Calculate and display unlucky numbers (Karmic Debt)
         val karmicDebtNumbers = NumerologyCalculationUtils.calculateKarmicDebtNumbers(day, month, year, fullName)
         val unluckyNumbersText = if (karmicDebtNumbers.isNotEmpty()) {
-            karmicDebtNumbers.joinToString(", ") { it.second.toString() }
+            karmicDebtNumbers.joinToString(", ") { "${it.first}: ${it.second}" }
         } else {
             "None"
         }

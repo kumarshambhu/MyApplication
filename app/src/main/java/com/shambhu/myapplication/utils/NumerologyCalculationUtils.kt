@@ -247,21 +247,14 @@ object NumerologyCalculationUtils {
         )
     }
 
-    fun calculateLuckyNumber(day: Int): Int {
-        return CommonUtils.reduceNumber(day)
-    }
-
-    fun getLuckyNumberDescription(context: Context, luckyNumber: Int): String {
-        return try {
-            val json = context.assets.open("lucky_number_meaning.json").bufferedReader().use { it.readText() }
-            val jsonObject = org.json.JSONObject(json)
-            val luckyNumberObject = jsonObject.getJSONObject(luckyNumber.toString())
-            luckyNumberObject.getString("description")
-        } catch (ex: Exception) {
-            // In a real app, you'd want to log this error.
-            // For now, we'll just return an empty string.
-            ""
-        }
+    fun calculatePrimaryLuckyNumbers(day: Int, month: Int, year: Int, fullName: String): List<Pair<String, Int>> {
+        return listOf(
+            "Life Path" to calculateLifePath(day, month, year),
+            "Expression" to calculateExpression(fullName),
+            "Soul Urge" to calculateSoulUrge(fullName),
+            "Personality" to calculatePersonality(fullName),
+            "Birthday" to calculateBirthdayNumber(day)
+        )
     }
 
     fun calculateElements(fullName: String, jsonString: String): Pair<String, Map<String, Double>> {
