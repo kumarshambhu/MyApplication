@@ -251,6 +251,19 @@ object NumerologyCalculationUtils {
         return CommonUtils.reduceNumber(day)
     }
 
+    fun getLuckyNumberDescription(context: Context, luckyNumber: Int): String {
+        return try {
+            val json = context.assets.open("lucky_number_meaning.json").bufferedReader().use { it.readText() }
+            val jsonObject = org.json.JSONObject(json)
+            val luckyNumberObject = jsonObject.getJSONObject(luckyNumber.toString())
+            luckyNumberObject.getString("description")
+        } catch (ex: Exception) {
+            // In a real app, you'd want to log this error.
+            // For now, we'll just return an empty string.
+            ""
+        }
+    }
+
     fun calculateElements(fullName: String, jsonString: String): Pair<String, Map<String, Double>> {
         val nameNumbers = nameToIntArray(fullName)
         var dominantElement = ""

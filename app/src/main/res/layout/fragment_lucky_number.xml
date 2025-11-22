@@ -54,6 +54,18 @@
             tools:text="7"/>
 
         <TextView
+            android:id="@+id/luckyNumberDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/luckyNumberValue"
+            tools:text="This is a description of the lucky number." />
+
+        <TextView
             android:id="@+id/unluckyNumbersLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

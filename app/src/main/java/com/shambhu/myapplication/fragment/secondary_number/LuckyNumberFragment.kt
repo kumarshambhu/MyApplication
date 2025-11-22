@@ -45,6 +45,10 @@ class LuckyNumberFragment : Fragment() {
         val luckyNumber = NumerologyCalculationUtils.calculateLuckyNumber(day)
         binding.luckyNumberValue.text = luckyNumber.toString()
 
+        // Get and display the lucky number description
+        val luckyNumberDescription = NumerologyCalculationUtils.getLuckyNumberDescription(requireContext(), luckyNumber)
+        binding.luckyNumberDescription.text = luckyNumberDescription
+
         // Calculate and display unlucky numbers (Karmic Debt)
         val karmicDebtNumbers = NumerologyCalculationUtils.calculateKarmicDebtNumbers(day, month, year, fullName)
         val unluckyNumbersText = if (karmicDebtNumbers.isNotEmpty()) {
