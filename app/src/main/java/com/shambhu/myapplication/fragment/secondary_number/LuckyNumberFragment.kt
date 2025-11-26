@@ -46,6 +46,8 @@ class LuckyNumberFragment : Fragment() {
         // Calculate and display lucky numbers
         val luckyNumbers = NumerologyCalculationUtils.calculatePrimaryLuckyNumbers(day, month, year, fullName)
         binding.luckyNumbersContainer.removeAllViews()
+        val inflater = LayoutInflater.from(requireContext())
+
         for ((name, number) in luckyNumbers) {
             val textView = inflater.inflate(R.layout.item_lucky_number, binding.luckyNumbersContainer, false) as TextView
             textView.text = "$name: $number"
