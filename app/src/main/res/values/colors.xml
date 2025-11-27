@@ -20,6 +20,7 @@
     <color name="tab_indicator">#2A2B37</color>
     <color name="tab_text_color">#FFFFFF</color>
     <color name="dark_gold">#E2C792</color>
+    <color name="light_gold">#F5E6BE</color>
 
     <!-- ========== CARD STYLE ========== -->
     <color name="card_background">#D3C5E5</color>
