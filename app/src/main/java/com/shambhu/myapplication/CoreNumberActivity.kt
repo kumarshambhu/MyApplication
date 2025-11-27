@@ -61,7 +61,7 @@ class CoreNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             )
         }.attach()
 
-        adjustTabMargins(binding.tabs, -20)
+        //adjustTabMargins(binding.tabs, -20)
         supportActionBar?.title = "Core Numbers"
 
         binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {

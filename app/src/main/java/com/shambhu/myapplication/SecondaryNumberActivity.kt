@@ -64,13 +64,13 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
         viewPager.adapter = SecondaryNumberPagerAdapter(this, dob, fullName)
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.setCustomView(R.layout.custom_tab_top)
+            tab.setCustomView(R.layout.custom_tab)
             val tabIcon = tab.customView?.findViewById<ImageView>(R.id.tab_icon)
             val tabText = tab.customView?.findViewById<TextView>(R.id.tab_text)
             tabIcon?.setImageDrawable(
                 when (position) {
                     0 -> getDrawable(R.drawable.ic_mic)
-                    1 -> getDrawable(R.drawable.ic_mirrors)
+                    1 -> getDrawable(R.drawable.ic_personal)
                     2 -> getDrawable(R.drawable.ic_mirrors)
                     else -> null
                 }
