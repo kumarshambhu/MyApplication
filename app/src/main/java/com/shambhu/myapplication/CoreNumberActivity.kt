@@ -4,11 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
@@ -37,30 +37,37 @@ class CoreNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
 
         viewPager.adapter = CoreNumberPagerAdapter(this, dob, fullName)
         TabLayoutMediator(tabs, viewPager) { tab, position ->
-            when (position) {
-                0 -> tab.setText("Core")
-                1 -> tab.setText("Karmic")
-                2 -> tab.setText("Pinnacle")
-                3 -> tab.setText("Challenge")
-                4 -> tab.setText("Grid")
-            }
+            tab.setCustomView(R.layout.custom_tab)
+            val tabIcon = tab.customView?.findViewById<ImageView>(R.id.tab_icon)
+            val tabText = tab.customView?.findViewById<TextView>(R.id.tab_text)
 
-            when (position) {
-                0 -> tab.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_home_filled))
-                1 -> tab.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_karmic))
-                2 -> tab.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_favorite_filled))
-                3 -> tab.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_search_filled))
-                4 -> tab.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_heart))
+            tabText?.text = when (position) {
+                0 -> "Core"
+                1 -> "Karmic"
+                2 -> "Pinnacle"
+                3 -> "Challenge"
+                4 -> "Grid"
                 else -> null
             }
-
+            tabIcon?.setImageDrawable(
+                when (position) {
+                    0 -> getDrawable(R.drawable.ic_home)
+                    1 -> getDrawable(R.drawable.ic_karmic)
+                    2 -> getDrawable(R.drawable.ic_pinnacle)
+                    3 -> getDrawable(R.drawable.ic_challenge)
+                    4 -> getDrawable(R.drawable.ic_grid)
+                    else -> null
+                }
+            )
         }.attach()
+
+        adjustTabMargins(binding.tabs, -20)
         supportActionBar?.title = "Core Numbers"
 
         binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                //val tabTextView = tab?.text
-                supportActionBar?.title = "${tab?.text} Numbers"
+                val tabTextView = tab?.customView?.findViewById<TextView>(R.id.tab_text)
+                supportActionBar?.title = "${tabTextView?.text} Numbers"
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -105,5 +112,21 @@ class CoreNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun adjustTabMargins(tabLayout: TabLayout, marginEndPx: Int) {
+        val tabs = tabLayout.getChildAt(0) as ViewGroup
+        for (i in 0 until tabs.childCount) {
+            val tab = tabs.getChildAt(i)
+            val layoutParams = tab.layoutParams as ViewGroup.MarginLayoutParams
+
+            // Set the end margin (right margin for LTR)
+            layoutParams.marginEnd = marginEndPx
+            // Optionally set start margin as well if needed
+            // layoutParams.marginStart = marginEndPx
+
+            tab.layoutParams = layoutParams
+            tab.requestLayout() // Request a new layout pass
+        }
     }
 }

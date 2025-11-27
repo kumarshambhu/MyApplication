@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
@@ -23,8 +22,7 @@ import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_TIME_OF_BI
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_NAME
 
 
-class SecondaryNumberActivity : AppCompatActivity(),
-    NavigationView.OnNavigationItemSelectedListener {
+class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivitySecondaryNumberBinding
 
@@ -66,18 +64,24 @@ class SecondaryNumberActivity : AppCompatActivity(),
         viewPager.adapter = SecondaryNumberPagerAdapter(this, dob, fullName)
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            when (position) {
-                0 -> tab.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_mic))
-                1 -> tab.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_mirrors))
-                2 -> tab.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_mirrors))
-                else -> null
-            }
-
-            when (position) {
-                0 -> tab.setText("Elements")
-                1 -> tab.setText("Personal")
-                2 -> tab.setText("Lucky")
-                else -> null
+            tab.setCustomView(R.layout.custom_tab_top)
+            val tabIcon = tab.customView?.findViewById<ImageView>(R.id.tab_icon)
+            val tabText = tab.customView?.findViewById<TextView>(R.id.tab_text)
+            tabIcon?.setImageDrawable(
+                when (position) {
+                    0 -> getDrawable(R.drawable.ic_mic)
+                    1 -> getDrawable(R.drawable.ic_mirrors)
+                    2 -> getDrawable(R.drawable.ic_mirrors)
+                    else -> null
+                }
+            )
+            if (tabText != null) {
+                tabText.text = when (position) {
+                    0 -> "Elements"
+                    1 -> "Personal"
+                    2 -> "Lucky"
+                    else -> null
+                }
             }
         }.attach()
 
@@ -85,7 +89,8 @@ class SecondaryNumberActivity : AppCompatActivity(),
 
         binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                supportActionBar?.title = tab?.text
+                val tabTextView = tab?.customView?.findViewById<TextView>(R.id.tab_text)
+                supportActionBar?.title = tabTextView?.text
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
