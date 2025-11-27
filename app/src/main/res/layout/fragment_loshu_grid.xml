@@ -122,5 +122,97 @@
             app:layout_constraintStart_toEndOf="@id/tv_destiny_number_label"
             android:layout_marginStart="8dp"/>
 
+        <TextView
+            android:id="@+id/tv_planes_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loshu Grid Planes"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/tv_destiny_number"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/tv_mental_plane"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mental Plane (4-9-2)"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tv_planes_title"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_emotional_plane"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Emotional Plane (3-5-7)"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tv_mental_plane"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_practical_plane"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Practical Plane (8-1-6)"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tv_emotional_plane"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_thought_plane"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thought Plane (4-3-8)"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tv_practical_plane"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_will_plane"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Will Plane (9-5-1)"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tv_thought_plane"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_action_plane"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Action Plane (2-7-6)"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tv_will_plane"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_silver_success_plane"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Silver Success Plane (4-5-6)"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tv_action_plane"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_golden_success_plane"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Golden Success Plane (2-5-8)"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tv_silver_success_plane"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

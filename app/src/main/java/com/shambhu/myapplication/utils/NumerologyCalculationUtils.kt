@@ -2,6 +2,7 @@ package com.shambhu.myapplication.utils
 
 import android.content.Context
 import android.text.Html
+import com.shambhu.myapplication.model.LoshuGridPlanes
 import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
 import org.json.JSONArray
 
@@ -465,5 +466,18 @@ data class Quintuple<A, B, C, D, E>(
         val fullRange = (1..9).toSet()
         val present = numList.toSet()
         return (fullRange - present).toList().sorted()
+    }
+
+    fun calculateLoshuGridPlanes(numberCounts: IntArray): LoshuGridPlanes {
+        return LoshuGridPlanes(
+            mentalPlane = numberCounts[4] > 0 && numberCounts[9] > 0 && numberCounts[2] > 0,
+            emotionalPlane = numberCounts[3] > 0 && numberCounts[5] > 0 && numberCounts[7] > 0,
+            practicalPlane = numberCounts[8] > 0 && numberCounts[1] > 0 && numberCounts[6] > 0,
+            thoughtPlane = numberCounts[4] > 0 && numberCounts[3] > 0 && numberCounts[8] > 0,
+            willPlane = numberCounts[9] > 0 && numberCounts[5] > 0 && numberCounts[1] > 0,
+            actionPlane = numberCounts[2] > 0 && numberCounts[7] > 0 && numberCounts[6] > 0,
+            silverSuccessPlane = numberCounts[4] > 0 && numberCounts[5] > 0 && numberCounts[6] > 0,
+            goldenSuccessPlane = numberCounts[2] > 0 && numberCounts[5] > 0 && numberCounts[8] > 0
+        )
     }
 }

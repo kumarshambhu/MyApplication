@@ -64,9 +64,23 @@ class LoshuGridFragment : Fragment() {
             updateCell(binding.cell7, 7, numberCounts[7])
             updateCell(binding.cell8, 8, numberCounts[8])
             updateCell(binding.cell9, 9, numberCounts[9])
+
+            val loshuPlanes = NumerologyCalculationUtils.calculateLoshuGridPlanes(numberCounts)
+            updatePlanesUI(loshuPlanes)
         }
 
 
+    }
+
+    private fun updatePlanesUI(loshuPlanes: com.shambhu.myapplication.model.LoshuGridPlanes) {
+        binding.tvMentalPlane.visibility = if (loshuPlanes.mentalPlane) View.VISIBLE else View.GONE
+        binding.tvEmotionalPlane.visibility = if (loshuPlanes.emotionalPlane) View.VISIBLE else View.GONE
+        binding.tvPracticalPlane.visibility = if (loshuPlanes.practicalPlane) View.VISIBLE else View.GONE
+        binding.tvThoughtPlane.visibility = if (loshuPlanes.thoughtPlane) View.VISIBLE else View.GONE
+        binding.tvWillPlane.visibility = if (loshuPlanes.willPlane) View.VISIBLE else View.GONE
+        binding.tvActionPlane.visibility = if (loshuPlanes.actionPlane) View.VISIBLE else View.GONE
+        binding.tvSilverSuccessPlane.visibility = if (loshuPlanes.silverSuccessPlane) View.VISIBLE else View.GONE
+        binding.tvGoldenSuccessPlane.visibility = if (loshuPlanes.goldenSuccessPlane) View.VISIBLE else View.GONE
     }
 
     private fun updateCell(textView: TextView, number: Int, count: Int) {
