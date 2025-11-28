@@ -1,24 +1,28 @@
 package com.shambhu.myapplication
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.RadioButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import com.shambhu.myapplication.databinding.ActivityMainBinding
-
-import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_FULL_NAME
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_DATE_OF_BIRTH
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_FULL_NAME
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_GENDER
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_NAME
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_PLACE_OF_BIRTH
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_TIME_OF_BIRTH
-import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_NAME
+import java.util.Calendar
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private var selectedDate: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,12 +36,22 @@ class MainActivity : AppCompatActivity() {
         actionBar?.setDisplayShowHomeEnabled(true)
         actionBar?.title = "Enter Your Personal Details"
 
+        binding.dobLayout.setOnClickListener {
+            showDatePickerDialog()
+        }
+
         // Handle button click
         binding.calculateButton.setOnClickListener {
             val fullName = binding.nameEditText.text.toString().ifEmpty { "Shambhu Kumar" }
-            val dob = binding.dobEditText.text.toString().ifEmpty { "17/03/1979"}
-            val time =  binding.timeEditText.text.toString().ifEmpty {"01:45"}
-            val location = binding.locationEditText.text.toString().ifEmpty {"Gaya"}
+            val dob = selectedDate ?: "17/03/1979"
+            val time = binding.timeEditText.text.toString().ifEmpty { "01:45" }
+            val location = binding.locationEditText.text.toString().ifEmpty { "Gaya" }
+            val selectedGenderId = binding.genderRadioGroup.checkedRadioButtonId
+            val gender = if (selectedGenderId != -1) {
+                findViewById<RadioButton>(selectedGenderId).text.toString()
+            } else {
+                "Male"
+            }
 
             // Validate inputs
             if (fullName.isNotEmpty() && dob.isNotEmpty() && time.isNotEmpty() && location.isNotEmpty()) {
@@ -49,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                     putString(PREFERENCE_DATE_OF_BIRTH, dob)
                     putString(PREFERENCE_TIME_OF_BIRTH, time)
                     putString(PREFERENCE_PLACE_OF_BIRTH, location)
-                    //putString("state_of_birth", state.selectedItem as String)
+                    putString(PREFERENCE_GENDER, gender)
                 }
                 val i = Intent(applicationContext, CoreNumberActivity::class.java)
                 startActivity(i)
@@ -57,6 +71,25 @@ class MainActivity : AppCompatActivity() {
                 // Show error message for empty fields
             }
         }
+    }
+
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog = DatePickerDialog(
+            this,
+            { _, selectedYear, selectedMonth, selectedDay ->
+                selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+                binding.dobTextView.text = selectedDate
+            },
+            year,
+            month,
+            day
+        )
+        datePickerDialog.show()
     }
 
     override fun onSupportNavigateUp(): Boolean {

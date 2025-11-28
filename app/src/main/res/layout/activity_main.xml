@@ -79,10 +79,14 @@
 
         <!-- Date of Birth -->
         <LinearLayout
+            android:id="@+id/dobLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
 
             <ImageView
                 android:layout_width="40dp"
@@ -90,19 +94,50 @@
                 android:src="@drawable/ic_calendar"
                 android:layout_gravity="center_vertical"/>
 
-            <EditText
-                android:id="@+id/dobEditText"
+            <TextView
+                android:id="@+id/dobTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Date of Birth (DD/MM/YYYY)"
-                android:inputType="date"
+                android:text="Date of Birth (DD/MM/YYYY)"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"
                 android:background="@drawable/mystical_input_field"
                 android:padding="16dp"
                 android:fontFamily="@font/mystical_font"/>
         </LinearLayout>
+
+        <!-- Gender -->
+        <RadioGroup
+            android:id="@+id/genderRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <RadioButton
+                android:id="@+id/maleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:textColor="@color/white"
+                android:fontFamily="@font/mystical_font"/>
+
+            <RadioButton
+                android:id="@+id/femaleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textColor="@color/white"
+                android:fontFamily="@font/mystical_font"/>
+
+            <RadioButton
+                android:id="@+id/otherRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other"
+                android:textColor="@color/white"
+                android:fontFamily="@font/mystical_font"/>
+        </RadioGroup>
 
         <!-- Time of Birth -->
         <LinearLayout

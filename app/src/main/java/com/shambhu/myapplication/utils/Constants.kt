@@ -9,6 +9,7 @@ class Constants {
         const val PREFERENCE_DATE_OF_BIRTH = "date_of_birth"
         const val PREFERENCE_TIME_OF_BIRTH = "time_of_birth"
         const val PREFERENCE_PLACE_OF_BIRTH = "place_of_birth"
+        const val PREFERENCE_GENDER = "gender"
         const val PREFERENCE_NAME = "PREFERENCE_NAME"
 
         const val ARG_DOB = "dob"
