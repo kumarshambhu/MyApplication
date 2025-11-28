@@ -484,4 +484,27 @@ data class Quintuple<A, B, C, D, E>(
             goldenSuccessPlane = getMissingNumbers(listOf(2, 5, 8))
         )
     }
+    fun calculateKuaNumber(birthYear: Int, isMale: Boolean): Int {
+        if (birthYear < 1900 || birthYear > 2100) return -1
+        val lastTwoDigits = birthYear % 100
+        val sumOfYear = CommonUtils.reduceNumberIgnoreMasterNumber(lastTwoDigits)
+
+        val baseNumber: Int = if (birthYear < 2000) {
+            10 // Base for years 1900-1999
+        } else {
+            9  // Base for years 2000+
+        }
+
+        val kuaNumber: Int = if (isMale) {
+            baseNumber - sumOfYear
+        } else {
+            if (birthYear < 2000) {
+                5 + sumOfYear
+            } else {
+                6 + sumOfYear
+            }
+        }
+
+        return CommonUtils.reduceNumberIgnoreMasterNumber(kuaNumber)
+    }
 }

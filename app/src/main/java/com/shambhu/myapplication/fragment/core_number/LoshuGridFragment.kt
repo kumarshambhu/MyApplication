@@ -29,13 +29,13 @@ class LoshuGridFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        arguments?.getString(Constants.Companion.ARG_FULL_NAME)?.let { fullName ->
-            val personalityNumber = NumerologyCalculationUtils.calculatePersonality(fullName)
+       /* arguments?.getString(Constants.Companion.ARG_FULL_NAME)?.let { fullName ->
+            val mulankNumber = NumerologyCalculationUtils.calculateBirthdayNumber(fullName)
             val destinyNumber = NumerologyCalculationUtils.calculateExpression(fullName)
 
-            binding.tvPersonalityNumber.text = personalityNumber.toString()
+            binding.tvPersonalityNumber.text = mulankNumber.toString()
             binding.tvDestinyNumber.text = destinyNumber.toString()
-        }
+        }*/
         arguments?.getString(Constants.Companion.ARG_DOB)?.let { dob ->
             var digits = dob.filter { it.isDigit() }
 
@@ -45,9 +45,17 @@ class LoshuGridFragment : Fragment() {
             val birthMonth = birthDate.monthValue
             val birthYear = birthDate.year
 
+            val mulankNumber = NumerologyCalculationUtils.calculateBirthdayNumber(birthDay)
+            val bhagyankNumber = NumerologyCalculationUtils.calculateLifePath(birthDay, birthMonth, birthYear)
+            val kuaNumber = NumerologyCalculationUtils.calculateKuaNumber(birthYear, true)
+
+            binding.loshuGridDobValue.text = dob
+            binding.loshuGridMulankValue.text = mulankNumber.toString()
+            binding.loshuGridBhagyankValue.text = bhagyankNumber.toString()
+            binding.loshuGridKuaNumberValue.text = kuaNumber.toString()
 
             println("DOB: $digits")
-            digits = digits+ CommonUtils.reduceNumber(birthDay) +  NumerologyCalculationUtils.calculateLifePath(birthDay, birthMonth, birthYear)
+            digits = digits+ CommonUtils.reduceNumber(birthDay) +   CommonUtils.reduceNumberIgnoreMasterNumber(bhagyankNumber) + kuaNumber
             println("DOB: $digits")
             val numberCounts = IntArray(10)
             for (digitChar in digits) {
@@ -103,22 +111,22 @@ class LoshuGridFragment : Fragment() {
                     effectsStringBuilder.append("\n- $effect")
                 }
             }
-            binding.tvMissingNumberEffects.text = effectsStringBuilder.toString()
-            binding.tvMissingNumberEffects.visibility = View.VISIBLE
+            binding.loshuPlaneLayout.tvMissingNumberEffects.text = effectsStringBuilder.toString()
+            binding.loshuPlaneLayout.tvMissingNumberEffects.visibility = View.VISIBLE
         } else {
-            binding.tvMissingNumberEffects.visibility = View.GONE
+            binding.loshuPlaneLayout.tvMissingNumberEffects.visibility = View.GONE
         }
     }
 
     private fun updatePlanesUI(loshuPlanes: LoshuGridPlanes, meanings: org.json.JSONObject) {
-        updatePlaneText(binding.tvMentalPlane, meanings.getJSONObject("mental_plane"), loshuPlanes.mentalPlane)
-        updatePlaneText(binding.tvEmotionalPlane, meanings.getJSONObject("emotional_plane"), loshuPlanes.emotionalPlane)
-        updatePlaneText(binding.tvPracticalPlane, meanings.getJSONObject("practical_plane"), loshuPlanes.practicalPlane)
-        updatePlaneText(binding.tvThoughtPlane, meanings.getJSONObject("thought_plane"), loshuPlanes.thoughtPlane)
-        updatePlaneText(binding.tvWillPlane, meanings.getJSONObject("will_plane"), loshuPlanes.willPlane)
-        updatePlaneText(binding.tvActionPlane, meanings.getJSONObject("action_plane"), loshuPlanes.actionPlane)
-        updatePlaneText(binding.tvSilverSuccessPlane, meanings.getJSONObject("silver_success_plane"), loshuPlanes.silverSuccessPlane)
-        updatePlaneText(binding.tvGoldenSuccessPlane, meanings.getJSONObject("golden_success_plane"), loshuPlanes.goldenSuccessPlane)
+        updatePlaneText(binding.loshuPlaneLayout.tvMentalPlane, meanings.getJSONObject("mental_plane"), loshuPlanes.mentalPlane)
+        updatePlaneText(binding.loshuPlaneLayout.tvEmotionalPlane, meanings.getJSONObject("emotional_plane"), loshuPlanes.emotionalPlane)
+        updatePlaneText(binding.loshuPlaneLayout.tvPracticalPlane, meanings.getJSONObject("practical_plane"), loshuPlanes.practicalPlane)
+        updatePlaneText(binding.loshuPlaneLayout.tvThoughtPlane, meanings.getJSONObject("thought_plane"), loshuPlanes.thoughtPlane)
+        updatePlaneText(binding.loshuPlaneLayout.tvWillPlane, meanings.getJSONObject("will_plane"), loshuPlanes.willPlane)
+        updatePlaneText(binding.loshuPlaneLayout.tvActionPlane, meanings.getJSONObject("action_plane"), loshuPlanes.actionPlane)
+        updatePlaneText(binding.loshuPlaneLayout.tvSilverSuccessPlane, meanings.getJSONObject("silver_success_plane"), loshuPlanes.silverSuccessPlane)
+        updatePlaneText(binding.loshuPlaneLayout.tvGoldenSuccessPlane, meanings.getJSONObject("golden_success_plane"), loshuPlanes.goldenSuccessPlane)
     }
 
     private fun updatePlaneText(textView: TextView, planeMeanings: org.json.JSONObject, missingNumbers: List<Int>) {
