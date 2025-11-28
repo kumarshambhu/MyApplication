@@ -34,11 +34,10 @@ class MainActivity : AppCompatActivity() {
 
         // Handle button click
         binding.calculateButton.setOnClickListener {
-            val fullName = "Shambhu Kumar"//binding.nameEditText.text.toString()
-            //val dob = "17/03/1979"//binding.dobEditText.text.toString()
-            val dob = "13/03/2014"//binding.dobEditText.text.toString()
-            val time = "01:45";//binding.timeEditText.text.toString()
-            val location = "Gaya";//binding.locationEditText.text.toString()
+            val fullName = binding.nameEditText.text.toString().ifEmpty { "Shambhu Kumar" }
+            val dob = binding.dobEditText.text.toString().ifEmpty { "17/03/1979"}
+            val time =  binding.timeEditText.text.toString().ifEmpty {"01:45"}
+            val location = binding.locationEditText.text.toString().ifEmpty {"Gaya"}
 
             // Validate inputs
             if (fullName.isNotEmpty() && dob.isNotEmpty() && time.isNotEmpty() && location.isNotEmpty()) {

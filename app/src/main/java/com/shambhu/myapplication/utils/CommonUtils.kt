@@ -35,6 +35,14 @@ object CommonUtils {
         return number
     }
 
+    fun reduceNumberIgnoreMasterNumber(n: Int): Int {
+        var number = n
+        while (number > 9) {
+            number = number.toString().map { it.toString().toInt() }.sum()
+        }
+        return number
+    }
+
     fun readAssetFile(context: Context, filename: String): String {
         val inputStream =context.assets.open(filename)
         val size = inputStream.available()

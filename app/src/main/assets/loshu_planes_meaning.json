@@ -1,0 +1,34 @@
+{
+  "mental_plane": {
+    "complete": "With the Mental Plane (4-9-2) complete, you possess a sharp intellect, clear thoughts, and excellent reasoning abilities.",
+    "incomplete": "With an incomplete Mental Plane (4-9-2), you may sometimes struggle with scattered thoughts or find it challenging to focus."
+  },
+  "emotional_plane": {
+    "complete": "The Emotional Plane (3-5-7) is complete, indicating a rich emotional life, strong intuition, and deep compassion for others.",
+    "incomplete": "An incomplete Emotional Plane (3-5-7) suggests that you might be learning to navigate your feelings and develop deeper emotional expression."
+  },
+  "practical_plane": {
+    "complete": "Your complete Practical Plane (8-1-6) shows that you are grounded, reliable, and skilled at managing the material aspects of life.",
+    "incomplete": "An incomplete Practical Plane (8-1-6) can mean you are less concerned with material details and may need to focus on organization."
+  },
+  "thought_plane": {
+    "complete": "The Thought Plane (4-3-8) is complete, giving you a methodical mind and the ability to think through plans from conception to execution.",
+    "incomplete": "An incomplete Thought Plane (4-3-8) may indicate a tendency to be more spontaneous and less focused on detailed planning."
+  },
+  "will_plane": {
+    "complete": "With a complete Will Plane (9-5-1), you have strong determination, ambition, and the persistence to achieve your goals.",
+    "incomplete": "An incomplete Will Plane (9-5-1) suggests that you may sometimes need to bolster your self-confidence and follow through on your intentions."
+  },
+  "action_plane": {
+    "complete": "Your complete Action Plane (2-7-6) endows you with a dynamic, hands-on approach to life. You are a doer who makes things happen.",
+    "incomplete": "An incomplete Action Plane (2-7-6) can point to a preference for thinking and planning over direct physical action."
+  },
+  "silver_success_plane": {
+    "complete": "The Silver Success Plane (4-5-6) is complete, indicating financial awareness and the ability to build security through careful planning.",
+    "incomplete": "An incomplete Silver Success Plane (4-5-6) suggests that financial matters may not be your top priority, requiring more conscious effort."
+  },
+  "golden_success_plane": {
+    "complete": "With the Golden Success Plane (2-5-8) complete, you have a natural ability to attract prosperity and success in your endeavors.",
+    "incomplete": "An incomplete Golden Success Plane (2-5-8) may mean that achieving success requires overcoming specific challenges and learning important lessons."
+  }
+}
