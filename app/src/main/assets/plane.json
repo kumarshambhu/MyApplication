@@ -1,0 +1,398 @@
+{
+	"planes": [
+		{
+			"id": 6,
+			"name": "Mental plane",
+			"sections": [
+				{
+					"title": "4, 9, 2",
+					"description": "Main mental plane combination",
+					"traits": [
+						"Genius",
+						"Uses mind while making any decision",
+						"Logical person",
+						"Mind plane is 100% active"
+					]
+				},
+				{
+					"title": "4",
+					"description": "Single number traits",
+					"traits": [
+						"Flexible in Nature",
+						"Intelligent person",
+						"No Grey area in life",
+						"Does Not like manipulative people",
+						"Hardworking but may face struggle in early life"
+					]
+				},
+				{
+					"title": "9",
+					"description": "Single number traits",
+					"traits": [
+						"Religious Person",
+						"Artistic, Short Tempered",
+						"Loves to help needy people",
+						"Thinks from the heart",
+						"Work for Society"
+					]
+				},
+				{
+					"title": "2",
+					"description": "Single number traits",
+					"traits": [
+						"Caring Nature",
+						"Family oriented",
+						"Simple person",
+						"Take decisions considering the family in his/her mind"
+					]
+				},
+				{
+					"title": "4, 9",
+					"description": "Number combinations",
+					"traits": [
+						"Struggle with health (stress, leg problem, knee)",
+						"Legal matters may happen"
+					]
+				},
+				{
+					"title": "4, 2",
+					"description": "Number combinations",
+					"traits": [
+						"May involve in Bad company",
+						"Get Blame of others' misbehaviour",
+						"An intelligent person",
+						"Family problems (elder sibling or mother)"
+					]
+				},
+				{
+					"title": "9, 2",
+					"description": "Number combinations",
+					"traits": [
+						"Helps the society",
+						"Bad with love relations (especially girls)",
+						"Gets Support from (powerful / Elder) people",
+						"Spiritual person"
+					]
+				}
+			]
+		},
+		{
+			"id": 7,
+			"name": "Heart plane",
+			"sections": [
+				{
+					"title": "3, 5, 7",
+					"description": "Main heart plane combination",
+					"traits": [
+						"Satisfaction in life (after 45)",
+						"Artistic",
+						"Good learner/education",
+						"Very emotional person",
+						"Golden heart"
+					]
+				},
+				{
+					"title": "3",
+					"description": "Single number traits",
+					"traits": [
+						"Knowledgeable",
+						"Lazy",
+						"Quick learner"
+					]
+				},
+				{
+					"title": "5",
+					"description": "Single number traits",
+					"traits": [
+						"Multiple experiences in life",
+						"Enjoy life to the fullest"
+					]
+				},
+				{
+					"title": "7",
+					"description": "Single number traits",
+					"traits": [
+						"Intuitive person",
+						"Researcher",
+						"Don't believe people easily",
+						"May face minimum two break-ups in life"
+					]
+				},
+				{
+					"title": "3, 5",
+					"description": "Number combinations",
+					"traits": [
+						"Rational behavior",
+						"Lucky in money matters",
+						"Good communicator",
+						"Good for education business"
+					]
+				},
+				{
+					"title": "5, 7",
+					"description": "Number combinations",
+					"traits": [
+						"Attractive personality",
+						"Business oriented",
+						"If 5 comes two times and 7 comes one time, people learn by themselves and start earning well"
+					]
+				},
+				{
+					"title": "3, 7",
+					"description": "Number combinations",
+					"traits": [
+						"Lucky person",
+						"Skilled person",
+						"Good in occult science",
+						"Emotional person"
+					]
+				}
+			]
+		},
+		{
+			"id": 8,
+			"name": "Practical plane",
+			"sections": [
+				{
+					"title": "8, 1, 6",
+					"description": "Main practical plane combination",
+					"traits": [
+						"Very practical nature",
+						"Believes in materialistic gains in life",
+						"Romantic nature",
+						"Loves power and authority in jobs/business and also in relationships"
+					]
+				},
+				{
+					"title": "Note",
+					"description": "Missing plane consequences",
+					"traits": [
+						"If (8-1-6) is missing in the grid person may try hard to get luxury but fails also he/she loses practical or rational temperament",
+						"The absence of (8-1-6) can increase the delay in success, not good for people who are doing business"
+					]
+				},
+				{
+					"title": "8",
+					"description": "Single number traits",
+					"traits": [
+						"Manages money well",
+						"Always speaks the truth and hates liars too much",
+						"Justice lover"
+					]
+				},
+				{
+					"title": "1",
+					"description": "Single number traits",
+					"traits": [
+						"Good in communication",
+						"Good memory and grasping power"
+					]
+				},
+				{
+					"title": "6",
+					"description": "Single number traits",
+					"traits": [
+						"Family oriented",
+						"Loves luxury around them",
+						"Have Attractive personality",
+						"Art lover"
+					]
+				},
+				{
+					"title": "8, 1",
+					"description": "Number combinations",
+					"traits": [
+						"Image conscious",
+						"Aggressive nature",
+						"Insult or accusation of a crime may arise in life at least once",
+						"Loves variety in career",
+						"His/her spouse may face frequent health issues",
+						"Loves being in authority or power"
+					]
+				},
+				{
+					"title": "1, 6",
+					"description": "Number combinations",
+					"traits": [
+						"Not very good for married life",
+						"Luxury comes into life",
+						"Prefer looking groomed and rich"
+					]
+				},
+				{
+					"title": "8, 6",
+					"description": "Number combinations",
+					"traits": [
+						"Somehow Money finds its way when they are in need",
+						"May face eyes related problems",
+						"May face genital-related problems"
+					]
+				}
+			]
+		},
+		{
+			"id": 9,
+			"name": "Vision plane",
+			"sections": [
+				{
+					"title": "4, 3, 8",
+					"description": "Main vision plane combination",
+					"traits": [
+						"Strong thinking power",
+						"Very good in brain-related work",
+						"Visionary",
+						"May get airborne diseases very easily",
+						"Good in practical planning of any work"
+					]
+				},
+				{
+					"title": "Note",
+					"description": "Missing plane consequences",
+					"traits": [
+						"If the vision plane is completely missing, a person may suggest something to others but people tend to overlook him"
+					]
+				},
+				{
+					"title": "4, 3",
+					"description": "Number combinations",
+					"traits": [
+						"This combination is not very good for fame and art-related work but gives good results in the technical field",
+						"A person wants to be organised but can face problems in keeping everything under control",
+						"Intelligent person"
+					]
+				},
+				{
+					"title": "3, 8",
+					"description": "Number combinations",
+					"traits": [
+						"Good for real estate and medical field",
+						"Love to learn new things"
+					]
+				},
+				{
+					"title": "4, 8",
+					"description": "Number combinations",
+					"traits": [
+						"Straight forward nature",
+						"Small friend circle",
+						"May make enemies because of their words",
+						"Delayed success but not denied",
+						"Life can change 180 degrees if he/she continues to work hard"
+					]
+				}
+			]
+		},
+		{
+			"id": 10,
+			"name": "Will plane",
+			"sections": [
+				{
+					"title": "9, 5, 1",
+					"description": "Main will plane combination",
+					"traits": [
+						"Immense willpower",
+						"May face difficulties in settling down till the age of 28 but after that, they earn very well",
+						"Usually settles in the 32nd year",
+						"Many successful people have these numbers",
+						"Dominating Personality",
+						"Fight back attitude"
+					]
+				},
+				{
+					"title": "Note",
+					"description": "Missing plane consequences",
+					"traits": [
+						"If a plane is missing, a person can lose hope in life easily",
+						"One or two failures can break his motivation for a long time"
+					]
+				},
+				{
+					"title": "9, 1",
+					"description": "Number combinations",
+					"traits": [
+						"Commanding nature",
+						"Leadership qualities",
+						"Respect is everything",
+						"May go for higher education"
+					]
+				},
+				{
+					"title": "9, 5",
+					"description": "Number combinations",
+					"traits": [
+						"Kind-hearted person",
+						"Strong will power",
+						"Manipulates to get his work done",
+						"Strong communication skills"
+					]
+				},
+				{
+					"title": "1, 5",
+					"description": "Number combinations",
+					"traits": [
+						"Sharp minded people",
+						"Good business sense",
+						"Good with father/son but possibly one person shines at a time"
+					]
+				}
+			]
+		},
+		{
+			"id": 11,
+			"name": "Action plane",
+			"sections": [
+				{
+					"title": "2, 7, 6",
+					"description": "Main action plane combination",
+					"traits": [
+						"Action takers (doers)",
+						"Quick decision maker",
+						"Good in sports",
+						"Opportunity grabber",
+						"If the mental plane is missing he can't make decisions without proper thinking"
+					]
+				},
+				{
+					"title": "Note",
+					"description": "Missing plane consequences",
+					"traits": [
+						"If this plane is missing, the person may be lazy and have weak decision-making power"
+					]
+				},
+				{
+					"title": "2, 7",
+					"description": "Number combinations",
+					"traits": [
+						"Caring nature",
+						"Spiritually inclined",
+						"Highly intuitive",
+						"Sensitive",
+						"Good in occult science",
+						"Money is not their priority"
+					]
+				},
+				{
+					"title": "2, 6",
+					"description": "Number combinations",
+					"traits": [
+						"Good looking",
+						"Caring nature",
+						"Art lover",
+						"Prone to water-related diseases",
+						"Loves family too much (may become a hurdle in growth)"
+					]
+				},
+				{
+					"title": "7, 6",
+					"description": "Number combinations",
+					"traits": [
+						"Metal elements traits will be there",
+						"Attraction towards the opposite sex",
+						"Indulge in More than one love relationship",
+						"Chances of an extra marital affair"
+					]
+				}
+			]
+		}
+	]
+}
