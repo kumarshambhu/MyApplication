@@ -29,13 +29,6 @@ class LoshuGridFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-       /* arguments?.getString(Constants.Companion.ARG_FULL_NAME)?.let { fullName ->
-            val mulankNumber = NumerologyCalculationUtils.calculateBirthdayNumber(fullName)
-            val destinyNumber = NumerologyCalculationUtils.calculateExpression(fullName)
-
-            binding.tvPersonalityNumber.text = mulankNumber.toString()
-            binding.tvDestinyNumber.text = destinyNumber.toString()
-        }*/
         arguments?.getString(Constants.Companion.ARG_DOB)?.let { dob ->
             var digits = dob.filter { it.isDigit() }
 

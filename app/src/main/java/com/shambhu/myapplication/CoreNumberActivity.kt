@@ -96,8 +96,9 @@ class CoreNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_home -> {
-
+            R.id.nav_logout -> {
+                val i = Intent(this, MainActivity::class.java)
+                startActivity(i)
             }
 
             R.id.nav_slideshow -> {

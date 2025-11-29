@@ -97,8 +97,9 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 val i = Intent(this, SecondaryNumberActivity::class.java)
                 startActivity(i)
             }
-            R.id.nav_personal -> {
-                // Currently in this activity
+            R.id.nav_logout -> {
+                val i = Intent(this, MainActivity::class.java)
+                startActivity(i)
             }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)

@@ -34,9 +34,9 @@
     <style name="Theme.YourApp.Card.Primary" parent="">
         <item name="cardBackgroundColor">@color/card_background</item>
         <item name="strokeColor">@color/card_stroke</item>
-        <item name="strokeWidth">2dp</item>
+        <item name="strokeWidth">1dp</item>
         <item name="elevation">5dp</item>
-        <item name="cardCornerRadius">16dp</item>
+        <item name="cardCornerRadius">0dp</item>
     </style>
 
     <style name="Theme.YourApp.CardText.Primary.Header" parent="">

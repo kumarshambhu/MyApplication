@@ -33,8 +33,6 @@ class CoreNumberRecyclerViewAdapter(
         val resId = context.getDrawableResourceByName(imageSource)
         holder.binding.numberImageData.setImageResource(resId)
 
-
-
         if (expanded) {
             holder.binding.coreNumberContentLayout.visibility = View.VISIBLE
             holder.binding.ivExpand.rotation = 180f

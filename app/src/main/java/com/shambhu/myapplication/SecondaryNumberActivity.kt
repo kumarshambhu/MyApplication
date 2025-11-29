@@ -109,8 +109,8 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
                 startActivity(i)
             }
 
-            R.id.nav_slideshow -> {
-                val i = Intent(applicationContext, SecondaryNumberActivity::class.java)
+            R.id.nav_logout -> {
+                val i = Intent(applicationContext, MainActivity::class.java)
                 startActivity(i)
             }
 

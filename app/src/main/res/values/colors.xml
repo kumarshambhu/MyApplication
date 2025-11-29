@@ -20,13 +20,17 @@
     <color name="tab_indicator">#2A2B37</color>
     <color name="tab_text_color">#FFFFFF</color>
     <color name="dark_gold">#E2C792</color>
+    <color name="dark_test">#0B0018</color>
+    <color name="dark_text">#E3DCEC</color>
+    <color name="dark_tab_bg">#41127F</color>
+    <color name="dark_tab_text">#6D5493</color>
 
     <!-- ========== CARD STYLE ========== -->
-    <color name="card_background">#D3C5E5</color>
-    <color name="card_stroke">#E2C792</color>
+    <color name="card_background">#0B0018</color>
+    <color name="card_stroke">#41127F</color>
     <color name="card_header">#A020F0</color>
-    <color name="card_sub_header">#A020F0</color>
-    <color name="card_content">#A020F0</color>
+    <color name="card_sub_header">#E3DCEC</color>
+    <color name="card_content">#E3DCEC</color>
 
     <color name="white_60">#99FFFFFF</color>
     <color name="white_20">#33FFFFFF</color>

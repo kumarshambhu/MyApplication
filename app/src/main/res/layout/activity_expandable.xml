@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="#1F1F30"
+    android:background="@color/dark_test"
     tools:context=".ExpandableActivity">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="16dp"
-            android:background="#F5F5F5"
+            android:background="@color/dark_test"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
@@ -61,6 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"
+                    android:textColor="@color/dark_text"
                     android:text="@string/sample_text_medium"
                     android:textSize="14sp" />
 
@@ -158,6 +159,7 @@
             android:layout_gravity="bottom"
             android:layout_marginBottom="10dp"
             app:tabBackground="@drawable/tab_pill_primary_selector"
+            android:background="@color/dark_tab_bg"
             app:tabGravity="center"
             app:tabMode="scrollable"
             app:tabRippleColor="?attr/colorOnPrimaryContainer"
