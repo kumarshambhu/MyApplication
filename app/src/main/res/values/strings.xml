@@ -51,6 +51,7 @@
     <string name="all_number_details">All Number Details</string>
 
 
+    <string name="plane_name">Plane Name</string>
     <string name="title_number">Number Title:</string>
     <string name="lifepath_number">Lifepath Number:</string>
     <string name="destiny_number">Destiny Number</string>
@@ -219,6 +220,9 @@
     <string name="logo">Logo</string>
     <string name="core_number">Core Number</string>
     <string name="secondary_number">Secondary Number</string>
+    <string name="expand">Expand</string>
+    <string name="logo_image">Logo Image</string>
+    <string name="present_number">Present Number</string>
 
 
 </resources>

@@ -469,19 +469,22 @@ data class Quintuple<A, B, C, D, E>(
     }
 
     fun calculateLoshuGridPlanes(numberCounts: IntArray): LoshuGridPlanes {
-        fun getMissingNumbers(planeNumbers: List<Int>): List<Int> {
-            return planeNumbers.filter { numberCounts[it] == 0 }
+        fun getAvailableNumbersInPlane(planeNumbers: List<Int>): List<Int> {
+            return planeNumbers.filter {
+                println(it)
+                numberCounts[it] != 0
+            }
         }
 
         return LoshuGridPlanes(
-            mentalPlane = getMissingNumbers(listOf(4, 9, 2)),
-            emotionalPlane = getMissingNumbers(listOf(3, 5, 7)),
-            practicalPlane = getMissingNumbers(listOf(8, 1, 6)),
-            thoughtPlane = getMissingNumbers(listOf(4, 3, 8)),
-            willPlane = getMissingNumbers(listOf(9, 5, 1)),
-            actionPlane = getMissingNumbers(listOf(2, 7, 6)),
-            silverSuccessPlane = getMissingNumbers(listOf(4, 5, 6)),
-            goldenSuccessPlane = getMissingNumbers(listOf(2, 5, 8))
+            mentalPlane = getAvailableNumbersInPlane(listOf(4, 9, 2)),
+            emotionalPlane = getAvailableNumbersInPlane(listOf(3, 5, 7)),
+            practicalPlane = getAvailableNumbersInPlane(listOf(8, 1, 6)),
+            thoughtPlane = getAvailableNumbersInPlane(listOf(4, 3, 8)),
+            willPlane = getAvailableNumbersInPlane(listOf(9, 5, 1)),
+            actionPlane = getAvailableNumbersInPlane(listOf(2, 7, 6)),
+            silverSuccessPlane = getAvailableNumbersInPlane(listOf(4, 5, 6)),
+            goldenSuccessPlane = getAvailableNumbersInPlane(listOf(2, 5, 8))
         )
     }
     fun calculateKuaNumber(birthYear: Int, isMale: Boolean): Int {

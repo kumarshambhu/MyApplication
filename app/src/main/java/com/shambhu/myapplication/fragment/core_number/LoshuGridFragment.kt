@@ -6,17 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.shambhu.myapplication.adapter.LoshuGridPlaneRecyclerViewAdapter
 import com.shambhu.myapplication.databinding.FragmentLoshuGridBinding
+import com.shambhu.myapplication.model.LoshuGridPlaneAccordionItem
 import com.shambhu.myapplication.model.LoshuGridPlanes
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
-import kotlin.text.iterator
+import org.json.JSONObject
 
 class LoshuGridFragment : Fragment() {
 
     private var _binding: FragmentLoshuGridBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var gridPlaneRecyclerViewAdapter: LoshuGridPlaneRecyclerViewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -68,13 +73,16 @@ class LoshuGridFragment : Fragment() {
             updateCell(binding.cell9, 9, numberCounts[9])
 
             val loshuPlanes = NumerologyCalculationUtils.calculateLoshuGridPlanes(numberCounts)
+
+            createLoshuPlaneItemForRecyclerView(loshuPlanes)
+
             try {
                 val jsonString = requireContext().assets.open("loshu_planes_meaning.json").bufferedReader().use { it.readText() }
-                val meaningsJson = org.json.JSONObject(jsonString)
+                val meaningsJson = JSONObject(jsonString)
                 updatePlanesUI(loshuPlanes, meaningsJson)
 
                 val effectsJsonString = requireContext().assets.open("loshu_missing_number_effects.json").bufferedReader().use { it.readText() }
-                val effectsJson = org.json.JSONObject(effectsJsonString)
+                val effectsJson = JSONObject(effectsJsonString)
                 displayMissingNumberEffects(loshuPlanes, effectsJson)
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -85,7 +93,94 @@ class LoshuGridFragment : Fragment() {
 
     }
 
-    private fun displayMissingNumberEffects(loshuPlanes: LoshuGridPlanes, effectsJson: org.json.JSONObject) {
+    private fun createLoshuPlaneItemForRecyclerView(loshuPlanes: LoshuGridPlanes){
+        val loshuPlaneItems = mutableListOf<LoshuGridPlaneAccordionItem>();
+        if(loshuPlanes.mentalPlane.size>0){
+            val presentNumbers: String = loshuPlanes.mentalPlane.joinToString(", ")
+            loshuPlaneItems.add(LoshuGridPlaneAccordionItem(
+                "Mental Plane", presentNumbers,
+                content = "TODO",
+                imageSource = "ic_moon",
+                isExpanded = false
+            ))
+        }
+
+        if(loshuPlanes.emotionalPlane.size>0){
+            val presentNumbers: String = loshuPlanes.emotionalPlane.joinToString(", ")
+            loshuPlaneItems.add(LoshuGridPlaneAccordionItem(
+                "Emotional Plane", presentNumbers,
+                content = "TODO",
+                imageSource = "ic_moon",
+                isExpanded = false
+            ))
+        }
+
+        if(loshuPlanes.practicalPlane.size>0){
+            val presentNumbers: String = loshuPlanes.practicalPlane.joinToString(", ")
+            loshuPlaneItems.add(LoshuGridPlaneAccordionItem(
+                "Practical Plane", presentNumbers,
+                content = "TODO",
+                imageSource = "ic_moon",
+                isExpanded = false
+            ))
+        }
+
+        if(loshuPlanes.thoughtPlane.size>0){
+            val presentNumbers: String = loshuPlanes.thoughtPlane.joinToString(", ")
+            loshuPlaneItems.add(LoshuGridPlaneAccordionItem(
+                "Thought Plane", presentNumbers,
+                content = "TODO",
+                imageSource = "ic_moon",
+                isExpanded = false
+            ))
+        }
+
+        if(loshuPlanes.willPlane.size>0){
+            val presentNumbers: String = loshuPlanes.willPlane.joinToString(", ")
+            loshuPlaneItems.add(LoshuGridPlaneAccordionItem(
+                "Will Plane", presentNumbers,
+                content = "TODO",
+                imageSource = "ic_moon",
+                isExpanded = false
+            ))
+        }
+
+        if(loshuPlanes.actionPlane.size>0){
+            val presentNumbers: String = loshuPlanes.actionPlane.joinToString(", ")
+            loshuPlaneItems.add(LoshuGridPlaneAccordionItem(
+                "Action Plane", presentNumbers,
+                content = "TODO",
+                imageSource = "ic_moon",
+                isExpanded = false
+            ))
+        }
+
+        if(loshuPlanes.silverSuccessPlane.size>0){
+            val presentNumbers: String = loshuPlanes.silverSuccessPlane.joinToString(", ")
+            loshuPlaneItems.add(LoshuGridPlaneAccordionItem(
+                "Silver Success Plane", presentNumbers,
+                content = "TODO",
+                imageSource = "ic_moon",
+                isExpanded = false
+            ))
+        }
+
+        if(loshuPlanes.goldenSuccessPlane.size>0){
+            val presentNumbers: String = loshuPlanes.goldenSuccessPlane.joinToString(", ")
+            loshuPlaneItems.add(LoshuGridPlaneAccordionItem(
+                "Golden Success Plane", presentNumbers,
+                content = "TODO",
+                imageSource = "ic_moon",
+                isExpanded = false
+            ))
+        }
+
+        println(loshuPlaneItems)
+        setupCoreNumberRecyclerView(loshuPlaneItems)
+
+    }
+
+    private fun displayMissingNumberEffects(loshuPlanes: LoshuGridPlanes, effectsJson: JSONObject) {
         val allMissingNumbers = listOf(
             loshuPlanes.mentalPlane,
             loshuPlanes.emotionalPlane,
@@ -111,7 +206,7 @@ class LoshuGridFragment : Fragment() {
         }
     }
 
-    private fun updatePlanesUI(loshuPlanes: LoshuGridPlanes, meanings: org.json.JSONObject) {
+    private fun updatePlanesUI(loshuPlanes: LoshuGridPlanes, meanings: JSONObject) {
         updatePlaneText(binding.loshuPlaneLayout.tvMentalPlane, meanings.getJSONObject("mental_plane"), loshuPlanes.mentalPlane)
         updatePlaneText(binding.loshuPlaneLayout.tvEmotionalPlane, meanings.getJSONObject("emotional_plane"), loshuPlanes.emotionalPlane)
         updatePlaneText(binding.loshuPlaneLayout.tvPracticalPlane, meanings.getJSONObject("practical_plane"), loshuPlanes.practicalPlane)
@@ -122,7 +217,7 @@ class LoshuGridFragment : Fragment() {
         updatePlaneText(binding.loshuPlaneLayout.tvGoldenSuccessPlane, meanings.getJSONObject("golden_success_plane"), loshuPlanes.goldenSuccessPlane)
     }
 
-    private fun updatePlaneText(textView: TextView, planeMeanings: org.json.JSONObject, missingNumbers: List<Int>) {
+    private fun updatePlaneText(textView: TextView, planeMeanings: JSONObject, missingNumbers: List<Int>) {
         val message = if (missingNumbers.isEmpty()) {
             planeMeanings.getString("complete")
         } else {
@@ -139,6 +234,17 @@ class LoshuGridFragment : Fragment() {
         } else {
             textView.text = ""
         }
+    }
+
+
+    private fun LoshuGridFragment.setupCoreNumberRecyclerView(gridItems: MutableList<LoshuGridPlaneAccordionItem>) {
+        gridPlaneRecyclerViewAdapter =
+            LoshuGridPlaneRecyclerViewAdapter(gridItems, this.requireContext()) { position ->
+                gridItems[position].isExpanded = !gridItems[position].isExpanded
+            gridPlaneRecyclerViewAdapter.notifyItemChanged(position)
+        }
+        binding.planeRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.planeRecyclerView.adapter = gridPlaneRecyclerViewAdapter
     }
 
     override fun onDestroyView() {

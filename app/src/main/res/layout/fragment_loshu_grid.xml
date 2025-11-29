@@ -181,12 +181,18 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="16dp"/>-->
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/planeRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/loshu_grid_kua_number_value"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <include layout="@layout/loshu_plane"
             android:id="@+id/loshu_plane_layout"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            app:layout_constraintTop_toBottomOf="@id/loshu_grid_kua_number_value"
+            app:layout_constraintTop_toBottomOf="@id/planeRecyclerView"
             app:layout_constraintStart_toStartOf="parent"
             />
 
