@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.ItemLoshuGridPlaneBinding
 import com.shambhu.myapplication.model.LoshuGridPlaneAccordionItem
 
@@ -27,7 +26,7 @@ class LoshuGridPlaneRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(header, title, content, imageSource, expanded) = coreNumbers[position]
+        val(header, title, content, imageSource, background, expanded) = coreNumbers[position]
         holder.binding.planeName.text = header
         holder.binding.planePresentNumber.text = title
         holder.binding.planeDescription.text = content
@@ -45,18 +44,6 @@ class LoshuGridPlaneRecyclerViewAdapter(
 
         holder.itemView.setOnClickListener {
             onItemClick(position)
-        }
-
-        val background = when (header) {
-            "Mental Plane" -> R.drawable.mental_plane_background
-            "Emotional Plane" -> R.drawable.emotional_plane_background
-            "Practical Plane" -> R.drawable.practical_plane_background
-            "Thought Plane" -> R.drawable.thought_plane_background
-            "Will Plane" -> R.drawable.will_plane_background
-            "Action Plane" -> R.drawable.action_plane_background
-            "Silver Success Plane" -> R.drawable.silver_success_plane_background
-            "Golden Success Plane" -> R.drawable.golden_success_plane_background
-            else -> R.drawable.mystical_gradient_background
         }
         (holder.binding.root).background = ContextCompat.getDrawable(context, background)
     }

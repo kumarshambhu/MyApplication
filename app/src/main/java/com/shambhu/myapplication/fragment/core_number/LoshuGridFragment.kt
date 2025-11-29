@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.shambhu.myapplication.R
 import com.shambhu.myapplication.adapter.LoshuGridPlaneRecyclerViewAdapter
 import com.shambhu.myapplication.databinding.FragmentLoshuGridBinding
 import com.shambhu.myapplication.model.LoshuGridPlaneAccordionItem
@@ -101,6 +102,7 @@ class LoshuGridFragment : Fragment() {
                 "Mental Plane", presentNumbers,
                 content = "TODO",
                 imageSource = "ic_moon",
+                background = R.drawable.mental_plane_background,
                 isExpanded = false
             ))
         }
@@ -111,6 +113,7 @@ class LoshuGridFragment : Fragment() {
                 "Emotional Plane", presentNumbers,
                 content = "TODO",
                 imageSource = "ic_moon",
+                background = R.drawable.emotional_plane_background,
                 isExpanded = false
             ))
         }
@@ -121,6 +124,7 @@ class LoshuGridFragment : Fragment() {
                 "Practical Plane", presentNumbers,
                 content = "TODO",
                 imageSource = "ic_moon",
+                background = R.drawable.practical_plane_background,
                 isExpanded = false
             ))
         }
@@ -131,6 +135,7 @@ class LoshuGridFragment : Fragment() {
                 "Thought Plane", presentNumbers,
                 content = "TODO",
                 imageSource = "ic_moon",
+                background = R.drawable.thought_plane_background,
                 isExpanded = false
             ))
         }
@@ -141,6 +146,7 @@ class LoshuGridFragment : Fragment() {
                 "Will Plane", presentNumbers,
                 content = "TODO",
                 imageSource = "ic_moon",
+                background = R.drawable.will_plane_background,
                 isExpanded = false
             ))
         }
@@ -151,6 +157,7 @@ class LoshuGridFragment : Fragment() {
                 "Action Plane", presentNumbers,
                 content = "TODO",
                 imageSource = "ic_moon",
+                background = R.drawable.action_plane_background,
                 isExpanded = false
             ))
         }
@@ -161,6 +168,7 @@ class LoshuGridFragment : Fragment() {
                 "Silver Success Plane", presentNumbers,
                 content = "TODO",
                 imageSource = "ic_moon",
+                background = R.drawable.silver_success_plane_background,
                 isExpanded = false
             ))
         }
@@ -171,6 +179,7 @@ class LoshuGridFragment : Fragment() {
                 "Golden Success Plane", presentNumbers,
                 content = "TODO",
                 imageSource = "ic_moon",
+                background = R.drawable.golden_success_plane_background,
                 isExpanded = false
             ))
         }
@@ -238,11 +247,28 @@ class LoshuGridFragment : Fragment() {
 
 
     private fun LoshuGridFragment.setupCoreNumberRecyclerView(gridItems: MutableList<LoshuGridPlaneAccordionItem>) {
+        var expandedPosition = -1
         gridPlaneRecyclerViewAdapter =
             LoshuGridPlaneRecyclerViewAdapter(gridItems, this.requireContext()) { position ->
-                gridItems[position].isExpanded = !gridItems[position].isExpanded
-            gridPlaneRecyclerViewAdapter.notifyItemChanged(position)
-        }
+                val previousExpandedPosition = expandedPosition
+                if (expandedPosition == position) {
+                    // Clicked on the already expanded item, so collapse it
+                    gridItems[position].isExpanded = false
+                    gridPlaneRecyclerViewAdapter.notifyItemChanged(position)
+                    expandedPosition = -1
+                } else {
+                    // A new item is clicked
+                    if (previousExpandedPosition != -1) {
+                        // Collapse the previously expanded item
+                        gridItems[previousExpandedPosition].isExpanded = false
+                        gridPlaneRecyclerViewAdapter.notifyItemChanged(previousExpandedPosition)
+                    }
+                    // Expand the new item
+                    gridItems[position].isExpanded = true
+                    gridPlaneRecyclerViewAdapter.notifyItemChanged(position)
+                    expandedPosition = position
+                }
+            }
         binding.planeRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.planeRecyclerView.adapter = gridPlaneRecyclerViewAdapter
     }
