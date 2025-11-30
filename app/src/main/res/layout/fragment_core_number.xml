@@ -11,31 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
         <include
-            android:id="@+id/content_birth_number"
-            android:visibility="gone"
-            layout="@layout/custom_core_number_design" />
-
-        <include
-            android:id="@+id/content_lifepath_number"
-            android:visibility="gone"
-            layout="@layout/custom_core_number_design" />
-
-        <include
-            android:id="@+id/content_soul_number"
-            android:visibility="gone"
-            layout="@layout/custom_core_number_design" />
-
-        <include
-            android:id="@+id/content_personality_number"
-            android:visibility="gone"
-            layout="@layout/custom_core_number_design" />
-
-        <include
-            android:id="@+id/content_destiny_number"
-            android:visibility="gone"
-            layout="@layout/custom_core_number_design" />
+            android:id="@+id/content_combination_layout"
+            layout="@layout/custom_combination_layout" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/coreNumberRecyclerView"
@@ -43,9 +21,7 @@
             android:layout_height="wrap_content" />
 
 
-        <include
-            android:id="@+id/content_combination_layout"
-            layout="@layout/custom_combination_layout" />
+
 
     </LinearLayout>
 

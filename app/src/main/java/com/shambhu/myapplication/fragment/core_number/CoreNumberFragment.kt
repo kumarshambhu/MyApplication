@@ -53,7 +53,6 @@ class CoreNumberFragment : Fragment() {
                 var coreNumbers = CoreNumberModel(birthNumber, lifePath,
                     soulNumberValue, personalityNumberValue, destinyNumberValue )
 
-                setUpExpandableGrid(day, month, year, fullName)
                 createRecycleView(coreNumbers)
                 createCombinationByNameNumber(coreNumbers)
                 createCombinationByDobNumber(coreNumbers)
@@ -153,69 +152,6 @@ class CoreNumberFragment : Fragment() {
         setupCoreNumberRecyclerView(coreNumberItems)
     }
 
-    private fun setUpExpandableGrid(day: Int, month: Int, year: Int, fullName: String){
-        val birthNumber = NumerologyCalculationUtils.calculateBirthdayNumber(day)
-        binding.contentBirthNumber.numberImage.setImageResource(R.drawable.ic_earth)
-        binding.contentBirthNumber.numberTitle.text = getString(R.string.birthday_number)
-        binding.contentBirthNumber.numberValue.text = birthNumber.toString()
-        binding.contentBirthNumber.numberInterpretation.setText(
-            CommonUtils.getDescriptionFromAssetFile
-                (this.requireContext(), "birthday.json", birthNumber.toString())
-        )
-        binding.contentBirthNumber.numberWhatSays.text = getString(R.string.birth_day_title)
-
-
-        val lifePath = NumerologyCalculationUtils.calculateLifePath(day, month, year)
-        binding.contentLifepathNumber.numberImage.setImageResource(R.drawable.ic_road)
-        binding.contentLifepathNumber.numberTitle.text = getString(R.string.lifepath_number)
-        binding.contentLifepathNumber.numberValue.text = lifePath.toString()
-        binding.contentLifepathNumber.numberInterpretation.setText(
-            NumerologyCalculationUtils.getLifePathDescription(requireContext(), lifePath)
-        )
-        binding.contentLifepathNumber.numberWhatSays.text =
-            getString(R.string.lifepath_title)
-
-
-        val soulNumberValue = NumerologyCalculationUtils.calculateSoulUrge(fullName)
-        binding.contentSoulNumber.numberImage.setImageResource(R.drawable.ic_heart)
-        binding.contentSoulNumber.numberTitle.text = getString(R.string.soul_urge_number)
-        binding.contentSoulNumber.numberValue.text = soulNumberValue.toString()
-        binding.contentSoulNumber.numberWhatSays.text = getString(R.string.soul_title)
-        binding.contentSoulNumber.numberInterpretation.setText(
-            CommonUtils.getDescriptionFromAssetFile
-                (this.requireContext(), "soul_urge.json", soulNumberValue.toString())
-        )
-
-
-        val personalityNumberValue =
-            NumerologyCalculationUtils.calculatePersonality(fullName)
-        binding.contentPersonalityNumber.numberImage.setImageResource(R.drawable.ic_mirrors)
-        binding.contentPersonalityNumber.numberTitle.text =
-            getString(R.string.personality_number)
-        binding.contentPersonalityNumber.numberValue.text =
-            personalityNumberValue.toString()
-        binding.contentPersonalityNumber.numberWhatSays.text =
-            getString(R.string.personality_title)
-        binding.contentPersonalityNumber.numberInterpretation.setText(
-            CommonUtils.getDescriptionFromAssetFile
-                (
-                this.requireContext(),
-                "personality.json",
-                personalityNumberValue.toString()
-            )
-        )
-
-
-        val destinyNumberValue = NumerologyCalculationUtils.calculateExpression(fullName)
-        binding.contentDestinyNumber.numberImage.setImageResource(R.drawable.ic_mic)
-        binding.contentDestinyNumber.numberTitle.text = getString(R.string.destiny_number)
-        binding.contentDestinyNumber.numberValue.text = destinyNumberValue.toString()
-        binding.contentDestinyNumber.numberWhatSays.text = getString(R.string.destiny_title)
-        binding.contentDestinyNumber.numberInterpretation.setText(
-            CommonUtils.getDescriptionFromAssetFile
-                (this.requireContext(), "destiny.json", destinyNumberValue.toString())
-        )
-    }
 
     private fun CoreNumberFragment.setupCoreNumberRecyclerView(coreNumberItems: MutableList<CoreNumberAccordionItem>) {
         coreNumberRecyclerViewAdapter = CoreNumberRecyclerViewAdapter(coreNumberItems, this.requireContext()) { position ->
