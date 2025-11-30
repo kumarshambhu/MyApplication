@@ -57,6 +57,11 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
         headerView.findViewById<TextView>(R.id.nav_header_time).text = time
         headerView.findViewById<TextView>(R.id.nav_header_location).text = location
 
+        val logoutView = binding.navView.menu.findItem(R.id.nav_logout_footer).actionView
+        logoutView?.setOnClickListener {
+            val i = Intent(this, MainActivity::class.java)
+            startActivity(i)
+        }
 
         val viewPager = binding.viewPager
         val tabLayout = binding.tabs
@@ -106,11 +111,6 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
         when (item.itemId) {
             R.id.nav_home -> {
                 val i = Intent(applicationContext, CoreNumberActivity::class.java)
-                startActivity(i)
-            }
-
-            R.id.nav_logout -> {
-                val i = Intent(applicationContext, MainActivity::class.java)
                 startActivity(i)
             }
 

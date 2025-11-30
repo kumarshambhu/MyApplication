@@ -47,6 +47,12 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         headerView.findViewById<TextView>(R.id.nav_header_full_name).text = fullName
         headerView.findViewById<TextView>(R.id.nav_header_dob).text = dob
 
+        val logoutView = binding.navView.menu.findItem(R.id.nav_logout_footer).actionView
+        logoutView?.setOnClickListener {
+            val i = Intent(this, MainActivity::class.java)
+            startActivity(i)
+        }
+
         // Setup Bottom Tabs
         setupTabs()
 
@@ -95,10 +101,6 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             }
             R.id.nav_slideshow -> {
                 val i = Intent(this, SecondaryNumberActivity::class.java)
-                startActivity(i)
-            }
-            R.id.nav_logout -> {
-                val i = Intent(this, MainActivity::class.java)
                 startActivity(i)
             }
         }
