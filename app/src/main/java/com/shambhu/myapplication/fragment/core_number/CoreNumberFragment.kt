@@ -53,20 +53,18 @@ class CoreNumberFragment : Fragment() {
                 var coreNumbers = CoreNumberModel(birthNumber, lifePath,
                     soulNumberValue, personalityNumberValue, destinyNumberValue )
 
-
                 setUpExpandableGrid(day, month, year, fullName)
                 createRecycleView(coreNumbers)
-                createCombinationNumber(coreNumbers)
-
-
+                createCombinationByNameNumber(coreNumbers)
+                createCombinationByDobNumber(coreNumbers)
             }
 
         }
     }
 
-    private fun createCombinationNumber(coreNumbers: CoreNumberModel){
+    private fun createCombinationByNameNumber(coreNumbers: CoreNumberModel){
         val elementsJson = CommonUtils.readAssetFile(requireContext(), "combination.json")
-        val combination = NumerologyCalculationUtils.calculateCombinationNumber(
+        val combination = NumerologyCalculationUtils.calculateCombinationNameNumber(
             elementsJson,
             coreNumbers.destinyNumber,
             coreNumbers.soulUrgeNumber,
@@ -77,6 +75,22 @@ class CoreNumberFragment : Fragment() {
         binding.contentCombinationLayout.tvPersonalityValue.text = coreNumbers.personalityNumber.toString()
         binding.contentCombinationLayout.tvCombinationValue.text = combination.toString()
     }
+
+
+    private fun createCombinationByDobNumber(coreNumbers: CoreNumberModel){
+        val elementsJson = CommonUtils.readAssetFile(requireContext(), "combination.json")
+        val (remark, luck) = NumerologyCalculationUtils.calculateCombinationDobNumber(
+            elementsJson,
+            coreNumbers.birthdayNumber,
+            CommonUtils.reduceNumberIgnoreMasterNumber(coreNumbers.lifePathNumber)
+        )
+        Log.d("Combination", "Combination: $remark - $luck")
+        binding.contentCombinationLayout.birthNumberMulankValue.text = coreNumbers.birthdayNumber.toString()
+        binding.contentCombinationLayout.birthNumberBhagyankValue.text = coreNumbers.lifePathNumber.toString()
+        binding.contentCombinationLayout.birthNumberDobCombination.text = remark + " (" + luck+")"
+    }
+
+
     private fun createRecycleView(coreNumbers: CoreNumberModel){
         val coreNumberItems = mutableListOf<CoreNumberAccordionItem>();
 

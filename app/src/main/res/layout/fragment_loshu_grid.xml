@@ -169,18 +169,6 @@
             app:layout_constraintStart_toEndOf="@id/loshu_grid_kua_number_label"
             android:layout_marginStart="8dp"/>
 
-       <!-- <TextView
-            android:id="@+id/tv_planes_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Loshu Grid Planes"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/gold"
-            app:layout_constraintTop_toBottomOf="@id/loshu_grid_bhagyank_value"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp"/>-->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/planeRecyclerView"
             android:layout_width="match_parent"
@@ -188,13 +176,13 @@
             app:layout_constraintTop_toBottomOf="@id/loshu_grid_kua_number_value"
             app:layout_constraintStart_toStartOf="parent"/>
 
-        <include layout="@layout/loshu_plane"
+       <!-- <include layout="@layout/loshu_plane"
             android:id="@+id/loshu_plane_layout"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             app:layout_constraintTop_toBottomOf="@id/planeRecyclerView"
             app:layout_constraintStart_toStartOf="parent"
-            />
+            />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

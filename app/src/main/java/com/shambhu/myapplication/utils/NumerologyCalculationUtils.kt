@@ -5,6 +5,7 @@ import android.text.Html
 import com.shambhu.myapplication.model.LoshuGridPlanes
 import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
 import org.json.JSONArray
+import org.json.JSONObject
 
 object NumerologyCalculationUtils {
 
@@ -431,13 +432,14 @@ data class Quintuple<A, B, C, D, E>(
         return sortedByFrequency
     }
 
-    fun calculateCombinationNumber(
+    fun calculateCombinationNameNumber(
         jsonData: String,
         destiny: Int,
         soul: Int,
         personality: Int
     ): String? {
-        val jsonArray = JSONArray(jsonData)
+        val jsonObject = JSONObject(jsonData)
+        val jsonArray = jsonObject.getJSONArray("name_combination")
         for (i in 0 until jsonArray.length()) {
             val item = jsonArray.getJSONObject(i)
             if (item.getInt("destiny") == destiny &&
@@ -449,6 +451,32 @@ data class Quintuple<A, B, C, D, E>(
         }
         return null
     }
+
+
+    fun calculateCombinationDobNumber(
+        jsonData: String,
+        mulank: Int,
+        bhagyank: Int
+    ): Pair<String, String> {
+        val jsonObject = JSONObject(jsonData)
+        val jsonArray = jsonObject.getJSONArray("dob_combination")
+        for (i in 0 until jsonArray.length()) {
+            val item = jsonArray.getJSONObject(i)
+            if (item.getInt("mulank") == mulank ) {
+                val jsonObject1 = JSONObject(item.toString())
+                val jsonArray1 = jsonObject1.getJSONArray("combinations")
+                for (j in 0 until jsonArray1.length()) {
+                    val item1 = jsonArray1.getJSONObject(j)
+                    if(item1.getInt("bhagyank") == bhagyank)
+                        return Pair(item1.getString("remark"), item1.getString("luck"))
+                }
+            }
+        }
+        return Pair("","")
+    }
+
+
+
 
     fun retainOnlyVowels(input: String): String {
         return input.replace(Regex("[^aeiouAEIOU]"), "")

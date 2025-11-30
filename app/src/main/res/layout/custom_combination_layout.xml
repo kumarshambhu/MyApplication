@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/mystical_font"
-        android:text="Combination Number:"
+        android:text="Name Combination"
         android:textAlignment="center"
         android:textColor="@color/gold"
         android:textSize="28sp" />
@@ -118,7 +118,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvPersonalityValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:fontFamily="@font/mystical_font"
         android:text="all comination"
@@ -133,9 +133,112 @@
         app:layout_constraintTop_toBottomOf="@id/tvCombinationValue"
         android:layout_width="wrap_content"
         android:layout_height="1dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="@color/gold"
         android:fontFamily="@font/mystical_font"
         android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvCombinationValue1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/combinationNumberSeparator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/mystical_font"
+        android:text="DOB Combination"
+        android:textAlignment="center"
+        android:textColor="@color/gold"
+        android:textSize="28sp"
+        />
+
+    <TextView
+        android:id="@+id/birth_number_mulank"
+        app:layout_constraintEnd_toStartOf="@+id/birth_number_bhagyank"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCombinationValue1"
+        app:layout_constraintWidth_percent="0.5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/mystical_font"
+        android:text="Mulank"
+        android:textAlignment="center"
+        android:textColor="@color/gold"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/birth_number_bhagyank"
+        app:layout_constraintStart_toEndOf="@id/birth_number_mulank"
+        app:layout_constraintTop_toBottomOf="@id/tvCombinationValue1"
+        app:layout_constraintWidth_percent="0.5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/mystical_font"
+        android:text="Bhagyank"
+        android:textAlignment="center"
+        android:textColor="@color/gold"
+        android:textSize="18sp" />
+
+
+    <TextView
+        android:id="@+id/birth_number_mulank_value"
+        app:layout_constraintEnd_toStartOf="@id/birth_number_bhagyank_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/birth_number_mulank"
+        app:layout_constraintWidth_percent="0.5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mystical_font"
+        android:text="00"
+        android:textAlignment="center"
+        android:textColor="@color/gold"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/birth_number_bhagyank_value"
+        app:layout_constraintStart_toEndOf="@id/birth_number_mulank_value"
+        app:layout_constraintTop_toBottomOf="@id/birth_number_mulank"
+        app:layout_constraintWidth_percent="0.5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mystical_font"
+        android:text="00"
+        android:textAlignment="center"
+        android:textColor="@color/gold"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/birth_number_dob_combination"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/birth_number_mulank_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="25dp"
+        android:fontFamily="@font/mystical_font"
+        android:text="all comination"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/bottom_space"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/birth_number_dob_combination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="25dp"
+        android:fontFamily="@font/mystical_font"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

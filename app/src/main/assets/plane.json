@@ -2,7 +2,7 @@
 	"planes": [
 		{
 			"id": 6,
-			"name": "Mental plane",
+			"name": "mental_plane",
 			"sections": [
 				{
 					"title": "4, 9, 2",
@@ -78,7 +78,7 @@
 		},
 		{
 			"id": 7,
-			"name": "Heart plane",
+			"name": "heart_plane",
 			"sections": [
 				{
 					"title": "3, 5, 7",
@@ -151,7 +151,7 @@
 		},
 		{
 			"id": 8,
-			"name": "Practical plane",
+			"name": "practical_plane",
 			"sections": [
 				{
 					"title": "8, 1, 6",
@@ -232,7 +232,7 @@
 		},
 		{
 			"id": 9,
-			"name": "Vision plane",
+			"name": "vision_plane",
 			"sections": [
 				{
 					"title": "4, 3, 8",
@@ -284,7 +284,7 @@
 		},
 		{
 			"id": 10,
-			"name": "Will plane",
+			"name": "will_plane",
 			"sections": [
 				{
 					"title": "9, 5, 1",
@@ -339,7 +339,7 @@
 		},
 		{
 			"id": 11,
-			"name": "Action plane",
+			"name": "action_plane",
 			"sections": [
 				{
 					"title": "2, 7, 6",
