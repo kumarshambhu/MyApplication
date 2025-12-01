@@ -26,7 +26,7 @@ class LoshuGridPlaneRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(header, title, content, imageSource, background, expanded) = coreNumbers[position]
+        val(header, title, content, imageSource, backgroundColor, headerColor, expanded) = coreNumbers[position]
         holder.binding.planeName.text = header
         holder.binding.planePresentNumber.text = title
         holder.binding.planeDescription.text = content
@@ -45,7 +45,7 @@ class LoshuGridPlaneRecyclerViewAdapter(
         holder.itemView.setOnClickListener {
             onItemClick(position)
         }
-        (holder.binding.root).background = ContextCompat.getDrawable(context, background)
+        (holder.binding.root).background = ContextCompat.getDrawable(context, backgroundColor)
     }
 
     override fun getItemCount(): Int = coreNumbers.size

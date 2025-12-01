@@ -7,6 +7,7 @@ data class LoshuGridPlaneAccordionItem(
     val presentNumber: String,
     val content: String,
     val imageSource: String,
-    @DrawableRes val background: Int,
+    @DrawableRes val backgroundColor: Int,
+    @DrawableRes val headerColor: Int,
     var isExpanded: Boolean = false
 )

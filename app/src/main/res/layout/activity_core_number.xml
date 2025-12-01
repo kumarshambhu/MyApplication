@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="#1F1F30"
+    android:background="@drawable/mystical_gradient_background"
     tools:context=".CoreNumberActivity">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

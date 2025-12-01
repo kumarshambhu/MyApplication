@@ -146,7 +146,8 @@ class LoshuGridFragment : Fragment() {
                     loshuPlanes.mentalPlane, jsonArray
                 ),
                 imageSource = "ic_moon",
-                background = R.drawable.mental_plane_background,
+                backgroundColor = R.drawable.mental_plane_background,
+                headerColor = R.drawable.mental_plane_background,
                 isExpanded = false
             )
         )
@@ -157,7 +158,8 @@ class LoshuGridFragment : Fragment() {
                 getPresentNumbers(listOf(3, 5, 7), loshuPlanes.emotionalPlane),
                 content = getPlaneMessage("heart_plane", loshuPlanes.emotionalPlane, jsonArray),
                 imageSource = "ic_moon",
-                background = R.drawable.emotional_plane_background,
+                backgroundColor = R.drawable.emotional_plane_background,
+                headerColor = R.drawable.emotional_plane_background,
                 isExpanded = false
             )
         )
@@ -168,7 +170,8 @@ class LoshuGridFragment : Fragment() {
                 getPresentNumbers(listOf(8, 1, 6), loshuPlanes.practicalPlane),
                 content = getPlaneMessage("practical_plane", loshuPlanes.practicalPlane, jsonArray),
                 imageSource = "ic_moon",
-                background = R.drawable.practical_plane_background,
+                backgroundColor = R.drawable.practical_plane_background,
+                headerColor = R.drawable.practical_plane_background,
                 isExpanded = false
             )
         )
@@ -178,7 +181,8 @@ class LoshuGridFragment : Fragment() {
                 getPresentNumbers(listOf(4, 3, 8), loshuPlanes.thoughtPlane),
                 content = getPlaneMessage("vision_plane", loshuPlanes.thoughtPlane,jsonArray),
                 imageSource = "ic_moon",
-                background = R.drawable.thought_plane_background,
+                backgroundColor = R.drawable.thought_plane_background,
+                headerColor = R.drawable.thought_plane_background,
                 isExpanded = false
             )
         )
@@ -188,7 +192,8 @@ class LoshuGridFragment : Fragment() {
                 getPresentNumbers(listOf(9, 5, 1), loshuPlanes.willPlane),
                 content = getPlaneMessage("will_plane", loshuPlanes.willPlane, jsonArray),
                 imageSource = "ic_moon",
-                background = R.drawable.will_plane_background,
+                backgroundColor = R.drawable.will_plane_background,
+                headerColor = R.drawable.will_plane_background,
                 isExpanded = false
             )
         )
@@ -198,7 +203,8 @@ class LoshuGridFragment : Fragment() {
                 getPresentNumbers(listOf(2, 7, 6), loshuPlanes.actionPlane),
                 content = getPlaneMessage("action_plane", loshuPlanes.actionPlane, jsonArray),
                 imageSource = "ic_moon",
-                background = R.drawable.action_plane_background,
+                backgroundColor = R.drawable.action_plane_background,
+                headerColor = R.drawable.action_plane_background,
                 isExpanded = false
             )
         )
@@ -208,7 +214,8 @@ class LoshuGridFragment : Fragment() {
                 getPresentNumbers(listOf(4, 5, 6), loshuPlanes.silverSuccessPlane),
                 content = getPlaneMessage("silver_success_plane", loshuPlanes.silverSuccessPlane, jsonArray),
                 imageSource = "ic_moon",
-                background = R.drawable.silver_success_plane_background,
+                backgroundColor = R.drawable.silver_success_plane_background,
+                headerColor = R.drawable.silver_success_plane_background,
                 isExpanded = false
             )
         )
@@ -219,7 +226,8 @@ class LoshuGridFragment : Fragment() {
                 getPresentNumbers(listOf(2, 5, 8), loshuPlanes.goldenSuccessPlane),
                 content = getPlaneMessage("golden_success_plane", loshuPlanes.goldenSuccessPlane, jsonArray),
                 imageSource = "ic_moon",
-                background = R.drawable.golden_success_plane_background,
+                backgroundColor = R.drawable.golden_success_plane_background,
+                headerColor = R.drawable.golden_success_plane_background,
                 isExpanded = false
             )
         )
