@@ -1,0 +1,90 @@
+{
+	"missing_number_impacts": [
+		{
+			"number": 1,
+			"impacts": [
+				"There is no ego in such people",
+				"Such people face a lot of problems in select careers",
+				"Such people have low self-confidence",
+				"Such people are introverts",
+				"They are unable to express their experiences openly"
+			]
+		},
+		{
+			"number": 2,
+			"impacts": [
+				"Such people face problems in their love relations, Lack of stability and patience in life",
+				"Such people do not work according to the timetable",
+				"Such people also live in their imaginations",
+				"Lack of intuitive power and self-confidence"
+			]
+		},
+		{
+			"number": 3,
+			"impacts": [
+				"The grace of the guru and lord is less",
+				"Such peoples face problems in promotion and growth, lack of creative thinking and making decisions",
+				"Low self-confidence and Distracted very easily"
+			]
+		},
+		{
+			"number": 4,
+			"impacts": [
+				"Lack of financial stability and growth",
+				"Lack of intuition power",
+				"Have to struggle more to achieve success, Such a person becomes directionless",
+				"Thought power is weak and things are forgotten"
+			]
+		},
+		{
+			"number": 5,
+			"impacts": [
+				"Lack of stability and self-confidence in life",
+				"Health problems related to stomach and back pain",
+				"Face Trouble in starting work",
+				"Face Loss in business",
+				"Face problem in making own house"
+			]
+		},
+		{
+			"number": 6,
+			"impacts": [
+				"Lack of money and luxury life",
+				"Have to struggle to achieve success",
+				"There is a shortage of good friends",
+				"Family support is not available at the right time",
+				"Problems in love relations because of introverted nature"
+			]
+		},
+		{
+			"number": 7,
+			"impacts": [
+				"There will be a hindrance in the work and studies",
+				"Such people don't have family support",
+				"Such people don't get success even after effort",
+				"The struggle is more and Success is less",
+				"There is a mental disturbance"
+			]
+		},
+		{
+			"number": 8,
+			"impacts": [
+				"Such peoples find it difficult to make financial decisions",
+				"There is no perfection in the work of such people",
+				"Lack of motivation and stability",
+				"Life has a lot of ups and downs",
+				"Poor health and wealth"
+			]
+		},
+		{
+			"number": 9,
+			"impacts": [
+				"Lack of energy and enthusiasm",
+				"Have to face ups and downs",
+				"Lack of will and action power",
+				"Lack of reputation and fame",
+				"Don't care about someone's feelings"
+			]
+		}
+	]
+}
