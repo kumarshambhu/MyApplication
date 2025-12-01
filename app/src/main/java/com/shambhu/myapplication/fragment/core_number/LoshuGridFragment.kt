@@ -290,6 +290,15 @@ class LoshuGridFragment : Fragment() {
                 binding.planeRecyclerView.visibility = if (binding.planeRecyclerView.visibility == View.VISIBLE) View.GONE else View.VISIBLE
                 true
             }
+            R.id.action_toggle_missing_number -> {
+                binding.planeRecyclerView.visibility = if (binding.planeRecyclerView.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+                true
+            }
+
+            R.id.action_toggle_repeat_number -> {
+                binding.planeRecyclerView.visibility = if (binding.planeRecyclerView.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
