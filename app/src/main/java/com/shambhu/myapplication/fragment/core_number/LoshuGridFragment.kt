@@ -92,11 +92,116 @@ class LoshuGridFragment : Fragment() {
 
             try {
                 createLoshuPlaneItemForRecyclerView(loshuPlanes)
+                createMissingNumberAccordionItems(numberCounts)
+                createRepeatingNumberAccordionItems(numberCounts)
             } catch (e: Exception) {
                 e.printStackTrace()
                 // Handle error, e.g., show a toast or log
             }
         }
+    }
+
+    private fun createMissingNumberAccordionItems(numberCounts: IntArray) {
+        val missingNumberItems = mutableListOf<LoshuGridPlaneAccordionItem>()
+        val missingNumbersJson = CommonUtils.readAssetFile(requireContext(), "missing_number.json")
+        val jsonObject = JSONObject(missingNumbersJson)
+        val jsonArray = jsonObject.getJSONArray("missing_number_impacts")
+
+        for (i in 1..9) {
+            if (numberCounts[i] == 0) {
+                for (j in 0 until jsonArray.length()) {
+                    val item = jsonArray.getJSONObject(j)
+                    if (item.getInt("number") == i) {
+                        val impacts = item.getJSONArray("impacts")
+                        var content = "<ul>"
+                        for (k in 0 until impacts.length()) {
+                            content += "<li>${impacts.getString(k)}</li>"
+                        }
+                        content += "</ul>"
+                        missingNumberItems.add(
+                            LoshuGridPlaneAccordionItem(
+                                "Missing Number: $i",
+                                "",
+                                content = convertToHtml(content),
+                                imageSource = "ic_moon",
+                                backgroundColor = R.drawable.missing_number_background,
+                                headerColor = R.color.missing_number_header,
+                                isExpanded = false
+                            )
+                        )
+                        break
+                    }
+                }
+            }
+        }
+        setupRecyclerView(binding.missingNumberRecyclerView, missingNumberItems)
+    }
+
+    private fun createRepeatingNumberAccordionItems(numberCounts: IntArray) {
+        val repeatingNumberItems = mutableListOf<LoshuGridPlaneAccordionItem>()
+        val repeatingNumbersJson = CommonUtils.readAssetFile(requireContext(), "repeate_number.json")
+        val jsonObject = JSONObject(repeatingNumbersJson)
+        val jsonArray = jsonObject.getJSONArray("repetitive_numbers")
+
+        for (i in 1..9) {
+            val count = numberCounts[i]
+            if (count > 1) {
+                for (j in 0 until jsonArray.length()) {
+                    val item = jsonArray.getJSONObject(j)
+                    if (item.getInt("number") == i) {
+                        val occurrences = item.getJSONArray("occurrences")
+                        for (k in 0 until occurrences.length()) {
+                            val occurrence = occurrences.getJSONObject(k)
+                            val occurrenceCount = occurrence.get("count")
+                            if (occurrenceCount is Int && occurrenceCount == count) {
+                                val effects = occurrence.getJSONArray("effects")
+                                var content = "<ul>"
+                                for (l in 0 until effects.length()) {
+                                    content += "<li>${effects.getString(l)}</li>"
+                                }
+                                content += "</ul>"
+                                repeatingNumberItems.add(
+                                    LoshuGridPlaneAccordionItem(
+                                        "Repeating Number: $i (x$count)",
+                                        "",
+                                        content = convertToHtml(content),
+                                        imageSource = "ic_moon",
+                                        backgroundColor = R.drawable.repeating_number_background,
+                                        headerColor = R.color.repeating_number_header,
+                                        isExpanded = false
+                                    )
+                                )
+                                break
+                            } else if (occurrenceCount is String) {
+                                val parts = occurrenceCount.split(" ")
+                                if (parts.size > 1 && parts[0].toInt() <= count && parts[2].toInt() >= count) {
+                                    val effects = occurrence.getJSONArray("effects")
+                                    var content = "<ul>"
+                                    for (l in 0 until effects.length()) {
+                                        content += "<li>${effects.getString(l)}</li>"
+                                    }
+                                    content += "</ul>"
+                                    repeatingNumberItems.add(
+                                        LoshuGridPlaneAccordionItem(
+                                            "Repeating Number: $i (x$count)",
+                                            "",
+                                            content = convertToHtml(content),
+                                            imageSource = "ic_moon",
+                                            backgroundColor = R.drawable.repeating_number_background,
+                                            headerColor = R.color.repeating_number_header,
+                                            isExpanded = false
+                                        )
+                                    )
+                                    break
+                                }
+                            }
+                        }
+                        break
+                    }
+                }
+            }
+        }
+        setupRecyclerView(binding.repeatNumberRecyclerView, repeatingNumberItems)
     }
 
     fun searchPlane(name: String, title: String, planesJsonArray: JSONArray): Section? {
@@ -237,7 +342,7 @@ class LoshuGridFragment : Fragment() {
             )
         )
         println(loshuPlaneItems)
-        setupCoreNumberRecyclerView(loshuPlaneItems)
+        setupRecyclerView(binding.planeRecyclerView, loshuPlaneItems)
     }
 
     private fun updateCell(textView: TextView, number: Int, count: Int) {
@@ -248,31 +353,31 @@ class LoshuGridFragment : Fragment() {
         }
     }
 
-    private fun LoshuGridFragment.setupCoreNumberRecyclerView(gridItems: MutableList<LoshuGridPlaneAccordionItem>) {
+    private fun setupRecyclerView(recyclerView: androidx.recyclerview.widget.RecyclerView, gridItems: MutableList<LoshuGridPlaneAccordionItem>) {
         var expandedPosition = -1
-        gridPlaneRecyclerViewAdapter =
+        val adapter =
             LoshuGridPlaneRecyclerViewAdapter(gridItems, this.requireContext()) { position ->
                 val previousExpandedPosition = expandedPosition
                 if (expandedPosition == position) {
                     // Clicked on the already expanded item, so collapse it
                     gridItems[position].isExpanded = false
-                    gridPlaneRecyclerViewAdapter.notifyItemChanged(position)
+                    recyclerView.adapter?.notifyItemChanged(position)
                     expandedPosition = -1
                 } else {
                     // A new item is clicked
                     if (previousExpandedPosition != -1) {
                         // Collapse the previously expanded item
                         gridItems[previousExpandedPosition].isExpanded = false
-                        gridPlaneRecyclerViewAdapter.notifyItemChanged(previousExpandedPosition)
+                        recyclerView.adapter?.notifyItemChanged(previousExpandedPosition)
                     }
                     // Expand the new item
                     gridItems[position].isExpanded = true
-                    gridPlaneRecyclerViewAdapter.notifyItemChanged(position)
+                    recyclerView.adapter?.notifyItemChanged(position)
                     expandedPosition = position
                 }
             }
-        binding.planeRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.planeRecyclerView.adapter = gridPlaneRecyclerViewAdapter
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = adapter
     }
 
     override fun onDestroyView() {
@@ -292,12 +397,12 @@ class LoshuGridFragment : Fragment() {
                 true
             }
             R.id.action_toggle_missing_number -> {
-                binding.planeRecyclerView.visibility = if (binding.planeRecyclerView.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+                binding.missingNumberRecyclerView.visibility = if (binding.missingNumberRecyclerView.visibility == View.VISIBLE) View.GONE else View.VISIBLE
                 true
             }
 
             R.id.action_toggle_repeat_number -> {
-                binding.planeRecyclerView.visibility = if (binding.planeRecyclerView.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+                binding.repeatNumberRecyclerView.visibility = if (binding.repeatNumberRecyclerView.visibility == View.VISIBLE) View.GONE else View.VISIBLE
                 true
             }
             else -> super.onOptionsItemSelected(item)
