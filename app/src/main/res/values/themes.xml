@@ -41,7 +41,7 @@
 
     <style name="Theme.YourApp.CardText.Primary.Header" parent="">
         <item name="android:textColor">@color/card_header</item>
-        <item name="android:textSize">25sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 

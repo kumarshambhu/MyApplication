@@ -28,11 +28,18 @@
     <!-- ========== CARD STYLE ========== -->
     <color name="card_background">#0B0018</color>
     <color name="card_stroke">#41127F</color>
-    <color name="card_header">#A020F0</color>
+    <color name="card_header">#99FFFFFF</color>
     <color name="card_sub_header">#E3DCEC</color>
     <color name="card_content">#E3DCEC</color>
 
     <color name="white_60">#99FFFFFF</color>
-    <color name="white_20">#33FFFFFF</color>
+    <color name="mental_plane_header">#4B0082</color>
+    <color name="emotional_plane_header">#FF7F50</color>
+    <color name="practical_plane_header">#8B4513</color>
+    <color name="thought_plane_header">#8A2BE2</color>
+    <color name="will_plane_header">#FF0000</color>
+    <color name="action_plane_header">#FFA500</color>
+    <color name="silver_success_plane_header">#C0C0C0</color>
+    <color name="golden_success_plane_header">#FFD700</color>
 
 </resources>

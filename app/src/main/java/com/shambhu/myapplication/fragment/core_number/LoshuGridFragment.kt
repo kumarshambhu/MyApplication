@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
@@ -147,7 +148,7 @@ class LoshuGridFragment : Fragment() {
                 ),
                 imageSource = "ic_moon",
                 backgroundColor = R.drawable.mental_plane_background,
-                headerColor = R.drawable.mental_plane_background,
+                headerColor =  R.color.mental_plane_header,
                 isExpanded = false
             )
         )
@@ -159,7 +160,7 @@ class LoshuGridFragment : Fragment() {
                 content = getPlaneMessage("heart_plane", loshuPlanes.emotionalPlane, jsonArray),
                 imageSource = "ic_moon",
                 backgroundColor = R.drawable.emotional_plane_background,
-                headerColor = R.drawable.emotional_plane_background,
+                headerColor = R.color.emotional_plane_header,
                 isExpanded = false
             )
         )
@@ -171,7 +172,7 @@ class LoshuGridFragment : Fragment() {
                 content = getPlaneMessage("practical_plane", loshuPlanes.practicalPlane, jsonArray),
                 imageSource = "ic_moon",
                 backgroundColor = R.drawable.practical_plane_background,
-                headerColor = R.drawable.practical_plane_background,
+                headerColor = R.color.practical_plane_header,
                 isExpanded = false
             )
         )
@@ -182,7 +183,7 @@ class LoshuGridFragment : Fragment() {
                 content = getPlaneMessage("vision_plane", loshuPlanes.thoughtPlane,jsonArray),
                 imageSource = "ic_moon",
                 backgroundColor = R.drawable.thought_plane_background,
-                headerColor = R.drawable.thought_plane_background,
+                headerColor = R.color.thought_plane_header,
                 isExpanded = false
             )
         )
@@ -193,7 +194,7 @@ class LoshuGridFragment : Fragment() {
                 content = getPlaneMessage("will_plane", loshuPlanes.willPlane, jsonArray),
                 imageSource = "ic_moon",
                 backgroundColor = R.drawable.will_plane_background,
-                headerColor = R.drawable.will_plane_background,
+                headerColor = R.color.will_plane_header,
                 isExpanded = false
             )
         )
@@ -204,7 +205,7 @@ class LoshuGridFragment : Fragment() {
                 content = getPlaneMessage("action_plane", loshuPlanes.actionPlane, jsonArray),
                 imageSource = "ic_moon",
                 backgroundColor = R.drawable.action_plane_background,
-                headerColor = R.drawable.action_plane_background,
+                headerColor = R.color.action_plane_header,
                 isExpanded = false
             )
         )
@@ -215,7 +216,7 @@ class LoshuGridFragment : Fragment() {
                 content = getPlaneMessage("silver_success_plane", loshuPlanes.silverSuccessPlane, jsonArray),
                 imageSource = "ic_moon",
                 backgroundColor = R.drawable.silver_success_plane_background,
-                headerColor = R.drawable.silver_success_plane_background,
+                headerColor = R.color.silver_success_plane_header,
                 isExpanded = false
             )
         )
@@ -227,7 +228,7 @@ class LoshuGridFragment : Fragment() {
                 content = getPlaneMessage("golden_success_plane", loshuPlanes.goldenSuccessPlane, jsonArray),
                 imageSource = "ic_moon",
                 backgroundColor = R.drawable.golden_success_plane_background,
-                headerColor = R.drawable.golden_success_plane_background,
+                headerColor = R.color.golden_success_plane_header,
                 isExpanded = false
             )
         )
