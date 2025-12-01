@@ -2,6 +2,9 @@ package com.shambhu.myapplication.fragment.core_number
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -41,6 +44,7 @@ class LoshuGridFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
         arguments?.getString(Constants.Companion.ARG_DOB)?.let { dob ->
             var digits = dob.filter { it.isDigit() }
 
@@ -273,6 +277,21 @@ class LoshuGridFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.loshu_grid_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_toggle_planes -> {
+                binding.planeRecyclerView.visibility = if (binding.planeRecyclerView.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     companion object {
