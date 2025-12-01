@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_toggle_planes"
+        android:title="@string/toggle_planes"
+        android:icon="@drawable/ic_plane"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_toggle_missing_number"
+        android:title="@string/toggle_planes"
+        android:icon="@drawable/ic_repeat"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_toggle_repeat_number"
+        android:title="@string/toggle_planes"
+        android:icon="@drawable/ic_missing"
+        app:showAsAction="ifRoom" />
+</menu>

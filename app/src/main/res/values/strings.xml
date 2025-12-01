@@ -223,6 +223,7 @@
     <string name="expand">Expand</string>
     <string name="logo_image">Logo Image</string>
     <string name="present_number">Present Number</string>
+    <string name="toggle_planes">Toggle Planes</string>
 
 
 </resources>
