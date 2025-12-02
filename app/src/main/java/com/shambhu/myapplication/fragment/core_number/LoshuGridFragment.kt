@@ -94,6 +94,9 @@ class LoshuGridFragment : Fragment() {
                 createLoshuPlaneItemForRecyclerView(loshuPlanes)
                 createMissingNumberAccordionItems(numberCounts)
                 createRepeatingNumberAccordionItems(numberCounts)
+                binding.planeRecyclerView.visibility = View.VISIBLE
+                binding.missingNumberRecyclerView.visibility = View.GONE
+                binding.repeatNumberRecyclerView.visibility = View.GONE
             } catch (e: Exception) {
                 e.printStackTrace()
                 // Handle error, e.g., show a toast or log
@@ -391,18 +394,26 @@ class LoshuGridFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val planeVisibility = binding.planeRecyclerView.visibility == View.VISIBLE
+        val missingVisibility = binding.missingNumberRecyclerView.visibility == View.VISIBLE
+        val repeatVisibility = binding.repeatNumberRecyclerView.visibility == View.VISIBLE
+
+        binding.planeRecyclerView.visibility = View.GONE
+        binding.missingNumberRecyclerView.visibility = View.GONE
+        binding.repeatNumberRecyclerView.visibility = View.GONE
+
         return when (item.itemId) {
             R.id.action_toggle_planes -> {
-                binding.planeRecyclerView.visibility = if (binding.planeRecyclerView.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+                if (!planeVisibility) binding.planeRecyclerView.visibility = View.VISIBLE
                 true
             }
             R.id.action_toggle_missing_number -> {
-                binding.missingNumberRecyclerView.visibility = if (binding.missingNumberRecyclerView.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+                if (!missingVisibility) binding.missingNumberRecyclerView.visibility = View.VISIBLE
                 true
             }
 
             R.id.action_toggle_repeat_number -> {
-                binding.repeatNumberRecyclerView.visibility = if (binding.repeatNumberRecyclerView.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+                if (!repeatVisibility) binding.repeatNumberRecyclerView.visibility = View.VISIBLE
                 true
             }
             else -> super.onOptionsItemSelected(item)
