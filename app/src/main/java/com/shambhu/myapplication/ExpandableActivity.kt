@@ -11,6 +11,7 @@ import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.shambhu.myapplication.adapter.ExpandablePagerAdapter
 import com.shambhu.myapplication.adapter.SecondaryNumberPagerAdapter
 import com.shambhu.myapplication.databinding.ActivityExpandableBinding
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_DATE_OF_BIRTH
@@ -54,7 +55,7 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         val viewPager = binding.viewPager
         val tabLayout = binding.tabs
 
-        viewPager.adapter = SecondaryNumberPagerAdapter(this, dob, fullName)
+        viewPager.adapter = ExpandablePagerAdapter(this, dob, fullName)
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.setCustomView(R.layout.custom_tab)
@@ -63,16 +64,12 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             tabIcon?.setImageDrawable(
                 when (position) {
                     0 -> getDrawable(R.drawable.ic_mic)
-                    1 -> getDrawable(R.drawable.ic_personal)
-                    2 -> getDrawable(R.drawable.ic_mirrors)
                     else -> null
                 }
             )
             if (tabText != null) {
                 tabText.text = when (position) {
                     0 -> "Elements"
-                    1 -> "Personal"
-                    2 -> "Lucky"
                     else -> null
                 }
             }

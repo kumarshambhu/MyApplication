@@ -1,0 +1,20 @@
+{
+  "faqs": [
+    {
+      "question": "What is the AI Scheduling Assistant?",
+      "answer": "The AI Scheduling Assistant is an intelligent tool designed to automate and streamline the process of scheduling appointments, meetings, and events. It integrates with your calendar to find optimal times, send invitations, and manage reminders, saving you time and effort."
+    },
+    {
+      "question": "How does the AI Scheduling Assistant work?",
+      "answer": "It works by analyzing your availability and preferences. When you need to schedule something, you can simply tell the assistant your requirements (e.g., 'Schedule a 30-minute call with John next week'). The AI will then find a suitable slot, coordinate with the other party, and add the event to everyone's calendar once confirmed."
+    },
+    {
+      "question": "Can I customize the assistant's settings?",
+      "answer": "Yes, you can customize various settings, including your preferred meeting times, default event durations, and how the assistant communicates with your contacts. These options are available in the settings menu."
+    },
+    {
+      "question": "Is my data secure?",
+      "answer": "Absolutely. We prioritize your privacy and security. All your data is encrypted and stored securely. We do not share your personal information or calendar details with third parties without your explicit consent."
+    }
+  ]
+}

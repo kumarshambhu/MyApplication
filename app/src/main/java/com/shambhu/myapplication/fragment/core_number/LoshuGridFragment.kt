@@ -126,9 +126,9 @@ class LoshuGridFragment : Fragment() {
                                 "Missing Number: $i",
                                 "",
                                 content = convertToHtml(content),
-                                imageSource = "ic_moon",
+                                imageSource = "",
                                 backgroundColor = R.drawable.missing_number_background,
-                                headerColor = R.color.missing_number_header,
+                                headerColor = 0,
                                 isExpanded = false
                             )
                         )
@@ -168,9 +168,9 @@ class LoshuGridFragment : Fragment() {
                                         "Repeating Number: $i (x$count)",
                                         "",
                                         content = convertToHtml(content),
-                                        imageSource = "ic_moon",
+                                        imageSource = "",
                                         backgroundColor = R.drawable.repeating_number_background,
-                                        headerColor = R.color.repeating_number_header,
+                                        headerColor = 0,
                                         isExpanded = false
                                     )
                                 )
@@ -189,9 +189,9 @@ class LoshuGridFragment : Fragment() {
                                             "Repeating Number: $i (x$count)",
                                             "",
                                             content = convertToHtml(content),
-                                            imageSource = "ic_moon",
+                                            imageSource = "",
                                             backgroundColor = R.drawable.repeating_number_background,
-                                            headerColor = R.color.repeating_number_header,
+                                            headerColor = 0,
                                             isExpanded = false
                                         )
                                     )

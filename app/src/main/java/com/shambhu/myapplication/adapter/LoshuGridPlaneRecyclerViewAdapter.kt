@@ -17,7 +17,8 @@ class LoshuGridPlaneRecyclerViewAdapter(
     RecyclerView.Adapter<LoshuGridPlaneRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemLoshuGridPlaneBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemLoshuGridPlaneBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -26,13 +27,21 @@ class LoshuGridPlaneRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(header, title, content, imageSource, backgroundColor, headerColor, expanded) = coreNumbers[position]
+        val (header, title, content, imageSource, backgroundColor, headerColor, expanded) = coreNumbers[position]
         holder.binding.planeName.text = header
-        holder.binding.planePresentNumber.text = title
+        if (title.isNotEmpty()) {
+            holder.binding.planePresentNumber.text = title
+        } else {
+            holder.binding.planePresentNumber.visibility = View.GONE
+        }
         holder.binding.planeDescription.text = content
 
-        val resId = context.getDrawableResourceByName(imageSource)
-        holder.binding.planeImage.setImageResource(resId)
+        if (imageSource.isNotEmpty()) {
+            val resId = context.getDrawableResourceByName(imageSource)
+            holder.binding.planeImage.setImageResource(resId)
+        } else {
+            holder.binding.planeImage.visibility = View.GONE
+        }
 
         if (expanded) {
             holder.binding.coreNumberContentLayout.visibility = View.VISIBLE
@@ -46,10 +55,11 @@ class LoshuGridPlaneRecyclerViewAdapter(
             onItemClick(position)
         }
         (holder.binding.root).background = ContextCompat.getDrawable(context, backgroundColor)
-        holder.binding.headerLayout.background = ContextCompat.getDrawable(context, headerColor)
+        if (headerColor != 0)
+            holder.binding.headerLayout.background = ContextCompat.getDrawable(context, headerColor)
     }
 
     override fun getItemCount(): Int = coreNumbers.size
 
-   class ViewHolder(val binding: ItemLoshuGridPlaneBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(val binding: ItemLoshuGridPlaneBinding) : RecyclerView.ViewHolder(binding.root)
 }
