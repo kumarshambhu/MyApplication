@@ -33,6 +33,8 @@
     <color name="card_content">#E3DCEC</color>
 
     <color name="white_60">#99FFFFFF</color>
+    <color name="missing_number_header">#4B0082</color>
+    <color name="repeating_number_header">#FF7F50</color>
     <color name="mental_plane_header">#4B0082</color>
     <color name="emotional_plane_header">#FF7F50</color>
     <color name="practical_plane_header">#8B4513</color>

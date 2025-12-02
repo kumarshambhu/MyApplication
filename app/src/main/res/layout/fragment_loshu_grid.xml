@@ -176,13 +176,19 @@
             app:layout_constraintTop_toBottomOf="@id/loshu_grid_kua_number_value"
             app:layout_constraintStart_toStartOf="parent"/>
 
-       <!-- <include layout="@layout/loshu_plane"
-            android:id="@+id/loshu_plane_layout"
-            android:layout_height="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/missingNumberRecyclerView"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/planeRecyclerView"
-            app:layout_constraintStart_toStartOf="parent"
-            />-->
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/repeatNumberRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/missingNumberRecyclerView"
+            app:layout_constraintStart_toStartOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
