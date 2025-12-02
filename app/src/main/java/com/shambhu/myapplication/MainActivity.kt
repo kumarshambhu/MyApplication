@@ -71,6 +71,11 @@ class MainActivity : AppCompatActivity() {
                 // Show error message for empty fields
             }
         }
+
+        binding.faqButton.setOnClickListener {
+            val intent = Intent(this, FaqActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun showDatePickerDialog() {

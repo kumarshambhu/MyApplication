@@ -217,16 +217,33 @@
         android:gravity="center"
         android:padding="20dp">
 
-        <Button
-            android:id="@+id/calculateButton"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Calculate My Numbers"
-            android:textSize="18sp"
-            android:textColor="@color/white"
-            android:background="@drawable/mystical_button"
-            android:layout_marginBottom="20dp"
-            android:fontFamily="@font/mystical_font"/>
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/calculateButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Calculate My Numbers"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:background="@drawable/mystical_button"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/mystical_font"/>
+
+            <Button
+                android:id="@+id/faqButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FAQ"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:background="@drawable/mystical_button"
+                android:fontFamily="@font/mystical_font"/>
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -235,7 +252,7 @@
             android:textSize="14sp"
             android:textColor="@color/white"
             android:layout_gravity="center"
-            android:layout_marginTop="0dp"/>
+            android:layout_marginTop="20dp"/>
     </LinearLayout>
 
     <!-- Floating mystical elements -->

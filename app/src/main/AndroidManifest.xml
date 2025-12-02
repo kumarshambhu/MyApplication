@@ -16,6 +16,9 @@
             android:name=".ExpandableActivity"
             android:exported="false"/>
         <activity
+            android:name=".FaqActivity"
+            android:exported="false" />
+        <activity
             android:name=".CoreNumberActivity"
             android:exported="false"
             android:theme="@style/Theme.MyApplication" />
