@@ -66,12 +66,14 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             tabIcon?.setImageDrawable(
                 when (position) {
                     0 -> getDrawable(R.drawable.ic_mic)
+                    1 -> getDrawable(R.drawable.ic_mic)
                     else -> null
                 }
             )
             if (tabText != null) {
                 tabText.text = when (position) {
                     0 -> "Elements"
+                    1 -> "Name Grid"
                     else -> null
                 }
             }

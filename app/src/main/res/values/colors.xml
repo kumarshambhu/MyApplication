@@ -24,6 +24,9 @@
     <color name="dark_text">#E3DCEC</color>
     <color name="dark_tab_bg">#41127F</color>
     <color name="dark_tab_text">#6D5493</color>
+    <color name="dark_gray">#ABB0B8</color>
+    <color name="warning_color">#FFF3E0</color>
+    <color name="info_color">#E3F2FD</color>
 
     <!-- ========== CARD STYLE ========== -->
     <color name="card_background">#0B0018</color>
