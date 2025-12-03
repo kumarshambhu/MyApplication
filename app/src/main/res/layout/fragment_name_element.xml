@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:ignore="ScrollViewCount">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/multiline_row1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/mystical_font"
+            android:gravity="center"
+            android:text="Elements"
+            android:textAlignment="center"
+            android:textColor="@color/gold"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toTopOf="@+id/multiline_row2_col1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Row 2 - Horizontal Chain -->
+        <TextView
+            android:id="@+id/multiline_row2_col1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Air"
+            android:textAlignment="center"
+            android:textColor="@color/gold"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/airElementValue"
+            app:layout_constraintEnd_toStartOf="@+id/multiline_row2_col2"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/multiline_row1" />
+
+        <TextView
+            android:id="@+id/multiline_row2_col2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Earth"
+            android:textAlignment="center"
+            android:textColor="@color/gold"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/earthElementValue"
+            app:layout_constraintEnd_toStartOf="@+id/multiline_row2_col3"
+            app:layout_constraintStart_toEndOf="@id/multiline_row2_col1"
+            app:layout_constraintTop_toBottomOf="@id/multiline_row1" />
+
+        <TextView
+            android:id="@+id/multiline_row2_col3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Fire"
+            android:textAlignment="center"
+            android:textColor="@color/gold"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/fireElementValue"
+            app:layout_constraintEnd_toStartOf="@+id/multiline_row2_col4"
+            app:layout_constraintStart_toEndOf="@id/multiline_row2_col2"
+            app:layout_constraintTop_toBottomOf="@id/multiline_row1" />
+
+        <TextView
+            android:id="@+id/multiline_row2_col4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Water"
+            android:textAlignment="center"
+            android:textColor="@color/gold"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/waterElementValue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/multiline_row2_col3"
+            app:layout_constraintTop_toBottomOf="@id/multiline_row1" />
+
+        <!-- Row 3 - Horizontal Chain -->
+        <TextView
+            android:id="@+id/airElementValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mystical_font"
+            android:gravity="center"
+            android:text="0.0"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/elementDescription"
+            app:layout_constraintEnd_toStartOf="@+id/earthElementValue"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/multiline_row2_col1" />
+
+        <TextView
+            android:id="@+id/earthElementValue"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/mystical_font"
+            android:gravity="center"
+            android:text="0.0"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/elementDescription"
+            app:layout_constraintEnd_toStartOf="@+id/fireElementValue"
+            app:layout_constraintStart_toEndOf="@id/airElementValue"
+            app:layout_constraintTop_toBottomOf="@id/multiline_row2_col2" />
+
+        <TextView
+            android:id="@+id/fireElementValue"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/mystical_font"
+            android:gravity="center"
+            android:text="0.0"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/elementDescription"
+            app:layout_constraintEnd_toStartOf="@+id/waterElementValue"
+            app:layout_constraintStart_toEndOf="@id/earthElementValue"
+            app:layout_constraintTop_toBottomOf="@id/multiline_row2_col3" />
+
+        <TextView
+            android:id="@+id/waterElementValue"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/mystical_font"
+            android:gravity="center"
+            android:text="0.0"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/elementDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/fireElementValue"
+            app:layout_constraintTop_toBottomOf="@id/multiline_row2_col4" />
+
+        <!-- Row 4 -->
+        <TextView
+            android:id="@+id/elementDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Row 4"
+            android:textColor="@color/gold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/airElementValue" />
+
+        <View
+            android:id="@+id/seperator1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/gold"
+            android:fontFamily="@font/mystical_font"
+            android:textColor="@color/gold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/elementDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

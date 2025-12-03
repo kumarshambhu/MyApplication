@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mystical_gradient_background"
+    android:fillViewport="true"
+    tools:ignore="ScrollViewCount">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/multiline_row1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/mystical_font"
+            android:gravity="center"
+            android:text="Elements"
+            android:textAlignment="center"
+            android:textColor="@color/gold"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toTopOf="@+id/individualColorCountLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!-- Row 2 - Horizontal Chain -->
+
+        <TextView
+            android:id="@+id/individualColorCountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Individual Color Counts:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/multiline_row1"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/individualColorCountsValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:text="44444"
+            app:layout_constraintTop_toBottomOf="@id/individualColorCountLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+        <!-- Row 3 - Horizontal Chain -->
+        <TextView
+            android:id="@+id/matchedColorGroupLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matched Color Groups:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/individualColorCountsValue"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/matchedColorGroupsValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="55555555"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/matchedColorGroupLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+        <!-- Row 4 - Horizontal Chain -->
+        <TextView
+            android:id="@+id/colorGroupNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maximum match Color Group:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/matchedColorGroupsValue"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/colorGroupNameValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:text="6666"
+            app:layout_constraintTop_toBottomOf="@id/colorGroupNameLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+
+        <!-- Row 5 - Horizontal Chain -->
+        <TextView
+            android:id="@+id/numberOfColorsMatchedLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of Colors Matched:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/colorGroupNameValue"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/numberOfColorsMatchedValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:text="1111"
+            app:layout_constraintTop_toBottomOf="@id/numberOfColorsMatchedLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+
+        <!-- Row 6 - Horizontal Chain -->
+        <TextView
+            android:id="@+id/colorGroupMatchedColorLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matched Colors:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/numberOfColorsMatchedValue"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/colorGroupMatchedColorValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:text="22222"
+            app:layout_constraintTop_toBottomOf="@id/colorGroupMatchedColorLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+
+        <!-- Row 7 - Horizontal Chain -->
+        <TextView
+            android:id="@+id/colorGroupDetailsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/gold"
+            app:layout_constraintTop_toBottomOf="@id/colorGroupMatchedColorValue"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/colorGroupDescriptionValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:text="22222"
+            app:layout_constraintTop_toBottomOf="@id/colorGroupDetailsLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+
+        <TextView
+            android:id="@+id/colorGroupDetailsValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:text="Sample"
+            app:layout_constraintTop_toBottomOf="@id/colorGroupDescriptionValue"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="5dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

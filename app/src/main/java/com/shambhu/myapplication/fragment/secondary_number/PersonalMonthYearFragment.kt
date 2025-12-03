@@ -1,20 +1,15 @@
 package com.shambhu.myapplication.fragment.secondary_number
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.R
-import com.shambhu.myapplication.databinding.FragmentElementColorBinding
 import com.shambhu.myapplication.databinding.FragmentPersonalMonthYearBinding
 import com.shambhu.myapplication.utils.CommonUtils
-import com.shambhu.myapplication.utils.Constants.Companion.ARG_DAY
-import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
-import com.shambhu.myapplication.utils.Constants.Companion.ARG_MONTH
-import com.shambhu.myapplication.utils.Constants.Companion.ARG_YEAR
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 
 class PersonalMonthYearFragment : Fragment() {

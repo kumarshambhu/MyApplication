@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -31,7 +32,7 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
 
         binding = ActivitySecondaryNumberBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        enableEdgeToEdge()
         setSupportActionBar(binding.toolbar)
 
         val toggle = ActionBarDrawerToggle(
@@ -72,14 +73,16 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
                     0 -> getDrawable(R.drawable.ic_mic)
                     1 -> getDrawable(R.drawable.ic_personal)
                     2 -> getDrawable(R.drawable.ic_mirrors)
+                    3 -> getDrawable(R.drawable.ic_mirrors)
                     else -> null
                 }
             )
             if (tabText != null) {
                 tabText.text = when (position) {
                     0 -> "Elements"
-                    1 -> "Personal"
-                    2 -> "Lucky"
+                    1 -> "Colors"
+                    2 -> "Personal"
+                    3 -> "Lucky"
                     else -> null
                 }
             }
