@@ -118,6 +118,25 @@
             android:text="Toggle All"
             android:layout_gravity="center" />
 
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter a name"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/btnAnalyze"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Analyze Name"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"/>
+
+        <include
+            android:id="@+id/nameAnalysisGrid"
+            layout="@layout/name_analysis_grid" />
+
     </LinearLayout>
 
 </ScrollView>

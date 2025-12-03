@@ -14,6 +14,7 @@ import com.shambhu.myapplication.adapter.SampleAdapter
 import com.shambhu.myapplication.databinding.ActivityExpandableBinding
 import com.shambhu.myapplication.databinding.ActivityMainBinding
 import com.shambhu.myapplication.utils.ExpandableTextView
+import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 
 class ExpandableActivity : AppCompatActivity() {
     private lateinit var binding: ActivityExpandableBinding
@@ -27,6 +28,40 @@ class ExpandableActivity : AppCompatActivity() {
         initViews()
         setupClickListeners()
         setupRecyclerViewExample()
+    }
+
+    private fun setupNameAnalysisGrid(name: String) {
+        val result = NumerologyCalculationUtils.calculateNameAnalysisGrid(name)
+        val nameAnalysisGrid = binding.nameAnalysisGrid
+        // Inspired Row
+        nameAnalysisGrid.tvMentalInspired.text = result.mentalInspired.toString()
+        nameAnalysisGrid.tvPhysicalInspired.text = result.physicalInspired.toString()
+        nameAnalysisGrid.tvEmotionalInspired.text = result.emotionalInspired.toString()
+        nameAnalysisGrid.tvIntuitiveInspired.text = result.intuitiveInspired.toString()
+        nameAnalysisGrid.tvTotalsInspired.text = result.inspiredTotal.toString()
+
+        // Dual Row
+        nameAnalysisGrid.tvMentalDual.text = result.mentalDual.toString()
+        nameAnalysisGrid.tvPhysicalDual.text = result.physicalDual.toString()
+        nameAnalysisGrid.tvEmotionalDual.text = result.emotionalDual.toString()
+        nameAnalysisGrid.tvIntuitiveDual.text = result.intuitiveDual.toString()
+        nameAnalysisGrid.tvTotalsDual.text = result.dualTotal.toString()
+
+        // Balanced Row
+        nameAnalysisGrid.tvMentalBalanced.text = result.mentalBalanced.toString()
+        nameAnalysisGrid.tvPhysicalBalanced.text = result.physicalBalanced.toString()
+        nameAnalysisGrid.tvEmotionalBalanced.text = result.emotionalBalanced.toString()
+        nameAnalysisGrid.tvIntuitiveBalanced.text = result.intuitiveBalanced.toString()
+        nameAnalysisGrid.tvTotalsBalanced.text = result.balancedTotal.toString()
+
+        // Total Column
+        nameAnalysisGrid.tvMentalTotal.text = result.mentalTotal.toString()
+        nameAnalysisGrid.tvPhysicalTotal.text = result.physicalTotal.toString()
+        nameAnalysisGrid.tvEmotionalTotal.text = result.emotionalTotal.toString()
+        nameAnalysisGrid.tvIntuitiveTotal.text = result.intuitiveTotal.toString()
+
+        // Grand Total
+        nameAnalysisGrid.tvTotalsTotal.text = result.grandTotal.toString()
     }
 
     private fun initViews() {
@@ -51,6 +86,15 @@ class ExpandableActivity : AppCompatActivity() {
             // Toggle all expandable text views
             binding.expandableText3.toggle()
             binding.expandableText5.toggle()
+        }
+
+        binding.btnAnalyze.setOnClickListener {
+            val name = binding.etName.text.toString()
+            if (name.isNotEmpty()) {
+                setupNameAnalysisGrid(name)
+            } else {
+                Toast.makeText(this, "Please enter a name", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

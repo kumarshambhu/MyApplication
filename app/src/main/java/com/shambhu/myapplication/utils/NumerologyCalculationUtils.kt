@@ -4,7 +4,77 @@ import android.text.Html
 import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
 import org.json.JSONArray
 
+data class NameAnalysisResult(
+    var mentalInspired: Int = 0,
+    var physicalInspired: Int = 0,
+    var emotionalInspired: Int = 0,
+    var intuitiveInspired: Int = 0,
+    var mentalDual: Int = 0,
+    var physicalDual: Int = 0,
+    var emotionalDual: Int = 0,
+    var intuitiveDual: Int = 0,
+    var mentalBalanced: Int = 0,
+    var physicalBalanced: Int = 0,
+    var emotionalBalanced: Int = 0,
+    var intuitiveBalanced: Int = 0
+) {
+    val inspiredTotal: Int
+        get() = mentalInspired + physicalInspired + emotionalInspired + intuitiveInspired
+    val dualTotal: Int
+        get() = mentalDual + physicalDual + emotionalDual + intuitiveDual
+    val balancedTotal: Int
+        get() = mentalBalanced + physicalBalanced + emotionalBalanced + intuitiveBalanced
+    val mentalTotal: Int
+        get() = mentalInspired + mentalDual + mentalBalanced
+    val physicalTotal: Int
+        get() = physicalInspired + physicalDual + physicalBalanced
+    val emotionalTotal: Int
+        get() = emotionalInspired + emotionalDual + emotionalBalanced
+    val intuitiveTotal: Int
+        get() = intuitiveInspired + intuitiveDual + intuitiveBalanced
+    val grandTotal: Int
+        get() = inspiredTotal + dualTotal + balancedTotal
+}
+
 object NumerologyCalculationUtils {
+
+    fun calculateNameAnalysisGrid(name: String): NameAnalysisResult {
+        val result = NameAnalysisResult()
+        val cleanedName = name.uppercase().filter { it.isLetter() }
+
+        val mentalInspired = "A"
+        val physicalInspired = "E"
+        val emotionalInspired = "ORIZ"
+        val intuitiveInspired = "K"
+
+        val mentalDual = "HJNP"
+        val physicalDual = "W"
+        val emotionalDual = "BSTX"
+        val intuitiveDual = "FQUY"
+
+        val mentalBalanced = "GL"
+        val physicalBalanced = "DM"
+        val emotionalBalanced = ""
+        val intuitiveBalanced = "CV"
+
+        for (char in cleanedName) {
+            when (char) {
+                in mentalInspired -> result.mentalInspired++
+                in physicalInspired -> result.physicalInspired++
+                in emotionalInspired -> result.emotionalInspired++
+                in intuitiveInspired -> result.intuitiveInspired++
+                in mentalDual -> result.mentalDual++
+                in physicalDual -> result.physicalDual++
+                in emotionalDual -> result.emotionalDual++
+                in intuitiveDual -> result.intuitiveDual++
+                in mentalBalanced -> result.mentalBalanced++
+                in physicalBalanced -> result.physicalBalanced++
+                in emotionalBalanced -> result.emotionalBalanced++
+                in intuitiveBalanced -> result.intuitiveBalanced++
+            }
+        }
+        return result
+    }
 
     // Soul Urge (Heart's Desire) Number Calculation
     fun calculateSoulUrge(name: String): Int {

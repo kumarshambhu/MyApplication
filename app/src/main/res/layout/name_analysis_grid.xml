@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name Analysis Grid"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="6"
+        android:rowCount="5">
+
+        <!-- Header Row -->
+        <TextView android:text="" style="@style/NameGridHeader"/>
+        <TextView android:text="Mental" style="@style/NameGridHeader"/>
+        <TextView android:text="Physical" style="@style/NameGridHeader"/>
+        <TextView android:text="Emotional" style="@style/NameGridHeader"/>
+        <TextView android:text="Intuitive" style="@style/NameGridHeader"/>
+        <TextView android:text="Totals" style="@style/NameGridHeader"/>
+
+        <!-- Inspired Row -->
+        <TextView android:text="Inspired" style="@style/NameGridHeader"/>
+        <TextView android:id="@+id/tvMentalInspired" style="@style/NameGridCell"/>
+        <TextView android:id="@+id/tvPhysicalInspired" style="@style/NameGridCell"/>
+        <TextView android:id="@+id/tvEmotionalInspired" style="@style/NameGridCell"/>
+        <TextView android:id="@+id/tvIntuitiveInspired" style="@style/NameGridCell"/>
+        <TextView android:id="@+id/tvTotalsInspired" style="@style/NameGridCell"/>
+
+        <!-- Dual Row -->
+        <TextView android:text="Dual" style="@style/NameGridHeader"/>
+        <TextView android:id="@+id/tvMentalDual" style="@style/NameGridCell"/>
+        <TextView android:id="@+id/tvPhysicalDual" style="@style/NameGridCell"/>
+        <TextView android:id="@+id/tvEmotionalDual" style="@style/NameGridCell"/>
+        <TextView android:id="@+id/tvIntuitiveDual" style="@style/NameGridCell"/>
+        <TextView android:id="@+id/tvTotalsDual" style="@style/NameGridCell"/>
+
+        <!-- Balanced Row -->
+        <TextView android:text="Balanced" style="@style/NameGridHeader"/>
+        <TextView android:id="@+id/tvMentalBalanced" style="@style/NameGridCell"/>
+        <TextView android:id="@+id/tvPhysicalBalanced" style="@style/NameGridCell"/>
+        <TextView android:id="@+id/tvEmotionalBalanced" style="@style/NameGridCell"/>
+        <TextView android:id="@+id/tvIntuitiveBalanced" style="@style/NameGridCell"/>
+        <TextView android:id="@+id/tvTotalsBalanced" style="@style/NameGridCell"/>
+
+        <!-- Total Row -->
+        <TextView android:text="Total" style="@style/NameGridHeader"/>
+        <TextView android:id="@+id/tvMentalTotal" style="@style/NameGridCell"/>
+        <TextView android:id="@+id/tvPhysicalTotal" style="@style/NameGridCell"/>
+        <TextView android:id="@+id/tvEmotionalTotal" style="@style/NameGridCell"/>
+        <TextView android:id="@+id/tvIntuitiveTotal" style="@style/NameGridCell"/>
+        <TextView android:id="@+id/tvTotalsTotal" style="@style/NameGridCell"/>
+
+    </GridLayout>
+</LinearLayout>
