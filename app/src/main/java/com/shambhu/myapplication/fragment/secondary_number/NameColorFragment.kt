@@ -39,10 +39,10 @@ class NameColorFragment : Fragment() {
         // Color Group
         val (description, details, matchedColors, group, matchedColorsCount) = NumerologyCalculationUtils.calculateColorGroup(
             fullName, colorsJson)
-        binding.colorGroupNameValue.text = group
+        binding.colorGroupNameValue.text = matchedColors
         binding.colorGroupDescriptionValue.text = description
         binding.colorGroupDetailsValue.text = NumerologyCalculationUtils.convertToHtml(details)
-        binding.colorGroupNameValue.text = matchedColors
+        binding.colorGroupMatchedColorValue.text = matchedColors
         binding.numberOfColorsMatchedValue.text = matchedColorsCount.toString()
 
         val colorCounts = NumerologyCalculationUtils.calculateColorCounts(fullName, colorsJson)
