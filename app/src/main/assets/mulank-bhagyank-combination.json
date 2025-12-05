@@ -1,0 +1,529 @@
+{
+  "mulank_bhagyank_combinations": [
+    {
+      "day_number": 1,
+      "ruler": "Sun",
+      "combinations": [
+        {
+          "combination": "1 & 1",
+          "planets": "Sun + Sun",
+          "character": "Handsome, bold, honest, leader, dignified",
+          "career": "Top government posts, politics, administration",
+          "lucky": "Fire, steel, power projects",
+          "health": "Piles, hypertension",
+          "warning": "",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "1 & 2",
+          "planets": "Sun + Moon",
+          "character": "Imaginative but worrisome, works better for others than self",
+          "career": "",
+          "lucky": "Exports, fancy goods",
+          "health": "Alcoholism, sexual diseases",
+          "warning": "Poor administrative skills, easily cheated",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "1 & 3",
+          "planets": "Sun + Jupiter",
+          "character": "Great leader, honest politician, research scholar",
+          "career": "Politics, teaching, government, invention",
+          "lucky": "",
+          "health": "Skin disease, knee pain",
+          "warning": "",
+          "solution": "Perfect name essential",
+          "rating": "very_good"
+        },
+        {
+          "combination": "1 & 4",
+          "planets": "Sun + Rahu",
+          "character": "Good speaker, can be tactless if name wrong",
+          "career": "Writing, politics, iron business",
+          "lucky": "",
+          "health": "Skin, neurological issues",
+          "warning": "",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "1 & 5",
+          "planets": "Sun + Mercury",
+          "character": "Quick thinker, inventive, many ideas",
+          "career": "",
+          "lucky": "Commission, contracts, steel",
+          "health": "Heat, joint pain",
+          "warning": "",
+          "solution": "",
+          "rating": "powerful"
+        },
+        {
+          "combination": "1 & 6",
+          "planets": "Sun + Venus",
+          "character": "Rich, famous, can be lustful if name bad",
+          "career": "",
+          "lucky": "Jewelry, fancy goods, contracts",
+          "health": "Diabetes, hypertension",
+          "warning": "Pretends to master occult sciences with bad name",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "1 & 7",
+          "planets": "Sun + Ketu",
+          "character": "Unique, different from others",
+          "career": "",
+          "lucky": "",
+          "health": "Mental illness, sinus",
+          "warning": "Bad name → divorce, childlessness",
+          "solution": "Name change restores marital happiness",
+          "rating": "neutral"
+        },
+        {
+          "combination": "1 & 8",
+          "planets": "Sun + Saturn",
+          "character": "Can be saint OR criminal",
+          "career": "",
+          "lucky": "",
+          "health": "Mental illness, depression",
+          "warning": "Saturn robs Sun's benefits without perfect name",
+          "solution": "",
+          "rating": "dangerous"
+        },
+        {
+          "combination": "1 & 9",
+          "planets": "Sun + Mars",
+          "character": "Forceful leader, military/officer material",
+          "career": "Army, police, engineering, medicine",
+          "lucky": "",
+          "health": "Mental illness, depression",
+          "warning": "Bad name → selfish, torturer, drug addict",
+          "solution": "",
+          "rating": "neutral"
+        }
+      ]
+    },
+    {
+      "day_number": 2,
+      "ruler": "Moon",
+      "combinations": [
+        {
+          "combination": "2 & 1",
+          "planets": "Moon + Sun",
+          "character": "Imaginative, good in movies/politics",
+          "career": "Movie director, playwright, politician",
+          "lucky": "",
+          "health": "Eye disease, asthma",
+          "warning": "Weakness for drinks/women if name bad",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "2 & 2",
+          "planets": "Moon + Moon",
+          "character": "Great poet, philosopher, playwright",
+          "career": "",
+          "lucky": "",
+          "health": "Mental illness, asthma",
+          "warning": "Tempted by excess drinks",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "2 & 3",
+          "planets": "Moon + Jupiter",
+          "character": "Submissive, works better for admired employers",
+          "career": "Government jobs, movies, politics",
+          "lucky": "",
+          "health": "Joint pain, diabetes",
+          "warning": "",
+          "solution": "People with number 7 help you; avoid number 6",
+          "rating": "neutral"
+        },
+        {
+          "combination": "2 & 4",
+          "planets": "Moon + Rahu",
+          "character": "Good mediator, speaker, lawyer",
+          "career": "",
+          "lucky": "",
+          "health": "Mental issues, arthritis",
+          "warning": "Moon & Rahu are sworn enemies (Rahu eclipses moon)",
+          "solution": "",
+          "rating": "inimical"
+        },
+        {
+          "combination": "2 & 5",
+          "planets": "Moon + Mercury",
+          "character": "Sharp, brilliant, innovator",
+          "career": "Commission work, stock market, business",
+          "lucky": "",
+          "health": "Nervous disorders, dental",
+          "warning": "",
+          "solution": "Depends entirely on name quality",
+          "rating": "neutral"
+        },
+        {
+          "combination": "2 & 6",
+          "planets": "Moon + Venus",
+          "character": "Handsome, popular, management skills",
+          "career": "Businessman, scientist, actor, politician",
+          "lucky": "",
+          "health": "Eye/mental diseases",
+          "warning": "Avoid people with numbers 9 & 3",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "2 & 7",
+          "planets": "Moon + Ketu",
+          "character": "Worldly riches possible with correct name",
+          "career": "",
+          "lucky": "",
+          "health": "Hypertension, psychosis",
+          "warning": "Ketu gives dispassion - may lose interest in wealth",
+          "solution": "Avoid name numbers 2,7,8,9",
+          "rating": "neutral"
+        },
+        {
+          "combination": "2 & 8",
+          "planets": "Moon + Saturn",
+          "character": "Ingenious but Saturn prevents success",
+          "career": "",
+          "lucky": "",
+          "health": "Accidents, back pain",
+          "warning": "",
+          "solution": "Name in Mercury's numbers (5 series: 14,23,41 etc.), Seek numbers 7 or 6 for safety",
+          "rating": "neutral"
+        },
+        {
+          "combination": "2 & 9",
+          "planets": "Moon + Mars",
+          "character": "Imaginative + technical skills",
+          "career": "Industries, army, engineering",
+          "lucky": "",
+          "health": "Piles, hypertension",
+          "warning": "2 & 9 are inimical; 7 & 8 also harmful",
+          "solution": "",
+          "rating": "inimical"
+        }
+      ]
+    },
+    {
+      "day_number": 3,
+      "ruler": "Jupiter",
+      "combinations": [
+        {
+          "combination": "3 & 1",
+          "planets": "Jupiter + Sun",
+          "character": "Devoted, disciplined, accommodating",
+          "career": "Administration, teaching, metal business",
+          "lucky": "",
+          "health": "Diabetes, eye disease",
+          "warning": "Wrong name in 6,8,7 brings evil traits",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "3 & 2",
+          "planets": "Jupiter + Moon",
+          "character": "Imaginative, hard-working, obedient",
+          "career": "",
+          "lucky": "",
+          "health": "Diabetes, skin disease",
+          "warning": "",
+          "solution": "Weak unless perfect business name",
+          "rating": "neutral"
+        },
+        {
+          "combination": "3 & 3",
+          "planets": "Jupiter + Jupiter",
+          "character": "Honest administrator, religious, traditional",
+          "career": "",
+          "lucky": "",
+          "health": "Piles, diabetes",
+          "warning": "Bad name → lazy, lustful, gambler",
+          "solution": "Name correction restores virtues",
+          "rating": "neutral"
+        },
+        {
+          "combination": "3 & 4",
+          "planets": "Jupiter + Rahu",
+          "character": "Reformer, social worker, walking encyclopedia",
+          "career": "",
+          "lucky": "",
+          "health": "Arthritis, diabetes",
+          "warning": "Arrogant \"know-it-all\" if name wrong",
+          "solution": "Avoid name parts 2,6,7,8",
+          "rating": "neutral"
+        },
+        {
+          "combination": "3 & 5",
+          "planets": "Jupiter + Mercury",
+          "character": "Overcomes all obstacles",
+          "career": "Politician, artist, film star, scientist",
+          "lucky": "",
+          "health": "Arthritis, diabetes",
+          "warning": "",
+          "solution": "Avoid name components 8,7,6",
+          "rating": "very_lucky"
+        },
+        {
+          "combination": "3 & 6",
+          "planets": "Jupiter + Venus",
+          "character": "",
+          "career": "",
+          "lucky": "",
+          "health": "Mental sickness, diabetes",
+          "warning": "Jupiter & Venus are sworn enemies, Volunteer to purchase troubles, Licentious, addict, signs wrong documents",
+          "solution": "",
+          "rating": "inimical"
+        },
+        {
+          "combination": "3 & 7",
+          "planets": "Jupiter + Ketu",
+          "character": "Unhappy in marriage, eccentric",
+          "career": "",
+          "lucky": "",
+          "health": "Mental sickness, paralysis",
+          "warning": "Financial setbacks, misunderstood",
+          "solution": "Only name correction gives relief",
+          "rating": "neutral"
+        },
+        {
+          "combination": "3 & 8",
+          "planets": "Jupiter + Saturn",
+          "character": "Intelligent but unlucky",
+          "career": "",
+          "lucky": "",
+          "health": "Arthritis, paralysis",
+          "warning": "Childhood poverty, diseases, accidents",
+          "solution": "Name in 1,5,9 series",
+          "rating": "neutral"
+        },
+        {
+          "combination": "3 & 9",
+          "planets": "Jupiter + Mars",
+          "character": "Bold, authoritative, army discipline",
+          "career": "",
+          "lucky": "",
+          "health": "Arthritis, diabetes",
+          "warning": "Don't spoil with bad names in 6,8,2,7, 7 is inimical to 3&9",
+          "solution": "",
+          "rating": "neutral"
+        }
+      ]
+    },
+    {
+      "day_number": 4,
+      "ruler": "Rahu",
+      "combinations": [
+        {
+          "combination": "4 & 1",
+          "planets": "Rahu + Sun",
+          "character": "Highly gifted all-rounder, astonishing knowledge",
+          "career": "Oratory, web sites, commission work",
+          "lucky": "",
+          "health": "Piles, paralysis",
+          "warning": "",
+          "solution": "",
+          "rating": "very_lucky"
+        },
+        {
+          "combination": "4 & 2",
+          "planets": "Rahu + Moon",
+          "character": "",
+          "career": "",
+          "lucky": "",
+          "health": "Piles, sinus",
+          "warning": "Moon & Rahu are mutually inimical",
+          "solution": "Name in 6,5,1 vibrations",
+          "rating": "inimical"
+        },
+        {
+          "combination": "4 & 3",
+          "planets": "Rahu + Jupiter",
+          "character": "Shines in academic/administrative circles",
+          "career": "High government officer, lawyer, accountant",
+          "lucky": "",
+          "health": "Piles, arthritis",
+          "warning": "",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "4 & 4",
+          "planets": "Rahu + Rahu",
+          "character": "",
+          "career": "",
+          "lucky": "",
+          "health": "Piles, kidney disease",
+          "warning": "Example: S. Ramanujan - genius but suffered poverty",
+          "solution": "Lucky name would have made him rich",
+          "rating": "neutral"
+        },
+        {
+          "combination": "4 & 5",
+          "planets": "Rahu + Mercury",
+          "character": "Extremely lucky, versatile talents",
+          "career": "",
+          "lucky": "",
+          "health": "Strokes, paralysis",
+          "warning": "Bad name applies brakes to progress",
+          "solution": "Easier from Saturn's evils than other combinations",
+          "rating": "neutral"
+        },
+        {
+          "combination": "4 & 6",
+          "planets": "Rahu + Venus",
+          "character": "Can attain great fame OR become mega scammer",
+          "career": "",
+          "lucky": "",
+          "health": "Strokes, paralysis",
+          "warning": "Most mega money scandals by 4&6 people, Double-edged sword",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "4 & 7",
+          "planets": "Rahu + Ketu",
+          "character": "Self-styled, controversial, eccentric",
+          "career": "",
+          "lucky": "",
+          "health": "Strokes, migraine",
+          "warning": "Difficult to get along with others",
+          "solution": "Handle such people with \"kid gloves\"",
+          "rating": "neutral"
+        },
+        {
+          "combination": "4 & 8",
+          "planets": "Rahu + Saturn",
+          "character": "Suffers poverty, failure, accidents, early death",
+          "career": "",
+          "lucky": "",
+          "health": "Strokes, paralysis",
+          "warning": "Worsens Saturn's evil effects",
+          "solution": "Name's vibration can overcome these effects",
+          "rating": "dangerous"
+        },
+        {
+          "combination": "4 & 9",
+          "planets": "Rahul + Mars",
+          "character": "Forceful leader, wins friends and influence",
+          "career": "",
+          "lucky": "",
+          "health": "Strokes, neurological issues",
+          "warning": "Falls for many women if 4 or 9 afflicted",
+          "solution": "Name in 6,5,3,1",
+          "rating": "neutral"
+        }
+      ]
+    },
+    {
+      "day_number": 5,
+      "ruler": "Mercury",
+      "combinations": [
+        {
+          "combination": "5 & 1",
+          "planets": "Mercury + Sun",
+          "character": "Super powers, inventive, forceful",
+          "career": "Successful in anything - politics to trading",
+          "lucky": "",
+          "health": "Piles, neurological",
+          "warning": "Lose all powers if name defective",
+          "solution": "",
+          "rating": "most_powerful"
+        },
+        {
+          "combination": "5 & 2",
+          "planets": "Mercury + Moon",
+          "character": "Doesn't build organizations, often cheated",
+          "career": "",
+          "lucky": "",
+          "health": "Sinus, asthma",
+          "warning": "Hides feelings of distrust, Procrastinates beyond deadlines",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "5 & 3",
+          "planets": "Mercury + Jupiter",
+          "character": "Achieves whatever wanted with perfect name",
+          "career": "",
+          "lucky": "",
+          "health": "Sinus, asthma",
+          "warning": "Defective name drives to exploit and be punished",
+          "solution": "Expert who knows bioenergetics",
+          "rating": "neutral"
+        },
+        {
+          "combination": "5 & 4",
+          "planets": "Mercury + Rahu",
+          "character": "Shines in public life and business",
+          "career": "",
+          "lucky": "",
+          "health": "Nerve, heart disease",
+          "warning": "Defective name brings danger, kills peace, Heart disease, high BP if name wrong",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "5 & 5",
+          "planets": "Mercury + Mercury",
+          "character": "Unprecedented success possible",
+          "career": "",
+          "lucky": "",
+          "health": "Arthritis, gum disease",
+          "warning": "Only with flawless perfect name, Bad name: Makes you cheat, womanizer, villain",
+          "solution": "",
+          "rating": "luckiest"
+        },
+        {
+          "combination": "5 & 6",
+          "planets": "Mercury + Venus",
+          "character": "Divine help for success, great charms",
+          "career": "Politics, business, movies - successful in all",
+          "lucky": "",
+          "health": "Arthritis, sexual disease",
+          "warning": "",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "5 & 7",
+          "planets": "Mercury + Ketu",
+          "character": "Good health, wealth, family with lucky name",
+          "career": "",
+          "lucky": "",
+          "health": "Mental illness",
+          "warning": "Many numbers in 5 series - which is most lucky?",
+          "solution": "Depends on body/mind/spirit resonance",
+          "rating": "neutral"
+        },
+        {
+          "combination": "5 & 8",
+          "planets": "Mercury + Saturn",
+          "character": "Saturn causes delays, disappointments",
+          "career": "",
+          "lucky": "",
+          "health": "Stomach, back pains",
+          "warning": "Miseries, accidents, obstacles",
+          "solution": "Born on date 5 with total 8",
+          "rating": "neutral"
+        },
+        {
+          "combination": "5 & 9",
+          "planets": "Mercury + Mars",
+          "character": "Hero to friends, deadly enemy to offenders",
+          "career": "",
+          "lucky": "",
+          "health": "Heart disease, neurological",
+          "warning": "Wrong steps spoil name if name incorrect",
+          "solution": "Name in 5 or 9",
+          "rating": "neutral"
+        }
+      ]
+    }
+  ]
+}

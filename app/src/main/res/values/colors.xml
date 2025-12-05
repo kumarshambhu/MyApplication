@@ -46,5 +46,18 @@
     <color name="action_plane_header">#FFA500</color>
     <color name="silver_success_plane_header">#C0C0C0</color>
     <color name="golden_success_plane_header">#FFD700</color>
+    <color name="primary_text">#4B0082</color>
+    <color name="secondary_text">#FF7F50</color>
+
+
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="gray">#FF757575</color>
+    <color name="gray_light">#FFE0E0E0</color>
+    <color name="green">#FF4CAF50</color>
+    <color name="red">#FFF44336</color>
+    <color name="orange">#FFFF9800</color>
+    <color name="background">#FFF5F5F5</color>
+    <color name="light_purple">#FFE8EAF6</color>
 
 </resources>

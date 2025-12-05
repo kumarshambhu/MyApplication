@@ -13,7 +13,6 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.shambhu.myapplication.adapter.ExpandablePagerAdapter
-import com.shambhu.myapplication.adapter.SecondaryNumberPagerAdapter
 import com.shambhu.myapplication.databinding.ActivityExpandableBinding
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_DATE_OF_BIRTH
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_FULL_NAME
@@ -67,6 +66,7 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 when (position) {
                     0 -> getDrawable(R.drawable.ic_mic)
                     1 -> getDrawable(R.drawable.ic_mic)
+                    2 -> getDrawable(R.drawable.ic_mic)
                     else -> null
                 }
             )
@@ -74,6 +74,7 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 tabText.text = when (position) {
                     0 -> "Elements"
                     1 -> "Name Grid"
+                    2 -> "Core"
                     else -> null
                 }
             }
