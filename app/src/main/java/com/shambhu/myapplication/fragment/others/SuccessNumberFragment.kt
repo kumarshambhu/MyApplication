@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.gson.Gson
+import com.shambhu.myapplication.adapter.BulletPointRecyclerViewAdapter
+import com.shambhu.myapplication.adapter.CommonAdapterUtil
 import com.shambhu.myapplication.databinding.FragmentSuccessNumberBinding
 import com.shambhu.myapplication.model.SuccessNumberResponse
 import com.shambhu.myapplication.utils.CommonUtils
@@ -47,8 +49,28 @@ class SuccessNumberFragment : Fragment() {
 
 
         binding.successNumberText.text = "Your Success Number: ${successNumber}"
-        binding.qualitiesTextView.text = data2?.qualities?.joinToString("\n• ", "• ")
-        binding.challengesTextView.text = data2?.challenges?.joinToString("\n• ", "• ")
+
+
+        if (!data2?.challenges.isNullOrEmpty()) {
+            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(requireContext(),
+                binding.challengesRecyclerView, data2.qualities
+            )
+        }  else {
+            binding.challengesRecyclerView.visibility = View.GONE
+            binding.challengesTextView.visibility = View.GONE
+        }
+
+        if (!data2?.qualities.isNullOrEmpty()) {
+            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(requireContext(),
+                binding.qualitiesRecyclerView, data2.qualities
+            )
+        }  else {
+            binding.qualitiesRecyclerView.visibility = View.GONE
+            binding.qualitiesTextView.visibility = View.GONE
+        }
+
+
+
 
         if (!data2?.notes.isNullOrEmpty()) {
             binding.notesTextView.visibility = View.VISIBLE

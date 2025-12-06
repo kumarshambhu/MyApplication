@@ -13,6 +13,7 @@
 
         <!-- Input Section -->
         <TextView
+            android:id="@+id/maturityHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Numerology Calculator"
@@ -35,6 +36,7 @@
                 android:text="Results"
                 android:textSize="20sp"
                 android:textStyle="bold"
+
                 android:layout_marginBottom="16dp"/>
 
             <!-- Life Path Number -->
@@ -43,6 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:text="Numerology Calculator"
                 android:textColor="@color/white_60"
                 android:layout_marginBottom="8dp"/>
 
@@ -52,18 +55,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:text="Numerology Calculator"
                 android:textColor="@color/white_60"
                 android:layout_marginBottom="8dp"/>
-
-            <!-- Maturity Number -->
-            <TextView
-                android:id="@+id/tvMaturityNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#2196F3"
-                android:layout_marginBottom="16dp"/>
 
             <!-- Overview -->
             <TextView
@@ -71,6 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:text="Numerology Calculator"
                 android:layout_marginBottom="16dp"
                 android:textColor="@color/white_60"
                 android:textStyle="italic"/>
@@ -80,18 +75,36 @@
                 android:id="@+id/tvPositiveTraits"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Positive Traits"
                 android:textColor="@color/white_60"
                 android:layout_marginBottom="8dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/positiveTraitsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="8dp"/>
 
             <!-- Challenges -->
             <TextView
                 android:id="@+id/tvChallenges"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="20sp"
+                android:text="Challenges"
+                android:textStyle="bold"
                 android:textColor="@color/white_60"
                 android:layout_marginBottom="8dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/challengesRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="8dp"/>
 
             <!-- Additional Info -->
             <TextView
@@ -99,7 +112,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white_60"
-                android:textSize="16sp"/>
+                android:text="Additional Info"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/additionalInfoRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="8dp"/>
 
         </LinearLayout>
 

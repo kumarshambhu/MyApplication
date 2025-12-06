@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Karmic Number Header -->
+        <TextView
+            android:id="@+id/karmicNumberTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/purple_700"
+            android:gravity="center"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/purple_700"/>
+
+        <!-- Challenges Section -->
+        <TextView
+            android:id="@+id/challengesTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Challenges and Problems"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/challengesTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Qualities Section -->
+        <TextView
+            android:id="@+id/qualitiesTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Qualities"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/qualitiesTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Keys to Overcome Section -->
+        <TextView
+            android:id="@+id/keysTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Keys to Overcome"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"/>
+
+        <LinearLayout
+            android:id="@+id/keysContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Potential Outcome Section -->
+        <TextView
+            android:id="@+id/outcomeTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Potential Outcome"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/outcomeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"/>
+
+        <!-- Summary Section -->
+        <TextView
+            android:id="@+id/summaryTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Summary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/summaryTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+</ScrollView>

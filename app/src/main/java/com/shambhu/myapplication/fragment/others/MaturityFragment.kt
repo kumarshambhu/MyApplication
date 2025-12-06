@@ -9,7 +9,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.gson.Gson
+import com.shambhu.myapplication.adapter.CommonAdapterUtil
 import com.shambhu.myapplication.databinding.FragmentMaturityBinding
+import com.shambhu.myapplication.model.CoreNumberAccordionItem
 import com.shambhu.myapplication.model.MaturityNumbersResponse
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
@@ -41,7 +43,7 @@ class MaturityFragment : Fragment() {
     private fun calculateNumerology(dob: String, name: String) {
         try {
             // Calculate numbers
-            val(day, month, year) = CommonUtils.parseDateTriple(dob)
+            val (day, month, year) = CommonUtils.parseDateTriple(dob)
             val lifePath = NumerologyCalculationUtils.calculateLifePath(day, month, year)
             val destiny = NumerologyCalculationUtils.calculateExpression(name)
             val maturity = NumerologyCalculationUtils.calculateMaturityNumber(lifePath, destiny)
@@ -49,27 +51,58 @@ class MaturityFragment : Fragment() {
             // Display basic results
             binding.tvLifePath.text = "Life Path Number: $lifePath"
             binding.tvDestiny.text = "Destiny Number: $destiny"
-            binding.tvMaturityNumber.text = "Maturity Number: $maturity"
+            binding.maturityHeader.text = "Maturity Number: $maturity"
 
             // Get and display maturity data from JSON
-            val data =  Gson().fromJson(CommonUtils.readAssetFile(requireContext(), "maturity.json"),
-                MaturityNumbersResponse::class.java)
+            val data = Gson().fromJson(
+                CommonUtils.readAssetFile(requireContext(), "maturity.json"),
+                MaturityNumbersResponse::class.java
+            )
             val data1 = data.maturity_numbers
             val data2 = data1.get(maturity.toString())
 
             data2?.let {
                 binding.tvOverview.text = it.overview
-                binding.tvPositiveTraits.text = "Positive Traits:\n${it.positive_traits.joinToString(", ")}"
-                binding.tvChallenges.text = "Challenges:\n${it.challenges.joinToString(", ")}"
+
+                if (!it.positive_traits.isNullOrEmpty()) {
+                    CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
+                        requireContext(),
+                        binding.positiveTraitsRecyclerView, it.positive_traits
+                    )
+                } else {
+                    binding.positiveTraitsRecyclerView.visibility = View.GONE
+                    binding.tvPositiveTraits.visibility = View.GONE
+                }
+
+
+                if (!it.challenges.isNullOrEmpty()) {
+                    CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
+                        requireContext(),
+                        binding.challengesRecyclerView, it.challenges
+                    )
+                } else {
+                    binding.challengesRecyclerView.visibility = View.GONE
+                    binding.tvChallenges.visibility = View.GONE
+                }
+
 
                 // Show additional info based on what's available
-                val additionalInfo = when {
-                    !it.karmic_notes.isNullOrEmpty() -> "Karmic Notes: ${it.karmic_notes}"
-                    !it.life_purpose.isNullOrEmpty() -> "Life Purpose: ${it.life_purpose}"
-                    !it.life_outcome.isNullOrEmpty() -> "Life Outcome: ${it.life_outcome}"
-                    else -> ""
+                val additionalInfoList = mutableListOf<String>();
+
+                if (!it.karmic_notes.isNullOrEmpty()) additionalInfoList.add("Karmic Notes: ${it.karmic_notes}")
+                if (!it.life_purpose.isNullOrEmpty()) additionalInfoList.add("Life Purpose: ${it.life_purpose}")
+                if (!it.life_outcome.isNullOrEmpty()) additionalInfoList.add("Life Outcome: ${it.life_outcome}")
+
+                if (additionalInfoList.isNotEmpty()) {
+                    CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
+                        requireContext(),
+                        binding.additionalInfoRecyclerView, it.challenges
+                    )
+                } else {
+                    binding.additionalInfoRecyclerView.visibility = View.GONE
+                    binding.tvAdditionalInfo.visibility = View.GONE
                 }
-                binding.tvAdditionalInfo.text = additionalInfo
+
             }
 
             // Show results

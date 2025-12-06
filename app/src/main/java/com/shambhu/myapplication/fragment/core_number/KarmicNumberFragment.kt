@@ -7,16 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import com.shambhu.myapplication.adapter.KarmicDebtRecyclerViewAdapter
 import com.shambhu.myapplication.adapter.KarmicLessonRecyclerViewAdapter
 import com.shambhu.myapplication.databinding.FragmentKarmicNumberBinding
 import com.shambhu.myapplication.model.KarmicAccordionItem
+import com.shambhu.myapplication.model.KarmicDebt
+import com.shambhu.myapplication.model.KarmicDebtResponse
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import org.json.JSONObject
+import kotlin.String
+import kotlin.collections.List
 
 class KarmicNumberFragment : Fragment() {
     private var _binding: FragmentKarmicNumberBinding? = null
@@ -52,18 +57,20 @@ class KarmicNumberFragment : Fragment() {
 
     }
 
-    private fun karmicLessonCreation(fullName: String){
+    private fun karmicLessonCreation(fullName: String) {
         val missing = NumerologyCalculationUtils.calculateKarmicFromName(fullName)
         binding.karmicLessonNumberValue.text = missing.joinToString(", ")
 
-        val karmicLessonsJson = CommonUtils.readAssetFile(requireContext(), "karmic_lesson_debt.json")
+        val karmicLessonsJson =
+            CommonUtils.readAssetFile(requireContext(), "karmic_lesson_debt.json")
         val karmicLessonsObject = JSONObject(karmicLessonsJson).getJSONObject("karmic_lesson")
 
         val karmicLessons = missing.map { number ->
-            val detail = karmicLessonsObject.optString(number.toString(), "No description available.")
+            val detail =
+                karmicLessonsObject.optString(number.toString(), "No description available.")
             Pair(number.toString(), detail.toString())
         }
-        Log.i("karmicLessons","KarmicLessons: $karmicLessons")
+        Log.i("karmicLessons", "KarmicLessons: $karmicLessons")
         setupKarmicLessonRecyclerView(karmicLessons)
     }
 
@@ -72,7 +79,7 @@ class KarmicNumberFragment : Fragment() {
             KarmicAccordionItem(source, "Source Empty", number)
         }
 
-        karmicLessonAdapter = KarmicLessonRecyclerViewAdapter(accordionItems){ position ->
+        karmicLessonAdapter = KarmicLessonRecyclerViewAdapter(accordionItems) { position ->
             // Toggle expansion
             accordionItems[position].isExpanded = !accordionItems[position].isExpanded
             karmicLessonAdapter.notifyItemChanged(position)
@@ -82,13 +89,14 @@ class KarmicNumberFragment : Fragment() {
         binding.karmicLessonRecyclerView.adapter = karmicLessonAdapter
     }
 
-    private fun karmicDebtCreation(dateOfBirth: String, fullName: String){
+    private fun karmicDebtCreation(dateOfBirth: String, fullName: String) {
         val date = CommonUtils.parseDate(dateOfBirth)
         val day = date.dayOfMonth
         val month = date.monthValue
         val year = date.year
 
-        val karmicDebtNumbers = NumerologyCalculationUtils.calculateKarmicDebtNumbers(day, month, year, fullName)
+        val karmicDebtNumbers =
+            NumerologyCalculationUtils.calculateKarmicDebtNumbers(day, month, year, fullName)
 
         if (karmicDebtNumbers.isEmpty()) {
             binding.tvNoKarmicDebt.visibility = View.VISIBLE
@@ -102,11 +110,26 @@ class KarmicNumberFragment : Fragment() {
 
     private fun setupKarmicDebtRecyclerView(karmicDebtNumbers: List<Pair<String, Int>>) {
         val interpretations = loadInterpretations()
+        val data = Gson().fromJson(
+            CommonUtils.readAssetFile(requireContext(), "karmic_debt.json"),
+            KarmicDebtResponse::class.java
+        )
+        val data1 = data.karmic_debt
+
         val accordionItems = karmicDebtNumbers.map { (source, number) ->
-            KarmicAccordionItem("$number", source, interpretations[number.toString()].toString())
+            val data2 = data1.get(number.toString())
+            KarmicDebt(
+                number = number.toString(), source = source,
+                challengesAndProblems = data2?.challengesAndProblems,
+                qualities = data2?.qualities,
+                keysToOvercome = data2?.keysToOvercome,
+                summary = data2?.summary,
+                potentialOutcome = data2?.potentialOutcome, isExpanded = false
+            )
+            //KarmicAccordionItem("$number", source, interpretations[number.toString()].toString())
         }
 
-        karmicDebtRecyclerViewAdapter = KarmicDebtRecyclerViewAdapter(accordionItems){ position ->
+        karmicDebtRecyclerViewAdapter = KarmicDebtRecyclerViewAdapter(requireContext(),accordionItems) { position ->
             // Toggle expansion
             accordionItems[position].isExpanded = !accordionItems[position].isExpanded
             karmicDebtRecyclerViewAdapter.notifyItemChanged(position)
