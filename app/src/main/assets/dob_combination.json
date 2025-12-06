@@ -524,6 +524,392 @@
           "rating": "neutral"
         }
       ]
+    },
+
+    {
+      "day_number": 6,
+      "ruler": "Venus",
+      "combinations": [
+        {
+          "combination": "6 & 1",
+          "planets": "Venus + Sun",
+          "character": "Full benefits of Venus and Sun",
+          "warning": "Careful with opposite sex - opportunities for unlawful sex",
+          "trait": "Good personality, leadership qualities",
+          "health": "Heart disease, arthritis",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "6 & 2",
+          "planets": "Venus + Moon",
+          "character": "False sense of courage/lordship with wrong name",
+          "warning": "Mentally sick, drinks/drugs, evil habits",
+          "trait": "Good name brings divine help, riches, good family",
+          "health": "Mental, skin disease",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "6 & 3",
+          "planets": "Venus + Jupiter",
+          "character": "3 opposes 6, forces own downfall",
+          "warning": "Complications despite riches with wrong name",
+          "trait": "",
+          "health": "Mental, heart disease",
+          "solution": "Name in 1 or 9",
+          "rating": "negative"
+        },
+        {
+          "combination": "6 & 4",
+          "planets": "Venus + Rahu",
+          "character": "Wastes life in useless talks with wrong name",
+          "warning": "Thankless jobs, enmities, failures",
+          "trait": "",
+          "health": "Over heat, arthritis",
+          "solution": "Name as per numerology+astrology+bioenergetics",
+          "rating": "negative"
+        },
+        {
+          "combination": "6 & 5",
+          "planets": "Venus + Mercury",
+          "character": "Sharp intelligence, successful with correct name",
+          "warning": "Wrong name → cheats public, eventual failure",
+          "trait": "Initially seems successful, ruins self later",
+          "health": "High BP, eye/nerve troubles",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "6 & 6",
+          "planets": "Venus + Venus",
+          "character": "Lots of opposition with wrong name",
+          "warning": "Creates enemies, misses opportunities",
+          "trait": "Good name: No one can prevent your success",
+          "health": "Over heat, kidney disease",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "6 & 7",
+          "planets": "Venus + Ketu",
+          "character": "Prevents progress frequently with defective name",
+          "warning": "Bitter marriage, child problems, futile efforts",
+          "trait": "",
+          "health": "Over heat, kidney disease",
+          "solution": "Win over Ketu's unlucky effects with good name",
+          "rating": "negative"
+        },
+        {
+          "combination": "6 & 8",
+          "planets": "Venus + Saturn",
+          "character": "Suffers many defeats due to Saturn",
+          "warning": "Prone to accidents (travels for business)",
+          "trait": "Accidents in office/factory, thefts, strikes",
+          "health": "Stomach troubles, constipation",
+          "solution": "",
+          "rating": "negative"
+        },
+        {
+          "combination": "6 & 9",
+          "planets": "Venus + Mars",
+          "character": "Supreme success depends on name",
+          "warning": "Victory with perfect name, troubles with imperfect",
+          "trait": "Rulers: Venus and Mars - both forceful planets",
+          "health": "Sexual troubles, piles",
+          "solution": "",
+          "rating": "neutral"
+        }
+      ]
+    },
+    {
+      "day_number": 7,
+      "ruler": "Ketu",
+      "combinations": [
+        {
+          "combination": "7 & 1",
+          "planets": "Ketu + Sun",
+          "character": "Suffers bitterness in love/marriage with wrong name",
+          "warning": "Increased bad luck by name",
+          "trait": "",
+          "health": "Melancholy, gum disease",
+          "solution": "Name change in 6 or 1",
+          "rating": "negative"
+        },
+        {
+          "combination": "7 & 2",
+          "planets": "Ketu + Moon",
+          "character": "Many lucky opportunities with perfect name",
+          "warning": "Misses opportunities, suffers alone with bad name",
+          "trait": "Fond of sex but has divine streak",
+          "health": "Melancholy, arthritis",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "7 & 3",
+          "planets": "Ketu + Jupiter",
+          "character": "Successful with name in 5 or 3",
+          "warning": "",
+          "trait": "",
+          "health": "Gas, melancholy, neurological",
+          "solution": "Follow lucky tips, wear lucky gems (Cat's eye or Tiger's Eye)",
+          "rating": "neutral"
+        },
+        {
+          "combination": "7 & 4",
+          "planets": "Ketu + Rahu",
+          "character": "Arts, religion, oration, writing suitable",
+          "warning": "",
+          "trait": "Career: Commissions, fancy goods, books",
+          "health": "Stomach, back pains, strokes",
+          "solution": "Combo: Day 7 + Life 4 or Name in 7/4",
+          "rating": "neutral"
+        },
+        {
+          "combination": "7 & 5",
+          "planets": "Ketu + Mercury",
+          "character": "Speaking, writing, contracts, medicine",
+          "warning": "",
+          "trait": "Activities: Vehicles, metal business",
+          "health": "Mental sickness, strokes",
+          "solution": "Combo: Day 7 + Life 5 or Name in 7/5",
+          "rating": "neutral"
+        },
+        {
+          "combination": "7 & 6",
+          "planets": "Ketu + Venus",
+          "character": "Prosperity, house, good wife/kids with right name",
+          "warning": "Bad name → no achievement, divorce, bad children",
+          "trait": "Fraudulent deals, child issues",
+          "health": "Melancholy, arthritis",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "7 & 7",
+          "planets": "Ketu + Ketu",
+          "character": "Suffers in business/personal life with wrong name",
+          "warning": "Talents no outlet, marriage is hell",
+          "trait": "Few friends, opposite sex troubles",
+          "health": "Mental sickness, dreams",
+          "solution": "",
+          "rating": "negative"
+        },
+        {
+          "combination": "7 & 8",
+          "planets": "Ketu + Saturn",
+          "character": "Falls often, delayed/denied marriage",
+          "warning": "Highly accident prone",
+          "trait": "Bad company, imprisonments, jail",
+          "health": "Stomach, mental diseases",
+          "solution": "",
+          "rating": "negative"
+        },
+        {
+          "combination": "7 & 9",
+          "planets": "Ketu + Mars",
+          "character": "Dangerous combination",
+          "warning": "Regret, self-pity, unexpected losses",
+          "trait": "",
+          "health": "Mental diseases, joint pains",
+          "solution": "Combo: Day 7 + Life 9 or Name in 7/9",
+          "rating": "negative"
+        }
+      ]
+    },
+    {
+      "day_number": 8,
+      "ruler": "Saturn",
+      "combinations": [
+        {
+          "combination": "8 & 1",
+          "planets": "Saturn + Sun",
+          "character": "Born on 8th/17th/26th with total 1",
+          "warning": "",
+          "trait": "Career: Contract, printing, electronic, computer",
+          "health": "Stomach disease, depression",
+          "solution": "Combo: Saturn in Day + Sun in Life",
+          "rating": "neutral"
+        },
+        {
+          "combination": "8 & 2",
+          "planets": "Saturn + Moon",
+          "character": "Born on 8th/17th/26th with total 2",
+          "warning": "",
+          "trait": "Career: Contract, machines, steel, fancy goods",
+          "health": "Hip/back/head aches, depression",
+          "solution": "Combo: Saturn in Day + Moon in Life",
+          "rating": "neutral"
+        },
+        {
+          "combination": "8 & 3",
+          "planets": "Saturn + Jupiter",
+          "character": "Born on 8th/17th/26th with total 3",
+          "warning": "",
+          "trait": "Career: Iron/steel, contract, handicrafts, transport",
+          "health": "Stomach disease, hernia",
+          "solution": "Combo: Saturn in Day + Jupiter in Life",
+          "rating": "neutral"
+        },
+        {
+          "combination": "8 & 4",
+          "planets": "Saturn + Rahu",
+          "character": "Born on 8th/17th/26th with total 4",
+          "warning": "",
+          "trait": "Career: Iron/steel, writing, speeches, vehicles",
+          "health": "Neurology, heart trouble",
+          "solution": "Combo: Saturn in Day + Rahu in Life",
+          "rating": "neutral"
+        },
+        {
+          "combination": "8 & 5",
+          "planets": "Saturn + Mercury",
+          "character": "Born on 8th/17th/26th with total 5",
+          "warning": "",
+          "trait": "Career: Contract, printing, electronic, computer",
+          "health": "Mental issues, piles",
+          "solution": "Combo: Saturn in Day + Mercury in Life",
+          "rating": "neutral"
+        },
+        {
+          "combination": "8 & 6",
+          "planets": "Saturn + Venus",
+          "character": "Born on 8th/17th/26th with total 6",
+          "warning": "",
+          "trait": "Career: Iron/steel, textiles, luxuries, contracts",
+          "health": "Stomach disease, constipation",
+          "solution": "Combo: Saturn in Day + Venus in Life",
+          "rating": "neutral"
+        },
+        {
+          "combination": "8 & 7",
+          "planets": "Saturn + Ketu",
+          "character": "Born on 8th/17th/26th with total 7",
+          "warning": "",
+          "trait": "Career: Contract, printing, publishing, writing",
+          "health": "Melancholy, piles",
+          "solution": "Combo: Saturn in Day + Ketu in Life",
+          "rating": "neutral"
+        },
+        {
+          "combination": "8 & 8",
+          "planets": "Saturn + Saturn",
+          "character": "Born on 8th/17th/26th with total 8 - DOUBLE SATURN",
+          "warning": "Twice ruled by Saturn",
+          "trait": "Career: Vehicles, iron/steel, contracts, writing",
+          "health": "Stomach disease, depression",
+          "solution": "",
+          "rating": "negative"
+        },
+        {
+          "combination": "8 & 9",
+          "planets": "Saturn + Mars",
+          "character": "Hero or prisoner depending on name",
+          "warning": "8 is a killer, 9&8 can cause fatal accidents",
+          "trait": "",
+          "health": "Stomach disease, gum/tooth",
+          "solution": "Cool Saturn with flawless name",
+          "rating": "negative"
+        }
+      ]
+    },
+    {
+      "day_number": 9,
+      "ruler": "Mars",
+      "combinations": [
+        {
+          "combination": "9 & 1",
+          "planets": "Mars + Sun",
+          "character": "Forceful qualities, successful in any field",
+          "warning": "",
+          "trait": "Career: Contract, agencies, metals, writing",
+          "health": "Over heat, piles, neurology",
+          "solution": "Combo: Mars in Day + Sun in Life",
+          "rating": "neutral"
+        },
+        {
+          "combination": "9 & 2",
+          "planets": "Mars + Moon",
+          "character": "9 & 2 are inimical, act against own welfare",
+          "warning": "Wrong decisions, later regret",
+          "trait": "Mars governs daily life, Moon influences after 45",
+          "health": "Over heat, heart/stomach",
+          "solution": "",
+          "rating": "negative"
+        },
+        {
+          "combination": "9 & 3",
+          "planets": "Mars + Jupiter",
+          "character": "Highly educated government officer",
+          "warning": "",
+          "trait": "Honest, righteous, dignified, punctual. Jupiter influences after 45",
+          "health": "Neuro problems, gas",
+          "solution": "",
+          "rating": "positive"
+        },
+        {
+          "combination": "9 & 4",
+          "planets": "Mars + Rahu",
+          "character": "Walking encyclopedia, elephant's memory",
+          "warning": "",
+          "trait": "Career: Army, police, detective, mediator. Rahu influences after 45",
+          "health": "Heat, piles, heart",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "9 & 5",
+          "planets": "Mars + Mercury",
+          "character": "Lightning speed thinking, mystery to people",
+          "warning": "",
+          "trait": "Able administrator, many projects, real estate. Mercury influences after 45",
+          "health": "Skin/stomach diseases, joint pains",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "9 & 6",
+          "planets": "Mars + Venus",
+          "character": "Captivates others, commands respect",
+          "warning": "",
+          "trait": "Darling of fair sex with flawless name. Venus influences after 45",
+          "health": "Diabetes, dental, high BP",
+          "solution": "",
+          "rating": "neutral"
+        },
+        {
+          "combination": "9 & 7",
+          "planets": "Mars + Ketu",
+          "character": "Achieves success OR succumbs to defeat",
+          "warning": "Dangerous combination",
+          "trait": "Ketu influences after 45",
+          "health": "Mental diseases, joint pains",
+          "solution": "",
+          "rating": "negative"
+        },
+        {
+          "combination": "9 & 8",
+          "planets": "Mars + Saturn",
+          "character": "Saturn creates obstacles, delays, defeats",
+          "warning": "8 is a killer, 9&8 can cause fatal accidents",
+          "trait": "Saturn influences after 45",
+          "health": "Tooth/stomach pains, arthritis",
+          "solution": "",
+          "rating": "negative"
+        },
+        {
+          "combination": "9 & 9",
+          "planets": "Mars + Mars",
+          "character": "Entire life ruled by fiery Mars - DOUBLE MARS",
+          "warning": "",
+          "career": "Army, construction, professor, lawyer, spy. Traits: Courage, wisdom, diplomacy, leadership",
+          "health": "Gas, stomach diseases, joint pains",
+          "solution": "",
+          "rating": "neutral"
+        }
+      ]
     }
+
   ]
 }

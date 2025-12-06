@@ -67,6 +67,8 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                     0 -> getDrawable(R.drawable.ic_mic)
                     1 -> getDrawable(R.drawable.ic_mic)
                     2 -> getDrawable(R.drawable.ic_mic)
+                    3 -> getDrawable(R.drawable.ic_mic)
+                    4 -> getDrawable(R.drawable.ic_mic)
                     else -> null
                 }
             )
@@ -75,6 +77,8 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                     0 -> "Elements"
                     1 -> "Name Grid"
                     2 -> "Core"
+                    3 -> "Maturity"
+                    4 -> "Success"
                     else -> null
                 }
             }

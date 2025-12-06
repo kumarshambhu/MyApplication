@@ -73,6 +73,10 @@ object NumerologyCalculationUtils {
         return CommonUtils.reduceNumber(day)
     }
 
+    fun calculateSuccessNumber(day: Int, month: Int): Int {
+        return CommonUtils.reduceNumber(day+month)
+    }
+
     // Life Path Number Calculation
     fun calculateLifePath(day: Int, month: Int, year: Int, reduce: Boolean = true): Int {
         val reducedDay = CommonUtils.reduceNumber(day)
@@ -544,5 +548,9 @@ data class Quintuple<A, B, C, D, E>(
         }
 
         return CommonUtils.reduceNumberIgnoreMasterNumber(kuaNumber)
+    }
+
+    fun calculateMaturityNumber(lifePath: Int, destiny: Int): Int {
+        return CommonUtils.reduceNumber(lifePath + destiny)
     }
 }

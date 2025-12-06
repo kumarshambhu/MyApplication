@@ -147,7 +147,7 @@ class CoreNumberFragment : Fragment() {
         coreNumberItems.add(personalityItem)
         coreNumberItems.add(destinyItem)
 
-        Log.d("CoreNumber", "Core Number: $coreNumberItems")
+        //Log.d("CoreNumber", "Core Number: $coreNumberItems")
 
         setupCoreNumberRecyclerView(coreNumberItems)
     }

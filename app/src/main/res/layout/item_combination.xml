@@ -25,6 +25,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:text="1111111111111"
                 android:textColor="@color/purple_700" />
 
             <TextView
@@ -35,6 +36,7 @@
                 android:textStyle="bold"
                 android:paddingHorizontal="8dp"
                 android:paddingVertical="4dp"
+                android:text="1111111111111"
                 android:background="@drawable/bg_rating"
                 android:textColor="@color/white" />
         </LinearLayout>
@@ -45,6 +47,7 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:layout_marginTop="4dp"
+            android:text="1111111111111"
             android:textColor="@color/teal_700" />
 
         <View
@@ -58,11 +61,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
+            android:text="1111111111111"
             android:layout_marginTop="4dp" />
 
         <TextView
             android:id="@+id/tvCareer"
             android:layout_width="match_parent"
+            android:text="1111111111111"
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:layout_marginTop="4dp" />
@@ -72,6 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
+            android:text="1111111111111"
             android:layout_marginTop="4dp" />
 
         <TextView
@@ -79,6 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
+            android:text="1111111111111"
             android:layout_marginTop="4dp"
             android:textColor="@color/red" />
 
@@ -87,6 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
+            android:text="1111111111111"
             android:layout_marginTop="4dp"
             android:textColor="@color/orange" />
 
@@ -95,6 +103,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
+            android:text="1111111111111"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/green" />
+
+        <TextView
+            android:id="@+id/tvTraits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="1111111111111"
             android:layout_marginTop="4dp"
             android:textColor="@color/green" />
 

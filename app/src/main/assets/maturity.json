@@ -1,0 +1,165 @@
+{
+	"maturity_numbers": {
+		"1": {
+			"overview": "A maturity number associated with individualism, recognition, and authority.",
+			"positive_traits": [
+				"Driven",
+				"Independent",
+				"Ambitious"
+			],
+			"challenges": [
+				"Can be overly authoritative",
+				"May feel lonely or misunderstood",
+				"Struggles with failure and subordinate roles"
+			],
+			"karmic_notes": "If combined with Karmic Number 19/1, ego issues may persist."
+		},
+		"2": {
+			"overview": "A maturity number focused on harmony, cooperation, and diplomacy.",
+			"positive_traits": [
+				"Peaceful",
+				"Tolerant",
+				"Collaborative",
+				"Diplomatic",
+				"Organized"
+			],
+			"challenges": [
+				"Can become oversensitive or indecisive if multiple 2s are present"
+			],
+			"life_purpose": "To build supportive environments and achieve recognition through collaboration."
+		},
+		"3": {
+			"overview": "A maturity number linked to creativity, expression, and social influence.",
+			"positive_traits": [
+				"Creative",
+				"Sociable",
+				"Communicative",
+				"Radiant",
+				"Intellectually evolving"
+			],
+			"challenges": [
+				"Risk of superficiality",
+				"Can become pompous or selfish if multiple 3s present"
+			],
+			"life_outcome": "Happiness, recognition, and the ability to synthesize life lessons to benefit others."
+		},
+		"4": {
+			"overview": "A maturity number emphasizing practicality, organization, and material success.",
+			"positive_traits": [
+				"Practical",
+				"Organized",
+				"Reliable",
+				"Hardworking",
+				"Community-focused"
+			],
+			"challenges": [
+				"Can become rigid or overly focused on work",
+				"May compromise health if fanatical"
+			],
+			"karmic_notes": "If Karmic Number is 13/4, struggles in achieving goals may occur."
+		},
+		"5": {
+			"overview": "A maturity number associated with freedom, adventure, and dynamic experiences.",
+			"positive_traits": [
+				"Adventurous",
+				"Sociable",
+				"Creative",
+				"Adaptable",
+				"Energetic"
+			],
+			"challenges": [
+				"Risk of recklessness",
+				"Impatience",
+				"Tendency to abandon projects",
+				"Carelessness if multiple 5s"
+			],
+			"karmic_notes": "With Karmic Number 14/5, freedom may be hindered by past mistakes."
+		},
+		"6": {
+			"overview": "A maturity number focused on family, community, and service.",
+			"positive_traits": [
+				"Caring",
+				"Protective",
+				"Magnetic",
+				"Persuasive",
+				"Financially prudent"
+			],
+			"challenges": [
+				"May become overly focused on security",
+				"Reflection on past relationships if 6 repeats"
+			],
+			"life_outcome": "Brings close relationships and a sense of duty fulfillment."
+		},
+		"7": {
+			"overview": "A maturity number linked to wisdom, introspection, and spiritual exploration.",
+			"positive_traits": [
+				"Philosophical",
+				"Intuitive",
+				"Analytical",
+				"Spiritually inclined",
+				"Seeker of truth"
+			],
+			"challenges": [
+				"Can become detached or overly solitary",
+				"Skeptical nature may strain relationships"
+			],
+			"karmic_notes": "With Karmic Maturity Number 16/7, may avoid responsibilities."
+		},
+		"8": {
+			"overview": "A maturity number centered on material achievement, discipline, and public success.",
+			"positive_traits": [
+				"Disciplined",
+				"Persevering",
+				"Financially savvy",
+				"Leadership-oriented"
+			],
+			"challenges": [
+				"Risk of greed or obsession with wealth",
+				"May develop inflated ego"
+			],
+			"life_outcome": "Signifies tremendous success after long effort and recognition."
+		},
+		"9": {
+			"overview": "A maturity number considered a divine gift, associated with completion and humanitarianism.",
+			"positive_traits": [
+				"Idealistic",
+				"Humanitarian",
+				"Artistic",
+				"Wise",
+				"Spiritually aligned"
+			],
+			"challenges": [
+				"May become arrogant or aloof if 9 recurs frequently"
+			],
+			"life_purpose": "To restore harmony and work toward a better world."
+		},
+		"11": {
+			"overview": "A master maturity number amplifying intuition and psychic abilities.",
+			"positive_traits": [
+				"Intuitive",
+				"Clairvoyant",
+				"Spiritual",
+				"Healing-oriented",
+				"Insightful"
+			],
+			"challenges": [
+				"May struggle with grounding in mundane life"
+			],
+			"life_purpose": "To use intuitive gifts for healing, occult practice, or research."
+		},
+		"22": {
+			"overview": "A master maturity number combining practicality with spiritual evolution.",
+			"positive_traits": [
+				"Reliable",
+				"Visionary",
+				"Leader",
+				"Integrity-driven",
+				"Globally impactful"
+			],
+			"challenges": [
+				"Early life may be misunderstood or filled with self-doubt"
+			],
+			"life_outcome": "Destined for great achievements and lasting legacy."
+		}
+	}
+}

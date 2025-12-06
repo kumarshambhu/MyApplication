@@ -1,7 +1,6 @@
 package com.shambhu.myapplication.utils
 
 import android.content.Context
-import android.text.Html
 import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
 import java.nio.charset.Charset
 import java.text.SimpleDateFormat
@@ -23,12 +22,30 @@ object CommonUtils {
         }
     }
 
-    fun reduceNumber(n: Int): Int {
-        /** Reduce number to single digit unless it's a master number. */
-        if (n in listOf(11, 22, 33)) {
-            return n
+
+    fun parseDateTriple(dateString: String): Triple<Int, Int, Int> {
+        val d: LocalDate =  try {
+            val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            sdf.parse(dateString)?.let { sdf.format(it) } ?: "Invalid Date"
+            val sdfParse = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            sdfParse.parse(dateString)?.toInstant()?.atZone(ZoneId.systemDefault())?.toLocalDate()
+                ?: LocalDate.of(0, 1, 1)
+        } catch (_: Exception) {
+            LocalDate.of(0, 1, 1)
         }
-        var number = n
+
+        return Triple(d.dayOfMonth, d.monthValue, d.year)
+    }
+
+    fun reduceNumber(numerologyNumber: Int, ignore33: Boolean = true): Int {
+        /** Reduce number to single digit unless it's a master number. */
+        if(ignore33 and (numerologyNumber in listOf(11, 22)) ){
+            return numerologyNumber
+        }
+        if (numerologyNumber in listOf(11, 22, 33)) {
+            return numerologyNumber
+        }
+        var number = numerologyNumber
         while (number > 9) {
             number = number.toString().map { it.toString().toInt() }.sum()
         }

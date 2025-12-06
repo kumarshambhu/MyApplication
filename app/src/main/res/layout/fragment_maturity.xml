@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/maturity_background"
+        android:padding="8dp">
+
+        <!-- Input Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Numerology Calculator"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="1dp"/>
+        <!-- Results Section -->
+        <LinearLayout
+            android:id="@+id/resultsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:layout_marginTop="1dp"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Results"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Life Path Number -->
+            <TextView
+                android:id="@+id/tvLifePath"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/white_60"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Destiny Number -->
+            <TextView
+                android:id="@+id/tvDestiny"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/white_60"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Maturity Number -->
+            <TextView
+                android:id="@+id/tvMaturityNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#2196F3"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Overview -->
+            <TextView
+                android:id="@+id/tvOverview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"
+                android:textColor="@color/white_60"
+                android:textStyle="italic"/>
+
+            <!-- Positive Traits -->
+            <TextView
+                android:id="@+id/tvPositiveTraits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/white_60"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Challenges -->
+            <TextView
+                android:id="@+id/tvChallenges"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/white_60"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Additional Info -->
+            <TextView
+                android:id="@+id/tvAdditionalInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_60"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

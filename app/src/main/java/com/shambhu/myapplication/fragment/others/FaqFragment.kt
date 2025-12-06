@@ -1,4 +1,4 @@
-package com.shambhu.myapplication.fragment
+package com.shambhu.myapplication.fragment.others
 
 import android.os.Bundle
 import android.view.LayoutInflater

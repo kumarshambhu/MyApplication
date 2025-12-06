@@ -5,11 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.adapter.NumeroAccordionAdapter
 import com.shambhu.myapplication.databinding.FragmentNumeroProfileBinding
+import com.shambhu.myapplication.model.MulankBhagyankResponse
 import com.shambhu.myapplication.model.NumeroData
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.NumeroCalculator
@@ -66,6 +69,8 @@ class NumeroProfileFragment : Fragment() {
         val mulankNumber = calculator.calculateMulank(birthDate)
         val bhagyankNumber = calculator.calculateBhagyank(birthDate)
 
+        getMulankBhagyankSections(mulankNumber, bhagyankNumber)
+
 
         val elementsJson = CommonUtils.readAssetFile(requireContext(), "combination.json")
         val (remark, luck) = NumerologyCalculationUtils.calculateCombinationDobNumber(
@@ -103,6 +108,11 @@ class NumeroProfileFragment : Fragment() {
         binding.bhagyankCard.setOnClickListener {
             val isExpanded = binding.bhagyankRecyclerView.visibility == View.VISIBLE
             binding.bhagyankRecyclerView.visibility = if (isExpanded) View.GONE else View.VISIBLE
+        }
+
+        binding.mulankBhagyankCombinationLayout.cardDayInfo.setOnClickListener {
+            val isExpanded = binding.mulankBhagyankCombinationLayout.combinationDetails.visibility == View.VISIBLE
+            binding.mulankBhagyankCombinationLayout.combinationDetails.visibility = if (isExpanded) View.GONE else View.VISIBLE
         }
 
         // Setup RecyclerViews
@@ -233,5 +243,71 @@ class NumeroProfileFragment : Fragment() {
             ))
         }
         return list
+    }
+
+
+    private fun getMulankBhagyankSections(mulank: Int, bhagyank: Int){
+        val data =  Gson().fromJson(CommonUtils.readAssetFile(requireContext(), "dob_combination.json"), MulankBhagyankResponse::class.java)
+        val data1 = data.mulank_bhagyank_combinations
+        val data2 = data1.stream().filter { it-> it.day_number == mulank }.findFirst().get()
+
+        val data3 = data2.combinations
+        val data4 = data3.stream().filter { it-> it.combination.contains(bhagyank.toString()) }.findFirst().get()
+        binding.mulankBhagyankCombinationLayout.tvTitle.text = data4.combination
+        binding.mulankBhagyankCombinationLayout.tvDayTitle.text = "Day ${data2.day_number}"
+        binding.mulankBhagyankCombinationLayout.tvRuler.text = "Ruled by ${data2.ruler}"
+        binding.mulankBhagyankCombinationLayout.tvRating.text = data4.rating
+        binding.mulankBhagyankCombinationLayout.tvPlanets.text = data4.planets
+        binding.mulankBhagyankCombinationLayout.tvCharacter.text = data4.character
+        binding.mulankBhagyankCombinationLayout.tvCareer.text = data4.career
+        binding.mulankBhagyankCombinationLayout.tvLucky.text = data4.lucky
+        binding.mulankBhagyankCombinationLayout.tvHealth.text = data4.health
+        binding.mulankBhagyankCombinationLayout.tvWarning.text = data4.warning
+        binding.mulankBhagyankCombinationLayout.tvSolution.text = data4.solution
+        binding.mulankBhagyankCombinationLayout.tvTraits.text = data4.traits
+
+        val ratingColor = getRatingColor(requireContext(), data4.rating)
+        binding.mulankBhagyankCombinationLayout.tvRating.setTextColor(ratingColor)
+
+        if(data4.planets.isNullOrEmpty()){
+            binding.mulankBhagyankCombinationLayout.tvPlanets.visibility = View.GONE
+        }
+        if(data4.character.isNullOrEmpty()){
+            binding.mulankBhagyankCombinationLayout.tvCharacter.visibility = View.GONE
+        }
+        if(data4.career.isNullOrEmpty()){
+            binding.mulankBhagyankCombinationLayout.tvCareer.visibility = View.GONE
+        }
+        if(data4.lucky.isNullOrEmpty()){
+            binding.mulankBhagyankCombinationLayout.tvLucky.visibility = View.GONE
+        }
+        if(data4.health.isNullOrEmpty()){
+            binding.mulankBhagyankCombinationLayout.tvHealth.visibility = View.GONE
+        }
+        if(data4.warning.isNullOrEmpty()){
+            binding.mulankBhagyankCombinationLayout.tvWarning.visibility = View.GONE
+        }
+        if(data4.solution.isNullOrEmpty()){
+            binding.mulankBhagyankCombinationLayout.tvSolution.visibility = View.GONE
+        }
+        if(data4.traits.isNullOrEmpty()){
+            binding.mulankBhagyankCombinationLayout.tvTraits.visibility = View.GONE
+        }
+
+
+
+    }
+
+    private fun getRatingColor(context: android.content.Context, rating: String): Int {
+        return when (rating) {
+            "very_good", "most_powerful", "luckiest", "very_lucky" ->
+                ContextCompat.getColor(context, R.color.green)
+            "dangerous", "inimical" ->
+                ContextCompat.getColor(context, R.color.red)
+            "powerful" ->
+                ContextCompat.getColor(context, R.color.orange)
+            else ->
+                ContextCompat.getColor(context, R.color.gray)
+        }
     }
 }

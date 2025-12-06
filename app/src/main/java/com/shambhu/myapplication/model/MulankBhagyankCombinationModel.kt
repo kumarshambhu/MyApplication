@@ -1,4 +1,4 @@
-package com.shambhu.myapplication.fragment.others
+package com.shambhu.myapplication.model
 
 data class Combination(
     val combination: String,
@@ -9,7 +9,8 @@ data class Combination(
     val health: String,
     val warning: String,
     val solution: String,
-    val rating: String
+    val rating: String,
+    val traits: String
 )
 
 // MulankBhagyankCombination.kt
