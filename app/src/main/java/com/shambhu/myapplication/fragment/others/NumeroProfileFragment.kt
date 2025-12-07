@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.shambhu.myapplication.R
@@ -19,6 +20,7 @@ import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.NumeroCalculator
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import org.json.JSONObject
+import androidx.core.view.isVisible
 
 class NumeroProfileFragment : Fragment() {
 
@@ -100,37 +102,34 @@ class NumeroProfileFragment : Fragment() {
     private fun setupAccordion() {
         // Mulank accordion
         binding.mulankCard.setOnClickListener {
-            val isExpanded = binding.mulankRecyclerView.visibility == View.VISIBLE
-            Log.d("Mulank", "Mulank accordion clicked: " + isExpanded)
+            val isExpanded = binding.mulankRecyclerView.isVisible
             binding.mulankRecyclerView.visibility = if (isExpanded) View.GONE else View.VISIBLE
-            binding.mulankToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_remove else R.drawable.ic_add)
+            binding.mulankToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_add else R.drawable.ic_remove)
         }
 
         // Bhagyank accordion
         binding.bhagyankCard.setOnClickListener {
-            val isExpanded = binding.bhagyankRecyclerView.visibility == View.VISIBLE
-            Log.d("Bhagyank", "Bhagyank accordion clicked: " + isExpanded)
+            val isExpanded = binding.bhagyankRecyclerView.isVisible
             binding.bhagyankRecyclerView.visibility = if (isExpanded) View.GONE else View.VISIBLE
-            binding.bhagyankToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_remove else R.drawable.ic_add)
+            binding.bhagyankToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_add else R.drawable.ic_remove)
         }
-
-       /* binding.mulankBhagyankCombinationLayout.cardDayInfo.setOnClickListener {
-            val isExpanded = binding.mulankBhagyankCombinationLayout.combinationDetails.visibility == View.VISIBLE
+        binding.mulankBhagyankCombinationLayout.cardDayInfo.setOnClickListener {
+            val isExpanded = binding.mulankBhagyankCombinationLayout.combinationDetails.isVisible
             binding.mulankBhagyankCombinationLayout.combinationDetails.visibility = if (isExpanded) View.GONE else View.VISIBLE
-            binding.mulankToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_remove else R.drawable.ic_add)
-        }*/
+            binding.mulankBhagyankCombinationLayout.combinationExpandableIcon.setImageResource(if (isExpanded) R.drawable.ic_add else R.drawable.ic_remove)
+        }
 
         // Setup RecyclerViews
         binding.mulankRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.bhagyankRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         mulankData?.let {
-            val adapter = NumeroAccordionAdapter(getMulankSections(it))
+            val adapter = NumeroAccordionAdapter(requireContext(), getMulankSections(it))
             binding.mulankRecyclerView.adapter = adapter
         }
 
         bhagyankData?.let {
-            val adapter = NumeroAccordionAdapter(getBhagyankSections(it))
+            val adapter = NumeroAccordionAdapter(requireContext(), getBhagyankSections(it))
             binding.bhagyankRecyclerView.adapter = adapter
         }
 
@@ -151,7 +150,7 @@ class NumeroProfileFragment : Fragment() {
                 data.unfavorablePeriods?.map { "${it.time}: ${it.description}" } ?: emptyList()),
             NumeroAccordionAdapter.Section("Lucky Colors", data.luckyColors),
             NumeroAccordionAdapter.Section("Color Usage Tips", data.colorUsageTips)
-        )
+        ).filter { it.items.isNotEmpty() }
     }
 
     private fun getBhagyankSections(data: NumeroData): List<NumeroAccordionAdapter.Section> {
@@ -163,7 +162,7 @@ class NumeroProfileFragment : Fragment() {
                 data.genderSpecific?.get("men") ?: emptyList()),
             NumeroAccordionAdapter.Section("Gender Specific - Women",
                 data.genderSpecific?.get("women") ?: emptyList())
-        )
+        ).filter { it.items.isNotEmpty() }
     }
 
     private fun loadMulankData(number: Int): NumeroData? {

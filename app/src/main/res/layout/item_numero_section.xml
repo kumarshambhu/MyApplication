@@ -19,7 +19,7 @@
         android:textSize="16sp"
         android:textStyle="bold" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/sectionContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,7 +29,14 @@
         android:paddingBottom="8dp"
         android:text="Section Content"
         android:textColor="@color/secondary_text"
-        android:textSize="14sp" />
+        android:textSize="14sp" />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sectionContentRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="8dp"/>
 
 </LinearLayout>
 
