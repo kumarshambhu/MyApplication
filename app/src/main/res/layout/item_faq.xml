@@ -19,8 +19,6 @@
             android:layout_height="wrap_content"
             android:layout_toStartOf="@+id/toggleIcon"
             android:text="What is the AI Scheduling Assistant?"
-            android:textColor="#EDE8F5"
-            android:textSize="16sp"
             android:layout_centerVertical="true"/>
 
         <ImageView
@@ -38,8 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="The answer goes here."
-        android:textColor="#BD76FF"
-        android:textSize="14sp"
         android:visibility="visible" />
 
 </LinearLayout>

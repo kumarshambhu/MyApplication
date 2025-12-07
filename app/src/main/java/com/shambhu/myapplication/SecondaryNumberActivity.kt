@@ -74,6 +74,7 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
                     1 -> getDrawable(R.drawable.ic_personal)
                     2 -> getDrawable(R.drawable.ic_mirrors)
                     3 -> getDrawable(R.drawable.ic_mirrors)
+                    4 -> getDrawable(R.drawable.ic_mirrors)
                     else -> null
                 }
             )
@@ -83,6 +84,7 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
                     1 -> "Colors"
                     2 -> "Personal"
                     3 -> "Lucky"
+                    4 -> "Font"
                     else -> null
                 }
             }

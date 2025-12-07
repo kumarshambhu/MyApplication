@@ -3,6 +3,7 @@ package com.shambhu.myapplication.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.shambhu.myapplication.fragment.secondary_number.FontTestFragment
 import com.shambhu.myapplication.fragment.secondary_number.NameElementFragment
 import com.shambhu.myapplication.fragment.secondary_number.LuckyNumberFragment
 import com.shambhu.myapplication.fragment.secondary_number.NameColorFragment
@@ -15,7 +16,7 @@ class SecondaryNumberPagerAdapter(
 ) : FragmentStateAdapter(fa) {
 
     override fun getItemCount(): Int {
-        return 4
+        return 5
     }
 
     override fun createFragment(position: Int): Fragment {
@@ -24,6 +25,7 @@ class SecondaryNumberPagerAdapter(
             1 -> NameColorFragment.newInstance(dob, fullName)
             2 -> PersonalMonthYearFragment.newInstance(dob, fullName)
             3 -> LuckyNumberFragment.newInstance(dob, fullName)
+            4 -> FontTestFragment.newInstance(dob, fullName)
             else -> throw IllegalStateException("Invalid position: $position")
         }
     }

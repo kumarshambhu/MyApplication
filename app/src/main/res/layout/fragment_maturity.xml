@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Results"
-                android:textSize="20sp"
+                android:textColor="@color/primary_text"
                 android:textStyle="bold"
 
                 android:layout_marginBottom="16dp"/>
@@ -44,9 +44,7 @@
                 android:id="@+id/tvLifePath"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
                 android:text="Numerology Calculator"
-                android:textColor="@color/white_60"
                 android:layout_marginBottom="8dp"/>
 
             <!-- Destiny Number -->
@@ -54,9 +52,7 @@
                 android:id="@+id/tvDestiny"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
                 android:text="Numerology Calculator"
-                android:textColor="@color/white_60"
                 android:layout_marginBottom="8dp"/>
 
             <!-- Overview -->
@@ -64,10 +60,8 @@
                 android:id="@+id/tvOverview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
                 android:text="Numerology Calculator"
                 android:layout_marginBottom="16dp"
-                android:textColor="@color/white_60"
                 android:textStyle="italic"/>
 
             <!-- Positive Traits -->
@@ -75,16 +69,15 @@
                 android:id="@+id/tvPositiveTraits"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
                 android:textStyle="bold"
+                android:textColor="@color/primary_text"
                 android:text="Positive Traits"
-                android:textColor="@color/white_60"
                 android:layout_marginBottom="8dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/positiveTraitsRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="8dp"/>
 
@@ -96,13 +89,13 @@
                 android:textSize="20sp"
                 android:text="Challenges"
                 android:textStyle="bold"
-                android:textColor="@color/white_60"
+                android:textColor="@color/primary_text"
                 android:layout_marginBottom="8dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/challengesRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="8dp"/>
 
@@ -111,15 +104,14 @@
                 android:id="@+id/tvAdditionalInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white_60"
+                android:textColor="@color/primary_text"
                 android:text="Additional Info"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:textStyle="bold"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/additionalInfoRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="8dp"/>
 

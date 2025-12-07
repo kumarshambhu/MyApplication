@@ -16,11 +16,10 @@
             android:id="@+id/successNumberText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
             android:text="Your Success Number"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="0dp"/>
         <!-- Result Section -->
         <LinearLayout
             android:id="@+id/resultLayout"
@@ -37,12 +36,13 @@
                 android:text="Qualities:"
                 android:textStyle="bold"
                 android:textSize="20sp"
+                android:textColor="@color/primary_text"
                 android:layout_marginBottom="8dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/qualitiesRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="8dp"/>
 
@@ -53,13 +53,13 @@
                 android:layout_height="wrap_content"
                 android:text="Challenges:"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textColor="@color/primary_text"
                 android:layout_marginBottom="8dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/challengesRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="8dp"/>
 

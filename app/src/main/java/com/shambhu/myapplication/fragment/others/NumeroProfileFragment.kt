@@ -23,7 +23,6 @@ class NumeroProfileFragment : Fragment() {
 
     private var _binding: FragmentNumeroProfileBinding? = null
     private val binding get() = _binding!!
-
     private var birthDate: String = ""
     private var mulankData: NumeroData? = null
     private var bhagyankData: NumeroData? = null

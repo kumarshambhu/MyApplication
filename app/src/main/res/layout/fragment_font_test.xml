@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/mystical_gradient_background"
+    android:layout_margin="20dp"
+    tools:context=".fragment.secondary_number.FontTestFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sample_text_medium"
+        android:fontFamily="@font/nunito_regular"
+        android:textColor="#faf2ea"
+        android:textSize="20sp"
+        android:layout_marginBottom="30sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sample_text_medium"
+        android:textSize="20sp"
+        android:layout_marginBottom="30sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sample_text_medium"
+        android:fontFamily="@font/roboto_regular"
+        android:textSize="20sp"
+        android:textColor="#faf2ea"
+        android:layout_marginBottom="30sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sample_text_medium"
+        android:textSize="20sp"
+        android:textColor="#eaeafa"
+        android:fontFamily="@font/roboto_regular"/>
+
+</LinearLayout>

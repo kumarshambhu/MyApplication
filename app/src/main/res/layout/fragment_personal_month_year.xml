@@ -15,7 +15,7 @@
             android:id="@+id/personalMonthColumn"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:fontFamily="@font/mystical_font"
+
             android:gravity="center"
             android:padding="8dp"
             android:text="@string/personal_month"
@@ -30,7 +30,7 @@
             android:id="@+id/tvPersonalMonth"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:fontFamily="@font/mystical_font"
+
             android:padding="8dp"
             android:text="0"
             android:textColor="@color/gold"
@@ -44,11 +44,9 @@
             android:id="@+id/tvPersonalMonthInterpretation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mystical_font"
+
             android:padding="16dp"
             android:text="@string/interpretation"
-            android:textColor="@color/white"
-            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPersonalMonth" />
@@ -70,7 +68,7 @@
             android:id="@+id/column1"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:fontFamily="@font/mystical_font"
+
             android:gravity="center"
             android:padding="8dp"
             android:text="@string/personal_year"
@@ -86,7 +84,7 @@
             android:id="@+id/tvPersonalYear"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:fontFamily="@font/mystical_font"
+
             android:padding="8dp"
             android:text="0"
             android:textColor="@color/gold"
@@ -101,11 +99,8 @@
             android:id="@+id/tvPersonalYearInterpretation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mystical_font"
             android:padding="16dp"
             android:text="@string/interpretation"
-            android:textColor="@color/white"
-            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/column1" />
