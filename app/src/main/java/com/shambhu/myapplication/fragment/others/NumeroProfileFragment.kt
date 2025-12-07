@@ -114,11 +114,11 @@ class NumeroProfileFragment : Fragment() {
             binding.bhagyankToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_remove else R.drawable.ic_add)
         }
 
-       /* binding.mulankBhagyankCombinationLayout.cardDayInfo.setOnClickListener {
+        binding.mulankBhagyankCombinationLayout.cardDayInfo.setOnClickListener {
             val isExpanded = binding.mulankBhagyankCombinationLayout.combinationDetails.visibility == View.VISIBLE
             binding.mulankBhagyankCombinationLayout.combinationDetails.visibility = if (isExpanded) View.GONE else View.VISIBLE
-            binding.mulankToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_remove else R.drawable.ic_add)
-        }*/
+            binding.mulankBhagyankCombinationLayout.combinationToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_expand_more else R.drawable.ic_expand_less)
+        }
 
         // Setup RecyclerViews
         binding.mulankRecyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -137,6 +137,7 @@ class NumeroProfileFragment : Fragment() {
         // Initially collapse both
         binding.mulankRecyclerView.visibility = View.GONE
         binding.bhagyankRecyclerView.visibility = View.GONE
+        binding.mulankBhagyankCombinationLayout.combinationDetails.visibility = View.GONE
     }
 
     private fun getMulankSections(data: NumeroData): List<NumeroAccordionAdapter.Section> {
