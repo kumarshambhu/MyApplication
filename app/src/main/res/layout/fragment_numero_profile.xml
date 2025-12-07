@@ -38,30 +38,31 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <LinearLayout
+                <RelativeLayout
+                    android:id="@+id/questionLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <com.google.android.material.textview.MaterialTextView
+                    android:requiresFadingEdge="vertical">
+                    <TextView
                         android:id="@+id/mulankTitle"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="50dp"
+                        android:layout_toStartOf="@+id/mulankToggleIcon"
                         android:text="Mulank"
+                        android:textStyle="bold"
                         android:textColor="@color/primary_text"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
+                        android:layout_centerVertical="true"/>
                     <ImageView
+                        android:id="@+id/mulankToggleIcon"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="8dp"
-                        android:contentDescription="Expand"
-                        android:src="@drawable/ic_expand_more" />
-                </LinearLayout>
-                
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/primary_text"
+                        android:layout_centerVertical="true"
+                        android:textStyle="bold"
+                        android:src="@drawable/ic_add" />
+                </RelativeLayout>
+
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/mulankDetails"
@@ -93,31 +94,29 @@
                 android:background="@drawable/bhagyank_background"
                 android:orientation="vertical"
                 android:padding="16dp">
-
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
-                    android:orientation="horizontal">
-
-
-                    <com.google.android.material.textview.MaterialTextView
+                    android:requiresFadingEdge="vertical">
+                    <TextView
                         android:id="@+id/bhagyankTitle"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Bhagyank"
+                        android:layout_toStartOf="@+id/bhagyankToggleIcon"
+                        android:text="Mulank"
+                        android:textStyle="bold"
                         android:textColor="@color/primary_text"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
+                        android:layout_centerVertical="true"/>
                     <ImageView
+                        android:id="@+id/bhagyankToggleIcon"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="8dp"
-                        android:contentDescription="Expand"
-                        android:src="@drawable/ic_expand_more" />
-                </LinearLayout>
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/primary_text"
+                        android:layout_centerVertical="true"
+                        android:textStyle="bold"
+                        android:src="@drawable/ic_add" />
+                </RelativeLayout>
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/bhagyankDetails"

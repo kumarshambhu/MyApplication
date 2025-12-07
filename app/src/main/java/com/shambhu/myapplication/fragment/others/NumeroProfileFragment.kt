@@ -2,6 +2,7 @@ package com.shambhu.myapplication.fragment.others
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -100,19 +101,24 @@ class NumeroProfileFragment : Fragment() {
         // Mulank accordion
         binding.mulankCard.setOnClickListener {
             val isExpanded = binding.mulankRecyclerView.visibility == View.VISIBLE
+            Log.d("Mulank", "Mulank accordion clicked: " + isExpanded)
             binding.mulankRecyclerView.visibility = if (isExpanded) View.GONE else View.VISIBLE
+            binding.mulankToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_remove else R.drawable.ic_add)
         }
 
         // Bhagyank accordion
         binding.bhagyankCard.setOnClickListener {
             val isExpanded = binding.bhagyankRecyclerView.visibility == View.VISIBLE
+            Log.d("Bhagyank", "Bhagyank accordion clicked: " + isExpanded)
             binding.bhagyankRecyclerView.visibility = if (isExpanded) View.GONE else View.VISIBLE
+            binding.bhagyankToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_remove else R.drawable.ic_add)
         }
 
-        binding.mulankBhagyankCombinationLayout.cardDayInfo.setOnClickListener {
+       /* binding.mulankBhagyankCombinationLayout.cardDayInfo.setOnClickListener {
             val isExpanded = binding.mulankBhagyankCombinationLayout.combinationDetails.visibility == View.VISIBLE
             binding.mulankBhagyankCombinationLayout.combinationDetails.visibility = if (isExpanded) View.GONE else View.VISIBLE
-        }
+            binding.mulankToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_remove else R.drawable.ic_add)
+        }*/
 
         // Setup RecyclerViews
         binding.mulankRecyclerView.layoutManager = LinearLayoutManager(requireContext())
