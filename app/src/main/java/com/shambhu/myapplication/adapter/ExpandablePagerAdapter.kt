@@ -9,6 +9,7 @@ import com.shambhu.myapplication.fragment.core_number.KarmicNumberFragment
 import com.shambhu.myapplication.fragment.core_number.LoshuGridFragment
 import com.shambhu.myapplication.fragment.core_number.ChallengeNumberFragment
 import com.shambhu.myapplication.fragment.core_number.PinnacleNumberFragment
+import com.shambhu.myapplication.fragment.others.GridPairsFragment
 import com.shambhu.myapplication.fragment.others.MaturityFragment
 import com.shambhu.myapplication.fragment.others.MobileNumerologyFragment
 import com.shambhu.myapplication.fragment.others.NameGridFragment
@@ -30,7 +31,7 @@ class ExpandablePagerAdapter(
             2 -> NumeroProfileFragment.newInstance(dob)
             3 -> MaturityFragment.newInstance(dob, fullName)
             4 -> SuccessNumberFragment.newInstance(dob, fullName)
-            5 -> MobileNumerologyFragment()
+            5 -> GridPairsFragment()
             else -> throw IllegalStateException("Invalid position: $position")
         }
     }
