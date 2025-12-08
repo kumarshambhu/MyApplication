@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentLuckyNumberBinding
 import com.shambhu.myapplication.utils.CommonUtils
@@ -17,6 +20,7 @@ class LuckyNumberFragment : Fragment() {
 
     private var _binding: FragmentLuckyNumberBinding? = null
     private val binding get() = _binding!!
+    private lateinit var numerologyData: List<PlanetData>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +32,7 @@ class LuckyNumberFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loadNumerologyData()
         arguments?.let {
             val dob = it.getString(Constants.ARG_DOB)
             val fullName = it.getString(Constants.ARG_FULL_NAME)
@@ -44,24 +49,9 @@ class LuckyNumberFragment : Fragment() {
         val year = date.year
 
         // Calculate and display lucky numbers
-        val luckyNumbers = NumerologyCalculationUtils.calculatePrimaryLuckyNumbers(day, month, year, fullName)
-        binding.luckyNumbersContainer.removeAllViews()
-        val inflater = LayoutInflater.from(requireContext())
-
-        for ((name, number) in luckyNumbers) {
-            val textView = inflater.inflate(R.layout.item_lucky_number, binding.luckyNumbersContainer, false) as TextView
-            textView.text = "$name: $number"
-            binding.luckyNumbersContainer.addView(textView)
-        }
-
-        // Calculate and display unlucky numbers (Karmic Debt)
-        val karmicDebtNumbers = NumerologyCalculationUtils.calculateKarmicDebtNumbers(day, month, year, fullName)
-        val unluckyNumbersText = if (karmicDebtNumbers.isNotEmpty()) {
-            karmicDebtNumbers.joinToString(", ") { "${it.first}: ${it.second}" }
-        } else {
-            "None"
-        }
-        binding.unluckyNumbersValueTextView.text = unluckyNumbersText
+        val mulank = NumerologyCalculationUtils.calculateBirthdayNumber(day)
+        val bhagyank = NumerologyCalculationUtils.calculateLifePath(day, month, year)
+        calculateNumerology(mulank, bhagyank)
     }
 
     override fun onDestroyView() {
@@ -79,4 +69,104 @@ class LuckyNumberFragment : Fragment() {
             return fragment
         }
     }
+
+    private fun calculateNumerology(mulank: Int, bhagyank: Int) {
+
+        val mulankData = numerologyData.find { it.number == mulank }
+        val bhagyankData = numerologyData.find { it.number == bhagyank }
+
+        if (mulankData == null || bhagyankData == null) {
+            showError("Invalid numerology data")
+            return
+        }
+
+        // Calculate common numbers
+        val commonLucky = mulankData.lucky_numbers.intersect(bhagyankData.lucky_numbers)
+        val commonEnemy = mulankData.enemy_numbers.intersect(bhagyankData.enemy_numbers)
+        val commonNeutral = mulankData.neutral_numbers.intersect(bhagyankData.neutral_numbers)
+
+        // Display results
+        displayResults(mulankData, bhagyankData, commonLucky, commonEnemy, commonNeutral)
+    }
+
+    private fun loadNumerologyData() {
+        try {
+            val jsonString = requireContext().assets.open("lucky_numerology_data.json")
+                .bufferedReader().use { it.readText() }
+
+            val gson = Gson()
+            val type = object : TypeToken<Map<String, List<PlanetData>>>() {}.type
+            val data: Map<String, List<PlanetData>> = gson.fromJson(jsonString, type)
+            numerologyData = data["numerology_data"] ?: emptyList()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Toast.makeText(requireContext(), "Error loading data", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun displayResults(
+        mulankData: PlanetData,
+        bhagyankData: PlanetData,
+        commonLucky: Set<Int>,
+        commonEnemy: Set<Int>,
+        commonNeutral: Set<Int>
+    ) {
+        // Show results card
+        binding.resultsCard.visibility = View.VISIBLE
+
+        // Hide error if visible
+        binding.errorTextView.visibility = View.GONE
+
+        // Display common numbers
+        binding.luckyNumbersText.text = if (commonLucky.isNotEmpty()) {
+            commonLucky.sorted().joinToString(", ")
+        } else {
+            "None"
+        }
+
+        binding.enemyNumbersText.text = if (commonEnemy.isNotEmpty()) {
+            commonEnemy.sorted().joinToString(", ")
+        } else {
+            "None"
+        }
+
+        binding.neutralNumbersText.text = if (commonNeutral.isNotEmpty()) {
+            commonNeutral.sorted().joinToString(", ")
+        } else {
+            "None"
+        }
+
+        // Display planet information
+        binding.mulankPlanetInfo.visibility = View.VISIBLE
+        binding.bhagyankPlanetInfo.visibility = View.VISIBLE
+
+        binding.mulankPlanetName.text = "Mulank: ${mulankData.planet} (${mulankData.role})"
+        binding.mulankLucky.text = "Lucky: ${mulankData.lucky_numbers.sorted().joinToString(",")}"
+        binding.mulankEnemy.text = "Enemy: ${mulankData.enemy_numbers.sorted().joinToString(",")}"
+        binding.mulankNeutral.text =
+            "Neutral: ${mulankData.neutral_numbers.sorted().joinToString(",")}"
+
+        binding.bhagyankPlanetName.text = "Bhagyank: ${bhagyankData.planet} (${bhagyankData.role})"
+        binding.bhagyankLucky.text =
+            "Lucky: ${bhagyankData.lucky_numbers.sorted().joinToString(",")}"
+        binding.bhagyankEnemy.text =
+            "Enemy: ${bhagyankData.enemy_numbers.sorted().joinToString(",")}"
+        binding.bhagyankNeutral.text =
+            "Neutral: ${bhagyankData.neutral_numbers.sorted().joinToString(",")}"
+    }
+
+    private fun showError(message: String) {
+        binding.errorTextView.text = message
+        binding.errorTextView.visibility = View.VISIBLE
+        binding.resultsCard.visibility = View.GONE
+    }
+
+    data class PlanetData(
+        val number: Int,
+        val planet: String,
+        val role: String,
+        val lucky_numbers: List<Int>,
+        val enemy_numbers: List<Int>,
+        val neutral_numbers: List<Int>
+    )
 }

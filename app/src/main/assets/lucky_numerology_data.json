@@ -1,0 +1,76 @@
+{
+  "numerology_data": [
+    {
+      "number": 1,
+      "planet": "Sun",
+      "role": "King",
+      "lucky_numbers": [1, 2, 3, 5, 6, 9],
+      "enemy_numbers": [8],
+      "neutral_numbers": [4, 7]
+    },
+    {
+      "number": 2,
+      "planet": "Moon",
+      "role": "Queen",
+      "lucky_numbers": [1, 2, 3, 5],
+      "enemy_numbers": [4, 8, 9],
+      "neutral_numbers": [6, 7]
+    },
+    {
+      "number": 3,
+      "planet": "Jupiter",
+      "role": "Teacher",
+      "lucky_numbers": [1, 2, 3, 5, 7],
+      "enemy_numbers": [6],
+      "neutral_numbers": [4, 8, 9]
+    },
+    {
+      "number": 4,
+      "planet": "Rahu",
+      "role": "Mysterious",
+      "lucky_numbers": [1, 5, 6, 7, 8, 4],
+      "enemy_numbers": [2, 9],
+      "neutral_numbers": [3]
+    },
+    {
+      "number": 5,
+      "planet": "Mercury",
+      "role": "Prince",
+      "lucky_numbers": [1, 2, 3, 5, 6],
+      "enemy_numbers": [],
+      "neutral_numbers": [4, 7, 8, 9]
+    },
+    {
+      "number": 6,
+      "planet": "Venus",
+      "role": "Teacher",
+      "lucky_numbers": [1, 5, 6, 7],
+      "enemy_numbers": [3],
+      "neutral_numbers": [2, 4, 8, 9]
+    },
+    {
+      "number": 7,
+      "planet": "Ketu",
+      "role": "Saint",
+      "lucky_numbers": [1, 3, 4, 5, 6],
+      "enemy_numbers": [],
+      "neutral_numbers": [2, 7, 8, 9]
+    },
+    {
+      "number": 8,
+      "planet": "Saturn",
+      "role": "Judge",
+      "lucky_numbers": [3, 5, 6, 7, 4, 8],
+      "enemy_numbers": [1, 2],
+      "neutral_numbers": [9]
+    },
+    {
+      "number": 9,
+      "planet": "Mars",
+      "role": "Commander",
+      "lucky_numbers": [1, 3, 5],
+      "enemy_numbers": [4, 2],
+      "neutral_numbers": [6, 7, 8, 9]
+    }
+  ]
+}
