@@ -69,6 +69,7 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                     2 -> getDrawable(R.drawable.ic_mic)
                     3 -> getDrawable(R.drawable.ic_mic)
                     4 -> getDrawable(R.drawable.ic_mic)
+                    5 -> getDrawable(R.drawable.ic_mic)
                     else -> null
                 }
             )
@@ -79,6 +80,7 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                     2 -> "Core"
                     3 -> "Maturity"
                     4 -> "Success"
+                    5 -> "Mobile"
                     else -> null
                 }
             }

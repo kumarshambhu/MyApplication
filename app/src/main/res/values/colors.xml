@@ -76,4 +76,12 @@
     <color name="blue_600">#FF1E88E5</color>
     <color name="gray_600">#FF757575</color>
 
+
+
+    <color name="state_color">#4CAF50</color>
+    <color name="chip_background">#2196F3</color>
+    <color name="universal_benefic">#4CAF50</color>
+    <color name="neutral_combinations">#FF9800</color>
+    <color name="malefic_combinations">#F44336</color>
+
 </resources>
