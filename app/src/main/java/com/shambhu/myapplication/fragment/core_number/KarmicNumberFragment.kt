@@ -14,11 +14,11 @@ import com.shambhu.myapplication.databinding.FragmentKarmicNumberBinding
 import com.shambhu.myapplication.model.KarmicAccordionItem
 import com.shambhu.myapplication.model.KarmicDebt
 import com.shambhu.myapplication.model.KarmicDebtResponse
+import com.shambhu.myapplication.service.NumerologyService
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
-import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import org.json.JSONObject
 import kotlin.String
 import kotlin.collections.List
@@ -29,6 +29,7 @@ class KarmicNumberFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var karmicDebtRecyclerViewAdapter: KarmicDebtRecyclerViewAdapter
     private lateinit var karmicLessonAdapter: KarmicLessonRecyclerViewAdapter
+    private lateinit var numerologyService: NumerologyService
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,11 +59,10 @@ class KarmicNumberFragment : Fragment() {
     }
 
     private fun karmicLessonCreation(fullName: String) {
-        val missing = NumerologyCalculationUtils.calculateKarmicFromName(fullName)
+        val missing = numerologyService.calculateKarmicFromName(fullName)
         binding.karmicLessonNumberValue.text = missing.joinToString(", ")
 
-        val karmicLessonsJson =
-            CommonUtils.readAssetFile(requireContext(), "karmic_lesson_debt.json")
+        val karmicLessonsJson = numerologyService.getKarmicLessonDebtJson()
         val karmicLessonsObject = JSONObject(karmicLessonsJson).getJSONObject("karmic_lesson")
 
         val karmicLessons = missing.map { number ->
@@ -96,7 +96,7 @@ class KarmicNumberFragment : Fragment() {
         val year = date.year
 
         val karmicDebtNumbers =
-            NumerologyCalculationUtils.calculateKarmicDebtNumbers(day, month, year, fullName)
+            numerologyService.calculateKarmicDebtNumbers(day, month, year, fullName)
 
         if (karmicDebtNumbers.isEmpty()) {
             binding.tvNoKarmicDebt.visibility = View.VISIBLE
@@ -109,9 +109,8 @@ class KarmicNumberFragment : Fragment() {
     }
 
     private fun setupKarmicDebtRecyclerView(karmicDebtNumbers: List<Pair<String, Int>>) {
-        val interpretations = loadInterpretations()
         val data = Gson().fromJson(
-            CommonUtils.readAssetFile(requireContext(), "karmic_debt.json"),
+            numerologyService.getKarmicLessonDebtJson(),
             KarmicDebtResponse::class.java
         )
         val data1 = data.karmic_debt
@@ -126,7 +125,6 @@ class KarmicNumberFragment : Fragment() {
                 summary = data2?.summary,
                 potentialOutcome = data2?.potentialOutcome, isExpanded = false
             )
-            //KarmicAccordionItem("$number", source, interpretations[number.toString()].toString())
         }
 
         karmicDebtRecyclerViewAdapter = KarmicDebtRecyclerViewAdapter(requireContext(),accordionItems) { position ->
@@ -139,24 +137,6 @@ class KarmicNumberFragment : Fragment() {
         binding.rvKarmicDebt.adapter = karmicDebtRecyclerViewAdapter
     }
 
-    private fun loadInterpretations(): Map<String, String> {
-        val interpretations = mutableMapOf<String, String>()
-        try {
-            val inputStream = context?.assets?.open("karmic_lesson_debt.json")
-            val json = inputStream?.bufferedReader().use { it?.readText() }
-            val jsonObject = JSONObject(json)
-            val karmicDebtObject = jsonObject.getJSONObject("karmic_debt")
-            val keys = karmicDebtObject.keys()
-            while (keys.hasNext()) {
-                val key = keys.next()
-                interpretations[key] = karmicDebtObject.getString(key)
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return interpretations
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -165,9 +145,10 @@ class KarmicNumberFragment : Fragment() {
     companion object {
 
         fun newInstance(
-            dob: String, fullName: String
+            dob: String, fullName: String, numerologyService: NumerologyService
         ): KarmicNumberFragment {
             val fragment = KarmicNumberFragment()
+            fragment.numerologyService = numerologyService
             val args = Bundle()
             args.putString(ARG_DOB, dob)
             args.putString(ARG_FULL_NAME, fullName)

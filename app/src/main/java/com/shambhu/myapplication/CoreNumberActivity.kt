@@ -16,6 +16,8 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.shambhu.myapplication.adapter.CoreNumberPagerAdapter
 import com.shambhu.myapplication.databinding.ActivityCoreNumberBinding
+import com.shambhu.myapplication.repository.NumerologyRepository
+import com.shambhu.myapplication.service.NumerologyService
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_DATE_OF_BIRTH
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_FULL_NAME
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_NAME
@@ -23,12 +25,16 @@ import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_NAME
 class CoreNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityCoreNumberBinding
+    private lateinit var numerologyService: NumerologyService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCoreNumberBinding.inflate(layoutInflater)
         setContentView(binding.root)
         enableEdgeToEdge()
+
+        val repository = NumerologyRepository(applicationContext)
+        numerologyService = NumerologyService(repository)
 
         val viewPager = binding.viewPager
         val tabs = binding.tabs
@@ -37,7 +43,7 @@ class CoreNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         val fullName = sharedPref?.getString(PREFERENCE_FULL_NAME, "Guest").toString()
         val dob = sharedPref?.getString(PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
 
-        viewPager.adapter = CoreNumberPagerAdapter(this, dob, fullName)
+        viewPager.adapter = CoreNumberPagerAdapter(this, dob, fullName, numerologyService)
         TabLayoutMediator(tabs, viewPager) { tab, position ->
             tab.setCustomView(R.layout.custom_tab)
             val tabIcon = tab.customView?.findViewById<ImageView>(R.id.tab_icon)

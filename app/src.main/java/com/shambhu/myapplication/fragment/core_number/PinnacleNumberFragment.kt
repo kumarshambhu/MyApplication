@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentPinnacleNumberBinding
+import com.shambhu.myapplication.repository.NumerologyRepository
 import com.shambhu.myapplication.service.NumerologyService
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
@@ -26,6 +27,10 @@ class PinnacleNumberFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val repository = NumerologyRepository(requireContext())
+        numerologyService = NumerologyService(repository)
+
         arguments?.let {
             val date = CommonUtils.parseDate(it.getString(Constants.ARG_DOB).toString())
             val day = date.dayOfMonth
@@ -68,9 +73,8 @@ class PinnacleNumberFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(dob: String, fullName: String, numerologyService: NumerologyService): PinnacleNumberFragment {
+        fun newInstance(dob: String, fullName: String): PinnacleNumberFragment {
             val fragment = PinnacleNumberFragment()
-            fragment.numerologyService = numerologyService
             val args = Bundle()
             args.putString(Constants.Companion.ARG_DOB, dob)
             args.putString(Constants.Companion.ARG_FULL_NAME, fullName)

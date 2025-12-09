@@ -20,9 +20,9 @@ import com.shambhu.myapplication.model.LoshuGridPlaneAccordionItem
 import com.shambhu.myapplication.model.LoshuGridPlanes
 import com.shambhu.myapplication.model.Plane
 import com.shambhu.myapplication.model.Section
+import com.shambhu.myapplication.service.NumerologyService
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
-import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils.convertToHtml
 import org.json.JSONArray
 import org.json.JSONObject
@@ -33,6 +33,7 @@ class LoshuGridFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var gridPlaneRecyclerViewAdapter: LoshuGridPlaneRecyclerViewAdapter
+    private lateinit var numerologyService: NumerologyService
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,6 +47,7 @@ class LoshuGridFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
+
         arguments?.getString(Constants.Companion.ARG_DOB)?.let { dob ->
             var digits = dob.filter { it.isDigit() }
 
@@ -55,10 +57,10 @@ class LoshuGridFragment : Fragment() {
             val birthMonth = birthDate.monthValue
             val birthYear = birthDate.year
 
-            val mulankNumber = NumerologyCalculationUtils.calculateBirthdayNumber(birthDay)
+            val mulankNumber = numerologyService.calculateBirthdayNumber(birthDay)
             val bhagyankNumber =
-                NumerologyCalculationUtils.calculateLifePath(birthDay, birthMonth, birthYear)
-            val kuaNumber = NumerologyCalculationUtils.calculateKuaNumber(birthYear, true)
+                numerologyService.calculateLifePath(birthDay, birthMonth, birthYear)
+            val kuaNumber = numerologyService.calculateKuaNumber(birthYear, true)
 
             binding.loshuGridDobValue.text = dob
             binding.loshuGridMulankValue.text = mulankNumber.toString()
@@ -88,7 +90,7 @@ class LoshuGridFragment : Fragment() {
             updateCell(binding.cell8, 8, numberCounts[8])
             updateCell(binding.cell9, 9, numberCounts[9])
 
-            val loshuPlanes = NumerologyCalculationUtils.calculateLoshuGridPlanes(numberCounts)
+            val loshuPlanes = numerologyService.calculateLoshuGridPlanes(numberCounts)
 
             try {
                 createLoshuPlaneItemForRecyclerView(loshuPlanes)
@@ -421,8 +423,9 @@ class LoshuGridFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(dob: String, fullName: String): LoshuGridFragment {
+        fun newInstance(dob: String, fullName: String, numerologyService: NumerologyService): LoshuGridFragment {
             val fragment = LoshuGridFragment()
+            fragment.numerologyService = numerologyService
             val args = Bundle()
             args.putString(Constants.Companion.ARG_DOB, dob)
             args.putString(Constants.Companion.ARG_FULL_NAME, fullName)

@@ -8,14 +8,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentChallengeNumberBinding
+import com.shambhu.myapplication.service.NumerologyService
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
-import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 
 class ChallengeNumberFragment : Fragment() {
 
     private var _binding: FragmentChallengeNumberBinding? = null
     private val binding get() = _binding!!
+    private lateinit var numerologyService: NumerologyService
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,14 +28,15 @@ class ChallengeNumberFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         arguments?.let {
             val date = CommonUtils.parseDate(it.getString(Constants.ARG_DOB).toString())
             val day = date.dayOfMonth
             val month = date.monthValue
             val year = date.year
 
-            val challengeNumbers = NumerologyCalculationUtils.calculateChallengeNumbers(day, month, year)
-            val ageRanges = NumerologyCalculationUtils.calculateChallengeNumberAgeRanges(day, month, year)
+            val challengeNumbers = numerologyService.calculateChallengeNumbers(day, month, year)
+            val ageRanges = numerologyService.calculateChallengeNumberAgeRanges(day, month, year)
             val explanations = resources.getStringArray(R.array.challenge_number_interpretations)
 
             binding.tvFirstChallengeValue.text = challengeNumbers[0].toString()
@@ -78,8 +80,9 @@ class ChallengeNumberFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(dob: String, fullName: String): ChallengeNumberFragment {
+        fun newInstance(dob: String, fullName: String, numerologyService: NumerologyService): ChallengeNumberFragment {
             val fragment = ChallengeNumberFragment()
+            fragment.numerologyService = numerologyService
             val args = Bundle()
             args.putString(Constants.Companion.ARG_DOB, dob)
             args.putString(Constants.Companion.ARG_FULL_NAME, fullName)

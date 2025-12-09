@@ -1,67 +1,41 @@
-package com.shambhu.myapplication.utils
+package com.shambhu.myapplication.service
 
-import android.content.Context
-import android.text.Html
-import com.example.myapplication.NameAnalyzer
-import com.shambhu.myapplication.model.LoshuGridPlanes
-import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
-import org.json.JSONArray
-import org.json.JSONObject
+import com.shambhu.myapplication.repository.NumerologyRepository
+import com.shambhu.myapplication.utils.CommonUtils
+import com.shambhu.myapplication.utils.Constants
 
-object NumerologyCalculationUtils {
-
-    fun calculateNameAnalysisGrid(name: String): NameAnalyzer.NameAnalysisResult {
-        val analyzer = NameAnalyzer()
+class NumerologyService(private val repository: NumerologyRepository) {
+    fun calculateNameAnalysisGrid(name: String): com.example.myapplication.NameAnalyzer.NameAnalysisResult {
+        val analyzer = com.example.myapplication.NameAnalyzer()
         val result = analyzer.analyzeName(name)
         return result
     }
 
-    // Soul Urge (Heart's Desire) Number Calculation
-    /* fun calculateSoulUrge(name: String): Int {
-         val cleanedName = retainOnlyVowels(name).uppercase().filter { it in LETTER_VALUES }
-         var total = cleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
-
-         // Reduce to single digit or master numbers
-         if (total == 11 || total == 22 || total == 33)
-             return total
-         while (total > 9) {
-             total = total.toString().map { it.toString().toInt() }.sum()
-         }
-         return total
-     }*/
-
     fun calculateSoulUrge(name: String, reduce: Boolean = true): Int {
-        val cleanedName = retainOnlyVowels(name).uppercase().filter { it in LETTER_VALUES }
-        val total = cleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
+        val cleanedName = retainOnlyVowels(name).uppercase().filter { it in Constants.LETTER_VALUES }
+        val total = cleanedName.map { Constants.LETTER_VALUES[it] ?: 0 }.sum()
         if (total == 11 || total == 22 || total == 33)
             return total
 
         if (!reduce) return total
 
-        // Reduce to single digit or master numbers
         return CommonUtils.reduceNumber(total)
     }
 
-    // Personality Number Calculation
     fun calculatePersonality(name: String, reduce: Boolean = true): Int {
-        val personalityCleanedName = removeVowels(name).uppercase().filter { it in LETTER_VALUES }
-        val total = personalityCleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
+        val personalityCleanedName = removeVowels(name).uppercase().filter { it in Constants.LETTER_VALUES }
+        val total = personalityCleanedName.map { Constants.LETTER_VALUES[it] ?: 0 }.sum()
 
-        // Reduce to single digit or master numbers
         if (total == 11 || total == 22 || total == 33)
             return total
         if (!reduce) return total
         return CommonUtils.reduceNumber(total)
     }
 
-
-    // Expression (Destiny) Number Calculation
     fun calculateExpression(name: String, reduce: Boolean = true): Int {
-        // Convert name to all uppercase and remove spaces
-        val cleanedName = name.uppercase().filter { it in LETTER_VALUES }
+        val cleanedName = name.uppercase().filter { it in Constants.LETTER_VALUES }
 
-        var total = cleanedName.map { LETTER_VALUES[it] ?: 0 }.sum()
-        // Reduce to single digit or master numbers
+        var total = cleanedName.map { Constants.LETTER_VALUES[it] ?: 0 }.sum()
         if (total == 11 || total == 22 || total == 33)
             return total
         if (!reduce) return total
@@ -74,41 +48,22 @@ object NumerologyCalculationUtils {
     }
 
     fun calculateSuccessNumber(day: Int, month: Int): Int {
-        return CommonUtils.reduceNumber(day+month)
+        return CommonUtils.reduceNumber(day + month)
     }
 
-    // Life Path Number Calculation
     fun calculateLifePath(day: Int, month: Int, year: Int, reduce: Boolean = true): Int {
         val reducedDay = CommonUtils.reduceNumber(day)
         val reducedMonth = CommonUtils.reduceNumber(month)
         val reducedYear = CommonUtils.reduceNumber(year)
         val sum = reducedDay + reducedMonth + reducedYear
         if (!reduce) return sum
-        // For challenge age calculation, we need a single digit Life Path number.
         return CommonUtils.reduceNumber(sum)
     }
 
-    fun getLifePathDescription(context: Context, lifePath: Int): String {
-        try {
-            val inputStream = context.assets.open("life_path_meaning.json")
-            val size = inputStream.available()
-            val buffer = ByteArray(size)
-            inputStream.read(buffer)
-            inputStream.close()
-            val json = String(buffer, Charsets.UTF_8)
-            val jsonObject = org.json.JSONObject(json)
-            val lifePathObject = jsonObject.getJSONObject(lifePath.toString())
-            var description = "<ul>"
-            description += "<li>" + lifePathObject.getString("description") + "</li>"
-            description += "<li>" + lifePathObject.getString("positive") + "</li>"
-            description += "</ul>"
-            return NumerologyCalculationUtils.convertToHtml(description)
-        } catch (ex: Exception) {
-            ex.printStackTrace()
-            return ""
-        }
+    fun getLifePathDescription(lifePath: Int): String {
+        val description = repository.getLifePathDescription(lifePath)
+        return convertToHtml(description)
     }
-
 
     fun calculatePersonalYear(
         day: Int,
@@ -150,22 +105,12 @@ object NumerologyCalculationUtils {
         }
     }
 
-    // Reduce to single digit unless it's a karmic debt number
-
     fun calculateKarmicDebtNumbers(
         day: Int,
         month: Int,
         year: Int,
         fullName: String
     ): List<Pair<String, Int>> {
-        fun reduce(n: Int): Int {
-            var num = n
-            while (num > 9 && num != 11 && num != 22) {
-                num = num.toString().map { it.toString().toInt() }.sum()
-            }
-            return num
-        }
-
         val karmicDebtNumbers = listOf(13, 14, 16, 19)
         val results = mutableListOf<Pair<String, Int>>()
 
@@ -196,7 +141,6 @@ object NumerologyCalculationUtils {
 
         return results
     }
-
 
     fun calculateKarmicFromName(fullName: String): List<Int> {
         val nameNumbers = CommonUtils.nameToIntArray(fullName)
@@ -270,12 +214,13 @@ object NumerologyCalculationUtils {
         )
     }
 
-    fun calculateElements(fullName: String, jsonString: String): Pair<String, Map<String, Double>> {
+    fun calculateElements(fullName: String): Pair<String, Map<String, Double>> {
         val nameNumbers = nameToIntArray(fullName)
         var dominantElement = ""
         val elementScores =
             mutableMapOf("AIR" to 0.0, "EARTH" to 0.0, "FIRE" to 0.0, "WATER" to 0.0)
 
+        val jsonString = repository.getElementsJson()
         val jsonObject = org.json.JSONObject(jsonString)
         val elementMap = jsonObject.getJSONObject("element")
         val excessMap = jsonObject.getJSONObject("excess")
@@ -303,19 +248,11 @@ object NumerologyCalculationUtils {
         return Pair(dominantElement, elementScores)
     }
 
-data class Quintuple<A, B, C, D, E>(
-    val first: A,
-    val second: B,
-    val third: C,
-    val fourth: D,
-    val fifth: E
-)
     fun calculateColorGroup(
-        fullName: String,
-        jsonString: String
+        fullName: String
     ): Quintuple<String, String, String, String, Int> {
         val nameNumbers = nameToColorNumbers(fullName)
-
+        val jsonString = repository.getColorsJson()
         val jsonObject = org.json.JSONObject(jsonString)
         val colorByNumber = jsonObject.getJSONObject("color_by_number")
         val colorGroup = jsonObject.getJSONObject("color_group")
@@ -361,8 +298,9 @@ data class Quintuple<A, B, C, D, E>(
         }
     }
 
-    fun calculateColorCounts(fullName: String, jsonString: String): Map<String, Int> {
+    fun calculateColorCounts(fullName: String): Map<String, Int> {
         val nameNumbers = nameToColorNumbers(fullName)
+        val jsonString = repository.getColorsJson()
         val jsonObject = org.json.JSONObject(jsonString)
         val colorByNumber = jsonObject.getJSONObject("color_by_number")
 
@@ -374,8 +312,9 @@ data class Quintuple<A, B, C, D, E>(
             .eachCount()
     }
 
-    fun findAllMatchedColorGroups(fullName: String, jsonString: String): Map<String, List<String>> {
+    fun findAllMatchedColorGroups(fullName: String): Map<String, List<String>> {
         val nameNumbers = nameToColorNumbers(fullName)
+        val jsonString = repository.getColorsJson()
         val jsonObject = org.json.JSONObject(jsonString)
         val colorByNumber = jsonObject.getJSONObject("color_by_number")
         val colorGroup = jsonObject.getJSONObject("color_group")
@@ -406,50 +345,23 @@ data class Quintuple<A, B, C, D, E>(
 
     fun nameToColorNumbers(name: String): List<Int> {
         return name.uppercase()
-            .mapNotNull { LETTER_VALUES[it] } // skip characters not in map
+            .mapNotNull { Constants.LETTER_VALUES[it] }
             .toList()
     }
 
     private fun nameToIntArray(name: String): IntArray {
         return name.uppercase()
-            .mapNotNull { LETTER_VALUES[it] } // skip characters not in map
+            .mapNotNull { Constants.LETTER_VALUES[it] }
             .toIntArray()
     }
 
-    private fun sortedByCountFrequency(numbers: IntArray): List<Map.Entry<Int, Int>> {
-        val sorted = numbers.toList().groupingBy { it }.eachCount()
-            .entries
-            .sortedWith(compareByDescending<Map.Entry<Int, Int>> { it.value }
-                .thenBy { it.key })
-
-        println("Sorted by frequency (desc) then by number (asc):")
-        sorted.forEach { (number, count) ->
-            println("$number -> $count times")
-        }
-
-        return sorted
-    }
-
-    private fun sortedByNumber(numbers: IntArray): List<Map.Entry<Int, Int>> {
-        val sortedByFrequency = numbers.toList().groupingBy { it }.eachCount()
-            .entries
-            .sortedBy { it.key }
-
-        println("Sorted by frequency (most repeated first):")
-        sortedByFrequency.forEach { (number, count) ->
-            println("$number -> $count times")
-        }
-
-        return sortedByFrequency
-    }
-
     fun calculateCombinationNameNumber(
-        jsonData: String,
         destiny: Int,
         soul: Int,
         personality: Int
     ): String? {
-        val jsonObject = JSONObject(jsonData)
+        val jsonData = repository.getNameCombinationJson()
+        val jsonObject = org.json.JSONObject(jsonData)
         val jsonArray = jsonObject.getJSONArray("name_combination")
         for (i in 0 until jsonArray.length()) {
             val item = jsonArray.getJSONObject(i)
@@ -463,31 +375,27 @@ data class Quintuple<A, B, C, D, E>(
         return null
     }
 
-
     fun calculateCombinationDobNumber(
-        jsonData: String,
         mulank: Int,
         bhagyank: Int
     ): Pair<String, String> {
-        val jsonObject = JSONObject(jsonData)
+        val jsonData = repository.getDobCombinationJson()
+        val jsonObject = org.json.JSONObject(jsonData)
         val jsonArray = jsonObject.getJSONArray("dob_combination")
         for (i in 0 until jsonArray.length()) {
             val item = jsonArray.getJSONObject(i)
-            if (item.getInt("mulank") == mulank ) {
-                val jsonObject1 = JSONObject(item.toString())
+            if (item.getInt("mulank") == mulank) {
+                val jsonObject1 = org.json.JSONObject(item.toString())
                 val jsonArray1 = jsonObject1.getJSONArray("combinations")
                 for (j in 0 until jsonArray1.length()) {
                     val item1 = jsonArray1.getJSONObject(j)
-                    if(item1.getInt("bhagyank") == bhagyank)
+                    if (item1.getInt("bhagyank") == bhagyank)
                         return Pair(item1.getString("remark"), item1.getString("luck"))
                 }
             }
         }
-        return Pair("","")
+        return Pair("", "")
     }
-
-
-
 
     fun retainOnlyVowels(input: String): String {
         return input.replace(Regex("[^aeiouAEIOU]"), "")
@@ -498,7 +406,7 @@ data class Quintuple<A, B, C, D, E>(
     }
 
     fun convertToHtml(input: String): String {
-        return Html.fromHtml(input, Html.FROM_HTML_MODE_LEGACY).toString()
+        return android.text.Html.fromHtml(input, android.text.Html.FROM_HTML_MODE_LEGACY).toString()
     }
 
     fun missingNumbers(numList: MutableList<Int>): List<Int> {
@@ -507,7 +415,7 @@ data class Quintuple<A, B, C, D, E>(
         return (fullRange - present).toList().sorted()
     }
 
-    fun calculateLoshuGridPlanes(numberCounts: IntArray): LoshuGridPlanes {
+    fun calculateLoshuGridPlanes(numberCounts: IntArray): com.shambhu.myapplication.model.LoshuGridPlanes {
         fun getAvailableNumbersInPlane(planeNumbers: List<Int>): List<Int> {
             return planeNumbers.filter {
                 println(it)
@@ -515,7 +423,7 @@ data class Quintuple<A, B, C, D, E>(
             }
         }
 
-        return LoshuGridPlanes(
+        return com.shambhu.myapplication.model.LoshuGridPlanes(
             mentalPlane = getAvailableNumbersInPlane(listOf(4, 9, 2)),
             emotionalPlane = getAvailableNumbersInPlane(listOf(3, 5, 7)),
             practicalPlane = getAvailableNumbersInPlane(listOf(8, 1, 6)),
@@ -526,15 +434,16 @@ data class Quintuple<A, B, C, D, E>(
             goldenSuccessPlane = getAvailableNumbersInPlane(listOf(2, 5, 8))
         )
     }
+
     fun calculateKuaNumber(birthYear: Int, isMale: Boolean): Int {
         if (birthYear < 1900 || birthYear > 2100) return -1
         val lastTwoDigits = birthYear % 100
         val sumOfYear = CommonUtils.reduceNumberIgnoreMasterNumber(lastTwoDigits)
 
         val baseNumber: Int = if (birthYear < 2000) {
-            10 // Base for years 1900-1999
+            10
         } else {
-            9  // Base for years 2000+
+            9
         }
 
         val kuaNumber: Int = if (isMale) {
@@ -553,4 +462,137 @@ data class Quintuple<A, B, C, D, E>(
     fun calculateMaturityNumber(lifePath: Int, destiny: Int): Int {
         return CommonUtils.reduceNumber(lifePath + destiny)
     }
+
+    fun calculateMulank(birthDate: String): Int {
+        val dateParts = birthDate.split("/")
+        val day = dateParts[0].toInt()
+
+        return reduceToSingleDigit(day)
+    }
+
+    fun calculateBhagyank(birthDate: String): Int {
+        val dateParts = birthDate.split("/")
+        val day = dateParts[0].toInt()
+        val month = dateParts[1].toInt()
+        val year = dateParts[2].toInt()
+
+        var sum = sumDigits(day) + sumDigits(month) + sumDigits(year)
+        return reduceToSingleDigit(sum)
+    }
+
+    private fun sumDigits(number: Int): Int {
+        var n = number
+        var sum = 0
+        while (n > 0) {
+            sum += n % 10
+            n /= 10
+        }
+        return sum
+    }
+
+    private fun reduceToSingleDigit(number: Int): Int {
+        var n = number
+        while (n > 9) {
+            n = sumDigits(n)
+        }
+        return n
+    }
+
+    /**
+     * Creates all possible consecutive 2-digit pairs from a number string
+     * Example: "9878" -> ["98", "87", "78"]
+     */
+    fun createPairsFromNumber(mobileNumber: String): List<String> {
+        val pairs = mutableListOf<String>()
+        val filteredNumber = mobileNumber.filter { it != '0' }
+
+        if (filteredNumber.length < 2) {
+            return pairs
+        }
+
+
+        for (i in 0..filteredNumber.length - 2) {
+            val pair = filteredNumber.substring(i, i + 2)
+            if (pair.length == 2 && pair.all { it.isDigit() }) {
+                pairs.add(pair)
+            }
+        }
+
+        return pairs
+    }
+
+    /**
+     * Creates all possible 2-digit pairs from a number string (including non-consecutive)
+     * Example: "9878" -> ["98", "97", "78", "87", "88", "77"]
+     */
+    fun createAllPairsFromNumber(number: String): List<String> {
+        val pairs = mutableListOf<String>()
+        val digits = number.toCharArray().distinct()
+
+        for (i in digits.indices) {
+            for (j in digits.indices) {
+                val pair = "${digits[i]}${digits[j]}"
+                pairs.add(pair)
+            }
+        }
+
+        return pairs.distinct()
+    }
+
+    /**
+     * Creates pairs with sliding window of given size
+     */
+    fun createSlidingPairs(number: String, windowSize: Int = 2): List<String> {
+        return if (number.length < windowSize) {
+            emptyList()
+        } else {
+            (0..number.length - windowSize).map { index ->
+                number.substring(index, index + windowSize)
+            }.filter { it.all { char -> char.isDigit() } }
+        }
+    }
+
+    /**
+     * Validates if input is a valid number for pair creation
+     */
+    fun isValidNumberForPairs(input: String): Boolean {
+        return input.length >= 2 && input.all { it.isDigit() }
+    }
+
+    /**
+     * Gets unique pairs from a number
+     */
+    fun getUniquePairs(number: String): List<String> {
+        return createPairsFromNumber(number).distinct()
+    }
+
+    /**
+     * Creates pairs and their reverse combinations
+     * Example: "98" -> ["98", "89"]
+     */
+    fun createPairsWithReversals(number: String): List<String> {
+        val pairs = createPairsFromNumber(number)
+        val result = mutableListOf<String>()
+
+        pairs.forEach { pair ->
+            result.add(pair)
+            if (pair[0] != pair[1]) { // Don't add reverse for same digits like "88"
+                result.add(pair.reversed())
+            }
+        }
+
+        return result.distinct()
+    }
+
+    fun getKarmicLessonDebtJson(): String {
+        return repository.getKarmicLessonDebtJson()
+    }
 }
+
+data class Quintuple<A, B, C, D, E>(
+    val first: A,
+    val second: B,
+    val third: C,
+    val fourth: D,
+    val fifth: E
+)

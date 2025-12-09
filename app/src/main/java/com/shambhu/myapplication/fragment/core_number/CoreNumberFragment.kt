@@ -12,16 +12,17 @@ import com.shambhu.myapplication.adapter.CoreNumberRecyclerViewAdapter
 import com.shambhu.myapplication.databinding.FragmentCoreNumberBinding
 import com.shambhu.myapplication.model.CoreNumberAccordionItem
 import com.shambhu.myapplication.model.CoreNumberModel
+import com.shambhu.myapplication.service.NumerologyService
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
-import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 
 class CoreNumberFragment : Fragment() {
     private var _binding: FragmentCoreNumberBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var coreNumberRecyclerViewAdapter: CoreNumberRecyclerViewAdapter
+    private lateinit var numerologyService: NumerologyService
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,12 +44,11 @@ class CoreNumberFragment : Fragment() {
                 val day = date.dayOfMonth
                 val month = date.monthValue
                 val year = date.year
-                val coreNumberItems = mutableListOf<CoreNumberAccordionItem>();
-                val birthNumber = NumerologyCalculationUtils.calculateBirthdayNumber(day)
-                val lifePath = NumerologyCalculationUtils.calculateLifePath(day, month, year)
-                val soulNumberValue = NumerologyCalculationUtils.calculateSoulUrge(fullName)
-                val personalityNumberValue = NumerologyCalculationUtils.calculatePersonality(fullName)
-                val destinyNumberValue = NumerologyCalculationUtils.calculateExpression(fullName)
+                val birthNumber = numerologyService.calculateBirthdayNumber(day)
+                val lifePath = numerologyService.calculateLifePath(day, month, year)
+                val soulNumberValue = numerologyService.calculateSoulUrge(fullName)
+                val personalityNumberValue = numerologyService.calculatePersonality(fullName)
+                val destinyNumberValue = numerologyService.calculateExpression(fullName)
 
                 var coreNumbers = CoreNumberModel(birthNumber, lifePath,
                     soulNumberValue, personalityNumberValue, destinyNumberValue )
@@ -62,9 +62,7 @@ class CoreNumberFragment : Fragment() {
     }
 
     private fun createCombinationByNameNumber(coreNumbers: CoreNumberModel){
-        val elementsJson = CommonUtils.readAssetFile(requireContext(), "combination.json")
-        val combination = NumerologyCalculationUtils.calculateCombinationNameNumber(
-            elementsJson,
+        val combination = numerologyService.calculateCombinationNameNumber(
             coreNumbers.destinyNumber,
             coreNumbers.soulUrgeNumber,
             coreNumbers.personalityNumber
@@ -77,9 +75,7 @@ class CoreNumberFragment : Fragment() {
 
 
     private fun createCombinationByDobNumber(coreNumbers: CoreNumberModel){
-        val elementsJson = CommonUtils.readAssetFile(requireContext(), "combination.json")
-        val (remark, luck) = NumerologyCalculationUtils.calculateCombinationDobNumber(
-            elementsJson,
+        val (remark, luck) = numerologyService.calculateCombinationDobNumber(
             coreNumbers.birthdayNumber,
             CommonUtils.reduceNumberIgnoreMasterNumber(coreNumbers.lifePathNumber)
         )
@@ -108,7 +104,7 @@ class CoreNumberFragment : Fragment() {
         val lifePathItem = CoreNumberAccordionItem(
             "${getString(R.string.lifepath_number)} ${coreNumbers.lifePathNumber}",
             getString(R.string.lifepath_title),
-            NumerologyCalculationUtils.getLifePathDescription(requireContext(), coreNumbers.lifePathNumber),
+            numerologyService.getLifePathDescription(coreNumbers.lifePathNumber),
             "ic_road", false
         )
 
@@ -168,8 +164,9 @@ class CoreNumberFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(dob: String, fullName: String): CoreNumberFragment {
+        fun newInstance(dob: String, fullName: String, numerologyService: NumerologyService): CoreNumberFragment {
             val fragment = CoreNumberFragment()
+            fragment.numerologyService = numerologyService
             val args = Bundle()
             args.putString(ARG_DOB, dob)
             args.putString(ARG_FULL_NAME, fullName)
@@ -178,5 +175,3 @@ class CoreNumberFragment : Fragment() {
         }
     }
 }
-
-
