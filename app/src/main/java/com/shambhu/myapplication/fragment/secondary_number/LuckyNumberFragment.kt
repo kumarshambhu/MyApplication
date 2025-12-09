@@ -82,8 +82,8 @@ class LuckyNumberFragment : Fragment() {
 
         // Calculate common numbers
         val commonLucky = mulankData.lucky_numbers.intersect(bhagyankData.lucky_numbers)
-        val commonEnemy = mulankData.enemy_numbers.intersect(bhagyankData.enemy_numbers)
-        val commonNeutral = mulankData.neutral_numbers.intersect(bhagyankData.neutral_numbers)
+        val commonEnemy = (mulankData.enemy_numbers+bhagyankData.enemy_numbers).toSet()
+        val commonNeutral = (mulankData.neutral_numbers+bhagyankData.neutral_numbers).toSet()
 
         // Display results
         displayResults(mulankData, bhagyankData, commonLucky, commonEnemy, commonNeutral)
