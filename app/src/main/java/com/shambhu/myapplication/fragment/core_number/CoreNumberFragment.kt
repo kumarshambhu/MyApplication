@@ -92,11 +92,7 @@ class CoreNumberFragment : Fragment() {
         val birthNumberItem = CoreNumberAccordionItem(
             "${getString(R.string.birthday_number)} ${coreNumbers.birthdayNumber}",
             getString(R.string.birth_day_title),
-            CommonUtils.getDescriptionFromAssetFile(
-                this.requireContext(),
-                "birthday.json",
-                coreNumbers.birthdayNumber.toString()
-            ),
+            numerologyService.getBirthdayDescription(coreNumbers.birthdayNumber.toString()),
             "ic_earth", false
         )
 
@@ -112,8 +108,7 @@ class CoreNumberFragment : Fragment() {
         val soulUrgeItem = CoreNumberAccordionItem(
             "${getString(R.string.soul_urge_number)} ${coreNumbers.soulUrgeNumber}",
             getString(R.string.soul_title),
-            CommonUtils.getDescriptionFromAssetFile
-                (this.requireContext(), "soul_urge.json", coreNumbers.soulUrgeNumber.toString()),
+            numerologyService.getSoulUrgeDescription(coreNumbers.soulUrgeNumber.toString()),
             "ic_heart", false
         )
 
@@ -121,19 +116,13 @@ class CoreNumberFragment : Fragment() {
         val personalityItem = CoreNumberAccordionItem(
             "${getString(R.string.personality_number)} ${coreNumbers.personalityNumber}",
             getString(R.string.personality_title),
-            CommonUtils.getDescriptionFromAssetFile
-                (
-                this.requireContext(),
-                "personality.json",
-                coreNumbers.personalityNumber.toString()
-            ),
+            numerologyService.getPersonalityDescription(coreNumbers.personalityNumber.toString()),
             "ic_mirrors", false
         )
         val destinyItem = CoreNumberAccordionItem(
             "${getString(R.string.destiny_number)} ${coreNumbers.destinyNumber}",
             getString(R.string.destiny_title),
-            CommonUtils.getDescriptionFromAssetFile
-                (this.requireContext(), "destiny.json", coreNumbers.destinyNumber.toString()),
+            numerologyService.getDestinyDescription(coreNumbers.destinyNumber.toString()),
             "ic_mirrors", false
         )
 

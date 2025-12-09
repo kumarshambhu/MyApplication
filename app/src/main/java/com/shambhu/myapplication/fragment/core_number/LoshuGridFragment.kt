@@ -108,7 +108,7 @@ class LoshuGridFragment : Fragment() {
 
     private fun createMissingNumberAccordionItems(numberCounts: IntArray) {
         val missingNumberItems = mutableListOf<LoshuGridPlaneAccordionItem>()
-        val missingNumbersJson = CommonUtils.readAssetFile(requireContext(), "missing_number.json")
+        val missingNumbersJson = numerologyService.getMissingNumberJson()
         val jsonObject = JSONObject(missingNumbersJson)
         val jsonArray = jsonObject.getJSONArray("missing_number_impacts")
 
@@ -144,7 +144,7 @@ class LoshuGridFragment : Fragment() {
 
     private fun createRepeatingNumberAccordionItems(numberCounts: IntArray) {
         val repeatingNumberItems = mutableListOf<LoshuGridPlaneAccordionItem>()
-        val repeatingNumbersJson = CommonUtils.readAssetFile(requireContext(), "repeate_number.json")
+        val repeatingNumbersJson = numerologyService.getRepeatingNumberJson()
         val jsonObject = JSONObject(repeatingNumbersJson)
         val jsonArray = jsonObject.getJSONArray("repetitive_numbers")
 
@@ -248,7 +248,7 @@ class LoshuGridFragment : Fragment() {
 
     private fun createLoshuPlaneItemForRecyclerView(loshuPlanes: LoshuGridPlanes) {
         val loshuPlaneItems = mutableListOf<LoshuGridPlaneAccordionItem>()
-        val planeMeanings = CommonUtils.readAssetFile(requireContext(), "plane.json")
+        val planeMeanings = numerologyService.getPlaneJson()
         val jsonObject = JSONObject(planeMeanings)
         val jsonArray = jsonObject.getJSONArray("planes")
 

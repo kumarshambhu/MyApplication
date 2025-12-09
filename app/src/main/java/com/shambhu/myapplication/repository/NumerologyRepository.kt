@@ -1,83 +1,8 @@
 package com.shambhu.myapplication.repository
 
 import android.content.Context
-import com.shambhu.myapplication.model.NumerologyMobileCombination
-import org.json.JSONObject
 
 class NumerologyRepository(private val context: Context) {
-
-    fun parseCombinations(): List<NumerologyMobileCombination> {
-        return try {
-            val jsonString = context.assets.open("mobile_combination.json")
-                .bufferedReader()
-                .use { it.readText() }
-
-            val jsonObject = JSONObject(jsonString)
-            val combinationsArray = jsonObject.getJSONArray("combinations")
-
-            val combinations = mutableListOf<NumerologyMobileCombination>()
-
-            for (i in 0 until combinationsArray.length()) {
-                val combinationObj = combinationsArray.getJSONObject(i)
-
-                val planetsArray = combinationObj.getJSONArray("planets")
-                val planetsList = mutableListOf<String>()
-                for (j in 0 until planetsArray.length()) {
-                    planetsList.add(planetsArray.getString(j))
-                }
-
-                val traitsArray = combinationObj.getJSONArray("traits")
-                val traitsList = mutableListOf<String>()
-                for (j in 0 until traitsArray.length()) {
-                    traitsList.add(traitsArray.getString(j))
-                }
-
-                val combination = NumerologyMobileCombination(
-                    combination = combinationObj.getString("combination"),
-                    state = combinationObj.getString("state"),
-                    planets = planetsList,
-                    traits = traitsList
-                )
-
-                combinations.add(combination)
-            }
-
-            combinations
-        } catch (e: Exception) {
-            e.printStackTrace()
-            emptyList()
-        }
-    }
-
-    fun getCombinationByNumberPair(numberPair: String): NumerologyMobileCombination? {
-        val combinations = parseCombinations()
-        return combinations.find { combination ->
-            combination.combination.split(", ").any { it == numberPair }
-        }
-    }
-
-    fun getCombinationsForMultiplePairs(
-        pairs: List<String>
-    ): List<Pair<String, NumerologyMobileCombination?>> {
-        val combinations = parseCombinations()
-        return pairs.map { pair ->
-            val combination = combinations.find { combo ->
-                combo.combination.split(", ").any { it == pair }
-            }
-            pair to combination
-        }
-    }
-
-    fun getAllCombinationsForPairs(
-        pairs: List<String>
-    ): List<NumerologyMobileCombination> {
-        val combinations = parseCombinations()
-        return pairs.mapNotNull { pair ->
-            combinations.find { combo ->
-                combo.combination.split(", ").any { it == pair }
-            }
-        }.distinctBy { it.combination }
-    }
 
     fun getLifePathDescription(lifePath: Int): String {
         try {
@@ -118,5 +43,33 @@ class NumerologyRepository(private val context: Context) {
 
     fun getKarmicLessonDebtJson(): String {
         return context.assets.open("karmic_lesson_debt.json").bufferedReader().use { it.readText() }
+    }
+
+    fun getBirthdayJson(): String {
+        return context.assets.open("birthday.json").bufferedReader().use { it.readText() }
+    }
+
+    fun getSoulUrgeJson(): String {
+        return context.assets.open("soul_urge.json").bufferedReader().use { it.readText() }
+    }
+
+    fun getPersonalityJson(): String {
+        return context.assets.open("personality.json").bufferedReader().use { it.readText() }
+    }
+
+    fun getDestinyJson(): String {
+        return context.assets.open("destiny.json").bufferedReader().use { it.readText() }
+    }
+
+    fun getMissingNumberJson(): String {
+        return context.assets.open("missing_number.json").bufferedReader().use { it.readText() }
+    }
+
+    fun getRepeatingNumberJson(): String {
+        return context.assets.open("repeate_number.json").bufferedReader().use { it.readText() }
+    }
+
+    fun getPlaneJson(): String {
+        return context.assets.open("plane.json").bufferedReader().use { it.readText() }
     }
 }

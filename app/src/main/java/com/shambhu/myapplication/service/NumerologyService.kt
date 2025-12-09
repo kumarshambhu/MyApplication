@@ -1,10 +1,14 @@
 package com.shambhu.myapplication.service
 
+import com.shambhu.myapplication.model.LoshuGridPlanes
 import com.shambhu.myapplication.repository.NumerologyRepository
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
+import org.json.JSONObject
 
 class NumerologyService(private val repository: NumerologyRepository) {
+
+    // From NumerologyCalculationUtils
     fun calculateNameAnalysisGrid(name: String): com.example.myapplication.NameAnalyzer.NameAnalysisResult {
         val analyzer = com.example.myapplication.NameAnalyzer()
         val result = analyzer.analyzeName(name)
@@ -248,6 +252,14 @@ class NumerologyService(private val repository: NumerologyRepository) {
         return Pair(dominantElement, elementScores)
     }
 
+    data class Quintuple<A, B, C, D, E>(
+        val first: A,
+        val second: B,
+        val third: C,
+        val fourth: D,
+        val fifth: E
+    )
+
     fun calculateColorGroup(
         fullName: String
     ): Quintuple<String, String, String, String, Int> {
@@ -345,13 +357,13 @@ class NumerologyService(private val repository: NumerologyRepository) {
 
     fun nameToColorNumbers(name: String): List<Int> {
         return name.uppercase()
-            .mapNotNull { Constants.LETTER_VALUES[it] }
+            .mapNotNull { Constants.LETTER_VALUES[it] } // skip characters not in map
             .toList()
     }
 
     private fun nameToIntArray(name: String): IntArray {
         return name.uppercase()
-            .mapNotNull { Constants.LETTER_VALUES[it] }
+            .mapNotNull { Constants.LETTER_VALUES[it] } // skip characters not in map
             .toIntArray()
     }
 
@@ -361,7 +373,7 @@ class NumerologyService(private val repository: NumerologyRepository) {
         personality: Int
     ): String? {
         val jsonData = repository.getNameCombinationJson()
-        val jsonObject = org.json.JSONObject(jsonData)
+        val jsonObject = JSONObject(jsonData)
         val jsonArray = jsonObject.getJSONArray("name_combination")
         for (i in 0 until jsonArray.length()) {
             val item = jsonArray.getJSONObject(i)
@@ -380,12 +392,12 @@ class NumerologyService(private val repository: NumerologyRepository) {
         bhagyank: Int
     ): Pair<String, String> {
         val jsonData = repository.getDobCombinationJson()
-        val jsonObject = org.json.JSONObject(jsonData)
+        val jsonObject = JSONObject(jsonData)
         val jsonArray = jsonObject.getJSONArray("dob_combination")
         for (i in 0 until jsonArray.length()) {
             val item = jsonArray.getJSONObject(i)
             if (item.getInt("mulank") == mulank) {
-                val jsonObject1 = org.json.JSONObject(item.toString())
+                val jsonObject1 = JSONObject(item.toString())
                 val jsonArray1 = jsonObject1.getJSONArray("combinations")
                 for (j in 0 until jsonArray1.length()) {
                     val item1 = jsonArray1.getJSONObject(j)
@@ -415,7 +427,7 @@ class NumerologyService(private val repository: NumerologyRepository) {
         return (fullRange - present).toList().sorted()
     }
 
-    fun calculateLoshuGridPlanes(numberCounts: IntArray): com.shambhu.myapplication.model.LoshuGridPlanes {
+    fun calculateLoshuGridPlanes(numberCounts: IntArray): LoshuGridPlanes {
         fun getAvailableNumbersInPlane(planeNumbers: List<Int>): List<Int> {
             return planeNumbers.filter {
                 println(it)
@@ -423,7 +435,7 @@ class NumerologyService(private val repository: NumerologyRepository) {
             }
         }
 
-        return com.shambhu.myapplication.model.LoshuGridPlanes(
+        return LoshuGridPlanes(
             mentalPlane = getAvailableNumbersInPlane(listOf(4, 9, 2)),
             emotionalPlane = getAvailableNumbersInPlane(listOf(3, 5, 7)),
             practicalPlane = getAvailableNumbersInPlane(listOf(8, 1, 6)),
@@ -441,9 +453,9 @@ class NumerologyService(private val repository: NumerologyRepository) {
         val sumOfYear = CommonUtils.reduceNumberIgnoreMasterNumber(lastTwoDigits)
 
         val baseNumber: Int = if (birthYear < 2000) {
-            10
+            10 // Base for years 1900-1999
         } else {
-            9
+            9  // Base for years 2000+
         }
 
         val kuaNumber: Int = if (isMale) {
@@ -463,6 +475,7 @@ class NumerologyService(private val repository: NumerologyRepository) {
         return CommonUtils.reduceNumber(lifePath + destiny)
     }
 
+    // From NumeroCalculator
     fun calculateMulank(birthDate: String): Int {
         val dateParts = birthDate.split("/")
         val day = dateParts[0].toInt()
@@ -498,10 +511,7 @@ class NumerologyService(private val repository: NumerologyRepository) {
         return n
     }
 
-    /**
-     * Creates all possible consecutive 2-digit pairs from a number string
-     * Example: "9878" -> ["98", "87", "78"]
-     */
+    // From JsonParser
     fun createPairsFromNumber(mobileNumber: String): List<String> {
         val pairs = mutableListOf<String>()
         val filteredNumber = mobileNumber.filter { it != '0' }
@@ -521,10 +531,6 @@ class NumerologyService(private val repository: NumerologyRepository) {
         return pairs
     }
 
-    /**
-     * Creates all possible 2-digit pairs from a number string (including non-consecutive)
-     * Example: "9878" -> ["98", "97", "78", "87", "88", "77"]
-     */
     fun createAllPairsFromNumber(number: String): List<String> {
         val pairs = mutableListOf<String>()
         val digits = number.toCharArray().distinct()
@@ -539,9 +545,6 @@ class NumerologyService(private val repository: NumerologyRepository) {
         return pairs.distinct()
     }
 
-    /**
-     * Creates pairs with sliding window of given size
-     */
     fun createSlidingPairs(number: String, windowSize: Int = 2): List<String> {
         return if (number.length < windowSize) {
             emptyList()
@@ -552,24 +555,14 @@ class NumerologyService(private val repository: NumerologyRepository) {
         }
     }
 
-    /**
-     * Validates if input is a valid number for pair creation
-     */
     fun isValidNumberForPairs(input: String): Boolean {
         return input.length >= 2 && input.all { it.isDigit() }
     }
 
-    /**
-     * Gets unique pairs from a number
-     */
     fun getUniquePairs(number: String): List<String> {
         return createPairsFromNumber(number).distinct()
     }
 
-    /**
-     * Creates pairs and their reverse combinations
-     * Example: "98" -> ["98", "89"]
-     */
     fun createPairsWithReversals(number: String): List<String> {
         val pairs = createPairsFromNumber(number)
         val result = mutableListOf<String>()
@@ -587,12 +580,40 @@ class NumerologyService(private val repository: NumerologyRepository) {
     fun getKarmicLessonDebtJson(): String {
         return repository.getKarmicLessonDebtJson()
     }
-}
 
-data class Quintuple<A, B, C, D, E>(
-    val first: A,
-    val second: B,
-    val third: C,
-    val fourth: D,
-    val fifth: E
-)
+    fun getBirthdayDescription(birthday: String): String {
+        val json = repository.getBirthdayJson()
+        val jsonObject = org.json.JSONObject(json)
+        return jsonObject.optString(birthday, "No description available.")
+    }
+
+    fun getSoulUrgeDescription(soulUrge: String): String {
+        val json = repository.getSoulUrgeJson()
+        val jsonObject = org.json.JSONObject(json)
+        return jsonObject.optString(soulUrge, "No description available.")
+    }
+
+    fun getPersonalityDescription(personality: String): String {
+        val json = repository.getPersonalityJson()
+        val jsonObject = org.json.JSONObject(json)
+        return jsonObject.optString(personality, "No description available.")
+    }
+
+    fun getDestinyDescription(destiny: String): String {
+        val json = repository.getDestinyJson()
+        val jsonObject = org.json.JSONObject(json)
+        return jsonObject.optString(destiny, "No description available.")
+    }
+
+    fun getMissingNumberJson(): String {
+        return repository.getMissingNumberJson()
+    }
+
+    fun getRepeatingNumberJson(): String {
+        return repository.getRepeatingNumberJson()
+    }
+
+    fun getPlaneJson(): String {
+        return repository.getPlaneJson()
+    }
+}
