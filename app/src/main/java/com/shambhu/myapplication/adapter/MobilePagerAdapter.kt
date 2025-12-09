@@ -3,9 +3,8 @@ package com.shambhu.myapplication.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.shambhu.myapplication.fragment.core_number.CoreNumberFragment
-import com.shambhu.myapplication.fragment.core_number.KarmicNumberFragment
-import com.shambhu.myapplication.fragment.core_number.LoshuGridFragment
+import com.shambhu.myapplication.fragment.mobile.GridPairsFragment
+import com.shambhu.myapplication.fragment.mobile.MobileNumerologyFragment
 
 class MobilePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
@@ -13,9 +12,9 @@ class MobilePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> CoreNumberFragment.newInstance("","")
-            1 -> KarmicNumberFragment.newInstance("","")
-            2 -> LoshuGridFragment.newInstance("","")
+            0 -> GridPairsFragment()
+            1 -> MobileNumerologyFragment()
+            2 -> GridPairsFragment()
             else -> throw IllegalStateException("Invalid position: $position")
         }
     }

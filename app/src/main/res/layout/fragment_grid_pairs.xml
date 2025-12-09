@@ -2,19 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@android:color/background_light">
+    android:layout_height="wrap_content"
+    android:background="@android:color/background_light"
+    android:orientation="vertical">
 
     <!-- Hidden Search Bar (Collapsed by default) -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/searchBarCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="0dp"
-        app:cardElevation="4dp"
+        android:animateLayoutChanges="true"
         android:visibility="gone"
-        android:animateLayoutChanges="true">
+        app:cardCornerRadius="0dp"
+        app:cardElevation="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,11 +25,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:text="Enter Number"
-                android:textSize="16sp"
-                android:textStyle="bold"
                 android:textColor="@android:color/black"
-                android:layout_marginBottom="8dp"/>
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -48,19 +48,19 @@
                         android:id="@+id/numberInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
                         android:inputType="number"
                         android:maxLength="10"
-                        android:singleLine="true"
-                        android:imeOptions="actionDone"/>
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/generateButton"
+                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Generate"
                     android:layout_marginStart="8dp"
-                    style="@style/Widget.MaterialComponents.Button"/>
+                    android:text="Generate" />
 
             </LinearLayout>
 
@@ -68,9 +68,9 @@
                 android:id="@+id/errorTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/holo_red_dark"
                 android:layout_marginTop="8dp"
-                android:visibility="gone"/>
+                android:textColor="@android:color/holo_red_dark"
+                android:visibility="gone" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
@@ -86,56 +86,90 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/toggleSearchButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginEnd="16dp"
             android:text="Search"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 
     <!-- Main Content Area -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="0dp">
 
         <!-- Generated Pairs Grid -->
-        <TextView
-            android:id="@+id/gridTitle"
-            android:layout_width="wrap_content"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/searchBarCard1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Generated Pairs"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"
-            android:layout_marginBottom="16dp"/>
+            android:animateLayoutChanges="true"
+            android:visibility="visible"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="4dp"
+            app:contentPadding="@dimen/activity_horizontal_margin">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/pairsGridRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:clipToPadding="false"
-            android:padding="4dp"/>
+            <RelativeLayout
+                android:id="@+id/questionLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:requiresFadingEdge="vertical">
 
-        <!-- Empty State -->
-        <TextView
-            android:id="@+id/emptyStateTextView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="No pairs generated yet.\nClick 'Search' to generate pairs."
-            android:textSize="16sp"
-            android:textColor="@android:color/darker_gray"
-            android:gravity="center"
-            android:padding="32dp"/>
+                <TextView
+                    android:id="@+id/gridTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/generatePairToggleIcon"
+                    android:text="Generated Pairs"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/generatePairToggleIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_remove"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/pairsGridRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50sp"
+                android:layout_weight="1"
+                android:clipToPadding="false"
+                android:padding="4dp" />
+
+            <!-- Empty State -->
+            <TextView
+                android:id="@+id/emptyStateTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="32dp"
+                android:text="No pairs generated yet.\nClick 'Search' to generate pairs."
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp" />
+        </com.google.android.material.card.MaterialCardView>
+
 
     </LinearLayout>
 
+    <include
+        android:id="@+id/resultContainer"
+        layout="@layout/item_combination_full"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <!-- Loading Indicator -->
     <ProgressBar
         android:id="@+id/loadingIndicator"
@@ -143,6 +177,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="16dp"
-        android:visibility="gone"/>
+        android:visibility="gone" />
+
 
 </LinearLayout>
+

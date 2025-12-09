@@ -1,23 +1,31 @@
-package com.shambhu.myapplication.fragment.others
-// fragments/GridPairsFragment.kt
+package com.shambhu.myapplication.fragment.mobile
 
 import android.animation.ObjectAnimator
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.animation.doOnEnd
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.button.MaterialButton
+import com.shambhu.myapplication.R
 import com.shambhu.myapplication.adapter.PairGridItem
 import com.shambhu.myapplication.adapter.PairsGridAdapter
 import com.shambhu.myapplication.databinding.FragmentGridPairsBinding
 import com.shambhu.myapplication.dialog.CombinationDetailsDialog
 import com.shambhu.myapplication.model.NumerologyMobileCombination
+import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.JsonParser
-
 
 class GridPairsFragment : Fragment() {
 
@@ -43,6 +51,15 @@ class GridPairsFragment : Fragment() {
         setupViews()
         setupListeners()
         setupRecyclerView()
+        setupExpanderClick()
+    }
+
+    private fun setupExpanderClick() {
+        binding.generatePairToggleIcon.setOnClickListener {
+            val isExpanded = binding.pairsGridRecyclerView.isVisible
+            binding.pairsGridRecyclerView.visibility = if (isExpanded) View.GONE else View.VISIBLE
+            binding.generatePairToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_add else R.drawable.ic_remove)
+        }
     }
 
     private fun setupViews() {
@@ -67,7 +84,7 @@ class GridPairsFragment : Fragment() {
         }
 
         binding.numberInput.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == android.view.inputmethod.EditorInfo.IME_ACTION_DONE) {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
                 generatePairs()
                 true
             } else {
@@ -130,17 +147,6 @@ class GridPairsFragment : Fragment() {
         if (isSearchBarVisible) {
             isSearchBarVisible = false
 
-            // Animate slide up
-            /*ObjectAnimator.ofFloat(
-                binding.searchBarCard,
-                "translationY",
-                -binding.searchBarCard.height.toFloat()
-            )
-                .setDuration(300)
-                .start()
-                .withEndAction {
-                    binding.searchBarCard.isVisible = false
-                }*/
             val animator = ObjectAnimator.ofFloat(
                 binding.searchBarCard,
                 "translationY",
@@ -183,6 +189,7 @@ class GridPairsFragment : Fragment() {
         if (pairs.isEmpty()) {
             showError("Could not generate pairs from the number")
             binding.loadingIndicator.isVisible = false
+            binding.generatePairToggleIcon.visibility = View.GONE
             return
         }
 
@@ -233,8 +240,9 @@ class GridPairsFragment : Fragment() {
     }
 
     private fun updateGridTitle(input: String, pairCount: Int) {
-       // val cleanedInput = JsonParser.cleanNumberInput(input)
+        // val cleanedInput = JsonParser.cleanNumberInput(input)
         binding.gridTitle.text = "Pairs from '$input' ($pairCount)"
+        binding.generatePairToggleIcon.visibility = View.VISIBLE
     }
 
     private fun handleItemClick(item: PairGridItem) {
@@ -253,6 +261,7 @@ class GridPairsFragment : Fragment() {
                     "${item.pair}: $state - $planets",
                     Toast.LENGTH_SHORT
                 ).show()
+                createCombinationView(item.combination)
             } else {
                 Toast.makeText(
                     requireContext(),
@@ -271,7 +280,7 @@ class GridPairsFragment : Fragment() {
 
     private fun showCombinationDetails(combination: NumerologyMobileCombination) {
         // Create and show details dialog
-        val dialog = CombinationDetailsDialog.newInstance(combination)
+        val dialog = CombinationDetailsDialog.Companion.newInstance(combination)
         dialog.show(childFragmentManager, "CombinationDetailsDialog")
     }
 
@@ -296,4 +305,47 @@ class GridPairsFragment : Fragment() {
         binding.errorTextView.isVisible = false
         binding.emptyStateTextView.isVisible = true
     }
+
+    private fun createCombinationView(combination: NumerologyMobileCombination) {
+        binding.resultContainer.tvCombination.text = "Combination: ${combination.combination}"
+        binding.resultContainer.tvState.text = combination.state.replace("_", " ").uppercase()
+        binding.resultContainer.tvState.setBackgroundColor(CommonUtils.getStateColor(combination.state))
+        binding.resultContainer.tvPlanets.text = "Planets: ${combination.planets.joinToString(", ")}"
+
+        // Show first 3 traits initially
+        val allTraits = combination.traits
+        val initialTraits = allTraits.take(3)
+        binding.resultContainer.tvTraits.text = "Traits: ${initialTraits.joinToString(", ")}"
+
+        // Handle expand/collapse
+        if (allTraits.size > 3) {
+            binding.resultContainer.expandButton.isVisible = true
+            binding.resultContainer.expandButton.text = "Show ${allTraits.size - 3} more"
+
+            binding.resultContainer.expandButton.setOnClickListener {
+                if (binding.resultContainer.moreTraitsContainer.isVisible) {
+                    // Collapse
+                    binding.resultContainer.moreTraitsContainer.isVisible = false
+                    binding.resultContainer. expandButton.text = "Show ${allTraits.size - 3} more"
+                } else {
+                    // Expand
+                    binding.resultContainer.moreTraitsContainer.removeAllViews()
+                    allTraits.drop(3).forEach { trait ->
+                        val traitView = TextView(requireContext()).apply {
+                            text = "• $trait"
+                            textSize = 14f
+                            setTextColor(Color.DKGRAY)
+                            setPadding(0, 4, 0, 4)
+                        }
+                        binding.resultContainer.moreTraitsContainer.addView(traitView)
+                    }
+                    binding.resultContainer.moreTraitsContainer.isVisible = true
+                    binding.resultContainer.expandButton.text = "Show less"
+                }
+            }
+        } else {
+            binding.resultContainer.expandButton.isVisible = false
+        }
+    }
+
 }

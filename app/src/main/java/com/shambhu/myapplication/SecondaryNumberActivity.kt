@@ -123,6 +123,10 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
                 val i = Intent(applicationContext, ExpandableActivity::class.java)
                 startActivity(i)
             }
+            R.id.nav_mobile -> {
+                val i = Intent(applicationContext, MobileActivity::class.java)
+                startActivity(i)
+            }
 
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)

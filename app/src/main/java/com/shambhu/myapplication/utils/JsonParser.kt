@@ -88,15 +88,17 @@ object JsonParser {
      * Creates all possible consecutive 2-digit pairs from a number string
      * Example: "9878" -> ["98", "87", "78"]
      */
-    fun createPairsFromNumber(number: String): List<String> {
+    fun createPairsFromNumber(mobileNumber: String): List<String> {
         val pairs = mutableListOf<String>()
+        val filteredNumber = mobileNumber.filter { it != '0' }
 
-        if (number.length < 2) {
+        if (filteredNumber.length < 2) {
             return pairs
         }
 
-        for (i in 0..number.length - 2) {
-            val pair = number.substring(i, i + 2)
+
+        for (i in 0..filteredNumber.length - 2) {
+            val pair = filteredNumber.substring(i, i + 2)
             if (pair.length == 2 && pair.all { it.isDigit() }) {
                 pairs.add(pair)
             }

@@ -1,6 +1,8 @@
-package com.shambhu.myapplication.fragment.others
+package com.shambhu.myapplication.fragment.mobile
 
-
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
@@ -8,16 +10,19 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.numerologyapp.utils.StringUtils
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.chip.Chip
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentMobileNumberologyBinding
 import com.shambhu.myapplication.model.NumerologyMobileCombination
+import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.JsonParser
 
 class MobileNumerologyFragment : Fragment() {
@@ -86,7 +91,7 @@ class MobileNumerologyFragment : Fragment() {
         })
 
         binding.combinationsInput.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == android.view.inputmethod.EditorInfo.IME_ACTION_SEARCH) {
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 searchCombinations()
                 true
             } else {
@@ -261,12 +266,12 @@ class MobileNumerologyFragment : Fragment() {
         val tvPlanets = view.findViewById<TextView>(R.id.tvPlanets)
         val tvTraits = view.findViewById<TextView>(R.id.tvTraits)
         val expandButton =
-            view.findViewById<com.google.android.material.button.MaterialButton>(R.id.expandButton)
+            view.findViewById<MaterialButton>(R.id.expandButton)
         val moreTraitsContainer = view.findViewById<LinearLayout>(R.id.moreTraitsContainer)
 
         tvCombination.text = "Combination: ${combination.combination}"
         tvState.text = combination.state.replace("_", " ").uppercase()
-        tvState.setBackgroundColor(getStateColor(combination.state))
+        tvState.setBackgroundColor(CommonUtils.getStateColor(combination.state))
         tvPlanets.text = "Planets: ${combination.planets.joinToString(", ")}"
 
         // Show first 3 traits initially
@@ -382,18 +387,9 @@ class MobileNumerologyFragment : Fragment() {
     }
 
     private fun copyToClipboard(text: String) {
-        val clipboard = requireContext().getSystemService(android.content.Context.CLIPBOARD_SERVICE)
-                as android.content.ClipboardManager
-        val clip = android.content.ClipData.newPlainText("Numerology Combination", text)
+        val clipboard = requireContext().getSystemService(Context.CLIPBOARD_SERVICE)
+                as ClipboardManager
+        val clip = ClipData.newPlainText("Numerology Combination", text)
         clipboard.setPrimaryClip(clip)
-    }
-
-    private fun getStateColor(state: String): Int {
-        return when (state) {
-            "universal benefic" -> Color.parseColor("#4CAF50")
-            "neutral combinations" -> Color.parseColor("#FF9800")
-            "malefic combinations" -> Color.parseColor("#F44336")
-            else -> Color.parseColor("#9E9E9E")
-        }
     }
 }

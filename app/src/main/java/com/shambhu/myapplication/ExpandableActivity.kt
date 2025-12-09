@@ -119,6 +119,10 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 val i = Intent(this, MainActivity::class.java)
                 startActivity(i)
             }
+            R.id.nav_mobile -> {
+                val i = Intent(applicationContext, MobileActivity::class.java)
+                startActivity(i)
+            }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true

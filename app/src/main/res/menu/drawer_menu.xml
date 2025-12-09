@@ -16,6 +16,11 @@
             android:id="@+id/nav_personal"
             android:icon="@drawable/ic_personality"
             android:title="Other" />
+
+        <item
+            android:id="@+id/nav_mobile"
+            android:icon="@drawable/twotone_app_blocking_24"
+            android:title="Mobile" />
     </group>
     <group android:checkableBehavior="none"
         >

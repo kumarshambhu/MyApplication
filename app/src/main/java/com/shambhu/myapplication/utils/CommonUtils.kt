@@ -1,6 +1,7 @@
 package com.shambhu.myapplication.utils
 
 import android.content.Context
+import android.graphics.Color
 import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
 import java.nio.charset.Charset
 import java.text.SimpleDateFormat
@@ -79,5 +80,14 @@ object CommonUtils {
         return name.uppercase()
             .mapNotNull { LETTER_VALUES[it] } // skip characters not in map
             .toIntArray()
+    }
+
+    fun getStateColor(state: String): Int {
+        return when (state) {
+            "universal benefic" -> Color.parseColor("#4CAF50")
+            "neutral combinations" -> Color.parseColor("#FF9800")
+            "malefic combinations" -> Color.parseColor("#F44336")
+            else -> Color.parseColor("#9E9E9E")
+        }
     }
 }
