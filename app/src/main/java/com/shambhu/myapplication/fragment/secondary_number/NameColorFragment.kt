@@ -1,19 +1,30 @@
 package com.shambhu.myapplication.fragment.secondary_number
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import com.google.gson.Gson
 import com.shambhu.myapplication.databinding.FragmentNameColorBinding
+import com.shambhu.myapplication.repository.NameAnalysisRepository
+import com.shambhu.myapplication.repository.impl.NameAnalysisRepositoryImpl
+import com.shambhu.myapplication.service.impl.NameAnalysisServiceImpl
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 class NameColorFragment : Fragment() {
 
     private var _binding: FragmentNameColorBinding? = null
     private val binding get() = _binding!!
+    private val nameAnalysisRepository: NameAnalysisRepository by lazy {
+        NameAnalysisRepositoryImpl(NameAnalysisServiceImpl(Gson()))
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,30 +39,34 @@ class NameColorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let {
             val fullName = it.getString(Constants.Companion.ARG_FULL_NAME)
-                bindColors(fullName.toString())
+            bindColors(fullName.toString())
         }
     }
 
+    private fun bindColors(fullName: String) {
+        nameAnalysisRepository.getColorGroup(requireContext(), fullName)
+            .onEach { result ->
+                result.onSuccess { (description, details, matchedColors, group, matchedColorsCount) ->
+                    binding.colorGroupNameValue.text = matchedColors
+                    binding.colorGroupDescriptionValue.text = description
+                    binding.colorGroupDetailsValue.text =
+                        NumerologyCalculationUtils.convertToHtml(details)
+                    binding.colorGroupMatchedColorValue.text = matchedColors
+                    binding.numberOfColorsMatchedValue.text = matchedColorsCount.toString()
+                }.onFailure { error ->
+                    Log.e("NameColorFragment", "Failed to load color group data", error)
+                }
+            }.launchIn(viewLifecycleOwner.lifecycleScope)
 
-    private fun bindColors(fullName: String){
         val colorsJson = CommonUtils.readAssetFile(requireContext(), "colors.json") ?: return
-
-        // Color Group
-        val (description, details, matchedColors, group, matchedColorsCount) = NumerologyCalculationUtils.calculateColorGroup(
-            fullName, colorsJson)
-        binding.colorGroupNameValue.text = matchedColors
-        binding.colorGroupDescriptionValue.text = description
-        binding.colorGroupDetailsValue.text = NumerologyCalculationUtils.convertToHtml(details)
-        binding.colorGroupMatchedColorValue.text = matchedColors
-        binding.numberOfColorsMatchedValue.text = matchedColorsCount.toString()
-
         val colorCounts = NumerologyCalculationUtils.calculateColorCounts(fullName, colorsJson)
         val countsText = colorCounts.entries.joinToString("\n") { (color, count) ->
             "$color: $count"
         }
         binding.individualColorCountsValue.text = countsText
 
-        val matchedGroups = NumerologyCalculationUtils.findAllMatchedColorGroups(fullName, colorsJson)
+        val matchedGroups =
+            NumerologyCalculationUtils.findAllMatchedColorGroups(fullName, colorsJson)
         val matchedGroupsText = matchedGroups.entries.joinToString("\n") { (group, colors) ->
             "$group: ${colors.joinToString(", ")}"
         }
