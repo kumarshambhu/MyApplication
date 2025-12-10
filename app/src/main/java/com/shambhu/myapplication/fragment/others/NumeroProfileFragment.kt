@@ -7,8 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.shambhu.myapplication.R
@@ -16,11 +17,15 @@ import com.shambhu.myapplication.adapter.NumeroAccordionAdapter
 import com.shambhu.myapplication.databinding.FragmentNumeroProfileBinding
 import com.shambhu.myapplication.model.MulankBhagyankResponse
 import com.shambhu.myapplication.model.NumeroData
+import com.shambhu.myapplication.repository.CoreNumberRepository
+import com.shambhu.myapplication.repository.impl.CoreNumberRepositoryImpl
+import com.shambhu.myapplication.service.impl.CoreNumberServiceImpl
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.NumeroCalculator
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
-import org.json.JSONObject
-import androidx.core.view.isVisible
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.zip
 
 class NumeroProfileFragment : Fragment() {
 
@@ -29,6 +34,10 @@ class NumeroProfileFragment : Fragment() {
     private var birthDate: String = ""
     private var mulankData: NumeroData? = null
     private var bhagyankData: NumeroData? = null
+    private val coreNumberRepository: CoreNumberRepository by lazy {
+        CoreNumberRepositoryImpl(CoreNumberServiceImpl(Gson()))
+    }
+
 
     companion object {
         fun newInstance(birthDate: String): NumeroProfileFragment {
@@ -50,7 +59,7 @@ class NumeroProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentNumeroProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -59,11 +68,7 @@ class NumeroProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         calculateNumerology()
-        setupAccordion()
     }
-
-
-
 
     private fun calculateNumerology() {
         // Calculate Mulank and Bhagyank from birth date
@@ -83,21 +88,51 @@ class NumeroProfileFragment : Fragment() {
 
         binding.mulankBhagyankCombination.text = remark + " (" + luck+")"
 
-        // Load data from JSON files
-        mulankData = loadMulankData(mulankNumber)
-        bhagyankData = loadBhagyankData(bhagyankNumber)
+        // Load data using repository
+        loadData(mulankNumber, bhagyankNumber)
+    }
 
-        // Update UI
+    private fun loadData(mulankNumber: Int, bhagyankNumber: Int) {
+        val mulankFlow = coreNumberRepository.getMulankdataById(requireContext(), mulankNumber)
+        val bhagyankFlow = coreNumberRepository.getBhagyankById(requireContext(), bhagyankNumber)
+
+        mulankFlow.zip(bhagyankFlow) { mulankResult, bhagyankResult ->
+            Pair(mulankResult, bhagyankResult)
+        }.onEach { (mulankResult, bhagyankResult) ->
+            mulankResult.onSuccess { data ->
+                mulankData = data
+                updateMulankUi(mulankNumber)
+            }.onFailure { error ->
+                Log.e("NumeroProfileFragment", "Failed to load Mulank data", error)
+            }
+
+            bhagyankResult.onSuccess { data ->
+                bhagyankData = data
+                updateBhagyankUi(bhagyankNumber)
+            }.onFailure { error ->
+                Log.e("NumeroProfileFragment", "Failed to load Bhagyank data", error)
+            }
+
+            // Both flows have emitted, now it's safe to set up the accordion
+            if (mulankResult.isSuccess && bhagyankResult.isSuccess) {
+                setupAccordion()
+            }
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
+    }
+
+    private fun updateMulankUi(mulankNumber: Int) {
         binding.mulankTitle.text = "${mulankData?.name} (Number $mulankNumber)"
-        binding.bhagyankTitle.text = "${bhagyankData?.name} (Number $bhagyankNumber)"
-
         val mulankDesc = "Ruling Planet: ${mulankData?.rulingPlanet}\n" +
                 "Birth Dates: ${mulankData?.birthDates?.joinToString(", ")}"
         binding.mulankDetails.text = mulankDesc
+    }
 
+    private fun updateBhagyankUi(bhagyankNumber: Int) {
+        binding.bhagyankTitle.text = "${bhagyankData?.name} (Number $bhagyankNumber)"
         val bhagyankDesc = "Ruling Planet: ${bhagyankData?.rulingPlanet}"
         binding.bhagyankDetails.text = bhagyankDesc
     }
+
 
     private fun setupAccordion() {
         // Mulank accordion
@@ -163,90 +198,6 @@ class NumeroProfileFragment : Fragment() {
             NumeroAccordionAdapter.Section("Gender Specific - Women",
                 data.genderSpecific?.get("women") ?: emptyList())
         ).filter { it.items.isNotEmpty() }
-    }
-
-    private fun loadMulankData(number: Int): NumeroData? {
-        return try {
-            val jsonString = resources.openRawResource(R.raw.mulank).bufferedReader().use { it.readText() }
-            val jsonObject = JSONObject(jsonString)
-            val mulankObject = jsonObject.getJSONObject("mulank_data").getJSONObject(number.toString())
-
-            NumeroData(
-                name = mulankObject.getString("name"),
-                rulingPlanet = mulankObject.getString("ruling_planet"),
-                birthDates = parseBirthDates(mulankObject.getJSONArray("birth_dates")),
-                characteristics = parseStringArray(mulankObject.getJSONArray("characteristics")),
-                strengths = parseStringArray(mulankObject.getJSONArray("strengths")),
-                weaknesses = parseStringArray(mulankObject.getJSONArray("weaknesses")),
-                advice = parseStringArray(mulankObject.getJSONArray("advice")),
-                favorablePeriods = parsePeriods(mulankObject.getJSONArray("favorable_periods")),
-                unfavorablePeriods = parsePeriods(mulankObject.getJSONArray("unfavorable_periods")),
-                luckyColors = parseStringArray(mulankObject.getJSONArray("lucky_colors")),
-                colorUsageTips = parseStringArray(mulankObject.getJSONArray("color_usage_tips"))
-            )
-        } catch (e: Exception) {
-            e.printStackTrace()
-            null
-        }
-    }
-
-    private fun loadBhagyankData(number: Int): NumeroData? {
-        return try {
-            val jsonString = resources.openRawResource(R.raw.bhagyank).bufferedReader().use { it.readText() }
-            val jsonObject = JSONObject(jsonString)
-            val bhagyankObject = jsonObject.getJSONObject("bhagyank_numbers").getJSONObject(number.toString())
-
-            val genderSpecific = mutableMapOf<String, List<String>>()
-            if (bhagyankObject.has("gender_specific")) {
-                val genderObj = bhagyankObject.getJSONObject("gender_specific")
-                if (genderObj.has("men")) {
-                    genderSpecific["men"] = parseStringArray(genderObj.getJSONArray("men"))
-                }
-                if (genderObj.has("women")) {
-                    genderSpecific["women"] = parseStringArray(genderObj.getJSONArray("women"))
-                }
-            }
-
-            NumeroData(
-                name = bhagyankObject.getString("name"),
-                rulingPlanet = bhagyankObject.getString("ruling_planet"),
-                traits = parseStringArray(bhagyankObject.getJSONArray("traits")),
-                advice = parseStringArray(bhagyankObject.getJSONArray("advice")),
-                careerSuggestions = parseStringArray(bhagyankObject.getJSONArray("career_suggestions")),
-                genderSpecific = genderSpecific
-            )
-        } catch (e: Exception) {
-            e.printStackTrace()
-            null
-        }
-    }
-
-    private fun parseStringArray(jsonArray: org.json.JSONArray): List<String> {
-        val list = mutableListOf<String>()
-        for (i in 0 until jsonArray.length()) {
-            list.add(jsonArray.getString(i))
-        }
-        return list
-    }
-
-    private fun parseBirthDates(jsonArray: org.json.JSONArray): List<Int> {
-        val list = mutableListOf<Int>()
-        for (i in 0 until jsonArray.length()) {
-            list.add(jsonArray.getInt(i))
-        }
-        return list
-    }
-
-    private fun parsePeriods(jsonArray: org.json.JSONArray): List<NumeroData.Period> {
-        val list = mutableListOf<NumeroData.Period>()
-        for (i in 0 until jsonArray.length()) {
-            val periodObj = jsonArray.getJSONObject(i)
-            list.add(NumeroData.Period(
-                time = periodObj.getString("time"),
-                description = periodObj.getString("description")
-            ))
-        }
-        return list
     }
 
 
