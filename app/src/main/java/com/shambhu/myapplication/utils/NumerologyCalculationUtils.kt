@@ -4,6 +4,7 @@ import android.content.Context
 import android.text.Html
 import com.example.myapplication.NameAnalyzer
 import com.shambhu.myapplication.model.ColorAnalysisResult
+import com.shambhu.myapplication.model.ColorsData
 import com.shambhu.myapplication.model.ElementAnalysisResult
 import com.shambhu.myapplication.model.LoshuGridPlanes
 import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
@@ -307,28 +308,21 @@ object NumerologyCalculationUtils {
 
     fun calculateColorGroup(
         fullName: String,
-        jsonString: String
+        colorsData: ColorsData
     ): ColorAnalysisResult {
         val nameNumbers = nameToColorNumbers(fullName)
-
-        val jsonObject = org.json.JSONObject(jsonString)
-        val colorByNumber = jsonObject.getJSONObject("color_by_number")
-        val colorGroup = jsonObject.getJSONObject("color_group")
+        val colorByNumber = colorsData.colorByNumber
+        val colorGroup = colorsData.colorGroup
 
         val colorToGroupMap = mutableMapOf<String, String>()
-        val groupIterator = colorGroup.keys()
-        while (groupIterator.hasNext()) {
-            val groupName = groupIterator.next()
-            val groupObject = colorGroup.getJSONObject(groupName)
-            val colorsInGroup = groupObject.getJSONArray("colors")
-            for (i in 0 until colorsInGroup.length()) {
-                val colorName = colorsInGroup.getString(i)
+        for ((groupName, groupDetails) in colorGroup) {
+            for (colorName in groupDetails.colors) {
                 colorToGroupMap[colorName] = groupName
             }
         }
 
         val userColors = nameNumbers.mapNotNull {
-            colorByNumber.optJSONObject(it.toString())?.optString("color")
+            colorByNumber[it.toString()]?.color
         }
         val groupCounts = userColors
             .mapNotNull { colorToGroupMap[it] }
@@ -337,16 +331,12 @@ object NumerologyCalculationUtils {
 
         val dominantGroup = groupCounts.maxByOrNull { it.value }?.key
 
-        return if (dominantGroup != null && colorGroup.has(dominantGroup)) {
-            val groupObject = colorGroup.getJSONObject(dominantGroup)
-            val description = groupObject.getString("description")
-            val details = groupObject.getString("details")
+        return if (dominantGroup != null && colorGroup.containsKey(dominantGroup)) {
+            val groupObject = colorGroup[dominantGroup]!!
+            val description = groupObject.description
+            val details = groupObject.details
 
-            val colorsInDominantGroup = mutableListOf<String>()
-            val colorsArray = groupObject.getJSONArray("colors")
-            for (i in 0 until colorsArray.length()) {
-                colorsInDominantGroup.add(colorsArray.getString(i))
-            }
+            val colorsInDominantGroup = groupObject.colors
 
             val matchedColors = userColors.filter { colorsInDominantGroup.contains(it) }.distinct()
             ColorAnalysisResult(
@@ -368,40 +358,33 @@ object NumerologyCalculationUtils {
         }
     }
 
-    fun calculateColorCounts(fullName: String, jsonString: String): Map<String, Int> {
+    fun calculateColorCounts(fullName: String, colorsData: ColorsData): Map<String, Int> {
         val nameNumbers = nameToColorNumbers(fullName)
-        val jsonObject = org.json.JSONObject(jsonString)
-        val colorByNumber = jsonObject.getJSONObject("color_by_number")
+        val colorByNumber = colorsData.colorByNumber
 
         return nameNumbers
             .mapNotNull { number ->
-                colorByNumber.optJSONObject(number.toString())?.optString("color")
+                colorByNumber[number.toString()]?.color
             }
             .groupingBy { it }
             .eachCount()
     }
 
-    fun findAllMatchedColorGroups(fullName: String, jsonString: String): Map<String, List<String>> {
+    fun findAllMatchedColorGroups(fullName: String, colorsData: ColorsData): Map<String, List<String>> {
         val nameNumbers = nameToColorNumbers(fullName)
-        val jsonObject = org.json.JSONObject(jsonString)
-        val colorByNumber = jsonObject.getJSONObject("color_by_number")
-        val colorGroup = jsonObject.getJSONObject("color_group")
+        val colorByNumber = colorsData.colorByNumber
+        val colorGroup = colorsData.colorGroup
 
         val userColors = nameNumbers
             .mapNotNull { number ->
-                colorByNumber.optJSONObject(number.toString())?.optString("color")
+                colorByNumber[number.toString()]?.color
             }
             .distinct()
 
         val matchedGroups = mutableMapOf<String, List<String>>()
-        val groupIterator = colorGroup.keys()
 
-        while (groupIterator.hasNext()) {
-            val groupName = groupIterator.next()
-            val groupObject = colorGroup.getJSONObject(groupName)
-            val colorsInGroupArray = groupObject.getJSONArray("colors")
-            val colorsInGroup = List(colorsInGroupArray.length()) { i -> colorsInGroupArray.getString(i) }
-
+        for ((groupName, groupDetails) in colorGroup) {
+            val colorsInGroup = groupDetails.colors
             val matchedColors = userColors.filter { it in colorsInGroup }
 
             if (matchedColors.isNotEmpty()) {

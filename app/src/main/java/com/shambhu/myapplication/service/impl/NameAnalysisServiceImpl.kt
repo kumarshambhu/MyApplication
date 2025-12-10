@@ -3,6 +3,7 @@ package com.shambhu.myapplication.service.impl
 import android.content.Context
 import com.google.gson.Gson
 import com.shambhu.myapplication.model.ColorAnalysisResult
+import com.shambhu.myapplication.model.ColorsData
 import com.shambhu.myapplication.model.ElementAnalysisResult
 import com.shambhu.myapplication.service.NameAnalysisService
 import com.shambhu.myapplication.utils.CommonUtils
@@ -14,7 +15,8 @@ class NameAnalysisServiceImpl(private val gson: Gson) : NameAnalysisService {
         fullName: String
     ): ColorAnalysisResult {
         val jsonString = CommonUtils.readAssetFile(context, "colors.json")
-        return NumerologyCalculationUtils.calculateColorGroup(fullName, jsonString)
+        val colorsData = gson.fromJson(jsonString, ColorsData::class.java)
+        return NumerologyCalculationUtils.calculateColorGroup(fullName, colorsData)
     }
 
     override suspend fun getElements(
