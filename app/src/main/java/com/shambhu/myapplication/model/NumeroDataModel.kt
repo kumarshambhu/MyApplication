@@ -3,6 +3,7 @@ package com.shambhu.myapplication.model
 
 
 data class NumeroData(
+    val id: Int = 0,
     val name: String = "",
     val rulingPlanet: String = "",
     val birthDates: List<Int> = emptyList(),

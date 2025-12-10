@@ -1,303 +1,266 @@
-{
-	"bhagyank_numbers": {
-		"1": {
-			"name": "Bhagyank 1",
-			"ruling_planet": "Sun",
-			"traits": [
-				"Natural leaders",
-				"Good at managing and encouraging people",
-				"Popular in social circles",
-				"Strong combination of mind and body",
-				"Farsighted and wise decision-makers",
-				"Enjoy uncertain monetary gains",
-				"Patient, organized, and persistent",
-				"Inclined toward royal lifestyle and worldly pleasures",
-				"Seek logic in everything",
-				"Prompt in decisions and actions",
-				"Intellectual and attractive",
-				"Givers, kind, and helpful"
+[
+	{
+		"id": 1,
+		"name": "Bhagyank 1",
+		"ruling_planet": "Sun",
+		"traits": [
+			"Natural leaders",
+			"Good at managing and encouraging people",
+			"Popular in social circles",
+			"Strong combination of mind and body",
+			"Farsighted and wise decision-makers",
+			"Enjoy uncertain monetary gains",
+			"Patient, organized, and persistent",
+			"Inclined toward royal lifestyle and worldly pleasures",
+			"Seek logic in everything",
+			"Prompt in decisions and actions",
+			"Intellectual and attractive",
+			"Givers, kind, and helpful"
+		],
+		"advice": [
+			"Cultivate commitment and punctuality",
+			"Use October–December as a period to develop patience and resilience"
+		],
+		"career_suggestions": ["Leader", "Manager"],
+		"gender_specific": {}
+	},
+	{
+		"id": 2,
+		"name": "Bhagyank 2",
+		"ruling_planet": "Moon",
+		"traits": [
+			"Family-oriented",
+			"Emotional and sensitive",
+			"Peace-loving and avoid fights",
+			"Strong sense of self-respect",
+			"Artistic and creative",
+			"Good healers and counselors",
+			"Can be overemotional in relationships"
+		],
+		"advice": [
+			"Acknowledge and respect emotions in yourself and others",
+			"After setbacks, avoid feelings of helplessness"
+		],
+		"career_suggestions": [
+			"Doctor",
+			"Psychologist",
+			"Therapist",
+			"Marriage Counselor",
+			"Artist",
+			"Performer",
+			"Actor",
+			"Singer",
+			"Dancer",
+			"Poet"
+		],
+		"gender_specific": {
+			"men": [
+				"Fortunate with love and support from women",
+				"Righteous mother",
+				"Marry attractive women",
+				"Love plants and home decoration",
+				"First serious relationship may not last"
 			],
-			"advice": [
-				"Cultivate commitment and punctuality",
-				"Use October–December as a period to develop patience and resilience"
-			],
-			"career_suggestions": [
-				"Leader",
-				"Manager"
-			],
-			"gender_specific": {}
-		},
-		"2": {
-			"name": "Bhagyank 2",
-			"ruling_planet": "Moon",
-			"traits": [
-				"Family-oriented",
-				"Emotional and sensitive",
-				"Peace-loving and avoid fights",
-				"Strong sense of self-respect",
-				"Artistic and creative",
-				"Good healers and counselors",
-				"Can be overemotional in relationships"
-			],
-			"advice": [
-				"Acknowledge and respect emotions in yourself and others",
-				"After setbacks, avoid feelings of helplessness"
-			],
-			"career_suggestions": [
-				"Doctor",
-				"Psychologist",
-				"Therapist",
-				"Marriage Counselor",
-				"Artist",
-				"Performer",
-				"Actor",
-				"Singer",
-				"Dancer",
-				"Poet"
-			],
-			"gender_specific": {
-				"men": [
-					"Fortunate with love and support from women",
-					"Righteous mother",
-					"Marry attractive women",
-					"Love plants and home decoration",
-					"First serious relationship may not last"
-				],
-				"women": [
-					"Very attractive",
-					"Devoted to life partner",
-					"Overemotional in relationships",
-					"Resilient despite sensitivity",
-					"Often blamed unfairly"
-				]
-			}
-		},
-		"3": {
-			"name": "Bhagyank 3",
-			"ruling_planet": "Jupiter",
-			"traits": [
-				"Natural teacher",
-				"Loves acquiring and sharing knowledge",
-				"Creative, intuitive, and humorous",
-				"Good storyteller and traveler",
-				"Works on passion projects",
-				"Handles pressure well but may experience stress",
-				"Prideful, which can hinder success",
-				"May overspend",
-				"Struggles to express deep emotions",
-				"Outspoken and critical",
-				"May face love failures"
-			],
-			"advice": [
-				"Focus on adding value in work and life",
-				"Avoid showing off knowledge",
-				"Control desires and spending",
-				"Be mindful of pride and critical behavior"
-			],
-			"career_suggestions": [
-				"Teacher",
-				"Advisor",
-				"Creative professional"
-			],
-			"gender_specific": {}
-		},
-		"4": {
-			"name": "Bhagyank 4",
-			"ruling_planet": "Rahu",
-			"traits": [
-				"Mentally powerful and practical",
-				"Clever at reading intentions",
-				"Often misunderstood",
-				"Proactive and planner",
-				"Struggles with focus due to Rahu's influence",
-				"Skeptical and may miss opportunities",
-				"Takes on unavoidable responsibilities",
-				"Unconventional and revolutionary thinker"
-			],
-			"advice": [
-				"Rely more on brain than brawn",
-				"Be cautious with criticism",
-				"Maintain focus through practice",
-				"Embrace unconventional ideas despite rejection"
-			],
-			"career_suggestions": [
-				"Strategist",
-				"Planner",
-				"Innovator",
-				"Revolutionary roles"
-			],
-			"gender_specific": {}
-		},
-		"5": {
-			"name": "Bhagyank 5",
-			"ruling_planet": "Mercury",
-			"traits": [
-				"Resilient and fast-recovering",
-				"Loves change and excitement",
-				"Adaptable and flexible",
-				"Childlike with children, mature with adults",
-				"Natural business skills",
-				"Fast-thinking and idea-generating",
-				"Kind, wise, intuitive, optimistic",
-				"Good luck in romance and recognition"
-			],
-			"advice": [
-				"Write down ideas to capture them",
-				"Avoid treating relationships like business",
-				"Channel ideas positively, avoid gambling or manipulation",
-				"Take breaks to avoid stress-related health issues",
-				"Monitor boredom in relationships"
-			],
-			"career_suggestions": [
-				"Entrepreneur",
-				"Business professional",
-				"Innovator",
-				"Travel-related careers"
-			],
-			"gender_specific": {}
-		},
-		"6": {
-			"name": "Bhagyank 6",
-			"ruling_planet": "Venus",
-			"traits": [
-				"Attractive, charming, modern",
-				"Great giver and romantic",
-				"Upscale taste in lifestyle",
-				"Dependable and caring",
-				"Peace-loving and diplomatic",
-				"May face unwanted sexual situations",
-				"Focus on acquiring assets over savings"
-			],
-			"advice": [
-				"Enjoy luxury responsibly",
-				"Add beauty to everything you do",
-				"Focus on asset acquisition",
-				"Be cautious in relationships"
-			],
-			"career_suggestions": [
-				"Fashion",
-				"Design",
-				"Caregiving roles",
-				"Creative arts"
-			],
-			"gender_specific": {
-				"women": [
-					"More favorable than for men",
-					"Look younger than age",
-					"May struggle to find partner if not married early",
-					"Need to give space in relationships"
-				],
-				"men": [
-					"May face sexual problems, need caution"
-				]
-			}
-		},
-		"7": {
-			"name": "Bhagyank 7",
-			"ruling_planet": "Ketu",
-			"traits": [
-				"Enhances Psychic Number traits",
-				"Highly adaptable",
-				"Intuitive and perceptive",
-				"Gets ideas from dreams and daydreams",
-				"Natural healer and comforter",
-				"Can be confused and avoid problems",
-				"Knowledgeable and good orator",
-				"Humorous and charming",
-				"Spiritually inclined later in life",
-				"Recognition in foreign countries"
-			],
-			"advice": [
-				"Spend time alone for contemplation",
-				"Consider healing or spiritual careers",
-				"Face problems instead of avoiding them",
-				"Embrace spirituality"
-			],
-			"career_suggestions": [
-				"Healer",
-				"Teacher",
-				"Spiritual guide",
-				"Diplomat",
-				"Mental health professional"
-			],
-			"gender_specific": {
-				"women": [
-					"Sociable and talkative",
-					"Attractive and clever but sentimental",
-					"Career-oriented",
-					"Strong family ties",
-					"Not very romantic"
-				]
-			}
-		},
-		"8": {
-			"name": "Bhagyank 8",
-			"ruling_planet": "Saturn",
-			"traits": [
-				"Disciplined and hardworking",
-				"Thrives under pressure",
-				"Wise from hardships",
-				"Strong in money and power",
-				"May face financial losses or legal issues",
-				"Spiritually inclined",
-				"May feel isolated",
-				"Romantic and marital challenges",
-				"Great planner"
-			],
-			"advice": [
-				"Avoid bad habits and work smart",
-				"Avoid big risks and greed",
-				"Be vigilant in legal matters",
-				"Collaborate with compatible numbers"
-			],
-			"career_suggestions": [
-				"Leadership roles",
-				"Politics",
-				"Finance",
-				"Real estate",
-				"Spiritual or occult fields"
-			],
-			"gender_specific": {
-				"women": [
-					"May inherit or accumulate property with disputes",
-					"Real estate as safe income source",
-					"Delayed but perfect life partner",
-					"Turbulent married life",
-					"Strong spirituality post-marriage"
-				],
-				"men": [
-					"May disrespect partner; need to evaluate relationships"
-				]
-			}
-		},
-		"9": {
-			"name": "Bhagyank 9",
-			"ruling_planet": "Mars",
-			"traits": [
-				"Energetic and passionate",
-				"Spiritually guided by inner voice",
-				"Humanitarian and helpful",
-				"Nature and animal lover",
-				"Appreciates beauty and knowledge",
-				"Passionate in love, vengeful if wronged",
-				"Natural teacher",
-				"Creative with vivid imagination",
-				"Can be angry, quarrelsome, or revengeful"
-			],
-			"advice": [
-				"Channel energy through physical/mental activity or meditation",
-				"Control anger and vengeful tendencies",
-				"Use imagination positively",
-				"Embrace straightforward nature"
-			],
-			"career_suggestions": [
-				"Teacher",
-				"Spiritual guide",
-				"Artist",
-				"Philanthropist",
-				"Humanitarian roles"
-			],
-			"gender_specific": {}
+			"women": [
+				"Very attractive",
+				"Devoted to life partner",
+				"Overemotional in relationships",
+				"Resilient despite sensitivity",
+				"Often blamed unfairly"
+			]
 		}
+	},
+	{
+		"id": 3,
+		"name": "Bhagyank 3",
+		"ruling_planet": "Jupiter",
+		"traits": [
+			"Natural teacher",
+			"Loves acquiring and sharing knowledge",
+			"Creative, intuitive, and humorous",
+			"Good storyteller and traveler",
+			"Works on passion projects",
+			"Handles pressure well but may experience stress",
+			"Prideful, which can hinder success",
+			"May overspend",
+			"Struggles to express deep emotions",
+			"Outspoken and critical",
+			"May face love failures"
+		],
+		"advice": [
+			"Focus on adding value in work and life",
+			"Avoid showing off knowledge",
+			"Control desires and spending",
+			"Be mindful of pride and critical behavior"
+		],
+		"career_suggestions": ["Teacher", "Advisor", "Creative professional"],
+		"gender_specific": {}
+	},
+	{
+		"id": 4,
+		"name": "Bhagyank 4",
+		"ruling_planet": "Rahu",
+		"traits": [
+			"Mentally powerful and practical",
+			"Clever at reading intentions",
+			"Often misunderstood",
+			"Proactive and planner",
+			"Struggles with focus due to Rahu's influence",
+			"Skeptical and may miss opportunities",
+			"Takes on unavoidable responsibilities",
+			"Unconventional and revolutionary thinker"
+		],
+		"advice": [
+			"Rely more on brain than brawn",
+			"Be cautious with criticism",
+			"Maintain focus through practice",
+			"Embrace unconventional ideas despite rejection"
+		],
+		"career_suggestions": ["Strategist", "Planner", "Innovator", "Revolutionary roles"],
+		"gender_specific": {}
+	},
+	{
+		"id": 5,
+		"name": "Bhagyank 5",
+		"ruling_planet": "Mercury",
+		"traits": [
+			"Resilient and fast-recovering",
+			"Loves change and excitement",
+			"Adaptable and flexible",
+			"Childlike with children, mature with adults",
+			"Natural business skills",
+			"Fast-thinking and idea-generating",
+			"Kind, wise, intuitive, optimistic",
+			"Good luck in romance and recognition"
+		],
+		"advice": [
+			"Write down ideas to capture them",
+			"Avoid treating relationships like business",
+			"Channel ideas positively, avoid gambling or manipulation",
+			"Take breaks to avoid stress-related health issues",
+			"Monitor boredom in relationships"
+		],
+		"career_suggestions": ["Entrepreneur", "Business professional", "Innovator", "Travel-related careers"],
+		"gender_specific": {}
+	},
+	{
+		"id": 6,
+		"name": "Bhagyank 6",
+		"ruling_planet": "Venus",
+		"traits": [
+			"Attractive, charming, modern",
+			"Great giver and romantic",
+			"Upscale taste in lifestyle",
+			"Dependable and caring",
+			"Peace-loving and diplomatic",
+			"May face unwanted sexual situations",
+			"Focus on acquiring assets over savings"
+		],
+		"advice": [
+			"Enjoy luxury responsibly",
+			"Add beauty to everything you do",
+			"Focus on asset acquisition",
+			"Be cautious in relationships"
+		],
+		"career_suggestions": ["Fashion", "Design", "Caregiving roles", "Creative arts"],
+		"gender_specific": {
+			"women": [
+				"More favorable than for men",
+				"Look younger than age",
+				"May struggle to find partner if not married early",
+				"Need to give space in relationships"
+			],
+			"men": ["May face sexual problems, need caution"]
+		}
+	},
+	{
+		"id": 7,
+		"name": "Bhagyank 7",
+		"ruling_planet": "Ketu",
+		"traits": [
+			"Enhances Psychic Number traits",
+			"Highly adaptable",
+			"Intuitive and perceptive",
+			"Gets ideas from dreams and daydreams",
+			"Natural healer and comforter",
+			"Can be confused and avoid problems",
+			"Knowledgeable and good orator",
+			"Humorous and charming",
+			"Spiritually inclined later in life",
+			"Recognition in foreign countries"
+		],
+		"advice": [
+			"Spend time alone for contemplation",
+			"Consider healing or spiritual careers",
+			"Face problems instead of avoiding them",
+			"Embrace spirituality"
+		],
+		"career_suggestions": ["Healer", "Teacher", "Spiritual guide", "Diplomat", "Mental health professional"],
+		"gender_specific": {
+			"women": [
+				"Sociable and talkative",
+				"Attractive and clever but sentimental",
+				"Career-oriented",
+				"Strong family ties",
+				"Not very romantic"
+			]
+		}
+	},
+	{
+		"id": 8,
+		"name": "Bhagyank 8",
+		"ruling_planet": "Saturn",
+		"traits": [
+			"Disciplined and hardworking",
+			"Thrives under pressure",
+			"Wise from hardships",
+			"Strong in money and power",
+			"May face financial losses or legal issues",
+			"Spiritually inclined",
+			"May feel isolated",
+			"Romantic and marital challenges",
+			"Great planner"
+		],
+		"advice": [
+			"Avoid bad habits and work smart",
+			"Avoid big risks and greed",
+			"Be vigilant in legal matters",
+			"Collaborate with compatible numbers"
+		],
+		"career_suggestions": ["Leadership roles", "Politics", "Finance", "Real estate", "Spiritual or occult fields"],
+		"gender_specific": {
+			"women": [
+				"May inherit or accumulate property with disputes",
+				"Real estate as safe income source",
+				"Delayed but perfect life partner",
+				"Turbulent married life",
+				"Strong spirituality post-marriage"
+			],
+			"men": ["May disrespect partner; need to evaluate relationships"]
+		}
+	},
+	{
+		"id": 9,
+		"name": "Bhagyank 9",
+		"ruling_planet": "Mars",
+		"traits": [
+			"Energetic and passionate",
+			"Spiritually guided by inner voice",
+			"Humanitarian and helpful",
+			"Nature and animal lover",
+			"Appreciates beauty and knowledge",
+			"Passionate in love, vengeful if wronged",
+			"Natural teacher",
+			"Creative with vivid imagination",
+			"Can be angry, quarrelsome, or revengeful"
+		],
+		"advice": [
+			"Channel energy through physical/mental activity or meditation",
+			"Control anger and vengeful tendencies",
+			"Use imagination positively",
+			"Embrace straightforward nature"
+		],
+		"career_suggestions": ["Teacher", "Spiritual guide", "Artist", "Philanthropist", "Humanitarian roles"],
+		"gender_specific": {}
 	}
-}
+]
