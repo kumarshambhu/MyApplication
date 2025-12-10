@@ -3,6 +3,8 @@ package com.shambhu.myapplication.utils
 import android.content.Context
 import android.text.Html
 import com.example.myapplication.NameAnalyzer
+import com.shambhu.myapplication.model.ColorAnalysisResult
+import com.shambhu.myapplication.model.ElementAnalysisResult
 import com.shambhu.myapplication.model.LoshuGridPlanes
 import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
 import org.json.JSONArray
@@ -270,7 +272,7 @@ object NumerologyCalculationUtils {
         )
     }
 
-    fun calculateElements(fullName: String, jsonString: String): Pair<String, Map<String, Double>> {
+    fun calculateElements(fullName: String, jsonString: String): ElementAnalysisResult {
         val nameNumbers = nameToIntArray(fullName)
         var dominantElement = ""
         val elementScores =
@@ -300,20 +302,13 @@ object NumerologyCalculationUtils {
                 }
             }
         }
-        return Pair(dominantElement, elementScores)
+        return ElementAnalysisResult(dominantElement, elementScores)
     }
 
-data class Quintuple<A, B, C, D, E>(
-    val first: A,
-    val second: B,
-    val third: C,
-    val fourth: D,
-    val fifth: E
-)
     fun calculateColorGroup(
         fullName: String,
         jsonString: String
-    ): Quintuple<String, String, String, String, Int> {
+    ): ColorAnalysisResult {
         val nameNumbers = nameToColorNumbers(fullName)
 
         val jsonObject = org.json.JSONObject(jsonString)
@@ -354,10 +349,22 @@ data class Quintuple<A, B, C, D, E>(
             }
 
             val matchedColors = userColors.filter { colorsInDominantGroup.contains(it) }.distinct()
-            Quintuple(description, details, matchedColors.joinToString(", "), dominantGroup, matchedColors.size)
+            ColorAnalysisResult(
+                description = description,
+                details = details,
+                matchedColors = matchedColors.joinToString(", "),
+                group = dominantGroup,
+                matchedColorsCount = matchedColors.size
+            )
 
         } else {
-            Quintuple("No dominant color group found.", "", "", "", 0)
+            ColorAnalysisResult(
+                description = "No dominant color group found.",
+                details = "",
+                matchedColors = "",
+                group = "",
+                matchedColorsCount = 0
+            )
         }
     }
 

@@ -3,8 +3,7 @@ package com.shambhu.myapplication.service
 import android.content.Context
 import com.shambhu.myapplication.model.NumeroData
 
-interface  CoreNumberService {
-    suspend fun getMulankList(context: Context): List<NumeroData>
-    suspend fun getBhagyankList(context: Context): List<NumeroData>
-
+interface CoreNumberService {
+    suspend fun getMulankById(context: Context, id: Int): NumeroData?
+    suspend fun getBhagyankById(context: Context, id: Int): NumeroData?
 }

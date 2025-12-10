@@ -11,11 +11,10 @@ class CoreNumberRepositoryImpl(private val coreNumberService: CoreNumberService)
     CoreNumberRepository {
     override fun getMulankdataById(
         context: Context,
-        userId: Int
+        id: Int
     ): Flow<Result<NumeroData?>> = flow {
         try {
-            val users = coreNumberService.getMulankList(context)
-            val user = users.find { it.id == userId }
+            val user = coreNumberService.getMulankById(context, id)
             emit(Result.success(user))
         } catch (e: Exception) {
             emit(Result.failure(e))
@@ -24,11 +23,10 @@ class CoreNumberRepositoryImpl(private val coreNumberService: CoreNumberService)
 
     override fun getBhagyankById(
         context: Context,
-        userId: Int
+        id: Int
     ): Flow<Result<NumeroData?>> = flow {
         try {
-            val users = coreNumberService.getBhagyankList(context)
-            val user = users.find { it.id == userId }
+            val user = coreNumberService.getBhagyankById(context, id)
             emit(Result.success(user))
         } catch (e: Exception) {
             emit(Result.failure(e))

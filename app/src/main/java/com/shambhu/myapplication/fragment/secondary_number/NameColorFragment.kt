@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
 import com.shambhu.myapplication.databinding.FragmentNameColorBinding
+import com.shambhu.myapplication.model.ColorAnalysisResult
 import com.shambhu.myapplication.repository.NameAnalysisRepository
 import com.shambhu.myapplication.repository.impl.NameAnalysisRepositoryImpl
 import com.shambhu.myapplication.service.impl.NameAnalysisServiceImpl
@@ -46,13 +47,14 @@ class NameColorFragment : Fragment() {
     private fun bindColors(fullName: String) {
         nameAnalysisRepository.getColorGroup(requireContext(), fullName)
             .onEach { result ->
-                result.onSuccess { (description, details, matchedColors, group, matchedColorsCount) ->
-                    binding.colorGroupNameValue.text = matchedColors
-                    binding.colorGroupDescriptionValue.text = description
+                result.onSuccess { colorAnalysisResult ->
+                    binding.colorGroupNameValue.text = colorAnalysisResult.matchedColors
+                    binding.colorGroupDescriptionValue.text = colorAnalysisResult.description
                     binding.colorGroupDetailsValue.text =
-                        NumerologyCalculationUtils.convertToHtml(details)
-                    binding.colorGroupMatchedColorValue.text = matchedColors
-                    binding.numberOfColorsMatchedValue.text = matchedColorsCount.toString()
+                        NumerologyCalculationUtils.convertToHtml(colorAnalysisResult.details)
+                    binding.colorGroupMatchedColorValue.text = colorAnalysisResult.matchedColors
+                    binding.numberOfColorsMatchedValue.text =
+                        colorAnalysisResult.matchedColorsCount.toString()
                 }.onFailure { error ->
                     Log.e("NameColorFragment", "Failed to load color group data", error)
                 }

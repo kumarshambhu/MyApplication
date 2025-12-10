@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
 import com.shambhu.myapplication.databinding.FragmentNameElementBinding
+import com.shambhu.myapplication.model.ElementAnalysisResult
 import com.shambhu.myapplication.repository.NameAnalysisRepository
 import com.shambhu.myapplication.repository.impl.NameAnalysisRepositoryImpl
 import com.shambhu.myapplication.service.impl.NameAnalysisServiceImpl
@@ -45,17 +46,18 @@ class NameElementFragment : Fragment() {
     private fun bindingElements(fullName: String) {
         nameAnalysisRepository.getElements(requireContext(), fullName)
             .onEach { result ->
-                result.onSuccess { (dominantElement, score) ->
-                    binding.airElementValue.text = score[Constants.Companion.ELEMENT_KEY_AIR].toString()
+                result.onSuccess { elementAnalysisResult ->
+                    binding.airElementValue.text =
+                        elementAnalysisResult.elementScores[Constants.Companion.ELEMENT_KEY_AIR].toString()
                     binding.earthElementValue.text =
-                        score[Constants.Companion.ELEMENT_KEY_EARTH].toString()
+                        elementAnalysisResult.elementScores[Constants.Companion.ELEMENT_KEY_EARTH].toString()
                     binding.fireElementValue.text =
-                        score[Constants.Companion.ELEMENT_KEY_FIRE].toString()
+                        elementAnalysisResult.elementScores[Constants.Companion.ELEMENT_KEY_FIRE].toString()
                     binding.waterElementValue.text =
-                        score[Constants.Companion.ELEMENT_KEY_WATER].toString()
-                    Log.i("score", score.toString())
+                        elementAnalysisResult.elementScores[Constants.Companion.ELEMENT_KEY_WATER].toString()
+                    Log.i("score", elementAnalysisResult.elementScores.toString())
                     binding.elementDescription.text =
-                        NumerologyCalculationUtils.convertToHtml(dominantElement)
+                        NumerologyCalculationUtils.convertToHtml(elementAnalysisResult.dominantElement)
                 }.onFailure { error ->
                     Log.e("NameElementFragment", "Failed to load element data", error)
                 }
