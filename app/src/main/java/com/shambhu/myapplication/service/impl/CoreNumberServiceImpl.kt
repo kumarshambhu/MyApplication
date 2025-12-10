@@ -19,6 +19,17 @@ class CoreNumberServiceImpl(private val gson: Gson) : CoreNumberService {
         }
         return emptyList()
     }
+
+    override suspend fun getBhagyankList(context: Context): List<NumeroData> {
+        try {
+            val jsonString = CommonUtils.readAssetFile(context, "bhagyank.json")
+            val userListType = object : TypeToken<List<NumeroData>>() {}.type
+            return gson.fromJson(jsonString, userListType)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return emptyList()
+    }
 }
 
 
