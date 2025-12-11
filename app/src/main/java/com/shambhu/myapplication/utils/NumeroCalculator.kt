@@ -2,6 +2,7 @@ package com.shambhu.myapplication.utils
 
 
 import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Locale
 
 class NumeroCalculator {
@@ -41,5 +42,31 @@ class NumeroCalculator {
             n = sumDigits(n)
         }
         return n
+    }
+
+    fun calculatePersonalYear(birthDate: String): Int {
+        val dateParts = birthDate.split("/")
+        val day = dateParts[0].toInt()
+        val month = dateParts[1].toInt()
+        val currentYear = Calendar.getInstance().get(Calendar.YEAR)
+
+        val sum = sumDigits(day) + sumDigits(month) + sumDigits(currentYear)
+        return reduceToSingleDigit(sum)
+    }
+
+    fun calculatePersonalMonth(birthDate: String): Int {
+        val personalYear = calculatePersonalYear(birthDate)
+        val currentMonth = Calendar.getInstance().get(Calendar.MONTH) + 1 // Calendar.MONTH is 0-based
+
+        val sum = personalYear + currentMonth
+        return reduceToSingleDigit(sum)
+    }
+
+    fun calculatePersonalDay(birthDate: String): Int {
+        val personalMonth = calculatePersonalMonth(birthDate)
+        val currentDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+
+        val sum = personalMonth + currentDay
+        return reduceToSingleDigit(sum)
     }
 }

@@ -18,8 +18,11 @@ import com.shambhu.myapplication.databinding.FragmentNumeroProfileBinding
 import com.shambhu.myapplication.model.MulankBhagyankResponse
 import com.shambhu.myapplication.model.NumeroData
 import com.shambhu.myapplication.repository.CoreNumberRepository
+import com.shambhu.myapplication.repository.PersonalFortuneRepository
 import com.shambhu.myapplication.repository.impl.CoreNumberRepositoryImpl
+import com.shambhu.myapplication.repository.impl.PersonalFortuneRepositoryImpl
 import com.shambhu.myapplication.service.impl.CoreNumberServiceImpl
+import com.shambhu.myapplication.service.impl.PersonalFortuneServiceImpl
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.NumeroCalculator
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
@@ -36,6 +39,10 @@ class NumeroProfileFragment : Fragment() {
     private var bhagyankData: NumeroData? = null
     private val coreNumberRepository: CoreNumberRepository by lazy {
         CoreNumberRepositoryImpl(CoreNumberServiceImpl(Gson()))
+    }
+
+    private val personalFortuneRepository: PersonalFortuneRepository by lazy {
+        PersonalFortuneRepositoryImpl(PersonalFortuneServiceImpl(requireContext()))
     }
 
 
@@ -80,6 +87,35 @@ class NumeroProfileFragment : Fragment() {
 
         // Load data using repository
         loadData(mulankNumber, bhagyankNumber)
+        loadPersonalFortuneData()
+    }
+
+    private fun loadPersonalFortuneData() {
+        val calculator = NumeroCalculator()
+        val personalDay = calculator.calculatePersonalDay(birthDate)
+        val personalMonth = calculator.calculatePersonalMonth(birthDate)
+        val personalYear = calculator.calculatePersonalYear(birthDate)
+
+        personalFortuneRepository.getPersonalFortune(personalDay, personalMonth, personalYear)
+            .onEach { personalFortuneData ->
+                updatePersonalFortuneUi(personalFortuneData)
+            }
+            .launchIn(viewLifecycleOwner.lifecycleScope)
+    }
+
+    private fun updatePersonalFortuneUi(personalFortuneData: com.shambhu.myapplication.model.PersonalFortuneData) {
+        personalFortuneData.personalDay?.let {
+            binding.personalDayTitle.text = "Personal Day: ${it.dayNumber}"
+            binding.personalDayDescription.text = it.description
+        }
+        personalFortuneData.personalMonth?.let {
+            binding.personalMonthTitle.text = "Personal Month: ${it.monthNumber}"
+            binding.personalMonthDescription.text = it.positive.joinToString("\n")
+        }
+        personalFortuneData.personalYear?.let {
+            binding.personalYearTitle.text = "Personal Year: ${it.yearNumber} - ${it.title}"
+            binding.personalYearDescription.text = it.positiveOutcomes.joinToString("\n")
+        }
     }
 
     private fun loadData(mulankNumber: Int, bhagyankNumber: Int) {
