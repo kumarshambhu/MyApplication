@@ -1,8 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt")
-
+    //id("kotlin-kapt")
+    alias(libs.plugins.navigation.safeargs.kotlin)
 }
 
 android {
@@ -61,6 +61,8 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx.v277)
+    implementation(libs.androidx.navigation.ui.ktx.v277)
 
     // Coroutines
     implementation(libs.kotlinx.coroutines.android)

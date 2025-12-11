@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.shambhu.myapplication.fragment.mobile.GridPairsFragment
+import com.shambhu.myapplication.fragment.mobile.MainFragment
 import com.shambhu.myapplication.fragment.mobile.MobileNumerologyFragment
 
 class MobilePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
@@ -14,7 +15,7 @@ class MobilePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
         return when (position) {
             0 -> GridPairsFragment()
             1 -> MobileNumerologyFragment()
-            2 -> GridPairsFragment()
+            2 -> MainFragment()
             else -> throw IllegalStateException("Invalid position: $position")
         }
     }

@@ -99,7 +99,7 @@ class CoreNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_logout -> {
-                val i = Intent(this, MainActivity::class.java)
+                val i = Intent(this, MobileNumerologyActivity::class.java)
                 startActivity(i)
             }
 
