@@ -106,8 +106,10 @@ class LoshuGridFragment : Fragment() {
                         Pair(missingData, repetitiveData)
                     }
                     .collect { (missingData, repetitiveData) ->
-                        createMissingNumberAccordionItems(numberCounts, missingData)
-                        createRepeatingNumberAccordionItems(numberCounts, repetitiveData)
+                        val missingNumberBulletPoints = prepareMissingNumberBulletPoints(numberCounts, missingData)
+                        val repeatingNumberBulletPoints = prepareRepeatingNumberBulletPoints(numberCounts, repetitiveData)
+                        setupBulletPointRecyclerView(binding.missingNumberRecyclerView, missingNumberBulletPoints)
+                        setupBulletPointRecyclerView(binding.repeatNumberRecyclerView, repeatingNumberBulletPoints)
                     }
             }
             binding.planeRecyclerView.visibility = View.VISIBLE
@@ -116,37 +118,25 @@ class LoshuGridFragment : Fragment() {
         }
     }
 
-    private fun createMissingNumberAccordionItems(numberCounts: IntArray, missingNumberData: MissingNumberData) {
-        val missingNumberItems = mutableListOf<LoshuGridPlaneAccordionItem>()
+    private fun prepareMissingNumberBulletPoints(numberCounts: IntArray, missingNumberData: MissingNumberData): List<Pair<String, String>> {
+        val bulletPoints = mutableListOf<Pair<String, String>>()
         val missingNumberMap = missingNumberData.missingNumbers.associateBy { it.number }
 
         for (i in 1..9) {
             if (numberCounts[i] == 0) {
                 missingNumberMap[i]?.let { missingNumber ->
-                    var content = "<ul>"
+                    bulletPoints.add(Pair("Missing Number: ${missingNumber.number}", ""))
                     missingNumber.impacts.forEach { impact ->
-                        content += "<li>$impact</li>"
+                        bulletPoints.add(Pair("•", impact))
                     }
-                    content += "</ul>"
-                    missingNumberItems.add(
-                        LoshuGridPlaneAccordionItem(
-                            "Missing Number: $i",
-                            "",
-                            content = convertToHtml(content),
-                            imageSource = "",
-                            backgroundColor = R.drawable.missing_number_background,
-                            headerColor = 0,
-                            isExpanded = false
-                        )
-                    )
                 }
             }
         }
-        setupRecyclerView(binding.missingNumberRecyclerView, missingNumberItems)
+        return bulletPoints
     }
 
-    private fun createRepeatingNumberAccordionItems(numberCounts: IntArray, repetitiveNumberData: RepetitiveNumberData) {
-        val repeatingNumberItems = mutableListOf<LoshuGridPlaneAccordionItem>()
+    private fun prepareRepeatingNumberBulletPoints(numberCounts: IntArray, repetitiveNumberData: RepetitiveNumberData): List<Pair<String, String>> {
+        val bulletPoints = mutableListOf<Pair<String, String>>()
         val repetitiveNumberMap = repetitiveNumberData.repetitiveNumbers.associateBy { it.number }
 
         for (i in 1..9) {
@@ -156,29 +146,49 @@ class LoshuGridFragment : Fragment() {
                     val foundOccurrence = repetitiveNumber.occurrences.find { it.count.matches(count) }
 
                     foundOccurrence?.let { occurrence ->
-                        var content = "<ul>"
+                        bulletPoints.add(Pair("Repeating Number: $i (x$count)", ""))
                         occurrence.effects.forEach { effect ->
-                            content += "<li>$effect</li>"
+                            bulletPoints.add(Pair("•", effect))
                         }
-                        content += "</ul>"
-                        repeatingNumberItems.add(
-                            LoshuGridPlaneAccordionItem(
-                                "Repeating Number: $i (x$count)",
-                                "",
-                                content = convertToHtml(content),
-                                imageSource = "",
-                                backgroundColor = R.drawable.repeating_number_background,
-                                headerColor = 0,
-                                isExpanded = false
-                            )
-                        )
                     }
                 }
             }
         }
-        setupRecyclerView(binding.repeatNumberRecyclerView, repeatingNumberItems)
+        return bulletPoints
     }
 
+    private fun setupBulletPointRecyclerView(recyclerView: androidx.recyclerview.widget.RecyclerView, bulletPoints: List<Pair<String, String>>) {
+        val adapter = BulletPointRecyclerViewAdapter(true, bulletPoints)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = adapter
+    }
+
+    private fun setupAccordionRecyclerView(recyclerView: androidx.recyclerview.widget.RecyclerView, gridItems: MutableList<LoshuGridPlaneAccordionItem>) {
+        var expandedPosition = -1
+        val adapter =
+            LoshuGridPlaneRecyclerViewAdapter(gridItems, this.requireContext()) { position ->
+                val previousExpandedPosition = expandedPosition
+                if (expandedPosition == position) {
+                    // Clicked on the already expanded item, so collapse it
+                    gridItems[position].isExpanded = false
+                    recyclerView.adapter?.notifyItemChanged(position)
+                    expandedPosition = -1
+                } else {
+                    // A new item is clicked
+                    if (previousExpandedPosition != -1) {
+                        // Collapse the previously expanded item
+                        gridItems[previousExpandedPosition].isExpanded = false
+                        recyclerView.adapter?.notifyItemChanged(previousExpandedPosition)
+                    }
+                    // Expand the new item
+                    gridItems[position].isExpanded = true
+                    recyclerView.adapter?.notifyItemChanged(position)
+                    expandedPosition = position
+                }
+            }
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = adapter
+    }
     fun searchPlane(name: String, title: String, planesJsonArray: JSONArray): Section? {
         val gson = Gson()
         val planeListType = object : TypeToken<List<Plane>>() {}.type
@@ -317,7 +327,7 @@ class LoshuGridFragment : Fragment() {
             )
         )
         println(loshuPlaneItems)
-        setupRecyclerView(binding.planeRecyclerView, loshuPlaneItems)
+        setupAccordionRecyclerView(binding.planeRecyclerView, loshuPlaneItems)
     }
 
     private fun updateCell(textView: TextView, number: Int, count: Int) {
@@ -326,33 +336,6 @@ class LoshuGridFragment : Fragment() {
         } else {
             textView.text = ""
         }
-    }
-
-    private fun setupRecyclerView(recyclerView: androidx.recyclerview.widget.RecyclerView, gridItems: MutableList<LoshuGridPlaneAccordionItem>) {
-        var expandedPosition = -1
-        val adapter =
-            LoshuGridPlaneRecyclerViewAdapter(gridItems, this.requireContext()) { position ->
-                val previousExpandedPosition = expandedPosition
-                if (expandedPosition == position) {
-                    // Clicked on the already expanded item, so collapse it
-                    gridItems[position].isExpanded = false
-                    recyclerView.adapter?.notifyItemChanged(position)
-                    expandedPosition = -1
-                } else {
-                    // A new item is clicked
-                    if (previousExpandedPosition != -1) {
-                        // Collapse the previously expanded item
-                        gridItems[previousExpandedPosition].isExpanded = false
-                        recyclerView.adapter?.notifyItemChanged(previousExpandedPosition)
-                    }
-                    // Expand the new item
-                    gridItems[position].isExpanded = true
-                    recyclerView.adapter?.notifyItemChanged(position)
-                    expandedPosition = position
-                }
-            }
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = adapter
     }
 
     override fun onDestroyView() {
