@@ -1,13 +1,20 @@
 {
-	"missing_number_impacts": [
+	"missing_numbers": [
 		{
 			"number": 1,
 			"impacts": [
-				"There is no ego in such people",
 				"Such people face a lot of problems in select careers",
-				"Such people have low self-confidence",
+				"Such people have low self-confidence and low willpower",
 				"Such people are introverts",
-				"They are unable to express their experiences openly"
+				"They are unable to express their experiences openly",
+				"Difficulty expressing themselves individually",
+				"May have heart problems",
+				"Lack of self-respect and ego"
+			],
+			"remedies": [
+				"Keep a fountain or aquarium in the north corner of the house",
+				"Tie a red thread on your right wrist",
+				"Worship Surya Yantra"
 			]
 		},
 		{
@@ -16,7 +23,19 @@
 				"Such people face problems in their love relations, Lack of stability and patience in life",
 				"Such people do not work according to the timetable",
 				"Such people also live in their imaginations",
-				"Lack of intuitive power and self-confidence"
+				"Lack of intuitive power and self-confidence",
+				"Lack sensitivity, patience, and self-confidence",
+				"Inclined to be impatient and unpunctual",
+				"Problems in family, relationships, income, or marriage delays",
+				"Health problems related to the heart"
+			],
+			"remedies": [
+				"Hang pictures of mountains without water in the south-west corner of the house",
+				"Wear pearl or crystal mala",
+				"Drink water from a silver glass to calm down",
+				"Keep a pair of silver swan toys at home",
+				"Offer water to Shiv-ling",
+				"Donate rice or sugar (daan)"
 			]
 		},
 		{
@@ -24,7 +43,17 @@
 			"impacts": [
 				"The grace of the guru and lord is less",
 				"Such peoples face problems in promotion and growth, lack of creative thinking and making decisions",
-				"Low self-confidence and Distracted very easily"
+				"Low self-confidence and Distracted very easily",
+				"Decrease in blessings of God/Guru, lack of confidence",
+				"Difficulty thinking logically when distracted",
+				"Underestimate themselves, neglect creative work",
+				"Overly self-effacing"
+			],
+			"remedies": [
+				"Place scenes of green plants in the east of the house",
+				"Wear Tulsi mala or five Mukhi Rudraksh mala",
+				"Use wooden objects like wooden table, glass, or grafted bamboo",
+				"Respect old people and teachers"
 			]
 		},
 		{
@@ -33,7 +62,17 @@
 				"Lack of financial stability and growth",
 				"Lack of intuition power",
 				"Have to struggle more to achieve success, Such a person becomes directionless",
-				"Thought power is weak and things are forgotten"
+				"Thought power is weak and things are forgotten",
+				"Get entangled in thoughts, lack direction and organization",
+				"Face financial struggles especially between ages 42–48",
+				"Prone to accidents",
+				"Stomach-related health issues"
+			],
+			"remedies": [
+				"Wear Tulsi mala or five Mukhi Rudraksha, do Nariyal daan (coconut donation)",
+				"Keep house and surroundings clean",
+				"Place green plant scenery in the south-east",
+				"Use wooden objects"
 			]
 		},
 		{
@@ -43,7 +82,16 @@
 				"Health problems related to stomach and back pain",
 				"Face Trouble in starting work",
 				"Face Loss in business",
-				"Face problem in making own house"
+				"Face problem in making own house",
+				"Loss of money, communication failure, loans, bankruptcy",
+				"Struggles in life and business",
+				"Dislike crowds, lack curiosity, courage, and reputation",
+				"Difficulty setting goals, lack drive"
+			],
+			"remedies": [
+				"Surround yourself with quartz crystals or non-metal earth objects",
+				"Avoid electric items in the center of the house",
+				"Keep a poster of a mountain without water in the center of the house"
 			]
 		},
 		{
@@ -53,7 +101,17 @@
 				"Have to struggle to achieve success",
 				"There is a shortage of good friends",
 				"Family support is not available at the right time",
-				"Problems in love relations because of introverted nature"
+				"Problems in love relations because of introverted nature",
+				"Problems with money, family life, marriage",
+				"Lack of support, hard work needed",
+				"Hide feelings, relationship issues",
+				"Financial and legal problems, lack of luxury"
+			],
+			"remedies": [
+				"Use metal coins as a cure",
+				"Respect ladies, give cosmetics as gifts to married women",
+				"Hang 11-inch long golden wind chime with 6 rods in north-west",
+				"Wear a watch/bracelet with a golden chain, wear yellow clothes for important work"
 			]
 		},
 		{
@@ -63,7 +121,14 @@
 				"Such people don't have family support",
 				"Such people don't get success even after effort",
 				"The struggle is more and Success is less",
-				"There is a mental disturbance"
+				"There is a mental disturbance",
+				"Disorganized, confused, anxious",
+				"Little interest in spiritual matters",
+				"Difficulty being independent and self-confident",
+				"Problems having children, usually have female child"
+			],
+			"remedies": [
+				"Wear a watch or bracelet with a silver chain"
 			]
 		},
 		{
@@ -73,7 +138,18 @@
 				"There is no perfection in the work of such people",
 				"Lack of motivation and stability",
 				"Life has a lot of ups and downs",
-				"Poor health and wealth"
+				"Poor health and wealth",
+				"Poor decision-making power",
+				"Careless with finances, many ups and downs",
+				"Lack motivation, leave tasks unfinished",
+				"Health problems related to the heart"
+			],
+			"remedies": [
+				"Respect people from humble backgrounds",
+				"Keep crystals in the north-east",
+				"Keep Kalash of water in the north-east",
+				"Distribute salty food",
+				"Avoid non-veg on Saturdays, fast on Saturdays"
 			]
 		},
 		{
@@ -83,7 +159,17 @@
 				"Have to face ups and downs",
 				"Lack of will and action power",
 				"Lack of reputation and fame",
-				"Don't care about someone's feelings"
+				"Don't care about someone's feelings",
+				"Decrease in name and fame, life becomes struggleful",
+				"Poor financial management",
+				"Insensitive to others' feelings",
+				"Impulsive, don't think before acting"
+			],
+			"remedies": [
+				"Put fire pictures on the wall",
+				"Use a red bulb for light in the South",
+				"Wear red thread on the wrist",
+				"Visit Hanuman temple"
 			]
 		}
 	]

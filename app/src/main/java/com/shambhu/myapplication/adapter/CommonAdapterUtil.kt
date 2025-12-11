@@ -19,4 +19,15 @@ object CommonAdapterUtil {
         holder.layoutManager = LinearLayoutManager(context)
         holder.adapter = challengeNumberRecyclerViewAdapter
     }
+
+    fun setupNumberRecyclerViewAdapter(
+        context: Context,
+        holder: RecyclerView,
+        data: List<Pair<String, String>>?
+    ) {
+        val challengeNumberRecyclerViewAdapter =
+            BulletPointRecyclerViewAdapter(true, data)
+        holder.layoutManager = LinearLayoutManager(context)
+        holder.adapter = challengeNumberRecyclerViewAdapter
+    }
 }

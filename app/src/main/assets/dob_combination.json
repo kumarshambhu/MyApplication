@@ -13,7 +13,9 @@
           "health": "Piles, hypertension",
           "warning": "",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "100%",
+          "remark": "Administration"
         },
         {
           "combination": "1 & 2",
@@ -24,7 +26,9 @@
           "health": "Alcoholism, sexual diseases",
           "warning": "Poor administrative skills, easily cheated",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "80%",
+          "remark": "Liquid"
         },
         {
           "combination": "1 & 3",
@@ -35,7 +39,9 @@
           "health": "Skin disease, knee pain",
           "warning": "",
           "solution": "Perfect name essential",
-          "rating": "very_good"
+          "rating": "very_good",
+          "luck": "70%",
+          "remark": "Occult, Teaching"
         },
         {
           "combination": "1 & 4",
@@ -46,7 +52,9 @@
           "health": "Skin, neurological issues",
           "warning": "",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "70%",
+          "remark": "Politics, Share Market"
         },
         {
           "combination": "1 & 5",
@@ -57,7 +65,9 @@
           "health": "Heat, joint pain",
           "warning": "",
           "solution": "",
-          "rating": "powerful"
+          "rating": "powerful",
+          "luck": "80%",
+          "remark": "Finance, Business"
         },
         {
           "combination": "1 & 6",
@@ -68,7 +78,9 @@
           "health": "Diabetes, hypertension",
           "warning": "Pretends to master occult sciences with bad name",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "75%",
+          "remark": "Luxury, Glamorous"
         },
         {
           "combination": "1 & 7",
@@ -79,7 +91,9 @@
           "health": "Mental illness, sinus",
           "warning": "Bad name → divorce, childlessness",
           "solution": "Name change restores marital happiness",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "60%",
+          "remark": "Occult, Teaching"
         },
         {
           "combination": "1 & 8",
@@ -90,7 +104,9 @@
           "health": "Mental illness, depression",
           "warning": "Saturn robs Sun's benefits without perfect name",
           "solution": "",
-          "rating": "dangerous"
+          "rating": "dangerous",
+          "luck": "0%",
+          "remark": "Delay Success"
         },
         {
           "combination": "1 & 9",
@@ -101,7 +117,9 @@
           "health": "Mental illness, depression",
           "warning": "Bad name → selfish, torturer, drug addict",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "100%",
+          "remark": "Super Successful"
         }
       ]
     },
@@ -118,7 +136,9 @@
           "health": "Eye disease, asthma",
           "warning": "Weakness for drinks/women if name bad",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "90%",
+          "remark": "Any job, Partner Required"
         },
         {
           "combination": "2 & 2",
@@ -129,7 +149,9 @@
           "health": "Mental illness, asthma",
           "warning": "Tempted by excess drinks",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "40%",
+          "remark": "Low Pressure"
         },
         {
           "combination": "2 & 3",
@@ -140,7 +162,9 @@
           "health": "Joint pain, diabetes",
           "warning": "",
           "solution": "People with number 7 help you; avoid number 6",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "50%",
+          "remark": "Healer"
         },
         {
           "combination": "2 & 4",
@@ -151,7 +175,9 @@
           "health": "Mental issues, arthritis",
           "warning": "Moon & Rahu are sworn enemies (Rahu eclipses moon)",
           "solution": "",
-          "rating": "inimical"
+          "rating": "inimical",
+          "luck": "20%",
+          "remark": "Struggle, Depression"
         },
         {
           "combination": "2 & 5",
@@ -162,7 +188,9 @@
           "health": "Nervous disorders, dental",
           "warning": "",
           "solution": "Depends entirely on name quality",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "60%",
+          "remark": "Finance, Banking, Best of Property"
         },
         {
           "combination": "2 & 6",
@@ -173,7 +201,9 @@
           "health": "Eye/mental diseases",
           "warning": "Avoid people with numbers 9 & 3",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "45%",
+          "remark": "Creativity"
         },
         {
           "combination": "2 & 7",
@@ -184,7 +214,9 @@
           "health": "Hypertension, psychosis",
           "warning": "Ketu gives dispassion - may lose interest in wealth",
           "solution": "Avoid name numbers 2,7,8,9",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "45%",
+          "remark": "Occult, Consultant"
         },
         {
           "combination": "2 & 8",
@@ -195,7 +227,9 @@
           "health": "Accidents, back pain",
           "warning": "",
           "solution": "Name in Mercury's numbers (5 series: 14,23,41 etc.), Seek numbers 7 or 6 for safety",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "0%",
+          "remark": "Married Life Problem"
         },
         {
           "combination": "2 & 9",
@@ -206,7 +240,9 @@
           "health": "Piles, hypertension",
           "warning": "2 & 9 are inimical; 7 & 8 also harmful",
           "solution": "",
-          "rating": "inimical"
+          "rating": "inimical",
+          "luck": "20%",
+          "remark": "Marriage Problem"
         }
       ]
     },
@@ -223,7 +259,9 @@
           "health": "Diabetes, eye disease",
           "warning": "Wrong name in 6,8,7 brings evil traits",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "70%",
+          "remark": "Education, Teaching"
         },
         {
           "combination": "3 & 2",
@@ -234,7 +272,9 @@
           "health": "Diabetes, skin disease",
           "warning": "",
           "solution": "Weak unless perfect business name",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "45%",
+          "remark": "Liquid"
         },
         {
           "combination": "3 & 3",
@@ -245,7 +285,9 @@
           "health": "Piles, diabetes",
           "warning": "Bad name → lazy, lustful, gambler",
           "solution": "Name correction restores virtues",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "60%",
+          "remark": "Education They Like Child Energy"
         },
         {
           "combination": "3 & 4",
@@ -256,7 +298,9 @@
           "health": "Arthritis, diabetes",
           "warning": "Arrogant \"know-it-all\" if name wrong",
           "solution": "Avoid name parts 2,6,7,8",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "40%",
+          "remark": "Foreign Land"
         },
         {
           "combination": "3 & 5",
@@ -267,7 +311,9 @@
           "health": "Arthritis, diabetes",
           "warning": "",
           "solution": "Avoid name components 8,7,6",
-          "rating": "very_lucky"
+          "rating": "very_lucky",
+          "luck": "60%",
+          "remark": "Business"
         },
         {
           "combination": "3 & 6",
@@ -278,7 +324,9 @@
           "health": "Mental sickness, diabetes",
           "warning": "Jupiter & Venus are sworn enemies, Volunteer to purchase troubles, Licentious, addict, signs wrong documents",
           "solution": "",
-          "rating": "inimical"
+          "rating": "inimical",
+          "luck": "0%",
+          "remark": "Struggle"
         },
         {
           "combination": "3 & 7",
@@ -289,7 +337,9 @@
           "health": "Mental sickness, paralysis",
           "warning": "Financial setbacks, misunderstood",
           "solution": "Only name correction gives relief",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "80%",
+          "remark": "Healing"
         },
         {
           "combination": "3 & 8",
@@ -300,7 +350,9 @@
           "health": "Arthritis, paralysis",
           "warning": "Childhood poverty, diseases, accidents",
           "solution": "Name in 1,5,9 series",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "40%",
+          "remark": "Media, Lawyer, Printing"
         },
         {
           "combination": "3 & 9",
@@ -311,7 +363,9 @@
           "health": "Arthritis, diabetes",
           "warning": "Don't spoil with bad names in 6,8,2,7, 7 is inimical to 3&9",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "80%",
+          "remark": "IT, Entertainment, Industries, Adminis."
         }
       ]
     },
@@ -328,7 +382,9 @@
           "health": "Piles, paralysis",
           "warning": "",
           "solution": "",
-          "rating": "very_lucky"
+          "rating": "very_lucky",
+          "luck": "70%",
+          "remark": "Speaker"
         },
         {
           "combination": "4 & 2",
@@ -339,7 +395,9 @@
           "health": "Piles, sinus",
           "warning": "Moon & Rahu are mutually inimical",
           "solution": "Name in 6,5,1 vibrations",
-          "rating": "inimical"
+          "rating": "inimical",
+          "luck": "40%",
+          "remark": "Struggle, Depression"
         },
         {
           "combination": "4 & 3",
@@ -350,7 +408,9 @@
           "health": "Piles, arthritis",
           "warning": "",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "50%",
+          "remark": "Sales Marketing"
         },
         {
           "combination": "4 & 4",
@@ -361,7 +421,9 @@
           "health": "Piles, kidney disease",
           "warning": "Example: S. Ramanujan - genius but suffered poverty",
           "solution": "Lucky name would have made him rich",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "30%",
+          "remark": "Lawyer, Low Struggle"
         },
         {
           "combination": "4 & 5",
@@ -372,7 +434,9 @@
           "health": "Strokes, paralysis",
           "warning": "Bad name applies brakes to progress",
           "solution": "Easier from Saturn's evils than other combinations",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "60%",
+          "remark": "Revolutionary Business"
         },
         {
           "combination": "4 & 6",
@@ -383,7 +447,9 @@
           "health": "Strokes, paralysis",
           "warning": "Most mega money scandals by 4&6 people, Double-edged sword",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "60%",
+          "remark": "Media, Luxury"
         },
         {
           "combination": "4 & 7",
@@ -394,7 +460,9 @@
           "health": "Strokes, migraine",
           "warning": "Difficult to get along with others",
           "solution": "Handle such people with \"kid gloves\"",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "80%",
+          "remark": "Successful for Property"
         },
         {
           "combination": "4 & 8",
@@ -405,7 +473,9 @@
           "health": "Strokes, paralysis",
           "warning": "Worsens Saturn's evil effects",
           "solution": "Name's vibration can overcome these effects",
-          "rating": "dangerous"
+          "rating": "dangerous",
+          "luck": "20%",
+          "remark": "Struggle"
         },
         {
           "combination": "4 & 9",
@@ -416,7 +486,9 @@
           "health": "Strokes, neurological issues",
           "warning": "Falls for many women if 4 or 9 afflicted",
           "solution": "Name in 6,5,3,1",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "20%",
+          "remark": "Accident, Legal, Low Immune System"
         }
       ]
     },
@@ -433,7 +505,9 @@
           "health": "Piles, neurological",
           "warning": "Lose all powers if name defective",
           "solution": "",
-          "rating": "most_powerful"
+          "rating": "most_powerful",
+          "luck": "80%",
+          "remark": "Successful property"
         },
         {
           "combination": "5 & 2",
@@ -444,7 +518,9 @@
           "health": "Sinus, asthma",
           "warning": "Hides feelings of distrust, Procrastinates beyond deadlines",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "70%",
+          "remark": "Property"
         },
         {
           "combination": "5 & 3",
@@ -455,7 +531,9 @@
           "health": "Sinus, asthma",
           "warning": "Defective name drives to exploit and be punished",
           "solution": "Expert who knows bioenergetics",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "60%",
+          "remark": "Communication"
         },
         {
           "combination": "5 & 4",
@@ -466,7 +544,9 @@
           "health": "Nerve, heart disease",
           "warning": "Defective name brings danger, kills peace, Heart disease, high BP if name wrong",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "40%",
+          "remark": "Sales & Marketing"
         },
         {
           "combination": "5 & 5",
@@ -477,7 +557,9 @@
           "health": "Arthritis, gum disease",
           "warning": "Only with flawless perfect name, Bad name: Makes you cheat, womanizer, villain",
           "solution": "",
-          "rating": "luckiest"
+          "rating": "luckiest",
+          "luck": "80%",
+          "remark": "Business Risk Taker"
         },
         {
           "combination": "5 & 6",
@@ -488,7 +570,9 @@
           "health": "Arthritis, sexual disease",
           "warning": "",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "90%",
+          "remark": "Travelling"
         },
         {
           "combination": "5 & 7",
@@ -499,7 +583,9 @@
           "health": "Mental illness",
           "warning": "Many numbers in 5 series - which is most lucky?",
           "solution": "Depends on body/mind/spirit resonance",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "60%",
+          "remark": "Finance, Banking, Insurance Also"
         },
         {
           "combination": "5 & 8",
@@ -510,7 +596,9 @@
           "health": "Stomach, back pains",
           "warning": "Miseries, accidents, obstacles",
           "solution": "Born on date 5 with total 8",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "60%",
+          "remark": "After Birth Child (Property)"
         },
         {
           "combination": "5 & 9",
@@ -521,7 +609,9 @@
           "health": "Heart disease, neurological",
           "warning": "Wrong steps spoil name if name incorrect",
           "solution": "Name in 5 or 9",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "60%",
+          "remark": "Successful"
         }
       ]
     },
@@ -538,7 +628,9 @@
           "trait": "Good personality, leadership qualities",
           "health": "Heart disease, arthritis",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "70%",
+          "remark": "Luxury, Administration, Technical"
         },
         {
           "combination": "6 & 2",
@@ -548,7 +640,9 @@
           "trait": "Good name brings divine help, riches, good family",
           "health": "Mental, skin disease",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "40%",
+          "remark": "Sweet"
         },
         {
           "combination": "6 & 3",
@@ -558,7 +652,9 @@
           "trait": "",
           "health": "Mental, heart disease",
           "solution": "Name in 1 or 9",
-          "rating": "negative"
+          "rating": "negative",
+          "luck": "0%",
+          "remark": "Struggle"
         },
         {
           "combination": "6 & 4",
@@ -568,7 +664,9 @@
           "trait": "",
           "health": "Over heat, arthritis",
           "solution": "Name as per numerology+astrology+bioenergetics",
-          "rating": "negative"
+          "rating": "negative",
+          "luck": "60%",
+          "remark": "Media, Caretaker"
         },
         {
           "combination": "6 & 5",
@@ -578,7 +676,9 @@
           "trait": "Initially seems successful, ruins self later",
           "health": "High BP, eye/nerve troubles",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "90%",
+          "remark": "Travelling"
         },
         {
           "combination": "6 & 6",
@@ -588,7 +688,9 @@
           "trait": "Good name: No one can prevent your success",
           "health": "Over heat, kidney disease",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "80%",
+          "remark": "Super Successful"
         },
         {
           "combination": "6 & 7",
@@ -598,7 +700,9 @@
           "trait": "",
           "health": "Over heat, kidney disease",
           "solution": "Win over Ketu's unlucky effects with good name",
-          "rating": "negative"
+          "rating": "negative",
+          "luck": "70%",
+          "remark": "Sports, Romantic"
         },
         {
           "combination": "6 & 8",
@@ -608,7 +712,9 @@
           "trait": "Accidents in office/factory, thefts, strikes",
           "health": "Stomach troubles, constipation",
           "solution": "",
-          "rating": "negative"
+          "rating": "negative",
+          "luck": "60%",
+          "remark": "Best for Law"
         },
         {
           "combination": "6 & 9",
@@ -618,7 +724,9 @@
           "trait": "Rulers: Venus and Mars - both forceful planets",
           "health": "Sexual troubles, piles",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "60%",
+          "remark": "Scandals, Controversies, Marriage Prob."
         }
       ]
     },
@@ -634,7 +742,9 @@
           "trait": "",
           "health": "Melancholy, gum disease",
           "solution": "Name change in 6 or 1",
-          "rating": "negative"
+          "rating": "negative",
+          "luck": "60%",
+          "remark": "Best in Occult"
         },
         {
           "combination": "7 & 2",
@@ -644,7 +754,9 @@
           "trait": "Fond of sex but has divine streak",
           "health": "Melancholy, arthritis",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "40%",
+          "remark": "Intuitive"
         },
         {
           "combination": "7 & 3",
@@ -654,7 +766,9 @@
           "trait": "",
           "health": "Gas, melancholy, neurological",
           "solution": "Follow lucky tips, wear lucky gems (Cat's eye or Tiger's Eye)",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "60%",
+          "remark": "Healing, Teaching"
         },
         {
           "combination": "7 & 4",
@@ -664,7 +778,9 @@
           "trait": "Career: Commissions, fancy goods, books",
           "health": "Stomach, back pains, strokes",
           "solution": "Combo: Day 7 + Life 4 or Name in 7/4",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "60%",
+          "remark": "Successful"
         },
         {
           "combination": "7 & 5",
@@ -674,7 +790,9 @@
           "trait": "Activities: Vehicles, metal business",
           "health": "Mental sickness, strokes",
           "solution": "Combo: Day 7 + Life 5 or Name in 7/5",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "60%",
+          "remark": "Business, Healing"
         },
         {
           "combination": "7 & 6",
@@ -684,7 +802,9 @@
           "trait": "Fraudulent deals, child issues",
           "health": "Melancholy, arthritis",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "80%",
+          "remark": "Sports"
         },
         {
           "combination": "7 & 7",
@@ -694,7 +814,9 @@
           "trait": "Few friends, opposite sex troubles",
           "health": "Mental sickness, dreams",
           "solution": "",
-          "rating": "negative"
+          "rating": "negative",
+          "luck": "20%",
+          "remark": "Marriage Problem, Disappointment"
         },
         {
           "combination": "7 & 8",
@@ -704,7 +826,9 @@
           "trait": "Bad company, imprisonments, jail",
           "health": "Stomach, mental diseases",
           "solution": "",
-          "rating": "negative"
+          "rating": "negative",
+          "luck": "20%",
+          "remark": "Occult"
         },
         {
           "combination": "7 & 9",
@@ -714,7 +838,9 @@
           "trait": "",
           "health": "Mental diseases, joint pains",
           "solution": "Combo: Day 7 + Life 9 or Name in 7/9",
-          "rating": "negative"
+          "rating": "negative",
+          "luck": "80%",
+          "remark": "Teaching"
         }
       ]
     },
@@ -730,7 +856,9 @@
           "trait": "Career: Contract, printing, electronic, computer",
           "health": "Stomach disease, depression",
           "solution": "Combo: Saturn in Day + Sun in Life",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "0%",
+          "remark": "Slander (Badname) Struggle (Tech.)"
         },
         {
           "combination": "8 & 2",
@@ -740,7 +868,9 @@
           "trait": "Career: Contract, machines, steel, fancy goods",
           "health": "Hip/back/head aches, depression",
           "solution": "Combo: Saturn in Day + Moon in Life",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "0%",
+          "remark": "Health Issue, Struggle"
         },
         {
           "combination": "8 & 3",
@@ -750,7 +880,9 @@
           "trait": "Career: Iron/steel, contract, handicrafts, transport",
           "health": "Stomach disease, hernia",
           "solution": "Combo: Saturn in Day + Jupiter in Life",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "40%",
+          "remark": "Law, Printing Business"
         },
         {
           "combination": "8 & 4",
@@ -760,7 +892,9 @@
           "trait": "Career: Iron/steel, writing, speeches, vehicles",
           "health": "Neurology, heart trouble",
           "solution": "Combo: Saturn in Day + Rahu in Life",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "20%",
+          "remark": "Struggle"
         },
         {
           "combination": "8 & 5",
@@ -770,7 +904,9 @@
           "trait": "Career: Contract, printing, electronic, computer",
           "health": "Mental issues, piles",
           "solution": "Combo: Saturn in Day + Mercury in Life",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "60%",
+          "remark": "Real Estate"
         },
         {
           "combination": "8 & 6",
@@ -780,7 +916,9 @@
           "trait": "Career: Iron/steel, textiles, luxuries, contracts",
           "health": "Stomach disease, constipation",
           "solution": "Combo: Saturn in Day + Venus in Life",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "60%",
+          "remark": "Best Law"
         },
         {
           "combination": "8 & 7",
@@ -790,7 +928,9 @@
           "trait": "Career: Contract, printing, publishing, writing",
           "health": "Melancholy, piles",
           "solution": "Combo: Saturn in Day + Ketu in Life",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "40%",
+          "remark": "Confusion, Struggle"
         },
         {
           "combination": "8 & 8",
@@ -800,7 +940,9 @@
           "trait": "Career: Vehicles, iron/steel, contracts, writing",
           "health": "Stomach disease, depression",
           "solution": "",
-          "rating": "negative"
+          "rating": "negative",
+          "luck": "20%",
+          "remark": "Marriage, Career"
         },
         {
           "combination": "8 & 9",
@@ -810,7 +952,9 @@
           "trait": "",
           "health": "Stomach disease, gum/tooth",
           "solution": "Cool Saturn with flawless name",
-          "rating": "negative"
+          "rating": "negative",
+          "luck": "20%",
+          "remark": "Defense, Army"
         }
       ]
     },
@@ -826,7 +970,9 @@
           "trait": "Career: Contract, agencies, metals, writing",
           "health": "Over heat, piles, neurology",
           "solution": "Combo: Mars in Day + Sun in Life",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "80%",
+          "remark": "Successful"
         },
         {
           "combination": "9 & 2",
@@ -836,7 +982,9 @@
           "trait": "Mars governs daily life, Moon influences after 45",
           "health": "Over heat, heart/stomach",
           "solution": "",
-          "rating": "negative"
+          "rating": "negative",
+          "luck": "20%",
+          "remark": "Struggle (Married)"
         },
         {
           "combination": "9 & 3",
@@ -846,7 +994,9 @@
           "trait": "Honest, righteous, dignified, punctual. Jupiter influences after 45",
           "health": "Neuro problems, gas",
           "solution": "",
-          "rating": "positive"
+          "rating": "positive",
+          "luck": "50%",
+          "remark": "Education, Teaching"
         },
         {
           "combination": "9 & 4",
@@ -856,7 +1006,9 @@
           "trait": "Career: Army, police, detective, mediator. Rahu influences after 45",
           "health": "Heat, piles, heart",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "30%",
+          "remark": "Health Issues"
         },
         {
           "combination": "9 & 5",
@@ -866,7 +1018,9 @@
           "trait": "Able administrator, many projects, real estate. Mercury influences after 45",
           "health": "Skin/stomach diseases, joint pains",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "60%",
+          "remark": "Successful"
         },
         {
           "combination": "9 & 6",
@@ -876,7 +1030,9 @@
           "trait": "Darling of fair sex with flawless name. Venus influences after 45",
           "health": "Diabetes, dental, high BP",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "40%",
+          "remark": "Controversies"
         },
         {
           "combination": "9 & 7",
@@ -886,7 +1042,9 @@
           "trait": "Ketu influences after 45",
           "health": "Mental diseases, joint pains",
           "solution": "",
-          "rating": "negative"
+          "rating": "negative",
+          "luck": "20%",
+          "remark": "Online"
         },
         {
           "combination": "9 & 8",
@@ -896,7 +1054,9 @@
           "trait": "Saturn influences after 45",
           "health": "Tooth/stomach pains, arthritis",
           "solution": "",
-          "rating": "negative"
+          "rating": "negative",
+          "luck": "40%",
+          "remark": "Police, Defence"
         },
         {
           "combination": "9 & 9",
@@ -906,7 +1066,9 @@
           "career": "Army, construction, professor, lawyer, spy. Traits: Courage, wisdom, diplomacy, leadership",
           "health": "Gas, stomach diseases, joint pains",
           "solution": "",
-          "rating": "neutral"
+          "rating": "neutral",
+          "luck": "20%",
+          "remark": "Marriage Problem"
         }
       ]
     }
