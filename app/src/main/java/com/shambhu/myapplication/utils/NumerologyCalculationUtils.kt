@@ -6,9 +6,11 @@ import com.example.myapplication.NameAnalyzer
 import com.shambhu.myapplication.model.ColorAnalysisResult
 import com.shambhu.myapplication.model.ColorsData
 import com.shambhu.myapplication.model.ElementAnalysisResult
+import com.shambhu.myapplication.model.ElementData
+import com.shambhu.myapplication.model.KarmicDebtItem
+import com.shambhu.myapplication.model.KarmicLessonItem
 import com.shambhu.myapplication.model.LoshuGridPlanes
 import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
-import org.json.JSONArray
 import org.json.JSONObject
 
 object NumerologyCalculationUtils {
@@ -160,53 +162,52 @@ object NumerologyCalculationUtils {
         month: Int,
         year: Int,
         fullName: String
-    ): List<Pair<String, Int>> {
-        fun reduce(n: Int): Int {
-            var num = n
-            while (num > 9 && num != 11 && num != 22) {
-                num = num.toString().map { it.toString().toInt() }.sum()
-            }
-            return num
-        }
-
+    ): List<KarmicDebtItem> {
         val karmicDebtNumbers = listOf(13, 14, 16, 19)
-        val results = mutableListOf<Pair<String, Int>>()
+        val results = mutableListOf<KarmicDebtItem>()
 
         val lifePathTotal = calculateLifePath(day, month, year, reduce = false)
         if (lifePathTotal in karmicDebtNumbers) {
-            results.add("Life Path" to lifePathTotal)
+            results.add(KarmicDebtItem("Life Path", lifePathTotal))
         }
 
         val expressionTotal = calculateExpression(fullName, reduce = false)
         if (expressionTotal in karmicDebtNumbers) {
-            results.add("Expression" to expressionTotal)
+            results.add(KarmicDebtItem("Expression", expressionTotal))
         }
 
         val soulUrgeTotal = calculateSoulUrge(fullName, reduce = false)
         if (soulUrgeTotal in karmicDebtNumbers) {
-            results.add("Soul Urge" to soulUrgeTotal)
+            results.add(KarmicDebtItem("Soul Urge", soulUrgeTotal))
         }
 
         val personalityTotal = calculatePersonality(fullName, reduce = false)
         if (personalityTotal in karmicDebtNumbers) {
-            results.add("Personality" to personalityTotal)
+            results.add(KarmicDebtItem("Personality", personalityTotal))
         }
 
         val birthdayTotal = calculateBirthdayNumber(day, reduce = false)
         if (birthdayTotal in karmicDebtNumbers) {
-            results.add("Birthday" to birthdayTotal)
+            results.add(KarmicDebtItem("Birthday", birthdayTotal))
         }
 
         return results
     }
 
 
-    fun calculateKarmicFromName(fullName: String): List<Int> {
+    fun calculateKarmicFromName(context: Context, fullName: String): List<KarmicLessonItem> {
         val nameNumbers = CommonUtils.nameToIntArray(fullName)
         val numList: MutableList<Int> = nameNumbers.toMutableList()
         val uniqueList = numList.distinct().toMutableList()
+        val missing = missingNumbers(uniqueList)
 
-        return missingNumbers(uniqueList)
+        val karmicLessonsJson = CommonUtils.readAssetFile(context, "karmic_lesson_debt.json")
+        val karmicLessonsObject = JSONObject(karmicLessonsJson).getJSONObject("karmic_lesson")
+
+        return missing.map { number ->
+            val detail = karmicLessonsObject.optString(number.toString(), "No description available.")
+            KarmicLessonItem(number, detail)
+        }
     }
 
     fun calculateChallengeNumbers(day: Int, month: Int, year: Int): List<Int> {
@@ -273,33 +274,27 @@ object NumerologyCalculationUtils {
         )
     }
 
-    fun calculateElements(fullName: String, jsonString: String): ElementAnalysisResult {
+    fun calculateElements(fullName: String, elementData: ElementData): ElementAnalysisResult {
         val nameNumbers = nameToIntArray(fullName)
         var dominantElement = ""
         val elementScores =
             mutableMapOf("AIR" to 0.0, "EARTH" to 0.0, "FIRE" to 0.0, "WATER" to 0.0)
 
-        val jsonObject = org.json.JSONObject(jsonString)
-        val elementMap = jsonObject.getJSONObject("element")
-        val excessMap = jsonObject.getJSONObject("excess")
+        val elementMap = elementData.element
+        val excessMap = elementData.excess
 
         for (number in nameNumbers) {
-            if (elementMap.has(number.toString())) {
-                val elements = elementMap.getJSONArray(number.toString())
-                for (i in 0 until elements.length()) {
-                    val elementObject = elements.getJSONObject(i)
-                    val elementName = elementObject.getString("element")
-                    val quantity = elementObject.getDouble("quantity")
-                    elementScores[elementName] =
-                        elementScores.getOrDefault(elementName, 0.0) + quantity
+            elementMap[number.toString()]?.forEach { elementInfo ->
+                val elementName = elementInfo.element
+                val quantity = elementInfo.quantity
+                elementScores[elementName] =
+                    elementScores.getOrDefault(elementName, 0.0) + quantity
 
-                    val highestElement = elementScores.maxByOrNull { it.value }?.key
-                    if (highestElement != null && excessMap.has(highestElement)) {
-                        dominantElement =
-                            excessMap.getJSONObject(highestElement).getString("details")
-                    } else {
-                        dominantElement = "No dominant element found."
-                    }
+                val highestElement = elementScores.maxByOrNull { it.value }?.key
+                if (highestElement != null && excessMap.containsKey(highestElement)) {
+                    dominantElement = excessMap[highestElement]?.details ?: "No dominant element found."
+                } else {
+                    dominantElement = "No dominant element found."
                 }
             }
         }

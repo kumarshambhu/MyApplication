@@ -1,32 +1,39 @@
 package com.shambhu.myapplication.fragment.others
 
-
-// NumerologyCalculatorFragment.kt
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
 import com.shambhu.myapplication.adapter.CommonAdapterUtil
 import com.shambhu.myapplication.databinding.FragmentMaturityBinding
-import com.shambhu.myapplication.model.CoreNumberAccordionItem
-import com.shambhu.myapplication.model.MaturityNumbersResponse
+import com.shambhu.myapplication.model.MaturityData
+import com.shambhu.myapplication.repository.MaturityRepository
+import com.shambhu.myapplication.repository.impl.MaturityRepositoryImpl
+import com.shambhu.myapplication.service.impl.MaturityServiceImpl
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 class MaturityFragment : Fragment() {
     private var _binding: FragmentMaturityBinding? = null
     private val binding get() = _binding!!
 
+    private val maturityRepository: MaturityRepository by lazy {
+        MaturityRepositoryImpl(MaturityServiceImpl(Gson()))
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentMaturityBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -36,77 +43,31 @@ class MaturityFragment : Fragment() {
         arguments?.let {
             val dob = it.getString(ARG_DOB)
             val fullName = it.getString(ARG_FULL_NAME)
-            calculateNumerology(dob.toString(), fullName.toString())
+            if (dob != null && fullName != null) {
+                calculateNumerology(dob, fullName)
+            }
         }
     }
 
     private fun calculateNumerology(dob: String, name: String) {
         try {
-            // Calculate numbers
             val (day, month, year) = CommonUtils.parseDateTriple(dob)
             val lifePath = NumerologyCalculationUtils.calculateLifePath(day, month, year)
             val destiny = NumerologyCalculationUtils.calculateExpression(name)
             val maturity = NumerologyCalculationUtils.calculateMaturityNumber(lifePath, destiny)
 
-            // Display basic results
             binding.tvLifePath.text = "Life Path Number: $lifePath"
             binding.tvDestiny.text = "Destiny Number: $destiny"
             binding.maturityHeader.text = "Maturity Number: $maturity"
 
-            // Get and display maturity data from JSON
-            val data = Gson().fromJson(
-                CommonUtils.readAssetFile(requireContext(), "maturity.json"),
-                MaturityNumbersResponse::class.java
-            )
-            val data1 = data.maturity_numbers
-            val data2 = data1.get(maturity.toString())
-
-            data2?.let {
-                binding.tvOverview.text = it.overview
-
-                if (!it.positive_traits.isNullOrEmpty()) {
-                    CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
-                        requireContext(),
-                        binding.positiveTraitsRecyclerView, it.positive_traits
-                    )
-                } else {
-                    binding.positiveTraitsRecyclerView.visibility = View.GONE
-                    binding.tvPositiveTraits.visibility = View.GONE
-                }
-
-
-                if (!it.challenges.isNullOrEmpty()) {
-                    CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
-                        requireContext(),
-                        binding.challengesRecyclerView, it.challenges
-                    )
-                } else {
-                    binding.challengesRecyclerView.visibility = View.GONE
-                    binding.tvChallenges.visibility = View.GONE
-                }
-
-
-                // Show additional info based on what's available
-                val additionalInfoList = mutableListOf<String>();
-
-                if (!it.karmic_notes.isNullOrEmpty()) additionalInfoList.add("Karmic Notes: ${it.karmic_notes}")
-                if (!it.life_purpose.isNullOrEmpty()) additionalInfoList.add("Life Purpose: ${it.life_purpose}")
-                if (!it.life_outcome.isNullOrEmpty()) additionalInfoList.add("Life Outcome: ${it.life_outcome}")
-
-                if (additionalInfoList.isNotEmpty()) {
-                    CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
-                        requireContext(),
-                        binding.additionalInfoRecyclerView, it.challenges
-                    )
-                } else {
-                    binding.additionalInfoRecyclerView.visibility = View.GONE
-                    binding.tvAdditionalInfo.visibility = View.GONE
-                }
-
-            }
-
-            // Show results
-            binding.resultsContainer.visibility = View.VISIBLE
+            maturityRepository.getMaturityInterpretation(requireContext(), maturity)
+                .onEach { result ->
+                    result.onSuccess { data ->
+                        handleMaturityData(data)
+                    }.onFailure {
+                        Toast.makeText(requireContext(), "Error: ${it.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }.launchIn(viewLifecycleOwner.lifecycleScope)
 
         } catch (e: Exception) {
             Toast.makeText(
@@ -115,6 +76,53 @@ class MaturityFragment : Fragment() {
                 Toast.LENGTH_SHORT
             ).show()
         }
+    }
+
+    private fun handleMaturityData(data: MaturityData?) {
+        data?.let {
+            binding.tvOverview.text = it.overview
+
+            if (it.positiveTraits.isNotEmpty()) {
+                CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
+                    requireContext(),
+                    binding.positiveTraitsRecyclerView, it.positiveTraits
+                )
+            } else {
+                binding.positiveTraitsRecyclerView.visibility = View.GONE
+                binding.tvPositiveTraits.visibility = View.GONE
+            }
+
+            if (it.challenges.isNotEmpty()) {
+                CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
+                    requireContext(),
+                    binding.challengesRecyclerView, it.challenges
+                )
+            } else {
+                binding.challengesRecyclerView.visibility = View.GONE
+                binding.tvChallenges.visibility = View.GONE
+            }
+
+            val additionalInfoList = mutableListOf<String>()
+            it.karmicNotes?.let { notes -> additionalInfoList.add("Karmic Notes: $notes") }
+            it.lifePurpose?.let { purpose -> additionalInfoList.add("Life Purpose: $purpose") }
+            it.lifeOutcome?.let { outcome -> additionalInfoList.add("Life Outcome: $outcome") }
+
+            if (additionalInfoList.isNotEmpty()) {
+                CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
+                    requireContext(),
+                    binding.additionalInfoRecyclerView, additionalInfoList
+                )
+            } else {
+                binding.additionalInfoRecyclerView.visibility = View.GONE
+                binding.tvAdditionalInfo.visibility = View.GONE
+            }
+        }
+        binding.resultsContainer.visibility = View.VISIBLE
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {

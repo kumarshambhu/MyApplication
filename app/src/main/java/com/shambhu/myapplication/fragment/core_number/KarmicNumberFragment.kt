@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.shambhu.myapplication.adapter.KarmicDebtRecyclerViewAdapter
@@ -13,22 +14,25 @@ import com.shambhu.myapplication.adapter.KarmicLessonRecyclerViewAdapter
 import com.shambhu.myapplication.databinding.FragmentKarmicNumberBinding
 import com.shambhu.myapplication.model.KarmicAccordionItem
 import com.shambhu.myapplication.model.KarmicDebt
-import com.shambhu.myapplication.model.KarmicDebtResponse
+import com.shambhu.myapplication.model.KarmicLessonItem
+import com.shambhu.myapplication.repository.KarmicAnalysisRepository
+import com.shambhu.myapplication.repository.impl.KarmicAnalysisRepositoryImpl
+import com.shambhu.myapplication.service.impl.KarmicAnalysisServiceImpl
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
-import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
-import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
-import com.shambhu.myapplication.utils.NumerologyCalculationUtils
-import org.json.JSONObject
-import kotlin.String
-import kotlin.collections.List
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 class KarmicNumberFragment : Fragment() {
     private var _binding: FragmentKarmicNumberBinding? = null
-
     private val binding get() = _binding!!
+
     private lateinit var karmicDebtRecyclerViewAdapter: KarmicDebtRecyclerViewAdapter
     private lateinit var karmicLessonAdapter: KarmicLessonRecyclerViewAdapter
+
+    private val karmicAnalysisRepository: KarmicAnalysisRepository by lazy {
+        KarmicAnalysisRepositoryImpl(KarmicAnalysisServiceImpl(Gson()))
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,125 +40,83 @@ class KarmicNumberFragment : Fragment() {
     ): View {
         _binding = FragmentKarmicNumberBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         arguments?.let {
             val dob = it.getString(Constants.ARG_DOB)
             val fullName = it.getString(Constants.ARG_FULL_NAME)
-            updateKarmicNumber(fullName.toString(), dob.toString())
+            if (dob != null && fullName != null) {
+                updateKarmicInfo(fullName, dob)
+            }
         }
     }
 
-
-    private fun updateKarmicNumber(fullName: String, dateOfBirth: String) {
-
-        karmicLessonCreation(fullName)
-        karmicDebtCreation(dateOfBirth, fullName)
-
-    }
-
-    private fun karmicLessonCreation(fullName: String) {
-        val missing = NumerologyCalculationUtils.calculateKarmicFromName(fullName)
-        binding.karmicLessonNumberValue.text = missing.joinToString(", ")
-
-        val karmicLessonsJson =
-            CommonUtils.readAssetFile(requireContext(), "karmic_lesson_debt.json")
-        val karmicLessonsObject = JSONObject(karmicLessonsJson).getJSONObject("karmic_lesson")
-
-        val karmicLessons = missing.map { number ->
-            val detail =
-                karmicLessonsObject.optString(number.toString(), "No description available.")
-            Pair(number.toString(), detail.toString())
-        }
-        Log.i("karmicLessons", "KarmicLessons: $karmicLessons")
-        setupKarmicLessonRecyclerView(karmicLessons)
-    }
-
-    private fun setupKarmicLessonRecyclerView(karmicLessonNumbers: List<Pair<String, String>>) {
-        val accordionItems = karmicLessonNumbers.map { (source, number) ->
-            KarmicAccordionItem(source, "Source Empty", number)
-        }
-
-        karmicLessonAdapter = KarmicLessonRecyclerViewAdapter(accordionItems) { position ->
-            // Toggle expansion
-            accordionItems[position].isExpanded = !accordionItems[position].isExpanded
-            karmicLessonAdapter.notifyItemChanged(position)
-
-        }
-        binding.karmicLessonRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.karmicLessonRecyclerView.adapter = karmicLessonAdapter
-    }
-
-    private fun karmicDebtCreation(dateOfBirth: String, fullName: String) {
+    private fun updateKarmicInfo(fullName: String, dateOfBirth: String) {
         val date = CommonUtils.parseDate(dateOfBirth)
         val day = date.dayOfMonth
         val month = date.monthValue
         val year = date.year
 
-        val karmicDebtNumbers =
-            NumerologyCalculationUtils.calculateKarmicDebtNumbers(day, month, year, fullName)
+        // Fetch and display Karmic Lessons
+        karmicAnalysisRepository.getKarmicLessons(requireContext(), fullName)
+            .onEach { result ->
+                result.onSuccess { lessons ->
+                    binding.karmicLessonNumberValue.text = lessons.joinToString(", ") { it.number.toString() }
+                    setupKarmicLessonRecyclerView(lessons)
+                }.onFailure {
+                    Log.e("KarmicNumberFragment", "Failed to load karmic lessons", it)
+                }
+            }.launchIn(viewLifecycleOwner.lifecycleScope)
 
-        if (karmicDebtNumbers.isEmpty()) {
-            binding.tvNoKarmicDebt.visibility = View.VISIBLE
-            binding.rvKarmicDebt.visibility = View.GONE
-        } else {
-            binding.tvNoKarmicDebt.visibility = View.GONE
-            binding.rvKarmicDebt.visibility = View.VISIBLE
-            setupKarmicDebtRecyclerView(karmicDebtNumbers)
-        }
+        // Fetch and display Karmic Debts
+        karmicAnalysisRepository.getKarmicDebts(requireContext(), day, month, year, fullName)
+            .onEach { result ->
+                result.onSuccess { debts ->
+                    if (debts.isEmpty()) {
+                        binding.tvNoKarmicDebt.visibility = View.VISIBLE
+                        binding.rvKarmicDebt.visibility = View.GONE
+                    } else {
+                        binding.tvNoKarmicDebt.visibility = View.GONE
+                        binding.rvKarmicDebt.visibility = View.VISIBLE
+                        setupKarmicDebtRecyclerView(debts)
+                    }
+                }.onFailure {
+                    Log.e("KarmicNumberFragment", "Failed to load karmic debts", it)
+                }
+            }.launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
-    private fun setupKarmicDebtRecyclerView(karmicDebtNumbers: List<Pair<String, Int>>) {
-        val interpretations = loadInterpretations()
-        val data = Gson().fromJson(
-            CommonUtils.readAssetFile(requireContext(), "karmic_debt.json"),
-            KarmicDebtResponse::class.java
-        )
-        val data1 = data.karmic_debt
-
-        val accordionItems = karmicDebtNumbers.map { (source, number) ->
-            val data2 = data1.get(number.toString())
-            KarmicDebt(
-                number = number.toString(), source = source,
-                challengesAndProblems = data2?.challengesAndProblems,
-                qualities = data2?.qualities,
-                keysToOvercome = data2?.keysToOvercome,
-                summary = data2?.summary,
-                potentialOutcome = data2?.potentialOutcome, isExpanded = false
-            )
-            //KarmicAccordionItem("$number", source, interpretations[number.toString()].toString())
+    private fun setupKarmicLessonRecyclerView(karmicLessons: List<KarmicLessonItem>) {
+        val accordionItems = karmicLessons.map {
+            KarmicAccordionItem(it.number.toString(), "Source Empty", it.description, isExpanded = false)
         }
-
-        karmicDebtRecyclerViewAdapter = KarmicDebtRecyclerViewAdapter(requireContext(),accordionItems) { position ->
-            // Toggle expansion
+        karmicLessonAdapter = KarmicLessonRecyclerViewAdapter(accordionItems) { position ->
+            // Collapse all items except the clicked one
+            accordionItems.forEachIndexed { index, item ->
+                if (index != position) item.isExpanded = false
+            }
+            // Toggle the clicked item
             accordionItems[position].isExpanded = !accordionItems[position].isExpanded
-            karmicDebtRecyclerViewAdapter.notifyItemChanged(position)
+            karmicLessonAdapter.notifyDataSetChanged()
+        }
+        binding.karmicLessonRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.karmicLessonRecyclerView.adapter = karmicLessonAdapter
+    }
 
+    private fun setupKarmicDebtRecyclerView(karmicDebts: List<KarmicDebt>) {
+        karmicDebtRecyclerViewAdapter = KarmicDebtRecyclerViewAdapter(requireContext(), karmicDebts) { position ->
+            // Collapse all items except the clicked one
+            karmicDebts.forEachIndexed { index, item ->
+                if (index != position) item.isExpanded = false
+            }
+            // Toggle the clicked item
+            karmicDebts[position].isExpanded = !karmicDebts[position].isExpanded
+            karmicDebtRecyclerViewAdapter.notifyDataSetChanged()
         }
         binding.rvKarmicDebt.layoutManager = LinearLayoutManager(context)
         binding.rvKarmicDebt.adapter = karmicDebtRecyclerViewAdapter
-    }
-
-    private fun loadInterpretations(): Map<String, String> {
-        val interpretations = mutableMapOf<String, String>()
-        try {
-            val inputStream = context?.assets?.open("karmic_lesson_debt.json")
-            val json = inputStream?.bufferedReader().use { it?.readText() }
-            val jsonObject = JSONObject(json)
-            val karmicDebtObject = jsonObject.getJSONObject("karmic_debt")
-            val keys = karmicDebtObject.keys()
-            while (keys.hasNext()) {
-                val key = keys.next()
-                interpretations[key] = karmicDebtObject.getString(key)
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return interpretations
     }
 
     override fun onDestroyView() {
@@ -163,14 +125,11 @@ class KarmicNumberFragment : Fragment() {
     }
 
     companion object {
-
-        fun newInstance(
-            dob: String, fullName: String
-        ): KarmicNumberFragment {
+        fun newInstance(dob: String, fullName: String): KarmicNumberFragment {
             val fragment = KarmicNumberFragment()
             val args = Bundle()
-            args.putString(ARG_DOB, dob)
-            args.putString(ARG_FULL_NAME, fullName)
+            args.putString(Constants.ARG_DOB, dob)
+            args.putString(Constants.ARG_FULL_NAME, fullName)
             fragment.arguments = args
             return fragment
         }
