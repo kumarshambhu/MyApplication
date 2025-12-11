@@ -8,8 +8,8 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -18,12 +18,19 @@ import com.shambhu.myapplication.adapter.LoshuGridPlaneRecyclerViewAdapter
 import com.shambhu.myapplication.databinding.FragmentLoshuGridBinding
 import com.shambhu.myapplication.model.LoshuGridPlaneAccordionItem
 import com.shambhu.myapplication.model.LoshuGridPlanes
+import com.shambhu.myapplication.model.MissingNumberData
 import com.shambhu.myapplication.model.Plane
+import com.shambhu.myapplication.model.RepetitiveNumberData
 import com.shambhu.myapplication.model.Section
+import com.shambhu.myapplication.repository.LoshuGridRepository
+import com.shambhu.myapplication.repository.impl.LoshuGridRepositoryImpl
+import com.shambhu.myapplication.service.impl.LoshuGridServiceImpl
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils.convertToHtml
+import kotlinx.coroutines.flow.zip
+import kotlinx.coroutines.launch
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -31,8 +38,10 @@ class LoshuGridFragment : Fragment() {
 
     private var _binding: FragmentLoshuGridBinding? = null
     private val binding get() = _binding!!
+    private val loshuGridRepository: LoshuGridRepository by lazy {
+        LoshuGridRepositoryImpl(LoshuGridServiceImpl(requireContext()))
+    }
 
-    private lateinit var gridPlaneRecyclerViewAdapter: LoshuGridPlaneRecyclerViewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -89,117 +98,80 @@ class LoshuGridFragment : Fragment() {
             updateCell(binding.cell9, 9, numberCounts[9])
 
             val loshuPlanes = NumerologyCalculationUtils.calculateLoshuGridPlanes(numberCounts)
+            createLoshuPlaneItemForRecyclerView(loshuPlanes)
 
-            try {
-                createLoshuPlaneItemForRecyclerView(loshuPlanes)
-                createMissingNumberAccordionItems(numberCounts)
-                createRepeatingNumberAccordionItems(numberCounts)
-                binding.planeRecyclerView.visibility = View.VISIBLE
-                binding.missingNumberRecyclerView.visibility = View.GONE
-                binding.repeatNumberRecyclerView.visibility = View.GONE
-            } catch (e: Exception) {
-                e.printStackTrace()
-                // Handle error, e.g., show a toast or log
+            lifecycleScope.launch {
+                loshuGridRepository.getMissingNumberData()
+                    .zip(loshuGridRepository.getRepetitiveNumberData()) { missingData, repetitiveData ->
+                        Pair(missingData, repetitiveData)
+                    }
+                    .collect { (missingData, repetitiveData) ->
+                        createMissingNumberAccordionItems(numberCounts, missingData)
+                        createRepeatingNumberAccordionItems(numberCounts, repetitiveData)
+                    }
             }
+            binding.planeRecyclerView.visibility = View.VISIBLE
+            binding.missingNumberRecyclerView.visibility = View.GONE
+            binding.repeatNumberRecyclerView.visibility = View.GONE
         }
     }
 
-    private fun createMissingNumberAccordionItems(numberCounts: IntArray) {
+    private fun createMissingNumberAccordionItems(numberCounts: IntArray, missingNumberData: MissingNumberData) {
         val missingNumberItems = mutableListOf<LoshuGridPlaneAccordionItem>()
-        val missingNumbersJson = CommonUtils.readAssetFile(requireContext(), "missing_number.json")
-        val jsonObject = JSONObject(missingNumbersJson)
-        val jsonArray = jsonObject.getJSONArray("missing_number_impacts")
+        val missingNumberMap = missingNumberData.missingNumbers.associateBy { it.number }
 
         for (i in 1..9) {
             if (numberCounts[i] == 0) {
-                for (j in 0 until jsonArray.length()) {
-                    val item = jsonArray.getJSONObject(j)
-                    if (item.getInt("number") == i) {
-                        val impacts = item.getJSONArray("impacts")
-                        var content = "<ul>"
-                        for (k in 0 until impacts.length()) {
-                            content += "<li>${impacts.getString(k)}</li>"
-                        }
-                        content += "</ul>"
-                        missingNumberItems.add(
-                            LoshuGridPlaneAccordionItem(
-                                "Missing Number: $i",
-                                "",
-                                content = convertToHtml(content),
-                                imageSource = "",
-                                backgroundColor = R.drawable.missing_number_background,
-                                headerColor = 0,
-                                isExpanded = false
-                            )
-                        )
-                        break
+                missingNumberMap[i]?.let { missingNumber ->
+                    var content = "<ul>"
+                    missingNumber.impacts.forEach { impact ->
+                        content += "<li>$impact</li>"
                     }
+                    content += "</ul>"
+                    missingNumberItems.add(
+                        LoshuGridPlaneAccordionItem(
+                            "Missing Number: $i",
+                            "",
+                            content = convertToHtml(content),
+                            imageSource = "",
+                            backgroundColor = R.drawable.missing_number_background,
+                            headerColor = 0,
+                            isExpanded = false
+                        )
+                    )
                 }
             }
         }
         setupRecyclerView(binding.missingNumberRecyclerView, missingNumberItems)
     }
 
-    private fun createRepeatingNumberAccordionItems(numberCounts: IntArray) {
+    private fun createRepeatingNumberAccordionItems(numberCounts: IntArray, repetitiveNumberData: RepetitiveNumberData) {
         val repeatingNumberItems = mutableListOf<LoshuGridPlaneAccordionItem>()
-        val repeatingNumbersJson = CommonUtils.readAssetFile(requireContext(), "repeate_number.json")
-        val jsonObject = JSONObject(repeatingNumbersJson)
-        val jsonArray = jsonObject.getJSONArray("repetitive_numbers")
+        val repetitiveNumberMap = repetitiveNumberData.repetitiveNumbers.associateBy { it.number }
 
         for (i in 1..9) {
             val count = numberCounts[i]
             if (count > 1) {
-                for (j in 0 until jsonArray.length()) {
-                    val item = jsonArray.getJSONObject(j)
-                    if (item.getInt("number") == i) {
-                        val occurrences = item.getJSONArray("occurrences")
-                        for (k in 0 until occurrences.length()) {
-                            val occurrence = occurrences.getJSONObject(k)
-                            val occurrenceCount = occurrence.get("count")
-                            if (occurrenceCount is Int && occurrenceCount == count) {
-                                val effects = occurrence.getJSONArray("effects")
-                                var content = "<ul>"
-                                for (l in 0 until effects.length()) {
-                                    content += "<li>${effects.getString(l)}</li>"
-                                }
-                                content += "</ul>"
-                                repeatingNumberItems.add(
-                                    LoshuGridPlaneAccordionItem(
-                                        "Repeating Number: $i (x$count)",
-                                        "",
-                                        content = convertToHtml(content),
-                                        imageSource = "",
-                                        backgroundColor = R.drawable.repeating_number_background,
-                                        headerColor = 0,
-                                        isExpanded = false
-                                    )
-                                )
-                                break
-                            } else if (occurrenceCount is String) {
-                                val parts = occurrenceCount.split(" ")
-                                if (parts.size > 1 && parts[0].toInt() <= count && parts[2].toInt() >= count) {
-                                    val effects = occurrence.getJSONArray("effects")
-                                    var content = "<ul>"
-                                    for (l in 0 until effects.length()) {
-                                        content += "<li>${effects.getString(l)}</li>"
-                                    }
-                                    content += "</ul>"
-                                    repeatingNumberItems.add(
-                                        LoshuGridPlaneAccordionItem(
-                                            "Repeating Number: $i (x$count)",
-                                            "",
-                                            content = convertToHtml(content),
-                                            imageSource = "",
-                                            backgroundColor = R.drawable.repeating_number_background,
-                                            headerColor = 0,
-                                            isExpanded = false
-                                        )
-                                    )
-                                    break
-                                }
-                            }
+                repetitiveNumberMap[i]?.let { repetitiveNumber ->
+                    val foundOccurrence = repetitiveNumber.occurrences.find { it.count.matches(count) }
+
+                    foundOccurrence?.let { occurrence ->
+                        var content = "<ul>"
+                        occurrence.effects.forEach { effect ->
+                            content += "<li>$effect</li>"
                         }
-                        break
+                        content += "</ul>"
+                        repeatingNumberItems.add(
+                            LoshuGridPlaneAccordionItem(
+                                "Repeating Number: $i (x$count)",
+                                "",
+                                content = convertToHtml(content),
+                                imageSource = "",
+                                backgroundColor = R.drawable.repeating_number_background,
+                                headerColor = 0,
+                                isExpanded = false
+                            )
+                        )
                     }
                 }
             }
