@@ -6,9 +6,9 @@ import com.example.myapplication.NameAnalyzer
 import com.shambhu.myapplication.model.ColorAnalysisResult
 import com.shambhu.myapplication.model.ColorsData
 import com.shambhu.myapplication.model.ElementAnalysisResult
+import com.shambhu.myapplication.model.ElementData
 import com.shambhu.myapplication.model.LoshuGridPlanes
 import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
-import org.json.JSONArray
 import org.json.JSONObject
 
 object NumerologyCalculationUtils {
@@ -273,33 +273,27 @@ object NumerologyCalculationUtils {
         )
     }
 
-    fun calculateElements(fullName: String, jsonString: String): ElementAnalysisResult {
+    fun calculateElements(fullName: String, elementData: ElementData): ElementAnalysisResult {
         val nameNumbers = nameToIntArray(fullName)
         var dominantElement = ""
         val elementScores =
             mutableMapOf("AIR" to 0.0, "EARTH" to 0.0, "FIRE" to 0.0, "WATER" to 0.0)
 
-        val jsonObject = org.json.JSONObject(jsonString)
-        val elementMap = jsonObject.getJSONObject("element")
-        val excessMap = jsonObject.getJSONObject("excess")
+        val elementMap = elementData.element
+        val excessMap = elementData.excess
 
         for (number in nameNumbers) {
-            if (elementMap.has(number.toString())) {
-                val elements = elementMap.getJSONArray(number.toString())
-                for (i in 0 until elements.length()) {
-                    val elementObject = elements.getJSONObject(i)
-                    val elementName = elementObject.getString("element")
-                    val quantity = elementObject.getDouble("quantity")
-                    elementScores[elementName] =
-                        elementScores.getOrDefault(elementName, 0.0) + quantity
+            elementMap[number.toString()]?.forEach { elementInfo ->
+                val elementName = elementInfo.element
+                val quantity = elementInfo.quantity
+                elementScores[elementName] =
+                    elementScores.getOrDefault(elementName, 0.0) + quantity
 
-                    val highestElement = elementScores.maxByOrNull { it.value }?.key
-                    if (highestElement != null && excessMap.has(highestElement)) {
-                        dominantElement =
-                            excessMap.getJSONObject(highestElement).getString("details")
-                    } else {
-                        dominantElement = "No dominant element found."
-                    }
+                val highestElement = elementScores.maxByOrNull { it.value }?.key
+                if (highestElement != null && excessMap.containsKey(highestElement)) {
+                    dominantElement = excessMap[highestElement]?.details ?: "No dominant element found."
+                } else {
+                    dominantElement = "No dominant element found."
                 }
             }
         }

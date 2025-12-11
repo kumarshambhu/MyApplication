@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.shambhu.myapplication.model.ColorAnalysisResult
 import com.shambhu.myapplication.model.ColorsData
 import com.shambhu.myapplication.model.ElementAnalysisResult
+import com.shambhu.myapplication.model.ElementData
 import com.shambhu.myapplication.service.NameAnalysisService
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
@@ -24,6 +25,7 @@ class NameAnalysisServiceImpl(private val gson: Gson) : NameAnalysisService {
         fullName: String
     ): ElementAnalysisResult {
         val jsonString = CommonUtils.readAssetFile(context, "elements.json")
-        return NumerologyCalculationUtils.calculateElements(fullName, jsonString)
+        val elementData = gson.fromJson(jsonString, ElementData::class.java)
+        return NumerologyCalculationUtils.calculateElements(fullName, elementData)
     }
 }
