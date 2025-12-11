@@ -4,487 +4,892 @@
       "destiny": 1,
       "soul": 1,
       "personality": 9,
-      "summary": "<ul><li>Natural leader and persuasive motivator.</li>,<li>Inspires trust and organizes win-win campaigns.</li>,<li>Thrives on competition and romantic pursuit.</li>,<li>Impulsive in love; prefers take-charge partners.</li></ul>"
+      "summary": [
+        "Natural leader and persuasive motivator.",
+        "Inspires trust and organizes win-win campaigns.",
+        "Thrives on competition and romantic pursuit.",
+        "Impulsive in love; prefers take-charge partners."
+      ]
     },
     {
       "destiny": 1,
       "soul": 2,
       "personality": 8,
-      "summary": "<ul><li>Appears self-sufficient but craves deep emotional connection.</li><li>Strong listener with a prosperous aura.</li><li>Pride can hinder relationships; needs reassurance.</li><li>Sensitive yet resilient; reads between the lines.</li></ul>"
+      "summary": [
+        "Appears self-sufficient but craves deep emotional connection.",
+        "Strong listener with a prosperous aura.",
+        "Pride can hinder relationships; needs reassurance.",
+        "Sensitive yet resilient; reads between the lines."
+      ]
     },
     {
       "destiny": 1,
       "soul": 3,
       "personality": 7,
-      "summary": "<ul><li>Fast-paced, creative, and nonconformist.</li><li>Prefers solitude unless surrounded by like-minded people.</li><li>Seen as aloof but has youthful charm.</li><li>Entertains with impressions; seeks self-expression.</li></ul>"
+      "summary": [
+        "Fast-paced, creative, and nonconformist.",
+        "Prefers solitude unless surrounded by like-minded people.",
+        "Seen as aloof but has youthful charm.",
+        "Entertains with impressions; seeks self-expression."
+      ]
     },
     {
       "destiny": 1,
       "soul": 4,
       "personality": 6,
-      "summary": "<ul><li>Hardworking, independent, and fair.</li><li>Stubborn but reliable and practical.</li><li>Seeks recognition for good deeds.</li><li>Values quality, comfort, and luxury for loved ones.</li></ul>"
+      "summary": [
+        "Hardworking, independent, and fair.",
+        "Stubborn but reliable and practical.",
+        "Seeks recognition for good deeds.",
+        "Values quality, comfort, and luxury for loved ones."
+      ]
     },
     {
       "destiny": 1,
       "soul": 5,
       "personality": 5,
-      "summary": "<ul><li>Unpredictable and energized by freedom.</li><li>Dislikes routine; thrives on creativity and risk.</li><li>Independent and adventurous.</li><li>Flexible but easily bored; seeks constant stimulation.</li></ul>"
+      "summary": [
+        "Unpredictable and energized by freedom.",
+        "Dislikes routine; thrives on creativity and risk.",
+        "Independent and adventurous.",
+        "Flexible but easily bored; seeks constant stimulation."
+      ]
     },
     {
       "destiny": 1,
       "soul": 6,
       "personality": 4,
-      "summary": "<ul><li>Life goal: help others and maintain harmony.</li><li>Strong opinions but avoids confrontation.</li><li>Responsible and trustworthy.</li><li>Logical, conservative problem-solver; loves a beautiful home.</li></ul>"
+      "summary": [
+        "Life goal: help others and maintain harmony.",
+        "Strong opinions but avoids confrontation.",
+        "Responsible and trustworthy.",
+        "Logical, conservative problem-solver; loves a beautiful home."
+      ]
     },
     {
       "destiny": 1,
       "soul": 7,
       "personality": 3,
-      "summary": "<ul><li>Outwardly sociable, inwardly reserved.</li><li>Selective with close relationships.</li><li>Innovative and analytical thinker.</li><li>Withdraws when privacy is invaded; charming when needed.</li></ul>"
+      "summary": [
+        "Outwardly sociable, inwardly reserved.",
+        "Selective with close relationships.",
+        "Innovative and analytical thinker.",
+        "Withdraws when privacy is invaded; charming when needed."
+      ]
     },
     {
       "destiny": 1,
       "soul": 8,
       "personality": 2,
-      "summary": "<ul><li>Appears cooperative but is fiercely independent.</li><li>Strong-willed decision-maker with ethical standards.</li><li>Diplomatic leader who inspires others.</li><li>Patient and inclusive; values shared success.</li></ul>"
+      "summary": [
+        "Appears cooperative but is fiercely independent.",
+        "Strong-willed decision-maker with ethical standards.",
+        "Diplomatic leader who inspires others.",
+        "Patient and inclusive; values shared success."
+      ]
     },
     {
       "destiny": 1,
       "soul": 9,
       "personality": 1,
-      "summary": "<ul><li>Energetic, original, and generous leader.</li><li>Ambitious with a purpose beyond self.</li><li>Creates impactful concepts and stands out.</li><li>Dislikes taking orders; thrives on recognition.</li></ul>"
+      "summary": [
+        "Energetic, original, and generous leader.",
+        "Ambitious with a purpose beyond self.",
+        "Creates impactful concepts and stands out.",
+        "Dislikes taking orders; thrives on recognition."
+      ]
     },
     {
       "destiny": 2,
       "soul": 1,
       "personality": 1,
-      "summary": "<ul><li>Listens to others but follows personal convictions.</li>,<li>Tactfully clears tension and earns respect.</li>,<li>Balances solo work with teamwork depending on mood.</li>,<li>Strives for mutual satisfaction while subtly steering outcomes.</li></ul>"
+      "summary": [
+        "Listens to others but follows personal convictions.",
+        "Tactfully clears tension and earns respect.",
+        "Balances solo work with teamwork depending on mood.",
+        "Strives for mutual satisfaction while subtly steering outcomes."
+      ]
     },
     {
       "destiny": 2,
       "soul": 2,
       "personality": 9,
-      "summary": "<ul><li>Inspires others and shares deep insights.</li>,<li>Values intimate relationships despite wide social circle.</li>,<li>Diplomatic and empathetic listener.</li>,<li>Resistant to change; seeks trusted advice before decisions.</li></ul>"
+      "summary": [
+        "Inspires others and shares deep insights.",
+        "Values intimate relationships despite wide social circle.",
+        "Diplomatic and empathetic listener.",
+        "Resistant to change; seeks trusted advice before decisions."
+      ]
     },
     {
       "destiny": 2,
       "soul": 3,
       "personality": 8,
-      "summary": "<ul><li>Charismatic storyteller and social energizer.</li>,<li>Uses charm to influence outcomes.</li>,<li>Maintains youthful, polished appearance.</li>,<li>Outwardly organized but inwardly disorganized.</li></ul>"
+      "summary": [
+        "Charismatic storyteller and social energizer.",
+        "Uses charm to influence outcomes.",
+        "Maintains youthful, polished appearance.",
+        "Outwardly organized but inwardly disorganized."
+      ]
     },
     {
       "destiny": 2,
       "soul": 4,
       "personality": 7,
-      "summary": "<ul><li>Prefers small, meaningful interactions.</li>,<li>Reserved and cautious in forming friendships.</li>,<li>Struggles to express emotions openly.</li>,<li>Respected for orderliness and commitment to completion.</li></ul>"
+      "summary": [
+        "Prefers small, meaningful interactions.",
+        "Reserved and cautious in forming friendships.",
+        "Struggles to express emotions openly.",
+        "Respected for orderliness and commitment to completion."
+      ]
     },
     {
       "destiny": 2,
       "soul": 5,
       "personality": 6,
-      "summary": "<ul><li>Warm, dependable, and socially admired.</li>,<li>Balances stability with curiosity and adaptability.</li>,<li>Trusted mediator with diplomatic skills.</li>,<li>Craves freedom but honors responsibilities.</li></ul>"
+      "summary": [
+        "Warm, dependable, and socially admired.",
+        "Balances stability with curiosity and adaptability.",
+        "Trusted mediator with diplomatic skills.",
+        "Craves freedom but honors responsibilities."
+      ]
     },
     {
       "destiny": 2,
       "soul": 6,
       "personality": 5,
-      "summary": "<ul><li>Appears adventurous but prefers home comforts.</li>,<li>Loyal and service-oriented friend.</li>,<li>Promotes causes with enthusiasm and justice.</li>,<li>Values harmony and adjusts to avoid conflict.</li></ul>"
+      "summary": [
+        "Appears adventurous but prefers home comforts.",
+        "Loyal and service-oriented friend.",
+        "Promotes causes with enthusiasm and justice.",
+        "Values harmony and adjusts to avoid conflict."
+      ]
     },
     {
       "destiny": 2,
       "soul": 7,
       "personality": 4,
-      "summary": "<ul><li>Thoughtful and deliberate communicator.</li>,<li>Sensitive and needs solitude to recharge.</li>,<li>Prefers neat, orderly surroundings.</li>,<li>Trusted for integrity and intuitive insights.</li></ul></li></ul>"
+      "summary": [
+        "Thoughtful and deliberate communicator.",
+        "Sensitive and needs solitude to recharge.",
+        "Prefers neat, orderly surroundings.",
+        "Trusted for integrity and intuitive insights."
+      ]
     },
     {
       "destiny": 2,
       "soul": 8,
       "personality": 3,
-      "summary": "<ul><li>Charming and expressive with hidden determination.</li>,<li>Efficient multitasker with high standards.</li>,<li>Empathetic listener and people pleaser.</li>,<li>Can be emotionally reactive when challenged.</li></ul>"
+      "summary": [
+        "Charming and expressive with hidden determination.",
+        "Efficient multitasker with high standards.",
+        "Empathetic listener and people pleaser.",
+        "Can be emotionally reactive when challenged."
+      ]
     },
     {
       "destiny": 2,
       "soul": 9,
       "personality": 2,
-      "summary": "<ul><li>Idealistic and self-sacrificing humanitarian.</li>,<li>Sentimental and forgiving in relationships.</li>,<li>Patient teacher with deep emotional wisdom.</li>,<li>Quiet but capable of strong emotional reactions.</li></ul>"
+      "summary": [
+        "Idealistic and self-sacrificing humanitarian.",
+        "Sentimental and forgiving in relationships.",
+        "Patient teacher with deep emotional wisdom.",
+        "Quiet but capable of strong emotional reactions."
+      ]
     },
     {
       "destiny": 3,
       "soul": 1,
       "personality": 2,
-      "summary": "<ul><li>Charming and socially graceful; gets what you want through diplomacy.</li><li>Energetic and creative with a packed schedule.</li><li>Excellent communicator who conceals impatience.</li><li>Craves popularity and youthful appearance; needs a fun-loving, independent partner.</li></ul>"
+      "summary": [
+        "Charming and socially graceful; gets what you want through diplomacy.",
+        "Energetic and creative with a packed schedule.",
+        "Excellent communicator who conceals impatience.",
+        "Craves popularity and youthful appearance; needs a fun-loving, independent partner."
+      ]
     },
     {
       "destiny": 3,
       "soul": 2,
       "personality": 1,
-      "summary": "<ul><li>Persuasive and confident; inspires others to follow your lead.</li><li>Sensitive and avoids conflict to keep harmony.</li><li>Deliberate decision-maker despite appearing decisive.</li><li>Stylish and humorous; attracts admiration across age groups.</li></ul>"
+      "summary": [
+        "Persuasive and confident; inspires others to follow your lead.",
+        "Sensitive and avoids conflict to keep harmony.",
+        "Deliberate decision-maker despite appearing decisive.",
+        "Stylish and humorous; attracts admiration across age groups."
+      ]
     },
     {
       "destiny": 3,
       "soul": 3,
       "personality": 9,
-      "summary": "<ul><li>Master networker with strong verbal charisma.</li><li>Flirtatious and thrives on applause and attention.</li><li>Generous and optimistic; loves to travel.</li><li>Prefers freedom over routine; spends freely on appearance.</li></ul>"
+      "summary": [
+        "Master networker with strong verbal charisma.",
+        "Flirtatious and thrives on applause and attention.",
+        "Generous and optimistic; loves to travel.",
+        "Prefers freedom over routine; spends freely on appearance."
+      ]
     },
     {
       "destiny": 3,
       "soul": 4,
       "personality": 8,
-      "summary": "<ul><li>Hardworking and seen as successful and reliable.</li><li>Logical and expressive problem-solver.</li><li>Seeks value and builds systems that work well.</li><li>Private with emotions but blunt when angered.</li></ul>"
+      "summary": [
+        "Hardworking and seen as successful and reliable.",
+        "Logical and expressive problem-solver.",
+        "Seeks value and builds systems that work well.",
+        "Private with emotions but blunt when angered."
+      ]
     },
     {
       "destiny": 3,
       "soul": 5,
       "personality": 7,
-      "summary": "<ul><li>Driven by variety and freedom; fast-paced lifestyle.</li><li>Natural promoter with sharp verbal skills.</li><li>Curious about others but secretive about self.</li><li>May overextend with projects; hides inner shyness and insecurity.</li></ul>"
+      "summary": [
+        "Driven by variety and freedom; fast-paced lifestyle.",
+        "Natural promoter with sharp verbal skills.",
+        "Curious about others but secretive about self.",
+        "May overextend with projects; hides inner shyness and insecurity."
+      ]
     },
     {
       "destiny": 3,
       "soul": 6,
       "personality": 6,
-      "summary": "<ul><li>Charismatic and generous; enjoys helping others.</li><li>Family-oriented and leads with care.</li><li>Seeks harmony and justice; expects agreement.</li><li>Patient in waiting for quality and best outcomes.</li></ul>"
+      "summary": [
+        "Charismatic and generous; enjoys helping others.",
+        "Family-oriented and leads with care.",
+        "Seeks harmony and justice; expects agreement.",
+        "Patient in waiting for quality and best outcomes."
+      ]
     },
     {
       "destiny": 3,
       "soul": 7,
       "personality": 5,
-      "summary": "<ul><li>Friendly exterior hides shyness and depth.</li><li>Analytical and articulate; enjoys long discussions.</li><li>Excellent writer and critic; driven by perfectionism.</li><li>Seeks a supportive partner to feel understood.</li></ul>"
+      "summary": [
+        "Friendly exterior hides shyness and depth.",
+        "Analytical and articulate; enjoys long discussions.",
+        "Excellent writer and critic; driven by perfectionism.",
+        "Seeks a supportive partner to feel understood."
+      ]
     },
     {
       "destiny": 3,
       "soul": 8,
       "personality": 4,
-      "summary": "<ul><li>Organized and creative with strong delegation skills.</li><li>Eloquent and persuasive communicator.</li><li>Trusted leader with proven accomplishments.</li><li>Focused on financial success and peer respect.</li></ul>"
+      "summary": [
+        "Organized and creative with strong delegation skills.",
+        "Eloquent and persuasive communicator.",
+        "Trusted leader with proven accomplishments.",
+        "Focused on financial success and peer respect."
+      ]
     },
     {
       "destiny": 3,
       "soul": 9,
       "personality": 3,
-      "summary": "<ul><li>Charming entertainer who promotes ideas with flair.</li><li>Popular host with a generous and extravagant nature.</li><li>Buys the best and showers friends with gifts.</li><li>Optimistic and sociable; thrives on meeting new people.</li></ul>"
+      "summary": [
+        "Charming entertainer who promotes ideas with flair.",
+        "Popular host with a generous and extravagant nature.",
+        "Buys the best and showers friends with gifts.",
+        "Optimistic and sociable; thrives on meeting new people."
+      ]
     },
     {
       "destiny": 4,
       "soul": 1,
       "personality": 3,
-      "summary": "<ul><li>Patient and determined; tackles both routine and creative tasks with equal focus.</li><li>Maintains high standards and dislikes being rushed.</li><li>Thrives in teams that share vision and quality.</li><li>Pleasant and outgoing; not easily contradicted.</li></ul>"
+      "summary": [
+        "Patient and determined; tackles both routine and creative tasks with equal focus.",
+        "Maintains high standards and dislikes being rushed.",
+        "Thrives in teams that share vision and quality.",
+        "Pleasant and outgoing; not easily contradicted."
+      ]
     },
     {
       "destiny": 4,
       "soul": 2,
       "personality": 2,
-      "summary": "<ul><li>Absorbs facts quickly; impresses with reliability and cooperation.</li><li>Loyal and generous; seeks meaningful relationships.</li><li>Internalizes hurt to avoid confrontation.</li><li>Kind and detail-oriented; good at finding bargains.</li></ul>"
+      "summary": [
+        "Absorbs facts quickly; impresses with reliability and cooperation.",
+        "Loyal and generous; seeks meaningful relationships.",
+        "Internalizes hurt to avoid confrontation.",
+        "Kind and detail-oriented; good at finding bargains."
+      ]
     },
     {
       "destiny": 4,
       "soul": 3,
       "personality": 1,
-      "summary": "<ul><li>Seen as a practical leader with strong communication skills.</li><li>Creative and imaginative with a flair for design.</li><li>Balances planning with spontaneity; may procrastinate.</li><li>Masks insecurity with humor and control.</li></ul>"
+      "summary": [
+        "Seen as a practical leader with strong communication skills.",
+        "Creative and imaginative with a flair for design.",
+        "Balances planning with spontaneity; may procrastinate.",
+        "Masks insecurity with humor and control."
+      ]
     },
     {
       "destiny": 4,
       "soul": 4,
       "personality": 9,
-      "summary": "<ul><li>Prefers proven methods; tweaks for efficiency.</li><li>Reliable, punctual, and budget-conscious.</li><li>Emotionally deep but reserved in expression.</li><li>Generous within practical limits; values appreciation.</li></ul>"
+      "summary": [
+        "Prefers proven methods; tweaks for efficiency.",
+        "Reliable, punctual, and budget-conscious.",
+        "Emotionally deep but reserved in expression.",
+        "Generous within practical limits; values appreciation."
+      ]
     },
     {
       "destiny": 4,
       "soul": 5,
       "personality": 8,
-      "summary": "<ul><li>Energetic and hands-on leader; works alongside team.</li><li>Disciplined and meticulous; maintains wide social circle.</li><li>Stylish yet grounded; hides inner complexity.</li><li>Stubborn and conservative with a hidden free spirit.</li></ul>"
+      "summary": [
+        "Energetic and hands-on leader; works alongside team.",
+        "Disciplined and meticulous; maintains wide social circle.",
+        "Stylish yet grounded; hides inner complexity.",
+        "Stubborn and conservative with a hidden free spirit."
+      ]
     },
     {
       "destiny": 4,
       "soul": 6,
       "personality": 7,
-      "summary": "<ul><li>Generous but reserved; cautious in relationships.</li><li>Helpful and analytical; advice may be misinterpreted.</li><li>Avoids conflict; struggles to adapt when disagreeing.</li><li>Sensitive to quality and sincerity; seeks fairness.</li></ul>"
+      "summary": [
+        "Generous but reserved; cautious in relationships.",
+        "Helpful and analytical; advice may be misinterpreted.",
+        "Avoids conflict; struggles to adapt when disagreeing.",
+        "Sensitive to quality and sincerity; seeks fairness."
+      ]
     },
     {
       "destiny": 4,
       "soul": 7,
       "personality": 6,
-      "summary": "<ul><li>Responsible and logical; detail-focused decision-maker.</li><li>Prefers quality over luxury; listens more than speaks.</li><li>Slow to form close friendships but deeply loyal.</li><li>Private about self; inquisitive about others.</li></ul>"
+      "summary": [
+        "Responsible and logical; detail-focused decision-maker.",
+        "Prefers quality over luxury; listens more than speaks.",
+        "Slow to form close friendships but deeply loyal.",
+        "Private about self; inquisitive about others."
+      ]
     },
     {
       "destiny": 4,
       "soul": 8,
       "personality": 5,
-      "summary": "<ul><li>Single-minded in goals; seeks power and prosperity.</li><li>Balances busy social life with inner control.</li><li>Appears carefree but values stability and loyalty.</li><li>Turns chaos into order; flexible yet perfectionist.</li></ul>"
+      "summary": [
+        "Single-minded in goals; seeks power and prosperity.",
+        "Balances busy social life with inner control.",
+        "Appears carefree but values stability and loyalty.",
+        "Turns chaos into order; flexible yet perfectionist."
+      ]
     },
     {
       "destiny": 4,
       "soul": 9,
       "personality": 4,
-      "summary": "<ul><li>Dependable and organized; plays by the rules.</li><li>Artistic talents balanced by practicality.</li><li>Humanitarian with logical generosity.</li><li>Sentimental and romantic; shares feelings selectively.</li></ul>"
+      "summary": [
+        "Dependable and organized; plays by the rules.",
+        "Artistic talents balanced by practicality.",
+        "Humanitarian with logical generosity.",
+        "Sentimental and romantic; shares feelings selectively."
+      ]
     },
     {
       "destiny": 5,
       "soul": 1,
       "personality": 4,
-      "summary": "<ul><li>Appears traditional but is a nonconformist at heart.</li><li>Thrives in leadership roles with flexible schedules.</li><li>Adaptable and efficient; conceals impatience.</li><li>Needs solitude despite a wide social circle.</li></ul>"
+      "summary": [
+        "Appears traditional but is a nonconformist at heart.",
+        "Thrives in leadership roles with flexible schedules.",
+        "Adaptable and efficient; conceals impatience.",
+        "Needs solitude despite a wide social circle."
+      ]
     },
     {
       "destiny": 5,
       "soul": 2,
       "personality": 3,
-      "summary": "<ul><li>Entertaining and expressive; loves the spotlight.</li><li>Seeks fun-loving, supportive companionship.</li><li>Appears confident but is inwardly sensitive.</li><li>Guided by conscience; balances adventure with responsibility.</li></ul>"
+      "summary": [
+        "Entertaining and expressive; loves the spotlight.",
+        "Seeks fun-loving, supportive companionship.",
+        "Appears confident but is inwardly sensitive.",
+        "Guided by conscience; balances adventure with responsibility."
+      ]
     },
     {
       "destiny": 5,
       "soul": 3,
       "personality": 2,
-      "summary": "<ul><li>Quick thinker and expressive communicator.</li><li>Welcomes change; avoids boredom.</li><li>Often leaves projects unfinished.</li><li>Friendly and flirtatious; lives in the present.</li></ul>"
+      "summary": [
+        "Quick thinker and expressive communicator.",
+        "Welcomes change; avoids boredom.",
+        "Often leaves projects unfinished.",
+        "Friendly and flirtatious; lives in the present."
+      ]
     },
     {
       "destiny": 5,
       "soul": 4,
       "personality": 1,
-      "summary": "<ul><li>Seen as a capable and persuasive leader.</li><li>Creative yet practical; imposes order on ideas.</li><li>Thorough researcher and responsible planner.</li><li>Balances impulsiveness with commitment and security.</li></ul>"
+      "summary": [
+        "Seen as a capable and persuasive leader.",
+        "Creative yet practical; imposes order on ideas.",
+        "Thorough researcher and responsible planner.",
+        "Balances impulsiveness with commitment and security."
+      ]
     },
     {
       "destiny": 5,
       "soul": 5,
       "personality": 9,
-      "summary": "<ul><li>Skilled with the public; energetic and compassionate.</li><li>Curious about human nature; analyzes character.</li><li>Dislikes rigid schedules; prefers constant activity.</li><li>Impatient and restless; starts new ventures quickly.</li></ul>"
+      "summary": [
+        "Skilled with the public; energetic and compassionate.",
+        "Curious about human nature; analyzes character.",
+        "Dislikes rigid schedules; prefers constant activity.",
+        "Impatient and restless; starts new ventures quickly."
+      ]
     },
     {
       "destiny": 5,
       "soul": 6,
       "personality": 8,
-      "summary": "<ul><li>Appears stable and successful; always lands on feet.</li><li>Driven to fulfill commitments despite restlessness.</li><li>Creative outlet through home decor and rearrangement.</li><li>Respected for fairness and conflict resolution.</li></ul>"
+      "summary": [
+        "Appears stable and successful; always lands on feet.",
+        "Driven to fulfill commitments despite restlessness.",
+        "Creative outlet through home decor and rearrangement.",
+        "Respected for fairness and conflict resolution."
+      ]
     },
     {
       "destiny": 5,
       "soul": 7,
       "personality": 7,
-      "summary": "<ul><li>Highly perceptive and analytical; finds hidden clues.</li><li>Prefers asking questions over answering them.</li><li>Values privacy; reacts strongly to intrusion.</li><li>Needs mental stimulation and flexible companionship.</li></ul>"
+      "summary": [
+        "Highly perceptive and analytical; finds hidden clues.",
+        "Prefers asking questions over answering them.",
+        "Values privacy; reacts strongly to intrusion.",
+        "Needs mental stimulation and flexible companionship."
+      ]
     },
     {
       "destiny": 5,
       "soul": 8,
       "personality": 6,
-      "summary": "<ul><li>Business-minded with strong people skills.</li><li>Flexible and organized; thrives with stability.</li><li>Curious but private; draws out others' secrets.</li><li>Active lifestyle focused on health and reputation.</li></ul>"
+      "summary": [
+        "Business-minded with strong people skills.",
+        "Flexible and organized; thrives with stability.",
+        "Curious but private; draws out others' secrets.",
+        "Active lifestyle focused on health and reputation."
+      ]
     },
     {
       "destiny": 5,
       "soul": 9,
       "personality": 5,
-      "summary": "<ul><li>Thrives on activity and mental stimulation.</li><li>Natural teacher with engaging style.</li><li>Charitable and sympathetic; enjoys recognition.</li><li>Romantic and freedom-loving; dislikes possessiveness.</li></ul>"
+      "summary": [
+        "Thrives on activity and mental stimulation.",
+        "Natural teacher with engaging style.",
+        "Charitable and sympathetic; enjoys recognition.",
+        "Romantic and freedom-loving; dislikes possessiveness."
+      ]
     },
     {
       "destiny": 6,
       "soul": 1,
       "personality": 5,
-      "summary": "<ul><li>Natural leader and energetic problem solver.</li><li>Listens to others but prefers own methods.</li><li>Trend-aware and admired for fresh ideas.</li><li>Seeks independent, non-possessive partners.</li></ul>"
+      "summary": [
+        "Natural leader and energetic problem solver.",
+        "Listens to others but prefers own methods.",
+        "Trend-aware and admired for fresh ideas.",
+        "Seeks independent, non-possessive partners."
+      ]
     },
     {
       "destiny": 6,
       "soul": 2,
       "personality": 4,
-      "summary": "<ul><li>Polite, adaptable, and detail-oriented.</li><li>Reliable and keeps promises.</li><li>May overextend to be liked.</li><li>Frugal but generous with loved ones.</li></ul>"
+      "summary": [
+        "Polite, adaptable, and detail-oriented.",
+        "Reliable and keeps promises.",
+        "May overextend to be liked.",
+        "Frugal but generous with loved ones."
+      ]
     },
     {
       "destiny": 6,
       "soul": 3,
       "personality": 3,
-      "summary": "<ul><li>Charming and talkative; natural peacemaker.</li><li>Optimistic and socially magnetic.</li><li>Overcommits and gets anxious.</li><li>Expresses individuality through fashion.</li></ul>"
+      "summary": [
+        "Charming and talkative; natural peacemaker.",
+        "Optimistic and socially magnetic.",
+        "Overcommits and gets anxious.",
+        "Expresses individuality through fashion."
+      ]
     },
     {
       "destiny": 6,
       "soul": 4,
       "personality": 2,
-      "summary": "<ul><li>Home and family are central.</li><li>Warm, principled, and emotionally supportive.</li><li>Dependable and honest in work and life.</li><li>Avoids shady dealings to protect reputation.</li></ul>"
+      "summary": [
+        "Home and family are central.",
+        "Warm, principled, and emotionally supportive.",
+        "Dependable and honest in work and life.",
+        "Avoids shady dealings to protect reputation."
+      ]
     },
     {
       "destiny": 6,
       "soul": 5,
       "personality": 1,
-      "summary": "<ul><li>Sociable and nurturing with logical advice.</li><li>Highly responsible and ethical.</li><li>Loves mental stimulation and diverse friendships.</li><li>Seeks comfort and luxury with patience.</li></ul>"
+      "summary": [
+        "Sociable and nurturing with logical advice.",
+        "Highly responsible and ethical.",
+        "Loves mental stimulation and diverse friendships.",
+        "Seeks comfort and luxury with patience."
+      ]
     },
     {
       "destiny": 6,
       "soul": 6,
       "personality": 9,
-      "summary": "<ul><li>Seeks harmony through cooperation and sacrifice.</li><li>Sociable and generous with wide network.</li><li>May overwhelm others with advice.</li><li>Needs to respect others' paths.</li></ul>"
+      "summary": [
+        "Seeks harmony through cooperation and sacrifice.",
+        "Sociable and generous with wide network.",
+        "May overwhelm others with advice.",
+        "Needs to respect others' paths."
+      ]
     },
     {
       "destiny": 6,
       "soul": 7,
       "personality": 8,
-      "summary": "<ul><li>Balances helping others with personal goals.</li><li>Strong, analytical, and emotionally private.</li><li>Excellent listener but avoids sharing feelings.</li><li>Can lose temper when pressed emotionally.</li></ul>"
+      "summary": [
+        "Balances helping others with personal goals.",
+        "Strong, analytical, and emotionally private.",
+        "Excellent listener but avoids sharing feelings.",
+        "Can lose temper when pressed emotionally."
+      ]
     },
     {
       "destiny": 6,
       "soul": 8,
       "personality": 7,
-      "summary": "<ul><li>Complex and self-contained; values control.</li><li>Ambitious and organized with leadership skills.</li><li>Prefers quality over quantity.</li><li>May clash when treating loved ones like subordinates.</li></ul>"
+      "summary": [
+        "Complex and self-contained; values control.",
+        "Ambitious and organized with leadership skills.",
+        "Prefers quality over quantity.",
+        "May clash when treating loved ones like subordinates."
+      ]
     },
     {
       "destiny": 6,
       "soul": 9,
       "personality": 6,
-      "summary": "<ul><li>Compassionate and service-oriented.</li><li>Romantic and relationship-focused.</li><li>Adapts to others' needs, especially family.</li><li>Loves travel but often serves others while doing so.</li></ul>"
+      "summary": [
+        "Compassionate and service-oriented.",
+        "Romantic and relationship-focused.",
+        "Adapts to others' needs, especially family.",
+        "Loves travel but often serves others while doing so."
+      ]
     },
     {
       "destiny": 7,
       "soul": 1,
       "personality": 6,
-      "summary": "<ul><li>Polished and dependable with high standards.</li><li>Reserved and selective in relationships.</li><li>Independent and self-sufficient.</li><li>Craves recognition but hides it well.</li></ul>"
+      "summary": [
+        "Polished and dependable with high standards.",
+        "Reserved and selective in relationships.",
+        "Independent and self-sufficient.",
+        "Craves recognition but hides it well."
+      ]
     },
     {
       "destiny": 7,
       "soul": 2,
       "personality": 5,
-      "summary": "<ul><li>Appears impulsive but is inwardly shy.</li><li>Prefers solitude for analysis and learning.</li><li>Tactful and diplomatic with close friends.</li><li>Specializes deeply and gives wise advice.</li></ul>"
+      "summary": [
+        "Appears impulsive but is inwardly shy.",
+        "Prefers solitude for analysis and learning.",
+        "Tactful and diplomatic with close friends.",
+        "Specializes deeply and gives wise advice."
+      ]
     },
     {
       "destiny": 7,
       "soul": 3,
       "personality": 4,
-      "summary": "<ul><li>Hardworking and articulate with big dreams.</li><li>Craves praise and recognition.</li><li>Sociable yet needs solitude.</li><li>Loyal and honest with high expectations.</li></ul>"
+      "summary": [
+        "Hardworking and articulate with big dreams.",
+        "Craves praise and recognition.",
+        "Sociable yet needs solitude.",
+        "Loyal and honest with high expectations."
+      ]
     },
     {
       "destiny": 7,
       "soul": 4,
       "personality": 3,
-      "summary": "<ul><li>Responsible and practical with refined taste.</li><li>Effective problem solver and planner.</li><li>Socially clever but emotionally reserved.</li><li>Finds peace in nature and hands-on work.</li></ul>"
+      "summary": [
+        "Responsible and practical with refined taste.",
+        "Effective problem solver and planner.",
+        "Socially clever but emotionally reserved.",
+        "Finds peace in nature and hands-on work."
+      ]
     },
     {
       "destiny": 7,
       "soul": 5,
       "personality": 2,
-      "summary": "<ul><li>Pleasant and curious; asks insightful questions.</li><li>Avoids confrontation but has limits.</li><li>Intrigued by unconventional minds.</li><li>Keeps personal dreams private.</li></ul>"
+      "summary": [
+        "Pleasant and curious; asks insightful questions.",
+        "Avoids confrontation but has limits.",
+        "Intrigued by unconventional minds.",
+        "Keeps personal dreams private."
+      ]
     },
     {
       "destiny": 7,
       "soul": 6,
       "personality": 1,
-      "summary": "<ul><li>Authoritative and self-sufficient leader.</li><li>Reserved and mysterious; values privacy.</li><li>Strives for excellence and understanding.</li><li>Loyal to family and high achiever.</li></ul>"
+      "summary": [
+        "Authoritative and self-sufficient leader.",
+        "Reserved and mysterious; values privacy.",
+        "Strives for excellence and understanding.",
+        "Loyal to family and high achiever."
+      ]
     },
     {
       "destiny": 7,
       "soul": 7,
       "personality": 9,
-      "summary": "<ul><li>Refined and poised; seeks solitude for thought.</li><li>Demands honesty and guards privacy.</li><li>Gracious in public but selective socially.</li><li>Pursues perfection and intellectual depth.</li></ul>"
+      "summary": [
+        "Refined and poised; seeks solitude for thought.",
+        "Demands honesty and guards privacy.",
+        "Gracious in public but selective socially.",
+        "Pursues perfection and intellectual depth."
+      ]
     },
     {
       "destiny": 7,
       "soul": 8,
       "personality": 8,
-      "summary": "<ul><li>Ambitious and selective; seeks influence.</li><li>Secretive and snobbish at times.</li><li>Excellent planner and manager.</li><li>Solves problems with persistence and logic.</li></ul>"
+      "summary": [
+        "Ambitious and selective; seeks influence.",
+        "Secretive and snobbish at times.",
+        "Excellent planner and manager.",
+        "Solves problems with persistence and logic."
+      ]
     },
     {
       "destiny": 7,
       "soul": 9,
       "personality": 7,
-      "summary": "<ul><li>Perfectionist and private; trusts few.</li><li>Avoids conflict by withholding opinions.</li><li>Deeply analytical and curious.</li><li>Careful listener and truth-seeker.</li></ul>"
+      "summary": [
+        "Perfectionist and private; trusts few.",
+        "Avoids conflict by withholding opinions.",
+        "Deeply analytical and curious.",
+        "Careful listener and truth-seeker."
+      ]
     },
     {
       "destiny": 8,
       "soul": 1,
       "personality": 7,
-      "summary": "<ul><li>Energetic and success-driven.</li><li>Prefers solitude and independence.</li><li>Blends personal and professional life.</li><li>Effective delegator; dislikes micromanagement.</li></ul>"
+      "summary": [
+        "Energetic and success-driven.",
+        "Prefers solitude and independence.",
+        "Blends personal and professional life.",
+        "Effective delegator; dislikes micromanagement."
+      ]
     },
     {
       "destiny": 8,
       "soul": 2,
       "personality": 6,
-      "summary": "<ul><li>Loving and cooperative; seeks harmony.</li><li>Emotionally sensitive and indecisive.</li><li>Effective manager and unifier.</li><li>Struggles with emotional balance.</li></ul>"
+      "summary": [
+        "Loving and cooperative; seeks harmony.",
+        "Emotionally sensitive and indecisive.",
+        "Effective manager and unifier.",
+        "Struggles with emotional balance."
+      ]
     },
     {
       "destiny": 8,
       "soul": 3,
       "personality": 5,
-      "summary": "<ul><li>Optimistic and fast-paced multitasker.</li><li>Entertaining and socially skilled.</li><li>Health-conscious and energetic.</li><li>Confident and goal-oriented.</li></ul>"
+      "summary": [
+        "Optimistic and fast-paced multitasker.",
+        "Entertaining and socially skilled.",
+        "Health-conscious and energetic.",
+        "Confident and goal-oriented."
+      ]
     },
     {
       "destiny": 8,
       "soul": 4,
       "personality": 4,
-      "summary": "<ul><li>Disciplined and logical organizer.</li><li>Frugal but values quality.</li><li>Deeply committed in relationships.</li><li>Bottles up emotions when disappointed.</li></ul>"
+      "summary": [
+        "Disciplined and logical organizer.",
+        "Frugal but values quality.",
+        "Deeply committed in relationships.",
+        "Bottles up emotions when disappointed."
+      ]
     },
     {
       "destiny": 8,
       "soul": 5,
       "personality": 3,
-      "summary": "<ul><li>Thrives on variety and challenge.</li><li>Quick thinker and persuasive communicator.</li><li>Flexible and opportunity-driven.</li><li>Avoids restrictions and values freedom.</li></ul>"
+      "summary": [
+        "Thrives on variety and challenge.",
+        "Quick thinker and persuasive communicator.",
+        "Flexible and opportunity-driven.",
+        "Avoids restrictions and values freedom."
+      ]
     },
     {
       "destiny": 8,
       "soul": 6,
       "personality": 2,
-      "summary": "<ul><li>Strong-willed leader with a soft heart.</li><li>Mediator and community builder.</li><li>Values family and home harmony.</li><li>Communicates disappointment gracefully.</li></ul>"
+      "summary": [
+        "Strong-willed leader with a soft heart.",
+        "Mediator and community builder.",
+        "Values family and home harmony.",
+        "Communicates disappointment gracefully."
+      ]
     },
     {
       "destiny": 8,
       "soul": 7,
       "personality": 1,
-      "summary": "<ul><li>Independent and efficient leader.</li><li>Private and emotionally balanced.</li><li>Solves problems with logic and intuition.</li><li>Respected for discretion and results.</li></ul>"
+      "summary": [
+        "Independent and efficient leader.",
+        "Private and emotionally balanced.",
+        "Solves problems with logic and intuition.",
+        "Respected for discretion and results."
+      ]
     },
     {
       "destiny": 8,
       "soul": 8,
       "personality": 9,
-      "summary": "<ul><li>Well-connected and visionary.</li><li>Delegates well but works long hours.</li><li>Workaholic with little personal time.</li><li>Appreciates recognition and control.</li></ul>"
+      "summary": [
+        "Well-connected and visionary.",
+        "Delegates well but works long hours.",
+        "Workaholic with little personal time.",
+        "Appreciates recognition and control."
+      ]
     },
     {
       "destiny": 8,
       "soul": 9,
       "personality": 8,
-      "summary": "<ul><li>Authoritative and respected leader.</li><li>Efficient with large groups.</li><li>Driven by success and admiration.</li><li>Romantic and generous with loved ones.</li></ul>"
+      "summary": [
+        "Authoritative and respected leader.",
+        "Efficient with large groups.",
+        "Driven by success and admiration.",
+        "Romantic and generous with loved ones."
+      ]
     },
     {
       "destiny": 9,
       "soul": 1,
       "personality": 8,
-      "summary": "<ul><li>Energetic and confident leader.</li><li>Prefers autonomy and big-picture coordination.</li><li>Free-spirited and philanthropic but self-focused.</li><li>Delegates details and implements efficient strategies.</li></ul>"
+      "summary": [
+        "Energetic and confident leader.",
+        "Prefers autonomy and big-picture coordination.",
+        "Free-spirited and philanthropic but self-focused.",
+        "Delegates details and implements efficient strategies."
+      ]
     },
     {
       "destiny": 9,
       "soul": 2,
       "personality": 7,
-      "summary": "<ul><li>Appears aloof but is deeply sensitive.</li><li>Overly passionate in romance; may be misunderstood.</li><li>Diverse interests and social circle.</li><li>Generous but expects appreciation; vulnerable to exploitation.</li></ul>"
+      "summary": [
+        "Appears aloof but is deeply sensitive.",
+        "Overly passionate in romance; may be misunderstood.",
+        "Diverse interests and social circle.",
+        "Generous but expects appreciation; vulnerable to exploitation."
+      ]
     },
     {
       "destiny": 9,
       "soul": 3,
       "personality": 6,
-      "summary": "<ul><li>Friendly and enthusiastic communicator.</li><li>Inspires others and excels in teaching roles.</li><li>Overcommits due to good intentions.</li><li>Feels guilty when unable to fulfill promises.</li></ul>"
+      "summary": [
+        "Friendly and enthusiastic communicator.",
+        "Inspires others and excels in teaching roles.",
+        "Overcommits due to good intentions.",
+        "Feels guilty when unable to fulfill promises."
+      ]
     },
     {
       "destiny": 9,
       "soul": 4,
       "personality": 5,
-      "summary": "<ul><li>Lively exterior hides conservative core.</li><li>Honest and respected for integrity.</li><li>Effective planner and problem solver.</li><li>Generous but financially cautious; struggles to express affection.</li></ul>"
+      "summary": [
+        "Lively exterior hides conservative core.",
+        "Honest and respected for integrity.",
+        "Effective planner and problem solver.",
+        "Generous but financially cautious; struggles to express affection."
+      ]
     },
     {
       "destiny": 9,
       "soul": 5,
       "personality": 4,
-      "summary": "<ul><li>Humanitarian with strong family values.</li><li>Quick learner and versatile problem solver.</li><li>Disciplined yet playful; conservative appearance.</li><li>Uses exercise to manage stress; multitasks travel and wellness.</li></ul>"
+      "summary": [
+        "Humanitarian with strong family values.",
+        "Quick learner and versatile problem solver.",
+        "Disciplined yet playful; conservative appearance.",
+        "Uses exercise to manage stress; multitasks travel and wellness."
+      ]
     },
     {
       "destiny": 9,
       "soul": 6,
       "personality": 3,
-      "summary": "<ul><li>Charitable and artistic; gives freely.</li><li>Warm conversationalist with a sense of humor.</li><li>Generous with loved ones and home aesthetics.</li><li>Welcomes guests and enjoys socializing.</li></ul>"
+      "summary": [
+        "Charitable and artistic; gives freely.",
+        "Warm conversationalist with a sense of humor.",
+        "Generous with loved ones and home aesthetics.",
+        "Welcomes guests and enjoys socializing."
+      ]
     },
     {
       "destiny": 9,
       "soul": 7,
       "personality": 2,
-      "summary": "<ul><li>Cooperative but avoids superficiality.</li><li>Selective with friends; prefers solitude.</li><li>Logical and perceptive analyst.</li><li>Curious yet private; sends mixed signals socially.</li></ul>"
+      "summary": [
+        "Cooperative but avoids superficiality.",
+        "Selective with friends; prefers solitude.",
+        "Logical and perceptive analyst.",
+        "Curious yet private; sends mixed signals socially."
+      ]
     },
     {
       "destiny": 9,
       "soul": 8,
       "personality": 1,
-      "summary": "<ul><li>Power-driven and influential communicator.</li><li>Broadminded and respected leader.</li><li>Generous but expects recognition.</li><li>Withdraws generosity when unappreciated.</li></ul>"
+      "summary": [
+        "Power-driven and influential communicator.",
+        "Broadminded and respected leader.",
+        "Generous but expects recognition.",
+        "Withdraws generosity when unappreciated."
+      ]
     },
     {
       "destiny": 9,
       "soul": 9,
       "personality": 9,
-      "summary": "<ul><li>Selfless and generous with time and talent.</li><li>Artistic and broadminded; trusted by others.</li><li>Emotionally driven and vulnerable to disappointment.</li><li>Needs freedom despite deep loyalty; avoids being taken advantage of.</li></ul>"
+      "summary": [
+        "Selfless and generous with time and talent.",
+        "Artistic and broadminded; trusted by others.",
+        "Emotionally driven and vulnerable to disappointment.",
+        "Needs freedom despite deep loyalty; avoids being taken advantage of."
+      ]
     }
   ],
   "dob_combination": [

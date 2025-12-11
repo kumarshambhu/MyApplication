@@ -1,541 +1,477 @@
-{
-	"mulank_data": {
-		"1": {
-			"name": "Mulank 1",
-			"birth_dates": [
-				1,
-				10,
-				19,
-				28
-			],
-			"ruling_planet": "Sun",
-			"characteristics": [
-				"Born leader with natural confidence",
-				"High self-esteem and ambition",
-				"Innovative with persuasive communication skills",
-				"Desires royal lifestyle and enjoys spending",
-				"Values freedom and dislikes being dominated",
-				"Loyal to friends but can be authoritative"
-			],
-			"strengths": [
-				"Leadership abilities",
-				"Charismatic aura",
-				"Hardworking and goal-oriented",
-				"Helpful and motivating to others"
-			],
-			"weaknesses": [
-				"Can be perceived as egoistic or arrogant",
-				"Tendency to dictate others",
-				"Difficulty accepting failure",
-				"Overconfidence and stubbornness"
-			],
-			"advice": [
-				"Keep a check on savings and finances",
-				"Avoid imposing your thoughts on others",
-				"Understand others' perspectives",
-				"Accept delays and failures as part of life"
-			],
-			"favorable_periods": [
-				{
-					"time": "March 21st to August 20th",
-					"description": "Sun is strongest during this period, ideal for new ventures, investments, and starting projects"
-				}
-			],
-			"unfavorable_periods": [
-				{
-					"time": "October 15th to December 25th",
-					"description": "Sun is weak during this phase; may bring lack of motivation, delays, stress, health issues, and financial losses"
-				}
-			],
-			"lucky_colors": [
-				"Red",
-				"Shades of red"
-			],
-			"color_usage_tips": [
-				"Wear red clothes or accessories",
-				"Use red in home decor",
-				"Red phone or phone cover",
-				"Red wallpapers on devices",
-				"Carry red-colored items"
-			]
-		},
-		"2": {
-			"name": "Mulank 2",
-			"birth_dates": [
-				2,
-				11,
-				20,
-				29
-			],
-			"ruling_planet": "Moon",
-			"characteristics": [
-				"Nurturing and caring nature",
-				"Calm and soothing personality",
-				"Highly intuitive and sensitive",
-				"Peace-loving and forgiving",
-				"Loyal friend and emotional support",
-				"Physically attractive with aesthetic sense"
-			],
-			"strengths": [
-				"Excellent counselor and listener",
-				"Motherly instincts",
-				"Romantic and selfless in relationships",
-				"Family-oriented"
-			],
-			"weaknesses": [
-				"Difficulty making decisions",
-				"Suppresses true feelings",
-				"Emotional ups and downs",
-				"Shy and timid nature",
-				"Self-doubt and fickle mind"
-			],
-			"advice": [
-				"Overcome shyness and ask for help when needed",
-				"Find reliable people to execute ideas",
-				"Practice meditation for emotional balance"
-			],
-			"favorable_periods": [
-				{
-					"time": "June and July",
-					"description": "Moon is strongest; ideal for new ventures, investments, and self-discovery"
-				}
-			],
-			"unfavorable_periods": [
-				{
-					"time": "December, January, February",
-					"description": "Moon is weak; may bring psychological problems, anxiety, emotional instability, and slow growth"
-				}
-			],
-			"lucky_colors": [
-				"White",
-				"Shades of white"
-			],
-			"color_usage_tips": [
-				"Wear white clothes or accessories",
-				"White home decor elements",
-				"White phone or phone cover",
-				"White wallpapers on devices",
-				"Carry white-colored items"
-			]
-		},
-		"3": {
-			"name": "Mulank 3",
-			"birth_dates": [
-				3,
-				12,
-				21,
-				30
-			],
-			"ruling_planet": "Jupiter",
-			"characteristics": [
-				"Extremely ambitious and self-motivated",
-				"Social, cheerful with good humor",
-				"Religious and believes in cosmic energy",
-				"Excellent communicator and multitasker",
-				"Caring but can be bossy in relationships",
-				"Optimistic and good at management"
-			],
-			"strengths": [
-				"Hardworking and disciplined",
-				"Leadership abilities",
-				"Articulate and fluent communicator",
-				"Artistic and creative"
-			],
-			"weaknesses": [
-				"Difficulty balancing personal and professional life",
-				"Tendency to be authoritative",
-				"Excessive optimism and extravagance",
-				"May exaggerate truth",
-				"Short-tempered"
-			],
-			"advice": [
-				"Give time to family and loved ones",
-				"Avoid being over-ambitious",
-				"Control authoritative nature",
-				"Limit exaggeration and gossip"
-			],
-			"favorable_periods": [
-				{
-					"time": "Mid February to Mid March and November 25th to December 25th",
-					"description": "Ideal for new ventures, investments, and travel"
-				}
-			],
-			"unfavorable_periods": [
-				{
-					"time": "October and November",
-					"description": "May bring unsatisfactory results; unfavorable for travel"
-				}
-			],
-			"lucky_colors": [
-				"Yellow",
-				"Golden",
-				"Shades of yellow and golden"
-			],
-			"color_usage_tips": [
-				"Wear yellow or golden clothes/accessories",
-				"Yellow home decor elements",
-				"Yellow or golden phone/phone cover",
-				"Yellow/golden wallpapers on devices",
-				"Carry yellow-colored items"
-			]
-		},
-		"4": {
-			"name": "Mulank 4",
-			"birth_dates": [
-				4,
-				13,
-				22,
-				31
-			],
-			"ruling_planet": "Rahu",
-			"characteristics": [
-				"Rebellious, practical and analytical",
-				"Extremely organized and disciplined",
-				"Requires logic and reasoning for everything",
-				"Strong individual with firm opinions",
-				"Helpful but with harsh communication style",
-				"Purposeful approach to life"
-			],
-			"strengths": [
-				"Hardworking and uses brain effectively",
-				"Self-made and resilient",
-				"Revolutionary mindset",
-				"Value knowledge over money"
-			],
-			"weaknesses": [
-				"Stubborn and inflexible",
-				"Often misunderstood",
-				"Can be lonely and isolated",
-				"Harsh communication style"
-			],
-			"advice": [
-				"Listen to others' opinions",
-				"Avoid harsh words in arguments",
-				"Be flexible and understanding",
-				"Choose compatible friends/partners (numbers 1, 2, 5, 6, 7)"
-			],
-			"favorable_periods": [
-				{
-					"time": "March 20th to April 20th and July 10th to August 20th",
-					"description": "Ideal for new ventures, jobs, investments, and travel"
-				}
-			],
-			"unfavorable_periods": [
-				{
-					"time": "October, November, December",
-					"description": "May bring lack of motivation, procrastination, physical fatigue, and psychological problems"
-				}
-			],
-			"lucky_colors": [
-				"Black",
-				"Grey",
-				"Shades of black and grey"
-			],
-			"color_usage_tips": [
-				"Wear black or grey clothes/accessories",
-				"Black/grey home decor elements",
-				"Black/grey phone/phone cover",
-				"Black/grey wallpapers on devices",
-				"Carry black or grey items"
-			]
-		},
-		"5": {
-			"name": "Mulank 5",
-			"birth_dates": [
-				5,
-				14,
-				23
-			],
-			"ruling_planet": "Mercury",
-			"characteristics": [
-				"Childlike energy and aura",
-				"Versatile and adaptable",
-				"Excellent communicator and persuader",
-				"Inquisitive lifelong learner",
-				"Popular but smaller social circle over time",
-				"Highly intuitive"
-			],
-			"strengths": [
-				"Great oratory and business skills",
-				"Risk-taking ability",
-				"Multiple income sources",
-				"Resilient and never gives up"
-			],
-			"weaknesses": [
-				"Quick to lose interest",
-				"May switch jobs frequently",
-				"Tendency to isolate",
-				"Laziness and anger issues",
-				"Financial indiscipline"
-			],
-			"advice": [
-				"Control laziness and weight gain",
-				"Keep check on expenses",
-				"Manage anger",
-				"Practice meditation to enhance intuition"
-			],
-			"favorable_periods": [
-				{
-					"time": "May, August, September",
-					"description": "Ideal for new ventures, jobs, investments, and property purchase"
-				}
-			],
-			"unfavorable_periods": [
-				{
-					"time": "January, April, December (and Mercury Retrograde)",
-					"description": "May bring isolation, self-doubt, loneliness, and trust issues"
-				}
-			],
-			"lucky_colors": [
-				"Green",
-				"Shades of green"
-			],
-			"color_usage_tips": [
-				"Wear green clothes/accessories",
-				"Green home decor elements",
-				"Green phone/phone cover",
-				"Green wallpapers on devices",
-				"Carry green-colored items"
-			]
-		},
-		"6": {
-			"name": "Mulank 6",
-			"birth_dates": [
-				6,
-				15,
-				24
-			],
-			"ruling_planet": "Venus",
-			"characteristics": [
-				"Beautiful, youthful with magnetic aura",
-				"Artistic and aesthetic appreciation",
-				"Helpful and self-sacrificing",
-				"Emotionally driven and hypersensitive",
-				"Enjoys luxury and fashion",
-				"True empath with motherly instincts"
-			],
-			"strengths": [
-				"Respectful and well-mannered",
-				"Family-oriented",
-				"Caring for friends and animals",
-				"Therapeutic through music"
-			],
-			"weaknesses": [
-				"Easily disturbed by harsh words",
-				"Difficulty finding true friends",
-				"Trust issues from being cheated",
-				"Shopaholic tendencies",
-				"Prone to evil eye"
-			],
-			"advice": [
-				"Learn to draw boundaries",
-				"Practice self-love",
-				"Limit alcohol and smoking",
-				"Control lavish expenses",
-				"Don't share plans until fruition"
-			],
-			"favorable_periods": [
-				{
-					"time": "April 20th to May 20th and September 20th to October 20th",
-					"description": "Ideal for new ventures, property investment, and receiving good news"
-				}
-			],
-			"unfavorable_periods": [
-				{
-					"time": "April, October, November (and Venus Retrograde)",
-					"description": "May bring health issues, psychological problems, hindrances, and emotional instability"
-				}
-			],
-			"lucky_colors": [
-				"White",
-				"Rainbow colors"
-			],
-			"color_usage_tips": [
-				"Wear white or rainbow-colored clothes/accessories",
-				"White/rainbow home decor elements",
-				"White/rainbow phone/phone cover",
-				"White/rainbow wallpapers on devices",
-				"Carry white or rainbow-colored items"
-			]
-		},
-		"7": {
-			"name": "Mulank 7",
-			"birth_dates": [
-				7,
-				16,
-				25
-			],
-			"ruling_planet": "Ketu",
-			"characteristics": [
-				"Calm, composed with big heart",
-				"Reserved and introverted",
-				"Intuitive with interest in occult sciences",
-				"Exceptional healer and teacher",
-				"Curious researcher and learner",
-				"Sensitive, spiritual and introspective"
-			],
-			"strengths": [
-				"Good judge of character",
-				"Strong sixth sense",
-				"Comforting presence for others",
-				"Deep thinker and researcher"
-			],
-			"weaknesses": [
-				"Low self-esteem and lack of confidence",
-				"Anxiety and stress",
-				"Overthinking and negative thought patterns",
-				"Discomfort in large groups"
-			],
-			"advice": [
-				"Practice meditation regularly",
-				"Control anxiety through physical activity",
-				"Live in the present moment",
-				"Surround with positive people",
-				"Seek guidance from a Guru"
-			],
-			"favorable_periods": [
-				{
-					"time": "June and July (especially June 20th to July 20th)",
-					"description": "Ideal for new ventures, skill enhancement, and grabbing opportunities"
-				}
-			],
-			"unfavorable_periods": [
-				{
-					"time": "January and February",
-					"description": "May bring lack of purpose, missed opportunities, misunderstandings, and financial instability"
-				}
-			],
-			"lucky_colors": [
-				"Black",
-				"Grey",
-				"Shades of black and grey"
-			],
-			"color_usage_tips": [
-				"Wear black or grey clothes/accessories",
-				"Black/grey home decor elements",
-				"Black/grey phone/phone cover",
-				"Black/grey wallpapers on devices",
-				"Carry black or grey items"
-			]
-		},
-		"8": {
-			"name": "Mulank 8",
-			"birth_dates": [
-				8,
-				17,
-				26
-			],
-			"ruling_planet": "Saturn",
-			"characteristics": [
-				"Incredibly hard-working and disciplined",
-				"Focused mindset with determination",
-				"Resilient and never gives up",
-				"Kind and generous soul",
-				"Detail-oriented and professional",
-				"Great organizer and money manager"
-			],
-			"strengths": [
-				"Mental strength and courage",
-				"High standards of professionalism",
-				"Fond of fitness and sports",
-				"Tenacious and persistent"
-			],
-			"weaknesses": [
-				"Slow growth and delayed results",
-				"Neglects loved ones due to career focus",
-				"Prone to depression and overthinking",
-				"May become bitter if mistreated"
-			],
-			"advice": [
-				"Accept delayed success as part of journey",
-				"Balance career and relationships",
-				"Engage in physical activities",
-				"Avoid corruption and injustice",
-				"Practice patience and dedication"
-			],
-			"favorable_periods": [
-				{
-					"time": "September 20th to October 20th",
-					"description": "Ideal for new ventures, investments, and achieving goals"
-				}
-			],
-			"unfavorable_periods": [
-				{
-					"time": "January 15th to February 15th, March, April, December",
-					"description": "May bring defamation, humiliation, financial losses, and health issues"
-				}
-			],
-			"lucky_colors": [
-				"Blue",
-				"Shades of blue"
-			],
-			"color_usage_tips": [
-				"Wear blue clothes/accessories",
-				"Blue home decor elements",
-				"Blue phone/phone cover",
-				"Blue wallpapers on devices",
-				"Carry blue-colored items"
-			]
-		},
-		"9": {
-			"name": "Mulank 9",
-			"birth_dates": [
-				9,
-				18,
-				27
-			],
-			"ruling_planet": "Mars",
-			"characteristics": [
-				"Charismatic powerhouse of energy",
-				"Needs control and dominance",
-				"Humanitarian and caring",
-				"Straightforward and non-diplomatic",
-				"Punctual and disciplined",
-				"Secretive about personal life"
-			],
-			"strengths": [
-				"Natural leadership abilities",
-				"Bold, courageous and confident",
-				"Good-looking and charming",
-				"Artistic talents"
-			],
-			"weaknesses": [
-				"Short-tempered and angry",
-				"Frustrated if not in dominant position",
-				"May lose individuality in relationships",
-				"Prone to fights and outbursts"
-			],
-			"advice": [
-				"Channel energy into physical activities",
-				"Find trustworthy confidant",
-				"Practice meditation to calm energies",
-				"Manage anger to avoid conflicts",
-				"Be careful with finances and health"
-			],
-			"favorable_periods": [
-				{
-					"time": "March 20th to April 25th and October 20th to November 25th",
-					"description": "Ideal for new ventures, investments, risks, and property acquisition"
-				}
-			],
-			"unfavorable_periods": [
-				{
-					"time": "March, May, June and October 1st to 20th, November 25th to December 25th",
-					"description": "May bring misunderstandings, betrayal, accidents, health issues, and financial losses"
-				}
-			],
-			"lucky_colors": [
-				"Dark red",
-				"Blood red",
-				"Shades of red"
-			],
-			"color_usage_tips": [
-				"Wear red clothes/accessories",
-				"Red home decor elements",
-				"Red phone/phone cover",
-				"Red wallpapers on devices",
-				"Carry red-colored items"
-			]
-		}
+[
+	{
+		"id": 1,
+		"name": "Mulank 1",
+		"birth_dates": [1, 10, 19, 28],
+		"ruling_planet": "Sun",
+		"characteristics": [
+			"Born leader with natural confidence",
+			"High self-esteem and ambition",
+			"Innovative with persuasive communication skills",
+			"Desires royal lifestyle and enjoys spending",
+			"Values freedom and dislikes being dominated",
+			"Loyal to friends but can be authoritative"
+		],
+		"strengths": [
+			"Leadership abilities",
+			"Charismatic aura",
+			"Hardworking and goal-oriented",
+			"Helpful and motivating to others"
+		],
+		"weaknesses": [
+			"Can be perceived as egoistic or arrogant",
+			"Tendency to dictate others",
+			"Difficulty accepting failure",
+			"Overconfidence and stubbornness"
+		],
+		"advice": [
+			"Keep a check on savings and finances",
+			"Avoid imposing your thoughts on others",
+			"Understand others' perspectives",
+			"Accept delays and failures as part of life"
+		],
+		"favorable_periods": [
+			{
+				"time": "March 21st to August 20th",
+				"description": "Sun is strongest during this period, ideal for new ventures, investments, and starting projects"
+			}
+		],
+		"unfavorable_periods": [
+			{
+				"time": "October 15th to December 25th",
+				"description": "Sun is weak during this phase; may bring lack of motivation, delays, stress, health issues, and financial losses"
+			}
+		],
+		"lucky_colors": ["Red", "Shades of red"],
+		"color_usage_tips": [
+			"Wear red clothes or accessories",
+			"Use red in home decor",
+			"Red phone or phone cover",
+			"Red wallpapers on devices",
+			"Carry red-colored items"
+		]
+	},
+	{
+		"id": 2,
+		"name": "Mulank 2",
+		"birth_dates": [2, 11, 20, 29],
+		"ruling_planet": "Moon",
+		"characteristics": [
+			"Nurturing and caring nature",
+			"Calm and soothing personality",
+			"Highly intuitive and sensitive",
+			"Peace-loving and forgiving",
+			"Loyal friend and emotional support",
+			"Physically attractive with aesthetic sense"
+		],
+		"strengths": [
+			"Excellent counselor and listener",
+			"Motherly instincts",
+			"Romantic and selfless in relationships",
+			"Family-oriented"
+		],
+		"weaknesses": [
+			"Difficulty making decisions",
+			"Suppresses true feelings",
+			"Emotional ups and downs",
+			"Shy and timid nature",
+			"Self-doubt and fickle mind"
+		],
+		"advice": [
+			"Overcome shyness and ask for help when needed",
+			"Find reliable people to execute ideas",
+			"Practice meditation for emotional balance"
+		],
+		"favorable_periods": [
+			{
+				"time": "June and July",
+				"description": "Moon is strongest; ideal for new ventures, investments, and self-discovery"
+			}
+		],
+		"unfavorable_periods": [
+			{
+				"time": "December, January, February",
+				"description": "Moon is weak; may bring psychological problems, anxiety, emotional instability, and slow growth"
+			}
+		],
+		"lucky_colors": ["White", "Shades of white"],
+		"color_usage_tips": [
+			"Wear white clothes or accessories",
+			"White home decor elements",
+			"White phone or phone cover",
+			"White wallpapers on devices",
+			"Carry white-colored items"
+		]
+	},
+	{
+		"id": 3,
+		"name": "Mulank 3",
+		"birth_dates": [3, 12, 21, 30],
+		"ruling_planet": "Jupiter",
+		"characteristics": [
+			"Extremely ambitious and self-motivated",
+			"Social, cheerful with good humor",
+			"Religious and believes in cosmic energy",
+			"Excellent communicator and multitasker",
+			"Caring but can be bossy in relationships",
+			"Optimistic and good at management"
+		],
+		"strengths": [
+			"Hardworking and disciplined",
+			"Leadership abilities",
+			"Articulate and fluent communicator",
+			"Artistic and creative"
+		],
+		"weaknesses": [
+			"Difficulty balancing personal and professional life",
+			"Tendency to be authoritative",
+			"Excessive optimism and extravagance",
+			"May exaggerate truth",
+			"Short-tempered"
+		],
+		"advice": [
+			"Give time to family and loved ones",
+			"Avoid being over-ambitious",
+			"Control authoritative nature",
+			"Limit exaggeration and gossip"
+		],
+		"favorable_periods": [
+			{
+				"time": "Mid February to Mid March and November 25th to December 25th",
+				"description": "Ideal for new ventures, investments, and travel"
+			}
+		],
+		"unfavorable_periods": [
+			{
+				"time": "October and November",
+				"description": "May bring unsatisfactory results; unfavorable for travel"
+			}
+		],
+		"lucky_colors": ["Yellow", "Golden", "Shades of yellow and golden"],
+		"color_usage_tips": [
+			"Wear yellow or golden clothes/accessories",
+			"Yellow home decor elements",
+			"Yellow or golden phone/phone cover",
+			"Yellow/golden wallpapers on devices",
+			"Carry yellow-colored items"
+		]
+	},
+	{
+		"id": 4,
+		"name": "Mulank 4",
+		"birth_dates": [4, 13, 22, 31],
+		"ruling_planet": "Rahu",
+		"characteristics": [
+			"Rebellious, practical and analytical",
+			"Extremely organized and disciplined",
+			"Requires logic and reasoning for everything",
+			"Strong individual with firm opinions",
+			"Helpful but with harsh communication style",
+			"Purposeful approach to life"
+		],
+		"strengths": [
+			"Hardworking and uses brain effectively",
+			"Self-made and resilient",
+			"Revolutionary mindset",
+			"Value knowledge over money"
+		],
+		"weaknesses": [
+			"Stubborn and inflexible",
+			"Often misunderstood",
+			"Can be lonely and isolated",
+			"Harsh communication style"
+		],
+		"advice": [
+			"Listen to others' opinions",
+			"Avoid harsh words in arguments",
+			"Be flexible and understanding",
+			"Choose compatible friends/partners (numbers 1, 2, 5, 6, 7)"
+		],
+		"favorable_periods": [
+			{
+				"time": "March 20th to April 20th and July 10th to August 20th",
+				"description": "Ideal for new ventures, jobs, investments, and travel"
+			}
+		],
+		"unfavorable_periods": [
+			{
+				"time": "October, November, December",
+				"description": "May bring lack of motivation, procrastination, physical fatigue, and psychological problems"
+			}
+		],
+		"lucky_colors": ["Black", "Grey", "Shades of black and grey"],
+		"color_usage_tips": [
+			"Wear black or grey clothes/accessories",
+			"Black/grey home decor elements",
+			"Black/grey phone/phone cover",
+			"Black/grey wallpapers on devices",
+			"Carry black or grey items"
+		]
+	},
+	{
+		"id": 5,
+		"name": "Mulank 5",
+		"birth_dates": [5, 14, 23],
+		"ruling_planet": "Mercury",
+		"characteristics": [
+			"Childlike energy and aura",
+			"Versatile and adaptable",
+			"Excellent communicator and persuader",
+			"Inquisitive lifelong learner",
+			"Popular but smaller social circle over time",
+			"Highly intuitive"
+		],
+		"strengths": [
+			"Great oratory and business skills",
+			"Risk-taking ability",
+			"Multiple income sources",
+			"Resilient and never gives up"
+		],
+		"weaknesses": [
+			"Quick to lose interest",
+			"May switch jobs frequently",
+			"Tendency to isolate",
+			"Laziness and anger issues",
+			"Financial indiscipline"
+		],
+		"advice": [
+			"Control laziness and weight gain",
+			"Keep check on expenses",
+			"Manage anger",
+			"Practice meditation to enhance intuition"
+		],
+		"favorable_periods": [
+			{
+				"time": "May, August, September",
+				"description": "Ideal for new ventures, jobs, investments, and property purchase"
+			}
+		],
+		"unfavorable_periods": [
+			{
+				"time": "January, April, December (and Mercury Retrograde)",
+				"description": "May bring isolation, self-doubt, loneliness, and trust issues"
+			}
+		],
+		"lucky_colors": ["Green", "Shades of green"],
+		"color_usage_tips": [
+			"Wear green clothes/accessories",
+			"Green home decor elements",
+			"Green phone/phone cover",
+			"Green wallpapers on devices",
+			"Carry green-colored items"
+		]
+	},
+	{
+		"id": 6,
+		"name": "Mulank 6",
+		"birth_dates": [6, 15, 24],
+		"ruling_planet": "Venus",
+		"characteristics": [
+			"Beautiful, youthful with magnetic aura",
+			"Artistic and aesthetic appreciation",
+			"Helpful and self-sacrificing",
+			"Emotionally driven and hypersensitive",
+			"Enjoys luxury and fashion",
+			"True empath with motherly instincts"
+		],
+		"strengths": [
+			"Respectful and well-mannered",
+			"Family-oriented",
+			"Caring for friends and animals",
+			"Therapeutic through music"
+		],
+		"weaknesses": [
+			"Easily disturbed by harsh words",
+			"Difficulty finding true friends",
+			"Trust issues from being cheated",
+			"Shopaholic tendencies",
+			"Prone to evil eye"
+		],
+		"advice": [
+			"Learn to draw boundaries",
+			"Practice self-love",
+			"Limit alcohol and smoking",
+			"Control lavish expenses",
+			"Don't share plans until fruition"
+		],
+		"favorable_periods": [
+			{
+				"time": "April 20th to May 20th and September 20th to October 20th",
+				"description": "Ideal for new ventures, property investment, and receiving good news"
+			}
+		],
+		"unfavorable_periods": [
+			{
+				"time": "April, October, November (and Venus Retrograde)",
+				"description": "May bring health issues, psychological problems, hindrances, and emotional instability"
+			}
+		],
+		"lucky_colors": ["White", "Rainbow colors"],
+		"color_usage_tips": [
+			"Wear white or rainbow-colored clothes/accessories",
+			"White/rainbow home decor elements",
+			"White/rainbow phone/phone cover",
+			"White/rainbow wallpapers on devices",
+			"Carry white or rainbow-colored items"
+		]
+	},
+	{
+		"id": 7,
+		"name": "Mulank 7",
+		"birth_dates": [7, 16, 25],
+		"ruling_planet": "Ketu",
+		"characteristics": [
+			"Calm, composed with big heart",
+			"Reserved and introverted",
+			"Intuitive with interest in occult sciences",
+			"Exceptional healer and teacher",
+			"Curious researcher and learner",
+			"Sensitive, spiritual and introspective"
+		],
+		"strengths": [
+			"Good judge of character",
+			"Strong sixth sense",
+			"Comforting presence for others",
+			"Deep thinker and researcher"
+		],
+		"weaknesses": [
+			"Low self-esteem and lack of confidence",
+			"Anxiety and stress",
+			"Overthinking and negative thought patterns",
+			"Discomfort in large groups"
+		],
+		"advice": [
+			"Practice meditation regularly",
+			"Control anxiety through physical activity",
+			"Live in the present moment",
+			"Surround with positive people",
+			"Seek guidance from a Guru"
+		],
+		"favorable_periods": [
+			{
+				"time": "June and July (especially June 20th to July 20th)",
+				"description": "Ideal for new ventures, skill enhancement, and grabbing opportunities"
+			}
+		],
+		"unfavorable_periods": [
+			{
+				"time": "January and February",
+				"description": "May bring lack of purpose, missed opportunities, misunderstandings, and financial instability"
+			}
+		],
+		"lucky_colors": ["Black", "Grey", "Shades of black and grey"],
+		"color_usage_tips": [
+			"Wear black or grey clothes/accessories",
+			"Black/grey home decor elements",
+			"Black/grey phone/phone cover",
+			"Black/grey wallpapers on devices",
+			"Carry black or grey items"
+		]
+	},
+	{
+		"id": 8,
+		"name": "Mulank 8",
+		"birth_dates": [8, 17, 26],
+		"ruling_planet": "Saturn",
+		"characteristics": [
+			"Incredibly hard-working and disciplined",
+			"Focused mindset with determination",
+			"Resilient and never gives up",
+			"Kind and generous soul",
+			"Detail-oriented and professional",
+			"Great organizer and money manager"
+		],
+		"strengths": [
+			"Mental strength and courage",
+			"High standards of professionalism",
+			"Fond of fitness and sports",
+			"Tenacious and persistent"
+		],
+		"weaknesses": [
+			"Slow growth and delayed results",
+			"Neglects loved ones due to career focus",
+			"Prone to depression and overthinking",
+			"May become bitter if mistreated"
+		],
+		"advice": [
+			"Accept delayed success as part of journey",
+			"Balance career and relationships",
+			"Engage in physical activities",
+			"Avoid corruption and injustice",
+			"Practice patience and dedication"
+		],
+		"favorable_periods": [
+			{
+				"time": "September 20th to October 20th",
+				"description": "Ideal for new ventures, investments, and achieving goals"
+			}
+		],
+		"unfavorable_periods": [
+			{
+				"time": "January 15th to February 15th, March, April, December",
+				"description": "May bring defamation, humiliation, financial losses, and health issues"
+			}
+		],
+		"lucky_colors": ["Blue", "Shades of blue"],
+		"color_usage_tips": [
+			"Wear blue clothes/accessories",
+			"Blue home decor elements",
+			"Blue phone/phone cover",
+			"Blue wallpapers on devices",
+			"Carry blue-colored items"
+		]
+	},
+	{
+		"id": 9,
+		"name": "Mulank 9",
+		"birth_dates": [9, 18, 27],
+		"ruling_planet": "Mars",
+		"characteristics": [
+			"Charismatic powerhouse of energy",
+			"Needs control and dominance",
+			"Humanitarian and caring",
+			"Straightforward and non-diplomatic",
+			"Punctual and disciplined",
+			"Secretive about personal life"
+		],
+		"strengths": [
+			"Natural leadership abilities",
+			"Bold, courageous and confident",
+			"Good-looking and charming",
+			"Artistic talents"
+		],
+		"weaknesses": [
+			"Short-tempered and angry",
+			"Frustrated if not in dominant position",
+			"May lose individuality in relationships",
+			"Prone to fights and outbursts"
+		],
+		"advice": [
+			"Channel energy into physical activities",
+			"Find trustworthy confidant",
+			"Practice meditation to calm energies",
+			"Manage anger to avoid conflicts",
+			"Be careful with finances and health"
+		],
+		"favorable_periods": [
+			{
+				"time": "March 20th to April 25th and October 20th to November 25th",
+				"description": "Ideal for new ventures, investments, risks, and property acquisition"
+			}
+		],
+		"unfavorable_periods": [
+			{
+				"time": "March, May, June and October 1st to 20th, November 25th to December 25th",
+				"description": "May bring misunderstandings, betrayal, accidents, health issues, and financial losses"
+			}
+		],
+		"lucky_colors": ["Dark red", "Blood red", "Shades of red"],
+		"color_usage_tips": [
+			"Wear red clothes/accessories",
+			"Red home decor elements",
+			"Red phone/phone cover",
+			"Red wallpapers on devices",
+			"Carry red-colored items"
+		]
 	}
-}
+]

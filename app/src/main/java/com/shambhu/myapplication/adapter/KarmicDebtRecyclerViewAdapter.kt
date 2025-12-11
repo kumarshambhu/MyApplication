@@ -43,7 +43,8 @@ class KarmicDebtRecyclerViewAdapter(
             holder.binding.challengesTitleTextView.visibility = View.GONE
             holder.binding.challengesRecyclerView.visibility = View.GONE
         } else {
-            setupNumberBulletRecyclerViewAdapter(
+            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
+                context,
                 holder.binding.challengesRecyclerView,
                 karmicDebt.challengesAndProblems
             )
@@ -54,7 +55,8 @@ class KarmicDebtRecyclerViewAdapter(
             holder.binding.qualitiesTitleTextView.visibility = View.GONE
             holder.binding.qualitiesRecyclerView.visibility = View.GONE
         } else {
-            setupNumberBulletRecyclerViewAdapter(
+            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
+                context,
                 holder.binding.qualitiesRecyclerView,
                 karmicDebt.qualities
             )
@@ -68,7 +70,8 @@ class KarmicDebtRecyclerViewAdapter(
             val accordionItems = karmicDebt.keysToOvercome.map { debt ->
                 Pair(debt.key, debt.description)
             }
-            setupNumberRecyclerViewAdapter(
+            CommonAdapterUtil.setupNumberRecyclerViewAdapter(
+                context,
                 holder.binding.keysToOvercomeRecyclerView,
                 accordionItems
             )
@@ -95,7 +98,7 @@ class KarmicDebtRecyclerViewAdapter(
     class ViewHolder(val binding: ItemKarmicDebtBinding) : RecyclerView.ViewHolder(binding.root)
 
 
-    private fun setupNumberBulletRecyclerViewAdapter(holder: RecyclerView, data: List<String>?) {
+    /*private fun setupNumberBulletRecyclerViewAdapter(holder: RecyclerView, data: List<String>?) {
         val accordionItems = data?.map { number ->
             Pair(">", number)
         }
@@ -104,9 +107,9 @@ class KarmicDebtRecyclerViewAdapter(
             BulletPointRecyclerViewAdapter(false, accordionItems)
         holder.layoutManager = LinearLayoutManager(context)
         holder.adapter = challengeNumberRecyclerViewAdapter
-    }
+    }*/
 
-    private fun setupNumberRecyclerViewAdapter(
+    /*private fun setupNumberRecyclerViewAdapter(
         holder: RecyclerView,
         data: List<Pair<String, String>>?
     ) {
@@ -114,7 +117,7 @@ class KarmicDebtRecyclerViewAdapter(
             BulletPointRecyclerViewAdapter(true, data)
         holder.layoutManager = LinearLayoutManager(context)
         holder.adapter = challengeNumberRecyclerViewAdapter
-    }
+    }*/
 
 
 }

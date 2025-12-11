@@ -6,13 +6,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.shambhu.myapplication.R
+import com.shambhu.myapplication.adapter.CommonAdapterUtil
 import com.shambhu.myapplication.adapter.NumeroAccordionAdapter
 import com.shambhu.myapplication.databinding.FragmentNumeroProfileBinding
 import com.shambhu.myapplication.model.MulankBhagyankResponse
@@ -78,16 +78,6 @@ class NumeroProfileFragment : Fragment() {
 
         getMulankBhagyankSections(mulankNumber, bhagyankNumber)
 
-
-        val elementsJson = CommonUtils.readAssetFile(requireContext(), "combination.json")
-        val (remark, luck) = NumerologyCalculationUtils.calculateCombinationDobNumber(
-            elementsJson,
-            mulankNumber,
-            bhagyankNumber
-        )
-
-        binding.mulankBhagyankCombination.text = remark + " (" + luck+")"
-
         // Load data using repository
         loadData(mulankNumber, bhagyankNumber)
     }
@@ -101,6 +91,7 @@ class NumeroProfileFragment : Fragment() {
         }.onEach { (mulankResult, bhagyankResult) ->
             mulankResult.onSuccess { data ->
                 mulankData = data
+                Log.d("Mulank", Gson().toJson(data))
                 updateMulankUi(mulankNumber)
             }.onFailure { error ->
                 Log.e("NumeroProfileFragment", "Failed to load Mulank data", error)
@@ -108,6 +99,7 @@ class NumeroProfileFragment : Fragment() {
 
             bhagyankResult.onSuccess { data ->
                 bhagyankData = data
+                Log.d("bhagyankData", Gson().toJson(data))
                 updateBhagyankUi(bhagyankNumber)
             }.onFailure { error ->
                 Log.e("NumeroProfileFragment", "Failed to load Bhagyank data", error)
@@ -149,8 +141,9 @@ class NumeroProfileFragment : Fragment() {
             binding.bhagyankToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_add else R.drawable.ic_remove)
         }
         binding.mulankBhagyankCombinationLayout.cardDayInfo.setOnClickListener {
-            val isExpanded = binding.mulankBhagyankCombinationLayout.combinationDetails.isVisible
-            binding.mulankBhagyankCombinationLayout.combinationDetails.visibility = if (isExpanded) View.GONE else View.VISIBLE
+            val isExpanded = binding.mulankBhagyankCombinationLayout.combinationDetailsRecyclerView.isVisible
+            binding.mulankBhagyankCombinationLayout.combinationDetailsRecyclerView.visibility =
+                if (isExpanded) View.GONE else View.VISIBLE
             binding.mulankBhagyankCombinationLayout.combinationExpandableIcon.setImageResource(if (isExpanded) R.drawable.ic_add else R.drawable.ic_remove)
         }
 
@@ -179,9 +172,11 @@ class NumeroProfileFragment : Fragment() {
             NumeroAccordionAdapter.Section("Strengths", data.strengths),
             NumeroAccordionAdapter.Section("Weaknesses", data.weaknesses),
             NumeroAccordionAdapter.Section("Advice", data.advice),
-            NumeroAccordionAdapter.Section("Favorable Periods",
+            NumeroAccordionAdapter.Section(
+                "Favorable Periods",
                 data.favorablePeriods?.map { "${it.time}: ${it.description}" } ?: emptyList()),
-            NumeroAccordionAdapter.Section("Unfavorable Periods",
+            NumeroAccordionAdapter.Section(
+                "Unfavorable Periods",
                 data.unfavorablePeriods?.map { "${it.time}: ${it.description}" } ?: emptyList()),
             NumeroAccordionAdapter.Section("Lucky Colors", data.luckyColors),
             NumeroAccordionAdapter.Section("Color Usage Tips", data.colorUsageTips)
@@ -193,76 +188,68 @@ class NumeroProfileFragment : Fragment() {
             NumeroAccordionAdapter.Section("Traits", data.traits),
             NumeroAccordionAdapter.Section("Advice", data.advice),
             NumeroAccordionAdapter.Section("Career Suggestions", data.careerSuggestions),
-            NumeroAccordionAdapter.Section("Gender Specific - Men",
-                data.genderSpecific?.get("men") ?: emptyList()),
-            NumeroAccordionAdapter.Section("Gender Specific - Women",
-                data.genderSpecific?.get("women") ?: emptyList())
+            NumeroAccordionAdapter.Section(
+                "Gender Specific - Men",
+                data.genderSpecific?.get("men") ?: emptyList()
+            ),
+            NumeroAccordionAdapter.Section(
+                "Gender Specific - Women",
+                data.genderSpecific?.get("women") ?: emptyList()
+            )
         ).filter { it.items.isNotEmpty() }
     }
 
 
-    private fun getMulankBhagyankSections(mulank: Int, bhagyank: Int){
-        val data =  Gson().fromJson(CommonUtils.readAssetFile(requireContext(), "dob_combination.json"), MulankBhagyankResponse::class.java)
+    private fun getMulankBhagyankSections(mulank: Int, bhagyank: Int) {
+        val data = Gson().fromJson(
+            CommonUtils.readAssetFile(requireContext(), "dob_combination.json"),
+            MulankBhagyankResponse::class.java
+        )
         val data1 = data.mulank_bhagyank_combinations
-        val data2 = data1.stream().filter { it-> it.day_number == mulank }.findFirst().get()
+        val data2 = data1.stream().filter { it -> it.day_number == mulank }.findFirst().get()
 
         val data3 = data2.combinations
-        val data4 = data3.stream().filter { it-> it.combination.contains(bhagyank.toString()) }.findFirst().get()
+        val data4 =
+            data3.stream().filter { it -> it.combination.contains(bhagyank.toString()) }.findFirst()
+                .get()
         binding.mulankBhagyankCombinationLayout.tvTitle.text = data4.combination
-        binding.mulankBhagyankCombinationLayout.tvDayTitle.text = "Day ${data2.day_number}"
-        binding.mulankBhagyankCombinationLayout.tvRuler.text = "Ruled by ${data2.ruler}"
-        binding.mulankBhagyankCombinationLayout.tvRating.text = data4.rating
-        binding.mulankBhagyankCombinationLayout.tvPlanets.text = data4.planets
-        binding.mulankBhagyankCombinationLayout.tvCharacter.text = data4.character
-        binding.mulankBhagyankCombinationLayout.tvCareer.text = data4.career
-        binding.mulankBhagyankCombinationLayout.tvLucky.text = data4.lucky
-        binding.mulankBhagyankCombinationLayout.tvHealth.text = data4.health
-        binding.mulankBhagyankCombinationLayout.tvWarning.text = data4.warning
-        binding.mulankBhagyankCombinationLayout.tvSolution.text = data4.solution
-        binding.mulankBhagyankCombinationLayout.tvTraits.text = data4.traits
-
-        val ratingColor = getRatingColor(requireContext(), data4.rating)
-        binding.mulankBhagyankCombinationLayout.tvRating.setTextColor(ratingColor)
-
-        if(data4.planets.isNullOrEmpty()){
-            binding.mulankBhagyankCombinationLayout.tvPlanets.visibility = View.GONE
-        }
-        if(data4.character.isNullOrEmpty()){
-            binding.mulankBhagyankCombinationLayout.tvCharacter.visibility = View.GONE
-        }
-        if(data4.career.isNullOrEmpty()){
-            binding.mulankBhagyankCombinationLayout.tvCareer.visibility = View.GONE
-        }
-        if(data4.lucky.isNullOrEmpty()){
-            binding.mulankBhagyankCombinationLayout.tvLucky.visibility = View.GONE
-        }
-        if(data4.health.isNullOrEmpty()){
-            binding.mulankBhagyankCombinationLayout.tvHealth.visibility = View.GONE
-        }
-        if(data4.warning.isNullOrEmpty()){
-            binding.mulankBhagyankCombinationLayout.tvWarning.visibility = View.GONE
-        }
-        if(data4.solution.isNullOrEmpty()){
-            binding.mulankBhagyankCombinationLayout.tvSolution.visibility = View.GONE
-        }
-        if(data4.traits.isNullOrEmpty()){
-            binding.mulankBhagyankCombinationLayout.tvTraits.visibility = View.GONE
+        binding.mulankBhagyankCombinationLayout.tvRuler.text = "Ruled by ${data4.planets}"
+        val items = mutableListOf<Pair<String, String>>()
+        if (!data4.luck.isNullOrEmpty()) {
+            items.add(Pair("Luck %", data4.luck))
         }
 
-
-
-    }
-
-    private fun getRatingColor(context: android.content.Context, rating: String): Int {
-        return when (rating) {
-            "very_good", "most_powerful", "luckiest", "very_lucky" ->
-                ContextCompat.getColor(context, R.color.green)
-            "dangerous", "inimical" ->
-                ContextCompat.getColor(context, R.color.red)
-            "powerful" ->
-                ContextCompat.getColor(context, R.color.orange)
-            else ->
-                ContextCompat.getColor(context, R.color.gray)
+        if (!data4.remark.isNullOrEmpty()) {
+            items.add(Pair("Remark", data4.remark))
         }
+
+        if (!data4.character.isNullOrEmpty()) {
+            items.add(Pair("Character", data4.character))
+        }
+
+        if (!data4.health.isNullOrEmpty()) {
+            items.add(Pair("Health", data4.health))
+        }
+
+        if (!data4.traits.isNullOrEmpty()) {
+            items.add(Pair("Traits", data4.traits))
+        }
+
+        if (!data4.warning.isNullOrEmpty()) {
+            items.add(Pair("Warning", data4.warning))
+        }
+        if (!data4.lucky.isNullOrEmpty()) {
+            items.add(Pair("Luck status", data4.lucky))
+        }
+        if (!data4.career.isNullOrEmpty()) {
+            items.add(Pair("Career", data4.career))
+        }
+        if (!data4.solution.isNullOrEmpty()) {
+            items.add(Pair("Solution", data4.solution))
+        }
+
+        CommonAdapterUtil.setupNumberRecyclerViewAdapter(requireContext(),
+            binding.mulankBhagyankCombinationLayout.combinationDetailsRecyclerView,items)
+
     }
 }

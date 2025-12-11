@@ -10,17 +10,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
-
-        <TextView
-            android:id="@+id/mulankBhagyankCombination"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="25dp"
-            android:text="@string/interpretation"
-            android:textColor="@color/white_60"
-            android:textSize="20sp" />
-
         <!-- Mulank Card -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/mulankCard"
@@ -76,7 +65,8 @@
                     android:id="@+id/mulankRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp" />
+                    android:layout_marginBottom="16dp"
+                    android:visibility="gone"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -129,7 +119,8 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/bhagyankRecyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"/>
 
             </LinearLayout>
 

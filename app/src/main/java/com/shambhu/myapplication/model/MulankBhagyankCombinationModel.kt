@@ -10,7 +10,10 @@ data class Combination(
     val warning: String,
     val solution: String,
     val rating: String,
-    val traits: String
+    val traits: String,
+    val luck: String,
+    val remark: String
+
 )
 
 // MulankBhagyankCombination.kt
