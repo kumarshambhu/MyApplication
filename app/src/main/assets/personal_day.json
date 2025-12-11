@@ -1,0 +1,144 @@
+{
+	"personal_days": [
+		{
+			"day_number": 1,
+			"description": "The day brimming with fresh aspirations, crafting novel strategies, and putting them into action.",
+			"social_hints": [
+				"Embrace uniqueness and originality in your attire",
+				"Consider donning stripes and plaids to add a touch of individuality"
+			],
+			"lucky_colors": [
+				"Orange",
+				"Copper",
+				"Red",
+				"Lilac"
+			]
+		},
+		{
+			"day_number": 2,
+			"description": "On this day, you have the opportunity to enhance your plans while managing your emotions and being mindful of any tendency to become overly sensitive.",
+			"social_hints": [
+				"Maintain a calm, sophisticated, and reserved demeanor",
+				"Opt for subdued colors",
+				"Consider wearing yellow to uplift your spirits when feeling down"
+			],
+			"lucky_colors": [
+				"Yellow",
+				"Gold",
+				"White",
+				"Salmon"
+			]
+		},
+		{
+			"day_number": 3,
+			"description": "Indulge in a day of shopping, clubbing, and partying, savoring every moment to the fullest. It’s a favorable period for exploring your creative side and seeking entertainment.",
+			"social_hints": [
+				"Prioritize comfort over style when dressing",
+				"Embrace your curves without any shame",
+				"Opt for clothing with lace, frills, and jewelry to accentuate your look",
+				"Choose pleasing and soft materials to enhance your overall outfit"
+			],
+			"lucky_colors": [
+				"Rose",
+				"Forest Green",
+				"Amber",
+				"Wine Red"
+			]
+		},
+		{
+			"day_number": 4,
+			"description": "Today presents a favorable opportunity for real estate transactions. Additionally, trading activities have the potential to be quite profitable.",
+			"social_hints": [
+				"Adopt a conservative, tidy, and precise dressing style",
+				"Opt for clothing with straight lines and dark colors to complement this look"
+			],
+			"lucky_colors": [
+				"Grey",
+				"Blue",
+				"Green",
+				"Light Brown",
+				"Turquoise"
+			]
+		},
+		{
+			"day_number": 5,
+			"description": "Prepare yourself for unforeseen adventures, travel, and fresh opportunities. It is also an auspicious period for promoting new and innovative ideas.",
+			"social_hints": [
+				"Embrace the role of a fashion trendsetter, donning sports attire",
+				"Cultivate your wit and sparkle as a captivating conversationalist"
+			],
+			"lucky_colors": [
+				"Pink",
+				"Blue",
+				"Red",
+				"Turquoise"
+			]
+		},
+		{
+			"day_number": 6,
+			"description": "Today is dedicated to domestic affairs and responsibilities. However, refraining from engaging in arguments will work in your favor.",
+			"social_hints": [
+				"Prioritize comfort over style in your attire",
+				"Opt for artistic clothes with soft lines",
+				"Consider purchasing new furnishings for your home, but avoid going to extremes",
+				"Focus on domestic matters"
+			],
+			"lucky_colors": [
+				"Yellow",
+				"Mustard",
+				"Red",
+				"Navy Blue"
+			]
+		},
+		{
+			"day_number": 7,
+			"description": "Today is dedicated to nurturing your spiritual and mental well-being. Take time to rest and prioritize your health.",
+			"social_hints": [
+				"Exude an air of reservation, refinement, and unapproachability",
+				"Dress in exclusive clothes with exquisite and distinct designs",
+				"Favor pastel colors"
+			],
+			"lucky_colors": [
+				"Violet",
+				"Magenta",
+				"Purple",
+				"Turquoise"
+			]
+		},
+		{
+			"day_number": 8,
+			"description": "Today holds a higher likelihood of receiving delayed cheques, payments, or long-awaited good news. Material rewards and happiness may come your way on this day.",
+			"social_hints": [
+				"Present an image of wealth and influence",
+				"Establish connections with prominent individuals",
+				"Purchase clothing that exudes a sense of luxury",
+				"Tailored attire made from rough materials and tweeds is suitable"
+			],
+			"lucky_colors": [
+				"Blue",
+				"Tan",
+				"Gold",
+				"Beige",
+				"Grey"
+			]
+		},
+		{
+			"day_number": 9,
+			"description": "Make the most of this day by indulging in your favorite music, tidying up the house, and resolving any lingering issues with others.",
+			"social_hints": [
+				"This is a time for love and affection",
+				"Perform a kind deed, and your rewards will multiply",
+				"Embrace a charming and lovable demeanor",
+				"Opt for artistic clothes that are unique yet balanced, avoiding any extremes"
+			],
+			"lucky_colors": [
+				"Green",
+				"White",
+				"Red",
+				"Olive",
+				"Gold",
+				"Lavender"
+			]
+		}
+	]
+}
