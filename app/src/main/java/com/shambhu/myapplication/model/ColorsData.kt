@@ -8,3 +8,15 @@ data class ColorsData(
     @SerializedName("color_group")
     val colorGroup: Map<String, ColorGroup>
 )
+
+data class ColorDetail(
+    val color: String,
+    val detail: String
+)
+
+data class ColorGroup(
+    val colors: List<String>,
+    val description: String,
+    val details: String
+)
+

@@ -61,14 +61,16 @@ class NameColorFragment : Fragment() {
             }.launchIn(viewLifecycleOwner.lifecycleScope)
 
         val colorsJson = CommonUtils.readAssetFile(requireContext(), "colors.json") ?: return
-        val colorCounts = NumerologyCalculationUtils.calculateColorCounts(fullName, colorsJson)
+        val colorsData = Gson().fromJson(colorsJson, com.shambhu.myapplication.model.ColorsData::class.java)
+
+        val colorCounts = NumerologyCalculationUtils.calculateColorCounts(fullName, colorsData)
         val countsText = colorCounts.entries.joinToString("\n") { (color, count) ->
             "$color: $count"
         }
         binding.individualColorCountsValue.text = countsText
 
         val matchedGroups =
-            NumerologyCalculationUtils.findAllMatchedColorGroups(fullName, colorsJson)
+            NumerologyCalculationUtils.findAllMatchedColorGroups(fullName, colorsData)
         val matchedGroupsText = matchedGroups.entries.joinToString("\n") { (group, colors) ->
             "$group: ${colors.joinToString(", ")}"
         }
