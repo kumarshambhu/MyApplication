@@ -45,99 +45,217 @@ class NumerologyCalculator(private val context: Context) {
 
     // 1. Calculate Birthday Number
     fun calculateBirthdayNumber(dob: String): Int {
-        val date = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse(dob)
-        val day = Calendar.getInstance().apply { time = date }.get(Calendar.DAY_OF_MONTH)
-        return reduceToSingleDigit(day)
+        return try {
+            val date = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse(dob)
+            val day = Calendar.getInstance().apply { time = date }.get(Calendar.DAY_OF_MONTH)
+            reduceToSingleDigit(day)
+        } catch (e: Exception) {
+            // Try alternative format
+            try {
+                val parts = dob.split("/", "-", ".")
+                if (parts.isNotEmpty()) {
+                    reduceToSingleDigit(parts[0].toInt())
+                } else {
+                    0
+                }
+            } catch (ex: Exception) {
+                0
+            }
+        }
     }
 
     // 2. Calculate Life Path Number
     fun calculateLifePathNumber(dob: String): Int {
-        val date = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse(dob)
-        val calendar = Calendar.getInstance().apply { time = date }
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-        val month = calendar.get(Calendar.MONTH) + 1
-        val year = calendar.get(Calendar.YEAR)
+        return try {
+            val date = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse(dob)
+            val calendar = Calendar.getInstance().apply { time = date }
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+            val month = calendar.get(Calendar.MONTH) + 1
+            val year = calendar.get(Calendar.YEAR)
 
-        val daySum = reduceToSingleDigit(day)
-        val monthSum = reduceToSingleDigit(month)
-        val yearSum = reduceToSingleDigit(year)
+            val daySum = reduceToSingleDigit(day)
+            val monthSum = reduceToSingleDigit(month)
+            val yearSum = reduceToSingleDigit(year)
 
-        val total = daySum + monthSum + yearSum
-        return reduceToSingleDigit(total)
+            val total = daySum + monthSum + yearSum
+            reduceToSingleDigit(total)
+        } catch (e: Exception) {
+            // Try alternative format
+            try {
+                val parts = dob.split("/", "-", ".")
+                if (parts.size >= 3) {
+                    val day = parts[0].toInt()
+                    val month = parts[1].toInt()
+                    val year = parts[2].toInt()
+
+                    val daySum = reduceToSingleDigit(day)
+                    val monthSum = reduceToSingleDigit(month)
+                    val yearSum = reduceToSingleDigit(year)
+
+                    val total = daySum + monthSum + yearSum
+                    reduceToSingleDigit(total)
+                } else {
+                    0
+                }
+            } catch (ex: Exception) {
+                0
+            }
+        }
     }
 
-    // 3. Calculate Kua Number
-    fun calculateKuaNumber(dob: String): Int {
-        val date = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse(dob)
-        val calendar = Calendar.getInstance().apply { time = date }
-        val year = calendar.get(Calendar.YEAR)
+    // 3. Calculate Kua Number (Simplified - requires gender)
+    fun calculateKuaNumber(dob: String, isMale: Boolean = true): Int {
+        return try {
+            val date = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse(dob)
+            val calendar = Calendar.getInstance().apply { time = date }
+            val year = calendar.get(Calendar.YEAR)
 
-        // For male: (100 - last two digits of year) reduced to single digit
-        // For female: (last two digits of year + 4) reduced to single digit
-        val lastTwoDigits = year % 100
+            val lastTwoDigits = year % 100
 
-        // Note: You'll need to add gender input to calculate properly
-        // This is a simplified version
-        val kua = (lastTwoDigits + 4) % 9
-        return if (kua == 0) 9 else kua
+            if (isMale) {
+                // For male: (100 - last two digits) reduced to single digit
+                val kua = 100 - lastTwoDigits
+                reduceToSingleDigit(kua)
+            } else {
+                // For female: (last two digits + 4) reduced to single digit
+                val kua = lastTwoDigits + 4
+                reduceToSingleDigit(kua)
+            }
+        } catch (e: Exception) {
+            0
+        }
     }
 
-    // 4. Create Lo Shu Grid (3x3 magic square)
+    // 4. Create Lo Shu Grid PROPERLY in 3x3 matrix
     fun createLoShuGrid(dob: String): Array<IntArray> {
-        val grid = Array(3) { IntArray(3) }
-        val numbers = mutableListOf<Int>()
+        // Initialize 3x3 grid with zeros
+        val grid = Array(3) { IntArray(3) { 0 } }
 
         // Extract all digits from DOB
-        dob.filter { it.isDigit() }.forEach { char ->
-            numbers.add(char.toString().toInt())
-        }
-
-        // Count occurrences of each number 1-9
-        val counts = IntArray(10)
-        numbers.forEach { digit ->
-            if (digit in 1..9) {
-                counts[digit]++
+        val digits = mutableListOf<Int>()
+        dob.forEach { char ->
+            if (char.isDigit()) {
+                val digit = char.toString().toInt()
+                if (digit in 1..9) {
+                    digits.add(digit)
+                }
             }
         }
 
-        // Lo Shu grid positions:
+        // Traditional Lo Shu Grid positions:
+        // Standard magic square layout
         // 4 9 2
         // 3 5 7
         // 8 1 6
 
-        // Fill grid with counts
-        grid[0][0] = counts[4]
-        grid[0][1] = counts[9]
-        grid[0][2] = counts[2]
-        grid[1][0] = counts[3]
-        grid[1][1] = counts[5]
-        grid[1][2] = counts[7]
-        grid[2][0] = counts[8]
-        grid[2][1] = counts[1]
-        grid[2][2] = counts[6]
+        // But in numerology, we fill based on number positions
+        // Mapping: Number -> (row, col)
+        val loShuPositions = mapOf(
+            1 to Pair(2, 1), // Bottom center
+            2 to Pair(0, 2), // Top right
+            3 to Pair(1, 0), // Middle left
+            4 to Pair(0, 0), // Top left
+            5 to Pair(1, 1), // Center
+            6 to Pair(2, 2), // Bottom right
+            7 to Pair(1, 2), // Middle right
+            8 to Pair(2, 0), // Bottom left
+            9 to Pair(0, 1)  // Top center
+        )
+
+        // Count occurrences of each number (1-9)
+        val numberCounts = IntArray(10) { 0 }
+        digits.forEach { digit ->
+            if (digit in 1..9) {
+                numberCounts[digit]++
+            }
+        }
+
+        // Fill the grid based on Lo Shu positions
+        for (number in 1..9) {
+            val position = loShuPositions[number]
+            if (position != null) {
+                val (row, col) = position
+                grid[row][col] = numberCounts[number]
+            }
+        }
 
         return grid
     }
 
-    // 5. Check Missing Numbers in Lo Shu Grid
+    // 5. Format Lo Shu Grid as String for display
+    fun formatLoShuGrid(grid: Array<IntArray>): String {
+        val builder = StringBuilder()
+
+        builder.append("Lo Shu Grid (3x3):\n")
+        builder.append("┌─────┬─────┬─────┐\n")
+
+        for (i in 0 until 3) {
+            builder.append("│")
+            for (j in 0 until 3) {
+                val count = grid[i][j]
+                // Display number and count if count > 0
+                val number = getNumberAtPosition(i, j)
+                if (count > 0) {
+                    builder.append(" $number($count)")
+                } else {
+                    builder.append(" $number(0)")
+                }
+                builder.append(" │")
+            }
+            if (i < 2) {
+                builder.append("\n├─────┼─────┼─────┤\n")
+            }
+        }
+
+        builder.append("\n└─────┴─────┴─────┘")
+
+        // Add legend
+        builder.append("\n\nLegend: Number(Count in DOB)")
+        builder.append("\nTraditional Lo Shu Layout:")
+        builder.append("\n4 9 2")
+        builder.append("\n3 5 7")
+        builder.append("\n8 1 6")
+
+        return builder.toString()
+    }
+
+    // Helper to get number at grid position
+    private fun getNumberAtPosition(row: Int, col: Int): Int {
+        val positionMap = mapOf(
+            Pair(0, 0) to 4,  // Top-left
+            Pair(0, 1) to 9,  // Top-center
+            Pair(0, 2) to 2,  // Top-right
+            Pair(1, 0) to 3,  // Middle-left
+            Pair(1, 1) to 5,  // Center
+            Pair(1, 2) to 7,  // Middle-right
+            Pair(2, 0) to 8,  // Bottom-left
+            Pair(2, 1) to 1,  // Bottom-center
+            Pair(2, 2) to 6   // Bottom-right
+        )
+        return positionMap[Pair(row, col)] ?: 0
+    }
+
+    // 6. Check Missing Numbers in Lo Shu Grid
     fun findMissingNumbers(grid: Array<IntArray>): List<Int> {
         val missingNumbers = mutableListOf<Int>()
 
-        // Lo Shu grid positions mapping
-        val positionMap = mapOf(
-            Pair(0, 0) to 4,
-            Pair(0, 1) to 9,
-            Pair(0, 2) to 2,
-            Pair(1, 0) to 3,
-            Pair(1, 1) to 5,
-            Pair(1, 2) to 7,
-            Pair(2, 0) to 8,
-            Pair(2, 1) to 1,
-            Pair(2, 2) to 6
-        )
+        // Check each number position
+        for (number in 1..9) {
+            val position = when (number) {
+                1 -> Pair(2, 1)  // Bottom center
+                2 -> Pair(0, 2)  // Top right
+                3 -> Pair(1, 0)  // Middle left
+                4 -> Pair(0, 0)  // Top left
+                5 -> Pair(1, 1)  // Center
+                6 -> Pair(2, 2)  // Bottom right
+                7 -> Pair(1, 2)  // Middle right
+                8 -> Pair(2, 0)  // Bottom left
+                9 -> Pair(0, 1)  // Top center
+                else -> Pair(-1, -1)
+            }
 
-        positionMap.forEach { (position, number) ->
-            if (grid[position.first][position.second] == 0) {
+            val (row, col) = position
+            if (row >= 0 && col >= 0 && grid[row][col] == 0) {
                 missingNumbers.add(number)
             }
         }
@@ -145,9 +263,43 @@ class NumerologyCalculator(private val context: Context) {
         return missingNumbers
     }
 
-    // 6. Sum of Mobile Number
+    // 7. Get Analysis of Lo Shu Grid
+    fun analyzeLoShuGrid(grid: Array<IntArray>): String {
+        val builder = StringBuilder()
+
+        // Check for strong numbers (appear 3 or more times)
+        val strongNumbers = mutableListOf<Int>()
+        val weakNumbers = mutableListOf<Int>()
+
+        for (number in 1..9) {
+            val count = when (number) {
+                1 -> grid[2][1]
+                2 -> grid[0][2]
+                3 -> grid[1][0]
+                4 -> grid[0][0]
+                5 -> grid[1][1]
+                6 -> grid[2][2]
+                7 -> grid[1][2]
+                8 -> grid[2][0]
+                9 -> grid[0][1]
+                else -> 0
+            }
+
+            when {
+                count >= 3 -> strongNumbers.add(number)
+                count == 0 -> weakNumbers.add(number)
+            }
+        }
+
+        builder.append("Grid Analysis:\n")
+        builder.append("Strong Numbers (≥3 times): ${strongNumbers.joinToString()}\n")
+        builder.append("Weak/Missing Numbers: ${weakNumbers.joinToString()}")
+
+        return builder.toString()
+    }
+
+    // 8. Sum of Mobile Number
     fun sumMobileNumber(mobile: String): Int {
-        // Remove all non-digits
         val digits = mobile.filter { it.isDigit() }
         var sum = 0
 
@@ -158,7 +310,7 @@ class NumerologyCalculator(private val context: Context) {
         return reduceToSingleDigit(sum)
     }
 
-    // 7. Get Mobile Sum State
+    // 9. Get Mobile Sum State
     fun getMobileSumState(sum: Int): String {
         mobileData.sum_of_mobile.forEach { sumGroup ->
             if (sum in sumGroup.group) {
@@ -168,8 +320,9 @@ class NumerologyCalculator(private val context: Context) {
         return "Unknown"
     }
 
-    // 8. Create Pairs from Mobile Number
+    // 10. Create Pairs from Mobile Number
     fun createMobilePairs(mobile: String): List<String> {
+        // Remove all non-digits and zeros
         val cleanMobile = mobile.filter { it.isDigit() && it != '0' }
         val pairs = mutableListOf<String>()
 
@@ -181,20 +334,22 @@ class NumerologyCalculator(private val context: Context) {
         return pairs
     }
 
-    // 9. Check Pair Combinations
+    // 11. Check Pair Combinations
     fun checkPairCombinations(pairs: List<String>): Map<String, String> {
         val results = mutableMapOf<String, String>()
 
         pairs.forEach { pair ->
+            var found = false
             mobileData.combinations.forEach { combination ->
                 val comboList = combination.combination.split(", ")
                 if (pair in comboList) {
                     results[pair] = combination.state
+                    found = true
                     return@forEach
                 }
             }
-            // If not found in combinations, mark as "Not Found"
-            if (!results.containsKey(pair)) {
+            // If not found in combinations
+            if (!found) {
                 results[pair] = "Not Found"
             }
         }
@@ -202,14 +357,33 @@ class NumerologyCalculator(private val context: Context) {
         return results
     }
 
+    // 12. Get Universal Benefic Pairs from mobile
+    fun getUniversalBeneficPairs(pairs: List<String>): List<String> {
+        val universalBeneficPairs = mutableListOf<String>()
+
+        pairs.forEach { pair ->
+            mobileData.combinations.forEach { combination ->
+                if (combination.state == "universal benefic") {
+                    val comboList = combination.combination.split(", ")
+                    if (pair in comboList) {
+                        universalBeneficPairs.add(pair)
+                    }
+                }
+            }
+        }
+
+        return universalBeneficPairs
+    }
+
     // Helper function to reduce to single digit
     private fun reduceToSingleDigit(number: Int): Int {
         var num = number
-        while (num > 9) {
+        while (num > 9 && num != 11 && num != 22 && num != 33) { // Keep master numbers
             var sum = 0
-            while (num > 0) {
-                sum += num % 10
-                num /= 10
+            var temp = num
+            while (temp > 0) {
+                sum += temp % 10
+                temp /= 10
             }
             num = sum
         }
