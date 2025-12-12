@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
 import com.shambhu.myapplication.databinding.FragmentNameElementBinding
-import com.shambhu.myapplication.model.ElementAnalysisResult
 import com.shambhu.myapplication.repository.NameAnalysisRepository
 import com.shambhu.myapplication.repository.impl.NameAnalysisRepositoryImpl
 import com.shambhu.myapplication.service.impl.NameAnalysisServiceImpl
@@ -56,8 +55,10 @@ class NameElementFragment : Fragment() {
                     binding.waterElementValue.text =
                         elementAnalysisResult.elementScores[Constants.Companion.ELEMENT_KEY_WATER].toString()
                     Log.i("score", elementAnalysisResult.elementScores.toString())
+                    Log.i("score", elementAnalysisResult.dominantElementKey)
+
                     binding.elementDescription.text =
-                        NumerologyCalculationUtils.convertToHtml(elementAnalysisResult.dominantElement)
+                        NumerologyCalculationUtils.convertToHtml(elementAnalysisResult.dominantElementDescription)
                 }.onFailure { error ->
                     Log.e("NameElementFragment", "Failed to load element data", error)
                 }

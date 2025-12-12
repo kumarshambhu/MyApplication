@@ -276,7 +276,8 @@ object NumerologyCalculationUtils {
 
     fun calculateElements(fullName: String, elementData: ElementData): ElementAnalysisResult {
         val nameNumbers = nameToIntArray(fullName)
-        var dominantElement = ""
+        var dominantElementDescription = ""
+        var dominantElementKey = ""
         val elementScores =
             mutableMapOf("AIR" to 0.0, "EARTH" to 0.0, "FIRE" to 0.0, "WATER" to 0.0)
 
@@ -292,13 +293,14 @@ object NumerologyCalculationUtils {
 
                 val highestElement = elementScores.maxByOrNull { it.value }?.key
                 if (highestElement != null && excessMap.containsKey(highestElement)) {
-                    dominantElement = excessMap[highestElement]?.details ?: "No dominant element found."
+                    dominantElementKey = highestElement
+                    dominantElementDescription = excessMap[highestElement]?.details ?: "No dominant element found."
                 } else {
-                    dominantElement = "No dominant element found."
+                    dominantElementDescription = "No dominant element found."
                 }
             }
         }
-        return ElementAnalysisResult(dominantElement, elementScores)
+        return ElementAnalysisResult(dominantElementKey, dominantElementDescription, elementScores)
     }
 
     fun calculateColorGroup(

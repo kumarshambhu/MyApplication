@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
@@ -44,6 +45,27 @@ class PersonalFortuneFragment : Fragment() {
             val dob = it.getString(ARG_DOB)
             loadPersonalFortuneData(dob.toString())
         }
+        addActionToExpandableIcon()
+    }
+
+    private fun addActionToExpandableIcon() {
+        binding.personalDayExpandableIcon.setOnClickListener {
+            val isExpanded = binding.personalDayLayout.isVisible
+            binding.personalDayLayout.visibility = if (isExpanded) View.GONE else View.VISIBLE
+            binding.personalDayExpandableIcon.setImageResource(if (isExpanded) R.drawable.ic_add else R.drawable.ic_remove)
+        }
+
+        binding.personalYearExpandableIcon.setOnClickListener {
+            val isExpanded = binding.personalYearLayout.isVisible
+            binding.personalYearLayout.visibility = if (isExpanded) View.GONE else View.VISIBLE
+            binding.personalYearExpandableIcon.setImageResource(if (isExpanded) R.drawable.ic_add else R.drawable.ic_remove)
+        }
+
+        binding.personalMonthExpandableIcon.setOnClickListener {
+            val isExpanded = binding.personalMonthLayout.isVisible
+            binding.personalMonthLayout.visibility = if (isExpanded) View.GONE else View.VISIBLE
+            binding.personalMonthExpandableIcon.setImageResource(if (isExpanded) R.drawable.ic_add else R.drawable.ic_remove)
+        }
     }
 
     private val personalFortuneRepository: PersonalFortuneRepository by lazy {
@@ -72,18 +94,46 @@ class PersonalFortuneFragment : Fragment() {
             binding.personalDayValue.text = it.dayNumber.toString()
             binding.personalDayInterpretation.text = it.description
             binding.personalDayColorValue.text = it.luckyColors.joinToString(", ")
-            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(requireContext(), binding.personalDaysocialHintsRecyclerView, it.socialHints)
+            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
+                requireContext(),
+                binding.personalDaySocialHintsRecyclerView,
+                it.socialHints
+            )
 
         }
         personalFortuneData.personalMonth?.let {
             Log.d("Personal Month", Gson().toJson(it))
             binding.personalMonthValue.text = it.monthNumber.toString()
-            binding.personalMonthInterpretation.text = it.enhancementTips.joinToString("\n")
+            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
+                requireContext(),
+                binding.personalMonthNegative,
+                it.negative
+            )
+            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
+                requireContext(),
+                binding.personalMonthPositive,
+                it.positive
+            )
+            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
+                requireContext(),
+                binding.personalMonthEnhancementTips,
+                it.enhancementTips
+            )
         }
         personalFortuneData.personalYear?.let {
             Log.d("Personal Year", Gson().toJson(it))
             binding.personalYearValue.text = it.yearNumber.toString()
             binding.personalYearInterpretation.text = it.title
+            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
+                requireContext(),
+                binding.personalYearNegativeRecyclerView,
+                it.negativeImpacts
+            )
+            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(
+                requireContext(),
+                binding.personalYearPositiveRecyclerView,
+                it.negativeImpacts
+            )
         }
     }
 
