@@ -14,7 +14,7 @@ import com.google.gson.Gson
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.adapter.CommonAdapterUtil
 import com.shambhu.myapplication.adapter.NumeroAccordionAdapter
-import com.shambhu.myapplication.databinding.FragmentNumeroProfileBinding
+import com.shambhu.myapplication.databinding.FragmentCoreNumberProfileBinding
 import com.shambhu.myapplication.model.MulankBhagyankResponse
 import com.shambhu.myapplication.model.NumeroData
 import com.shambhu.myapplication.repository.CoreNumberRepository
@@ -25,14 +25,13 @@ import com.shambhu.myapplication.service.impl.CoreNumberServiceImpl
 import com.shambhu.myapplication.service.impl.PersonalFortuneServiceImpl
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.NumeroCalculator
-import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.zip
 
-class NumeroProfileFragment : Fragment() {
+class CoreNumberProfileFragment : Fragment() {
 
-    private var _binding: FragmentNumeroProfileBinding? = null
+    private var _binding: FragmentCoreNumberProfileBinding? = null
     private val binding get() = _binding!!
     private var birthDate: String = ""
     private var mulankData: NumeroData? = null
@@ -41,14 +40,9 @@ class NumeroProfileFragment : Fragment() {
         CoreNumberRepositoryImpl(CoreNumberServiceImpl(Gson()))
     }
 
-    private val personalFortuneRepository: PersonalFortuneRepository by lazy {
-        PersonalFortuneRepositoryImpl(PersonalFortuneServiceImpl(requireContext()))
-    }
-
-
     companion object {
-        fun newInstance(birthDate: String): NumeroProfileFragment {
-            val fragment = NumeroProfileFragment()
+        fun newInstance(birthDate: String): CoreNumberProfileFragment {
+            val fragment = CoreNumberProfileFragment()
             val args = Bundle()
             args.putString("birthDate", birthDate)
             fragment.arguments = args
@@ -67,7 +61,7 @@ class NumeroProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentNumeroProfileBinding.inflate(inflater, container, false)
+        _binding = FragmentCoreNumberProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -87,35 +81,6 @@ class NumeroProfileFragment : Fragment() {
 
         // Load data using repository
         loadData(mulankNumber, bhagyankNumber)
-        loadPersonalFortuneData()
-    }
-
-    private fun loadPersonalFortuneData() {
-        val calculator = NumeroCalculator()
-        val personalDay = calculator.calculatePersonalDay(birthDate)
-        val personalMonth = calculator.calculatePersonalMonth(birthDate)
-        val personalYear = calculator.calculatePersonalYear(birthDate)
-
-        personalFortuneRepository.getPersonalFortune(personalDay, personalMonth, personalYear)
-            .onEach { personalFortuneData ->
-                updatePersonalFortuneUi(personalFortuneData)
-            }
-            .launchIn(viewLifecycleOwner.lifecycleScope)
-    }
-
-    private fun updatePersonalFortuneUi(personalFortuneData: com.shambhu.myapplication.model.PersonalFortuneData) {
-        personalFortuneData.personalDay?.let {
-            binding.personalDayTitle.text = "Personal Day: ${it.dayNumber}"
-            binding.personalDayDescription.text = it.description
-        }
-        personalFortuneData.personalMonth?.let {
-            binding.personalMonthTitle.text = "Personal Month: ${it.monthNumber}"
-            binding.personalMonthDescription.text = it.positive.joinToString("\n")
-        }
-        personalFortuneData.personalYear?.let {
-            binding.personalYearTitle.text = "Personal Year: ${it.yearNumber} - ${it.title}"
-            binding.personalYearDescription.text = it.positiveOutcomes.joinToString("\n")
-        }
     }
 
     private fun loadData(mulankNumber: Int, bhagyankNumber: Int) {

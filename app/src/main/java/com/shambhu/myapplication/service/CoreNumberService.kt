@@ -1,6 +1,7 @@
 package com.shambhu.myapplication.service
 
 import android.content.Context
+import com.shambhu.myapplication.model.MulankData
 import com.shambhu.myapplication.model.NumeroData
 
 interface CoreNumberService {

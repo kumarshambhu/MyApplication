@@ -79,7 +79,7 @@ object NumerologyCalculationUtils {
     }
 
     fun calculateSuccessNumber(day: Int, month: Int): Int {
-        return CommonUtils.reduceNumber(day+month)
+        return CommonUtils.reduceNumber(day + month)
     }
 
     // Life Path Number Calculation
@@ -205,7 +205,8 @@ object NumerologyCalculationUtils {
         val karmicLessonsObject = JSONObject(karmicLessonsJson).getJSONObject("karmic_lesson")
 
         return missing.map { number ->
-            val detail = karmicLessonsObject.optString(number.toString(), "No description available.")
+            val detail =
+                karmicLessonsObject.optString(number.toString(), "No description available.")
             KarmicLessonItem(number, detail)
         }
     }
@@ -264,7 +265,12 @@ object NumerologyCalculationUtils {
         )
     }
 
-    fun calculatePrimaryLuckyNumbers(day: Int, month: Int, year: Int, fullName: String): List<Pair<String, Int>> {
+    fun calculatePrimaryLuckyNumbers(
+        day: Int,
+        month: Int,
+        year: Int,
+        fullName: String
+    ): List<Pair<String, Int>> {
         return listOf(
             "Life Path" to calculateLifePath(day, month, year),
             "Expression" to calculateExpression(fullName),
@@ -278,11 +284,15 @@ object NumerologyCalculationUtils {
         val nameNumbers = nameToIntArray(fullName)
         var dominantElementDescription = ""
         var dominantElementKey = ""
+        var dominantDefinitionDescription = ""
+        var dominantDefinitionDetail = ""
         val elementScores =
             mutableMapOf("AIR" to 0.0, "EARTH" to 0.0, "FIRE" to 0.0, "WATER" to 0.0)
 
         val elementMap = elementData.element
         val excessMap = elementData.excess
+        val definitionMap = elementData.definition
+
 
         for (number in nameNumbers) {
             elementMap[number.toString()]?.forEach { elementInfo ->
@@ -294,13 +304,24 @@ object NumerologyCalculationUtils {
                 val highestElement = elementScores.maxByOrNull { it.value }?.key
                 if (highestElement != null && excessMap.containsKey(highestElement)) {
                     dominantElementKey = highestElement
-                    dominantElementDescription = excessMap[highestElement]?.details ?: "No dominant element found."
+                    dominantElementDescription =
+                        excessMap[highestElement]?.details ?: "No dominant element found."
+                    dominantDefinitionDescription =
+                        definitionMap[highestElement]?.description ?: "No dominant element found."
+                    dominantDefinitionDetail =
+                        definitionMap[highestElement]?.details ?: "No dominant element found."
                 } else {
                     dominantElementDescription = "No dominant element found."
                 }
             }
         }
-        return ElementAnalysisResult(dominantElementKey, dominantElementDescription, elementScores)
+        return ElementAnalysisResult(
+            dominantElementKey,
+            dominantElementDescription,
+            dominantDefinitionDescription,
+            dominantDefinitionDetail,
+            elementScores
+        )
     }
 
     fun calculateColorGroup(
@@ -367,7 +388,10 @@ object NumerologyCalculationUtils {
             .eachCount()
     }
 
-    fun findAllMatchedColorGroups(fullName: String, colorsData: ColorsData): Map<String, List<String>> {
+    fun findAllMatchedColorGroups(
+        fullName: String,
+        colorsData: ColorsData
+    ): Map<String, List<String>> {
         val nameNumbers = nameToColorNumbers(fullName)
         val colorByNumber = colorsData.colorByNumber
         val colorGroup = colorsData.colorGroup
@@ -460,20 +484,18 @@ object NumerologyCalculationUtils {
         val jsonArray = jsonObject.getJSONArray("dob_combination")
         for (i in 0 until jsonArray.length()) {
             val item = jsonArray.getJSONObject(i)
-            if (item.getInt("mulank") == mulank ) {
+            if (item.getInt("mulank") == mulank) {
                 val jsonObject1 = JSONObject(item.toString())
                 val jsonArray1 = jsonObject1.getJSONArray("combinations")
                 for (j in 0 until jsonArray1.length()) {
                     val item1 = jsonArray1.getJSONObject(j)
-                    if(item1.getInt("bhagyank") == bhagyank)
+                    if (item1.getInt("bhagyank") == bhagyank)
                         return Pair(item1.getString("remark"), item1.getString("luck"))
                 }
             }
         }
-        return Pair("","")
+        return Pair("", "")
     }
-
-
 
 
     fun retainOnlyVowels(input: String): String {
@@ -513,6 +535,7 @@ object NumerologyCalculationUtils {
             goldenSuccessPlane = getAvailableNumbersInPlane(listOf(2, 5, 8))
         )
     }
+
     fun calculateKuaNumber(birthYear: Int, isMale: Boolean): Int {
         if (birthYear < 1900 || birthYear > 2100) return -1
         val lastTwoDigits = birthYear % 100

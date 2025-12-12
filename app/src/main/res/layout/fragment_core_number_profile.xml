@@ -17,7 +17,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="8dp"
-
             app:cardElevation="4dp">
 
             <LinearLayout
@@ -32,24 +31,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:requiresFadingEdge="vertical">
+
                     <TextView
                         android:id="@+id/mulankTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:layout_toStartOf="@+id/mulankToggleIcon"
                         android:text="Mulank"
-                        android:textStyle="bold"
                         android:textColor="@color/primary_text"
-                        android:layout_centerVertical="true"/>
+                        android:textStyle="bold" />
+
                     <ImageView
                         android:id="@+id/mulankToggleIcon"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_alignParentEnd="true"
-                        android:textColor="@color/primary_text"
                         android:layout_centerVertical="true"
-                        android:textStyle="bold"
-                        android:src="@drawable/ic_add" />
+                        android:src="@drawable/ic_add"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold" />
                 </RelativeLayout>
 
 
@@ -66,7 +67,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -84,29 +85,32 @@
                 android:background="@drawable/bhagyank_background"
                 android:orientation="vertical"
                 android:padding="16dp">
+
                 <RelativeLayout
                     android:id="@+id/bhagyankHeaderLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:requiresFadingEdge="vertical">
+
                     <TextView
                         android:id="@+id/bhagyankTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:layout_toStartOf="@+id/bhagyankToggleIcon"
                         android:text="Bhagyank"
-                        android:textStyle="bold"
                         android:textColor="@color/primary_text"
-                        android:layout_centerVertical="true"/>
+                        android:textStyle="bold" />
+
                     <ImageView
                         android:id="@+id/bhagyankToggleIcon"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_alignParentEnd="true"
-                        android:textColor="@color/primary_text"
                         android:layout_centerVertical="true"
-                        android:textStyle="bold"
-                        android:src="@drawable/ic_add" />
+                        android:src="@drawable/ic_add"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold" />
                 </RelativeLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -121,74 +125,17 @@
                     android:id="@+id/bhagyankRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
-        <include layout="@layout/dob_combination"
+        <include
             android:id="@+id/mulankBhagyankCombinationLayout"
+            layout="@layout/dob_combination"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
-        <!-- Personal Fortune Card -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/personalFortuneCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/mystical_gradient_background"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/personalDayTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Personal Day"
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
-
-                <TextView
-                    android:id="@+id/personalDayDescription"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp" />
-
-                <TextView
-                    android:id="@+id/personalMonthTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Personal Month"
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
-
-                <TextView
-                    android:id="@+id/personalMonthDescription"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp" />
-
-                <TextView
-                    android:id="@+id/personalYearTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Personal Year"
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
-
-                <TextView
-                    android:id="@+id/personalYearDescription"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 </ScrollView>

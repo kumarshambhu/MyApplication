@@ -58,7 +58,11 @@ class NameElementFragment : Fragment() {
                     Log.i("score", elementAnalysisResult.dominantElementKey)
 
                     binding.elementDescription.text =
-                        NumerologyCalculationUtils.convertToHtml(elementAnalysisResult.dominantElementDescription)
+                        NumerologyCalculationUtils.convertToHtml(elementAnalysisResult.dominantDefinitionDescription)
+                    binding.elementSummary.text =
+                        NumerologyCalculationUtils.convertToHtml(elementAnalysisResult.dominantExcessDescription)
+                    binding.elementDetails.text =
+                        NumerologyCalculationUtils.convertToHtml(elementAnalysisResult.dominantDefinitionDetail)
                 }.onFailure { error ->
                     Log.e("NameElementFragment", "Failed to load element data", error)
                 }

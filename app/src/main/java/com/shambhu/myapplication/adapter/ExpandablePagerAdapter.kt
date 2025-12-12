@@ -7,7 +7,7 @@ import com.shambhu.myapplication.fragment.others.FaqFragment
 import com.shambhu.myapplication.fragment.mobile.GridPairsFragment
 import com.shambhu.myapplication.fragment.others.MaturityFragment
 import com.shambhu.myapplication.fragment.others.NameGridFragment
-import com.shambhu.myapplication.fragment.others.NumeroProfileFragment
+import com.shambhu.myapplication.fragment.others.CoreNumberProfileFragment
 import com.shambhu.myapplication.fragment.others.SuccessNumberFragment
 
 class ExpandablePagerAdapter(
@@ -22,7 +22,7 @@ class ExpandablePagerAdapter(
         return when (position) {
             0 -> FaqFragment()
             1 -> NameGridFragment.newInstance(dob, fullName)
-            2 -> NumeroProfileFragment.newInstance(dob)
+            2 -> CoreNumberProfileFragment.newInstance(dob)
             3 -> MaturityFragment.newInstance(dob, fullName)
             4 -> SuccessNumberFragment.newInstance(dob, fullName)
             5 -> GridPairsFragment()
