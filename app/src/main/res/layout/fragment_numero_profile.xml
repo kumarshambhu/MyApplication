@@ -28,7 +28,7 @@
                 android:padding="16dp">
 
                 <RelativeLayout
-                    android:id="@+id/questionLayout"
+                    android:id="@+id/mulankHeaderLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:requiresFadingEdge="vertical">
@@ -85,6 +85,7 @@
                 android:orientation="vertical"
                 android:padding="16dp">
                 <RelativeLayout
+                    android:id="@+id/bhagyankHeaderLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:requiresFadingEdge="vertical">
@@ -93,7 +94,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_toStartOf="@+id/bhagyankToggleIcon"
-                        android:text="Mulank"
+                        android:text="Bhagyank"
                         android:textStyle="bold"
                         android:textColor="@color/primary_text"
                         android:layout_centerVertical="true"/>
