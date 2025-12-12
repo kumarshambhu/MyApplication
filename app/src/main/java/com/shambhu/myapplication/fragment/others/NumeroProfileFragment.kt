@@ -164,14 +164,14 @@ class NumeroProfileFragment : Fragment() {
 
     private fun setupAccordion() {
         // Mulank accordion
-        binding.mulankCard.setOnClickListener {
+        binding.mulankHeaderLayout.setOnClickListener {
             val isExpanded = binding.mulankRecyclerView.isVisible
             binding.mulankRecyclerView.visibility = if (isExpanded) View.GONE else View.VISIBLE
             binding.mulankToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_add else R.drawable.ic_remove)
         }
 
         // Bhagyank accordion
-        binding.bhagyankCard.setOnClickListener {
+        binding.bhagyankHeaderLayout.setOnClickListener {
             val isExpanded = binding.bhagyankRecyclerView.isVisible
             binding.bhagyankRecyclerView.visibility = if (isExpanded) View.GONE else View.VISIBLE
             binding.bhagyankToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_add else R.drawable.ic_remove)
