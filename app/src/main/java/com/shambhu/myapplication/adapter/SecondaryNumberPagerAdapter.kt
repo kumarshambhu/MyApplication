@@ -7,7 +7,7 @@ import com.shambhu.myapplication.fragment.secondary_number.FontTestFragment
 import com.shambhu.myapplication.fragment.secondary_number.NameElementFragment
 import com.shambhu.myapplication.fragment.secondary_number.LuckyNumberFragment
 import com.shambhu.myapplication.fragment.secondary_number.NameColorFragment
-import com.shambhu.myapplication.fragment.secondary_number.PersonalMonthYearFragment
+import com.shambhu.myapplication.fragment.secondary_number.PersonalFortuneFragment
 
 class SecondaryNumberPagerAdapter(
     fa: FragmentActivity,
@@ -23,7 +23,7 @@ class SecondaryNumberPagerAdapter(
         return when (position) {
             0 -> NameElementFragment.newInstance(dob, fullName)
             1 -> NameColorFragment.newInstance(dob, fullName)
-            2 -> PersonalMonthYearFragment.newInstance(dob, fullName)
+            2 -> PersonalFortuneFragment.newInstance(dob, fullName)
             3 -> LuckyNumberFragment.newInstance(dob, fullName)
             4 -> FontTestFragment.newInstance(dob, fullName)
             else -> throw IllegalStateException("Invalid position: $position")

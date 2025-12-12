@@ -43,6 +43,7 @@
     <string name="birth_month">Birth Month</string>
     <string name="birth_year">Birth Year</string>
     <string name="personal_month">Personal Month:</string>
+    <string name="personal_day">Personal Day:</string>
     <string name="personal_year">Personal Year:</string>
     <string name="lucky_number">Lucky Number</string>
     <string name="lucky_number_meaning">Your personal lucky number, derived from your day of birth.</string>

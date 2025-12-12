@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mystical_gradient_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/personalDayTitle"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/personal_day"
+            android:textColor="@color/gold"
+            android:textSize="28sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.8"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Group of 3 views to the right of Col 1 -->
+        <TextView
+            android:id="@+id/personalDayValue"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:padding="8dp"
+            android:text="0"
+            android:textColor="@color/gold"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/personalDayTitle"
+            tools:ignore="MissingConstraints" />
+        <!-- Third Row -->
+
+        <TextView
+            android:id="@+id/personalDayInterpretation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/interpretation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/personalDayValue" />
+        <TextView
+            android:id="@+id/personalDayColorTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Color Title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/personalDayInterpretation" />
+
+        <TextView
+            android:id="@+id/personalDayColorValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/interpretation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/personalDayColorTitle" />
+
+
+        <TextView
+            android:id="@+id/personalDaysocialHintsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="Social Hints"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/personalDayColorValue" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/personalDaysocialHintsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/personalDaysocialHintsTitle"/>
+
+        <View
+            android:id="@+id/personalDayViewLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:background="@color/gold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/personalDaysocialHintsRecyclerView"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Group of 3 views to the right of Col 1 -->
+        <TextView
+            android:id="@+id/personalMonthTitle"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/personal_month"
+            android:textColor="@color/gold"
+            android:textSize="28sp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/personalDayViewLine"
+            app:layout_constraintWidth_percent="0.8"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/personalMonthValue"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+
+            android:padding="8dp"
+            android:text="0"
+            android:textColor="@color/gold"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/personalMonthTitle"
+            app:layout_constraintTop_toBottomOf="@id/personalDayViewLine"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Third Row -->
+        <TextView
+            android:id="@+id/personalMonthInterpretation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/interpretation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/personalMonthTitle" />
+
+
+        <View
+            android:id="@+id/personalMonthViewLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:background="@color/gold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/personalMonthInterpretation"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Group of 3 views to the right of Col 1 -->
+        <TextView
+            android:id="@+id/personalYearTitle"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/personal_year"
+            android:textColor="@color/gold"
+            android:textSize="28sp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/personalMonthViewLine"
+            app:layout_constraintWidth_percent="0.8"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/personalYearValue"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+
+            android:padding="8dp"
+            android:text="0"
+            android:textColor="@color/gold"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/personalYearTitle"
+            app:layout_constraintTop_toBottomOf="@id/personalMonthViewLine"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Third Row -->
+        <TextView
+            android:id="@+id/personalYearInterpretation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/interpretation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/personalYearTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
