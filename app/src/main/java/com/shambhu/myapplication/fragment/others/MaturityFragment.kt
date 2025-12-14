@@ -7,13 +7,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.google.gson.Gson
 import com.shambhu.myapplication.adapter.CommonAdapterUtil
 import com.shambhu.myapplication.databinding.FragmentMaturityBinding
 import com.shambhu.myapplication.model.MaturityData
-import com.shambhu.myapplication.repository.MaturityRepository
-import com.shambhu.myapplication.repository.impl.MaturityRepositoryImpl
-import com.shambhu.myapplication.service.impl.MaturityServiceImpl
+import com.shambhu.myapplication.repository.MilestoneSuiteRepository
+import com.shambhu.myapplication.repository.impl.MilestoneSuiteRepositoryImpl
+import com.shambhu.myapplication.service.impl.MilestoneSuiteServiceImpl
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
@@ -25,8 +24,8 @@ class MaturityFragment : Fragment() {
     private var _binding: FragmentMaturityBinding? = null
     private val binding get() = _binding!!
 
-    private val maturityRepository: MaturityRepository by lazy {
-        MaturityRepositoryImpl(MaturityServiceImpl(Gson()))
+    private val milestoneSuiteService: MilestoneSuiteRepository by lazy {
+        MilestoneSuiteRepositoryImpl(MilestoneSuiteServiceImpl(context = requireContext()))
     }
 
     override fun onCreateView(
@@ -60,7 +59,7 @@ class MaturityFragment : Fragment() {
             binding.tvDestiny.text = "Destiny Number: $destiny"
             binding.maturityHeader.text = "Maturity Number: $maturity"
 
-            maturityRepository.getMaturityInterpretation(requireContext(), maturity)
+            milestoneSuiteService.getMaturityInterpretation(requireContext(), maturity)
                 .onEach { result ->
                     result.onSuccess { data ->
                         handleMaturityData(data)

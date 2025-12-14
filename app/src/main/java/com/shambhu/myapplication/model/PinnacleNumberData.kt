@@ -1,10 +1,13 @@
 package com.shambhu.myapplication.model
 
+import com.google.gson.annotations.SerializedName
+
 data class PinnacleNumber(
     val number: Int,
-    val interpretation: String
+    val details: String
 )
 
 data class PinnacleNumberData(
-    val pinnacle_numbers: List<PinnacleNumber>
+    @SerializedName("pinnacle_numbers")
+    val pinnacleNumbers: List<PinnacleNumber>
 )

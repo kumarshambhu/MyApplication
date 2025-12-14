@@ -7,26 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentChallengeNumberBinding
 import com.shambhu.myapplication.model.ChallengeNumber
-import com.shambhu.myapplication.repository.ChallengeNumberRepository
-import com.shambhu.myapplication.repository.impl.ChallengeNumberRepositoryImpl
-import com.shambhu.myapplication.service.impl.ChallengeNumberServiceImpl
+import com.shambhu.myapplication.repository.MilestoneSuiteRepository
+import com.shambhu.myapplication.repository.impl.MilestoneSuiteRepositoryImpl
+import com.shambhu.myapplication.service.impl.MilestoneSuiteServiceImpl
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import android.util.Log
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class ChallengeNumberFragment : Fragment() {
 
     private var _binding: FragmentChallengeNumberBinding? = null
     private val binding get() = _binding!!
-    private val challengeNumberRepository: ChallengeNumberRepository by lazy {
-        ChallengeNumberRepositoryImpl(ChallengeNumberServiceImpl(requireContext()))
+    private val milestoneSuiteRepository: MilestoneSuiteRepository by lazy {
+        MilestoneSuiteRepositoryImpl(MilestoneSuiteServiceImpl(requireContext()))
     }
 
     override fun onCreateView(
@@ -49,7 +47,7 @@ class ChallengeNumberFragment : Fragment() {
             val ageRanges = NumerologyCalculationUtils.calculateChallengeNumberAgeRanges(day, month, year)
 
             lifecycleScope.launch {
-                challengeNumberRepository.getChallengeNumberData()
+                milestoneSuiteRepository.getChallengeNumberData()
                     .catch { e ->
                         // Handle error, e.g., show a toast or log the error
                         Log.e("ChallengeNumberFragment", "Error fetching challenge numbers", e)

@@ -9,13 +9,13 @@ import androidx.lifecycle.lifecycleScope
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentPinnacleNumberBinding
 import com.shambhu.myapplication.model.PinnacleNumber
-import com.shambhu.myapplication.repository.PinnacleNumberRepository
-import com.shambhu.myapplication.repository.impl.PinnacleNumberRepositoryImpl
-import com.shambhu.myapplication.service.impl.PinnacleNumberServiceImpl
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import android.util.Log
+import com.shambhu.myapplication.repository.MilestoneSuiteRepository
+import com.shambhu.myapplication.repository.impl.MilestoneSuiteRepositoryImpl
+import com.shambhu.myapplication.service.impl.MilestoneSuiteServiceImpl
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -23,8 +23,8 @@ import kotlinx.coroutines.launch
 class PinnacleNumberFragment : Fragment() {
     private var _binding: FragmentPinnacleNumberBinding? = null
     private val binding get() = _binding!!
-    private val pinnacleNumberRepository: PinnacleNumberRepository by lazy {
-        PinnacleNumberRepositoryImpl(PinnacleNumberServiceImpl(requireContext()))
+    private val milestoneSuiteService: MilestoneSuiteRepository by lazy {
+        MilestoneSuiteRepositoryImpl(MilestoneSuiteServiceImpl(context = requireContext()))
     }
 
     override fun onCreateView(
@@ -47,13 +47,13 @@ class PinnacleNumberFragment : Fragment() {
             val ageRanges = NumerologyCalculationUtils.calculatePinnacleNumberAgeRanges(day, month, year)
 
             lifecycleScope.launch {
-                pinnacleNumberRepository.getPinnacleNumberData()
+                milestoneSuiteService.getPinnacleNumberData()
                     .catch { e ->
                         // Handle error, e.g., show a toast or log the error
                         Log.e("PinnacleNumberFragment", "Error fetching pinnacle numbers", e)
                     }
                     .collect { pinnacleNumberData ->
-                        val explanations = pinnacleNumberData.pinnacle_numbers
+                        val explanations = pinnacleNumberData.pinnacleNumbers
                         binding.tvFirstPinnacleValue.text = pinnacleNumbers[0].toString()
                         binding.tvFirstPinnacleAgeRange.text = ageRanges[0]
                         binding.tvFirstPinnacleExplanation.text = getPinnacleExplanation(pinnacleNumbers[0], explanations)
@@ -75,7 +75,7 @@ class PinnacleNumberFragment : Fragment() {
     }
 
     private fun getPinnacleExplanation(pinnacleNumber: Int, explanations: List<PinnacleNumber>): String {
-        return explanations.find { it.number == pinnacleNumber }?.interpretation ?: "No interpretation available."
+        return explanations.find { it.number == pinnacleNumber }?.details ?: "No interpretation available."
     }
     override fun onDestroyView() {
         super.onDestroyView()
