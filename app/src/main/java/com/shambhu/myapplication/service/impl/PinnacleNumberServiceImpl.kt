@@ -11,13 +11,8 @@ import java.io.IOException
 
 class PinnacleNumberServiceImpl(private val context: Context) : PinnacleNumberService {
     override fun getPinnacleNumberData(): Flow<PinnacleNumberData> = flow {
-        try {
-            val jsonString = CommonUtils.readAssetFile(context, "pinnacle_number.json")
-            val pinnacleNumberData = Gson().fromJson(jsonString, PinnacleNumberData::class.java)
-            emit(pinnacleNumberData)
-        } catch (e: IOException) {
-            e.printStackTrace()
-            // Emit an empty or error state if needed
-        }
+        val jsonString = CommonUtils.readAssetFile(context, "pinnacle_number.json")
+        val pinnacleNumberData = Gson().fromJson(jsonString, PinnacleNumberData::class.java)
+        emit(pinnacleNumberData)
     }
 }

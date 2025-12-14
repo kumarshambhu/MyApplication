@@ -15,6 +15,8 @@ import com.shambhu.myapplication.service.impl.PinnacleNumberServiceImpl
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
+import android.util.Log
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -45,30 +47,35 @@ class PinnacleNumberFragment : Fragment() {
             val ageRanges = NumerologyCalculationUtils.calculatePinnacleNumberAgeRanges(day, month, year)
 
             lifecycleScope.launch {
-                pinnacleNumberRepository.getPinnacleNumberData().collect { pinnacleNumberData ->
-                    val explanations = pinnacleNumberData.pinnacle_numbers
-                    binding.tvFirstPinnacleValue.text = pinnacleNumbers[0].toString()
-                    binding.tvFirstPinnacleAgeRange.text = ageRanges[0]
-                    binding.tvFirstPinnacleExplanation.text = getPinnacleExplanation(pinnacleNumbers[0], explanations)
+                pinnacleNumberRepository.getPinnacleNumberData()
+                    .catch { e ->
+                        // Handle error, e.g., show a toast or log the error
+                        Log.e("PinnacleNumberFragment", "Error fetching pinnacle numbers", e)
+                    }
+                    .collect { pinnacleNumberData ->
+                        val explanations = pinnacleNumberData.pinnacle_numbers
+                        binding.tvFirstPinnacleValue.text = pinnacleNumbers[0].toString()
+                        binding.tvFirstPinnacleAgeRange.text = ageRanges[0]
+                        binding.tvFirstPinnacleExplanation.text = getPinnacleExplanation(pinnacleNumbers[0], explanations)
 
-                    binding.tvSecondPinnacleValue.text = pinnacleNumbers[1].toString()
-                    binding.tvSecondPinnacleAgeRange.text = ageRanges[1]
-                    binding.tvSecondPinnacleExplanation.text = getPinnacleExplanation(pinnacleNumbers[1], explanations)
+                        binding.tvSecondPinnacleValue.text = pinnacleNumbers[1].toString()
+                        binding.tvSecondPinnacleAgeRange.text = ageRanges[1]
+                        binding.tvSecondPinnacleExplanation.text = getPinnacleExplanation(pinnacleNumbers[1], explanations)
 
-                    binding.tvThirdPinnacleValue.text = pinnacleNumbers[2].toString()
-                    binding.tvThirdPinnacleAgeRange.text = ageRanges[2]
-                    binding.tvThirdPinnacleExplanation.text = getPinnacleExplanation(pinnacleNumbers[2], explanations)
+                        binding.tvThirdPinnacleValue.text = pinnacleNumbers[2].toString()
+                        binding.tvThirdPinnacleAgeRange.text = ageRanges[2]
+                        binding.tvThirdPinnacleExplanation.text = getPinnacleExplanation(pinnacleNumbers[2], explanations)
 
-                    binding.tvFourthPinnacleValue.text = pinnacleNumbers[3].toString()
-                    binding.tvFourthPinnacleAgeRange.text = ageRanges[3]
-                    binding.tvFourthPinnacleExplanation.text = getPinnacleExplanation(pinnacleNumbers[3], explanations)
-                }
+                        binding.tvFourthPinnacleValue.text = pinnacleNumbers[3].toString()
+                        binding.tvFourthPinnacleAgeRange.text = ageRanges[3]
+                        binding.tvFourthPinnacleExplanation.text = getPinnacleExplanation(pinnacleNumbers[3], explanations)
+                    }
             }
         }
     }
 
     private fun getPinnacleExplanation(pinnacleNumber: Int, explanations: List<PinnacleNumber>): String {
-        return explanations.find { it.number == pinnacleNumber }?.interpretation ?: ""
+        return explanations.find { it.number == pinnacleNumber }?.interpretation ?: "No interpretation available."
     }
     override fun onDestroyView() {
         super.onDestroyView()
