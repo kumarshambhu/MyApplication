@@ -4,6 +4,7 @@ import android.content.Context
 import com.shambhu.myapplication.model.ChallengeNumberData
 import com.shambhu.myapplication.model.MaturityData
 import com.shambhu.myapplication.model.PinnacleNumberData
+import com.shambhu.myapplication.model.SuccessNumberResponse
 import com.shambhu.myapplication.repository.MilestoneSuiteRepository
 import com.shambhu.myapplication.service.MilestoneSuiteService
 import kotlinx.coroutines.Dispatchers
@@ -33,4 +34,9 @@ class MilestoneSuiteRepositoryImpl(private val milestoneSuiteService: MilestoneS
     }.catch {
         emit(Result.failure(it))
     }.flowOn(Dispatchers.Main)
+
+
+    override fun getSuccessNumberData(): Flow<SuccessNumberResponse> {
+        return milestoneSuiteService.getSuccessNumberData()
+    }
 }
