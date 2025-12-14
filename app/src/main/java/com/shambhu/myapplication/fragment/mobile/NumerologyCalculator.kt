@@ -2,6 +2,8 @@ package com.shambhu.myapplication.fragment.mobile
 
 import android.content.Context
 import com.google.gson.Gson
+import com.shambhu.myapplication.utils.CommonUtils
+import com.shambhu.myapplication.utils.NumerologyCalculationUtils.convertToHtml
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -186,8 +188,8 @@ class NumerologyCalculator(private val context: Context) {
     fun formatLoShuGrid(grid: Array<IntArray>): String {
         val builder = StringBuilder()
 
-        builder.append("Lo Shu Grid (3x3):\n")
-        builder.append("┌─────┬─────┬─────┐\n")
+        builder.append("Lo Shu Grid (3x3):<br/>")
+        builder.append("┌─────┬─────┬─────┐<br/>")
 
         for (i in 0 until 3) {
             builder.append("│")
@@ -196,27 +198,27 @@ class NumerologyCalculator(private val context: Context) {
                 // Display number and count if count > 0
                 val number = getNumberAtPosition(i, j)
                 if (count > 0) {
-                    builder.append(" $number($count)")
+                    builder.append("&nbsp;&nbsp;&nbsp;$number($count)&nbsp;&nbsp;&nbsp;")
                 } else {
-                    builder.append(" $number(0)")
+                    builder.append("&nbsp;&nbsp;&nbsp;$number(0)&nbsp;&nbsp;&nbsp;")
                 }
                 builder.append(" │")
             }
             if (i < 2) {
-                builder.append("\n├─────┼─────┼─────┤\n")
+                builder.append("<br/>├─────┼─────┼─────┤<br/>")
             }
         }
 
-        builder.append("\n└─────┴─────┴─────┘")
+        builder.append("<br/>└─────┴─────┴─────┘")
 
         // Add legend
-        builder.append("\n\nLegend: Number(Count in DOB)")
-        builder.append("\nTraditional Lo Shu Layout:")
-        builder.append("\n4 9 2")
-        builder.append("\n3 5 7")
-        builder.append("\n8 1 6")
+        builder.append("<br/><br/>Legend: Number(Count in DOB)")
+        builder.append("<br/>Traditional Lo Shu Layout:")
+        builder.append("<br/>4 9 2")
+        builder.append("<br/>3 5 7")
+        builder.append("<br/>8 1 6")
 
-        return builder.toString()
+        return convertToHtml(builder.toString())
     }
 
     // Helper to get number at grid position

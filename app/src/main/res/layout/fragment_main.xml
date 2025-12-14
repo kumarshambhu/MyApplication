@@ -23,11 +23,13 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:prefixTextColor="@color/white_60"
             android:layout_marginBottom="16dp"
             app:hintEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etDob"
+                android:textColor="@color/white_60"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Date of Birth (dd/mm/yyyy)"
@@ -45,6 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Mobile Number"
+                android:textColor="@color/white_60"
                 android:inputType="phone" />
         </com.google.android.material.textfield.TextInputLayout>
 

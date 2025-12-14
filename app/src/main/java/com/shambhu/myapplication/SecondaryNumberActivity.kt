@@ -13,7 +13,7 @@ import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.shambhu.myapplication.adapter.SecondaryNumberPagerAdapter
+import com.shambhu.myapplication.adapter.page_adapter.SecondaryNumberPagerAdapter
 import com.shambhu.myapplication.databinding.ActivitySecondaryNumberBinding
 import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_DATE_OF_BIRTH
@@ -70,11 +70,10 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
             val tabText = tab.customView?.findViewById<TextView>(R.id.tab_text)
             tabIcon?.setImageDrawable(
                 when (position) {
-                    0 -> getDrawable(R.drawable.ic_mic)
-                    1 -> getDrawable(R.drawable.ic_personal)
-                    2 -> getDrawable(R.drawable.ic_mirrors)
-                    3 -> getDrawable(R.drawable.ic_mirrors)
-                    4 -> getDrawable(R.drawable.ic_mirrors)
+                    0 -> getDrawable(R.drawable.ic_element)
+                    1 -> getDrawable(R.drawable.ic_colors)
+                    2 -> getDrawable(R.drawable.ic_personal)
+                    3 -> getDrawable(R.drawable.ic_name)
                     else -> null
                 }
             )
@@ -83,8 +82,7 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
                     0 -> "Elements"
                     1 -> "Colors"
                     2 -> "Personal"
-                    3 -> "Lucky"
-                    4 -> "Font"
+                    3 -> "Name"
                     else -> null
                 }
             }

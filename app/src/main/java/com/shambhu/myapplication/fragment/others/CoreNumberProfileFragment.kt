@@ -13,16 +13,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.adapter.CommonAdapterUtil
-import com.shambhu.myapplication.adapter.NumeroAccordionAdapter
+import com.shambhu.myapplication.adapter.page_adapter.NumeroAccordionAdapter
 import com.shambhu.myapplication.databinding.FragmentCoreNumberProfileBinding
 import com.shambhu.myapplication.model.MulankBhagyankResponse
 import com.shambhu.myapplication.model.NumeroData
 import com.shambhu.myapplication.repository.CoreNumberRepository
-import com.shambhu.myapplication.repository.PersonalFortuneRepository
 import com.shambhu.myapplication.repository.impl.CoreNumberRepositoryImpl
-import com.shambhu.myapplication.repository.impl.PersonalFortuneRepositoryImpl
 import com.shambhu.myapplication.service.impl.CoreNumberServiceImpl
-import com.shambhu.myapplication.service.impl.PersonalFortuneServiceImpl
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.NumeroCalculator
 import kotlinx.coroutines.flow.launchIn

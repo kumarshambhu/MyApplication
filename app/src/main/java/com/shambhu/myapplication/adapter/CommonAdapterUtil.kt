@@ -3,6 +3,7 @@ package com.shambhu.myapplication.adapter
 import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.shambhu.myapplication.adapter.recycler_adapter.BulletPointRecyclerViewAdapter
 
 object CommonAdapterUtil {
     fun setupNumberBulletRecyclerViewAdapter(

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.shambhu.myapplication.R
-import com.shambhu.myapplication.adapter.CoreNumberRecyclerViewAdapter
+import com.shambhu.myapplication.adapter.recycler_adapter.CoreNumberRecyclerViewAdapter
 import com.shambhu.myapplication.databinding.FragmentCoreNumberBinding
 import com.shambhu.myapplication.model.CoreNumberAccordionItem
 import com.shambhu.myapplication.model.CoreNumberModel

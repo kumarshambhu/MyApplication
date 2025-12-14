@@ -12,7 +12,7 @@ import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.shambhu.myapplication.adapter.ExpandablePagerAdapter
+import com.shambhu.myapplication.adapter.page_adapter.ExpandablePagerAdapter
 import com.shambhu.myapplication.databinding.ActivityExpandableBinding
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_DATE_OF_BIRTH
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_FULL_NAME
@@ -64,23 +64,21 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             val tabText = tab.customView?.findViewById<TextView>(R.id.tab_text)
             tabIcon?.setImageDrawable(
                 when (position) {
-                    0 -> getDrawable(R.drawable.ic_mic)
-                    1 -> getDrawable(R.drawable.ic_mic)
-                    2 -> getDrawable(R.drawable.ic_mic)
-                    3 -> getDrawable(R.drawable.ic_mic)
-                    4 -> getDrawable(R.drawable.ic_mic)
-                    5 -> getDrawable(R.drawable.ic_mic)
+                    0 -> getDrawable(R.drawable.ic_pinnacle)
+                    1 -> getDrawable(R.drawable.ic_maturity)
+                    2 -> getDrawable(R.drawable.ic_success)
+                    3 -> getDrawable(R.drawable.ic_challenge)
+                    4 -> getDrawable(R.drawable.ic_mobile)
                     else -> null
                 }
             )
             if (tabText != null) {
                 tabText.text = when (position) {
-                    0 -> "Elements"
-                    1 -> "Name Grid"
-                    2 -> "Core"
-                    3 -> "Maturity"
-                    4 -> "Success"
-                    5 -> "Mobile"
+                    0 -> "Pinnacle"
+                    1 -> "Maturity"
+                    2 -> "Success"
+                    3 -> "Challenge"
+                    4 -> "Mobile"
                     else -> null
                 }
             }

@@ -1,5 +1,4 @@
-package com.shambhu.myapplication.adapter
-
+package com.shambhu.myapplication.adapter.recycler_adapter
 
 import android.view.LayoutInflater
 import android.view.View

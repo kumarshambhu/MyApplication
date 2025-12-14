@@ -52,10 +52,7 @@ class MobileNumerologyFragment : Fragment() {
 
     private fun setupViews() {
         // Set initial visibility
-        binding.parsedPairsCard.isVisible = false
         binding.resultsScrollView.isVisible = false
-        binding.emptyStateTextView.isVisible = true
-        binding.loadingIndicator.isVisible = false
     }
 
     private fun setupListeners() {
@@ -123,17 +120,11 @@ class MobileNumerologyFragment : Fragment() {
 
         // Display parsed pairs
         displayParsedPairs(parsedPairs)
-
-        // Show loading
-        binding.loadingIndicator.isVisible = true
-        binding.emptyStateTextView.isVisible = false
-
         // Search for combinations (simulate async)
         searchInBackground()
     }
 
     private fun displayParsedPairs(pairs: List<String>) {
-        binding.parsedPairsContainer.removeAllViews()
 
         pairs.forEach { pair ->
             val chip = Chip(requireContext()).apply {
@@ -155,23 +146,12 @@ class MobileNumerologyFragment : Fragment() {
                     true
                 }
             }
-            binding.parsedPairsContainer.addView(chip)
         }
 
-        binding.parsedPairsHeader.text = "Parsed Combinations (${pairs.size}):"
-        binding.parsedPairsCard.isVisible = true
     }
 
     private fun searchInBackground() {
-        // Simulate background processing
-        Thread {
-            Thread.sleep(500) // Small delay for UX
-
-            requireActivity().runOnUiThread {
-                binding.loadingIndicator.isVisible = false
-                performSearch()
-            }
-        }.start()
+        performSearch()
     }
 
     private fun performSearch() {
@@ -194,7 +174,6 @@ class MobileNumerologyFragment : Fragment() {
             if (foundCombinations.isNotEmpty()) {
                 displayResults(foundCombinations, notFoundPairs)
                 binding.resultsScrollView.isVisible = true
-                binding.emptyStateTextView.isVisible = false
             } else {
                 showNoResults(notFoundPairs)
             }
@@ -206,7 +185,6 @@ class MobileNumerologyFragment : Fragment() {
         notFoundPairs: List<String>
     ) {
         // Clear containers
-        binding.summaryContainer.removeAllViews()
         binding.resultsContainer.removeAllViews()
 
         // Display summary
@@ -254,7 +232,6 @@ class MobileNumerologyFragment : Fragment() {
             setPadding(0, 0, 0, 16)
         }
 
-        binding.summaryContainer.addView(summaryView)
     }
 
     private fun createCombinationView(combination: NumerologyMobileCombination): View {
@@ -351,36 +328,22 @@ class MobileNumerologyFragment : Fragment() {
     private fun showError(message: String) {
         binding.errorTextView.text = message
         binding.errorTextView.isVisible = true
-        binding.parsedPairsCard.isVisible = false
         binding.resultsScrollView.isVisible = false
-        binding.emptyStateTextView.isVisible = true
     }
 
     private fun showNoResults(notFoundPairs: List<String>) {
-        binding.emptyStateTextView.text = buildString {
-            append("No combinations found.\n")
-            if (notFoundPairs.isNotEmpty()) {
-                append("Invalid pairs: ${notFoundPairs.joinToString(", ")}")
-            }
-        }
-        binding.emptyStateTextView.isVisible = true
         binding.resultsScrollView.isVisible = false
     }
 
     private fun clearResults() {
-        binding.parsedPairsContainer.removeAllViews()
-        binding.summaryContainer.removeAllViews()
         binding.resultsContainer.removeAllViews()
-        binding.parsedPairsCard.isVisible = false
         binding.resultsScrollView.isVisible = false
         binding.errorTextView.isVisible = false
-        binding.loadingIndicator.isVisible = false
     }
 
     private fun clearAll() {
         binding.combinationsInput.text?.clear()
         clearResults()
-        binding.emptyStateTextView.isVisible = true
         parsedPairs.clear()
         foundCombinations.clear()
         binding.parsedTextView.isVisible = false

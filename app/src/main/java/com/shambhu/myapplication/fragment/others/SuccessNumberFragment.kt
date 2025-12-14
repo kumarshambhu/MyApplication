@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.gson.Gson
-import com.shambhu.myapplication.adapter.BulletPointRecyclerViewAdapter
+import com.shambhu.myapplication.adapter.recycler_adapter.BulletPointRecyclerViewAdapter
 import com.shambhu.myapplication.adapter.CommonAdapterUtil
 import com.shambhu.myapplication.databinding.FragmentSuccessNumberBinding
 import com.shambhu.myapplication.model.SuccessNumberResponse

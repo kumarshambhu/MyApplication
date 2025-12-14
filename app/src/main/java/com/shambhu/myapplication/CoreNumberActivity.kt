@@ -14,7 +14,7 @@ import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.shambhu.myapplication.adapter.CoreNumberPagerAdapter
+import com.shambhu.myapplication.adapter.page_adapter.CoreNumberPagerAdapter
 import com.shambhu.myapplication.databinding.ActivityCoreNumberBinding
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_DATE_OF_BIRTH
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_FULL_NAME
@@ -44,19 +44,19 @@ class CoreNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             val tabText = tab.customView?.findViewById<TextView>(R.id.tab_text)
 
             tabText?.text = when (position) {
-                0 -> "Core"
-                1 -> "Karmic"
-                2 -> "Pinnacle"
-                3 -> "Challenge"
+                0 -> "Number"
+                1 -> "Name"
+                2 -> "Karmic"
+                3 -> "Lucky"
                 4 -> "Grid"
                 else -> null
             }
             tabIcon?.setImageDrawable(
                 when (position) {
-                    0 -> getDrawable(R.drawable.ic_home)
-                    1 -> getDrawable(R.drawable.ic_karmic)
-                    2 -> getDrawable(R.drawable.ic_pinnacle)
-                    3 -> getDrawable(R.drawable.ic_challenge)
+                    0 -> getDrawable(R.drawable.ic_dob)
+                    1 -> getDrawable(R.drawable.ic_name)
+                    2 -> getDrawable(R.drawable.ic_karmic)
+                    3 -> getDrawable(R.drawable.ic_moon)
                     4 -> getDrawable(R.drawable.ic_grid)
                     else -> null
                 }

@@ -4,15 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="@color/white">
+    android:padding="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
-
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
 
         <!-- Results Section -->
@@ -21,9 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="@color/white"
-            >
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -35,9 +31,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/mystical_gradient_background"
+                    android:orientation="vertical"
                     android:padding="16dp">
 
                     <TextView
@@ -45,22 +41,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Common Lucky Numbers"
+                        android:textColor="@color/green_700"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/green_700" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/luckyNumbersText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="--"
-                        android:layout_marginTop="8dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Numbers favorable for both Mulank  Bhagyank"
-                        android:layout_marginTop="4dp" />
+                        android:layout_marginTop="8dp"
+                        android:text="--" />
 
                 </LinearLayout>
 
@@ -68,9 +58,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/mystical_gradient_background"
+                    android:orientation="vertical"
                     android:padding="16dp">
 
                     <TextView
@@ -78,22 +68,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Common Enemy Numbers"
+                        android:textColor="@color/red_600"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/red_600" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/enemyNumbersText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="--"
-                        android:layout_marginTop="8dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Numbers unfavorable for both Mulank  Bhagyank"
-                        android:layout_marginTop="4dp" />
+                        android:layout_marginTop="8dp"
+                        android:text="--" />
 
                 </LinearLayout>
 
@@ -101,9 +85,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/mystical_gradient_background"
+                    android:orientation="vertical"
                     android:padding="16dp">
 
                     <TextView
@@ -111,22 +95,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Common Neutral Numbers"
+                        android:textColor="@color/blue_600"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/blue_600" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/neutralNumbersText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="--"
-                        android:layout_marginTop="8dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Numbers neutral for both Mulank  Bhagyank"
-                        android:layout_marginTop="4dp" />
+                        android:layout_marginTop="8dp"
+                        android:text="--" />
 
                 </LinearLayout>
 
@@ -134,27 +112,28 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_marginTop="8dp"
                     android:background="@drawable/mystical_gradient_background"
-                    android:padding="16dp"
-                    android:layout_marginTop="8dp">
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:padding="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
                         android:text="Planet Information"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
                         android:textColor="@color/purple_700"
-                        android:layout_marginBottom="12dp" />
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <!-- Mulank Planet Info -->
                     <LinearLayout
                         android:id="@+id/mulankPlanetInfo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_marginBottom="12dp"
+                        android:orientation="vertical"
                         android:visibility="gone">
 
                         <TextView
@@ -162,23 +141,24 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Mulank: "
+                            android:textColor="@color/black"
                             android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/black" />
+                            android:textStyle="bold" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="4dp">
+                            android:layout_marginTop="4dp"
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:id="@+id/mulankLucky"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Lucky: "
-                                android:textSize="12sp"
-                                android:textColor="@color/green_700" />
+                                android:textColor="@color/green_700"
+                                android:textSize="12sp" />
 
                             <TextView
                                 android:id="@+id/mulankEnemy"
@@ -186,8 +166,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Enemy: "
-                                android:textSize="12sp"
-                                android:textColor="@color/red_600" />
+                                android:textColor="@color/red_600"
+                                android:textSize="12sp" />
 
                             <TextView
                                 android:id="@+id/mulankNeutral"
@@ -195,8 +175,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Neutral: "
-                                android:textSize="12sp"
-                                android:textColor="@color/blue_600" />
+                                android:textColor="@color/blue_600"
+                                android:textSize="12sp" />
 
                         </LinearLayout>
                     </LinearLayout>
@@ -214,15 +194,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Bhagyank: "
+                            android:textColor="@color/black"
                             android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/black" />
+                            android:textStyle="bold" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="4dp">
+                            android:layout_marginTop="4dp"
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/bhagyankLucky"
@@ -230,8 +210,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Lucky: "
-                                android:textSize="12sp"
-                                android:textColor="@color/green_700" />
+                                android:textColor="@color/green_700"
+                                android:textSize="12sp" />
 
                             <TextView
                                 android:id="@+id/bhagyankEnemy"
@@ -239,8 +219,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Enemy: "
-                                android:textSize="12sp"
-                                android:textColor="@color/red_600" />
+                                android:textColor="@color/red_600"
+                                android:textSize="12sp" />
 
                             <TextView
                                 android:id="@+id/bhagyankNeutral"
@@ -248,8 +228,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Neutral: "
-                                android:textSize="12sp"
-                                android:textColor="@color/blue_600" />
+                                android:textColor="@color/blue_600"
+                                android:textSize="12sp" />
 
                         </LinearLayout>
                     </LinearLayout>
@@ -261,17 +241,16 @@
                     android:id="@+id/errorTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:textColor="@color/red_600"
                     android:textSize="14sp"
-                    android:layout_marginTop="12dp"
                     android:visibility="gone" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
-</ScrollView>
-<!--
+</ScrollView><!--
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"

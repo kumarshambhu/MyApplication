@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
-import com.shambhu.myapplication.adapter.KarmicDebtRecyclerViewAdapter
-import com.shambhu.myapplication.adapter.KarmicLessonRecyclerViewAdapter
+import com.shambhu.myapplication.adapter.recycler_adapter.KarmicDebtRecyclerViewAdapter
+import com.shambhu.myapplication.adapter.recycler_adapter.KarmicLessonRecyclerViewAdapter
 import com.shambhu.myapplication.databinding.FragmentKarmicNumberBinding
 import com.shambhu.myapplication.model.KarmicAccordionItem
 import com.shambhu.myapplication.model.KarmicDebt

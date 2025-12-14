@@ -11,7 +11,7 @@ import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.shambhu.myapplication.adapter.MobilePagerAdapter
+import com.shambhu.myapplication.adapter.page_adapter.MobilePagerAdapter
 import com.shambhu.myapplication.databinding.ActivityMobileBinding
 
 class MobileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {

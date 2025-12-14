@@ -1,4 +1,4 @@
-package com.shambhu.myapplication.adapter
+package com.shambhu.myapplication.adapter.page_adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

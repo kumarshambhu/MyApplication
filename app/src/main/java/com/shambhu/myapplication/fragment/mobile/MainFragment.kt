@@ -25,8 +25,8 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnCalculate.setOnClickListener {
-            val dob = binding.etDob.text.toString().trim()
-            val mobile = binding.etMobile.text.toString().trim()
+            val dob = "17/03/1979"// binding.etDob.text.toString().trim()
+            val mobile = "9686391100"// binding.etMobile.text.toString().trim()
 
             if (dob.isEmpty()) {
                 binding.etDob.error = "Please enter Date of Birth"

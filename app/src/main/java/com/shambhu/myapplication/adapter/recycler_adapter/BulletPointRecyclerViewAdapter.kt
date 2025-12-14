@@ -1,9 +1,8 @@
-package com.shambhu.myapplication.adapter
+package com.shambhu.myapplication.adapter.recycler_adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.shambhu.myapplication.databinding.ItemBulletPointBinding
 
