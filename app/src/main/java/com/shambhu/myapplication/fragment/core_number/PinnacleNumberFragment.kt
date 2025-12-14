@@ -26,11 +26,7 @@ class PinnacleNumberFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let {
-            val date = CommonUtils.parseDate(it.getString(Constants.ARG_DOB).toString())
-            val day = date.dayOfMonth
-            val month = date.monthValue
-            val year = date.year
-
+            val (day, month, year) = CommonUtils.parseDateTriple(it.getString(Constants.ARG_DOB).toString())
 
             val pinnacleNumbers = NumerologyCalculationUtils.calculatePinnacleNumbers(day, month, year)
             val ageRanges = NumerologyCalculationUtils.calculatePinnacleNumberAgeRanges(day, month, year)

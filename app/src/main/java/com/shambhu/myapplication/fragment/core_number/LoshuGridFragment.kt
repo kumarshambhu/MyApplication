@@ -141,10 +141,10 @@ class LoshuGridFragment : Fragment() {
                         LoshuGridPlaneAccordionItem(
                             "Missing Number: $i",
                             "",
-                            content = convertToHtml(content),
+                            content = "",
                             traitsHeading = "Impacts",
                             traits = traits,
-                            remedies = emptyList(),
+                            remedies = remedies,
                             imageSource = "",
                             backgroundColor = R.drawable.missing_number_background,
                             headerColor = 0,
@@ -183,7 +183,8 @@ class LoshuGridFragment : Fragment() {
                             LoshuGridPlaneAccordionItem(
                                 "Repeating Number: $i (x$count)",
                                 "",
-                                content = convertToHtml(content),
+                                //content = convertToHtml(content),
+                                content = "",
                                 traitsHeading = "Effects",
                                 traits = traits,
                                 remedies = emptyList(),
@@ -258,20 +259,26 @@ class LoshuGridFragment : Fragment() {
         presentNumbers: List<Int>,
         planesJsonArray: JSONArray,
         backgroundColor: Int,
-        headerColor: Int
-    ): LoshuGridPlaneAccordionItem {
-        return LoshuGridPlaneAccordionItem(
-            header = header,
-            presentNumber = getPresentNumbers(planeNumbers, presentNumbers),
-            content = getPlaneMessage(planeName, presentNumbers, planesJsonArray),
-            traitsHeading = "Traits",
-            traits = getPlaneTraits(planeName, presentNumbers, planesJsonArray),
-            remedies = emptyList(),
-            imageSource = "ic_moon",
-            backgroundColor = backgroundColor,
-            headerColor = headerColor,
-            isExpanded = false
-        )
+        headerColor: Int,
+        loshuPlaneItems1: MutableList<LoshuGridPlaneAccordionItem>
+    ) {
+        val traits = getPlaneTraits(planeName, presentNumbers, planesJsonArray)
+        if (traits.isNotEmpty()) {
+            loshuPlaneItems1.add(
+                LoshuGridPlaneAccordionItem(
+                    header = header,
+                    presentNumber = getPresentNumbers(planeNumbers, presentNumbers),
+                    content = "",//getPlaneMessage(planeName, presentNumbers, planesJsonArray),
+                    traitsHeading = "Traits",
+                    traits = traits,
+                    remedies = emptyList(),
+                    imageSource = "ic_moon",
+                    backgroundColor = backgroundColor,
+                    headerColor = headerColor,
+                    isExpanded = false
+                )
+            )
+        }
     }
 
     private fun createLoshuPlaneItemForRecyclerView(loshuPlanes: LoshuGridPlanes) {
@@ -280,73 +287,63 @@ class LoshuGridFragment : Fragment() {
         val jsonObject = JSONObject(planeMeanings)
         val jsonArray = jsonObject.getJSONArray("planes")
 
-        loshuPlaneItems.add(
-            createLoshuGridPlaneAccordionItem(
-                "Mental Plane(4, 9, 2)", "mental_plane", listOf(4, 9, 2),
-                loshuPlanes.mentalPlane, jsonArray,
-                R.drawable.mental_plane_background, R.color.mental_plane_header
-            )
+        createLoshuGridPlaneAccordionItem(
+            "Mental Plane(4, 9, 2)", "mental_plane", listOf(4, 9, 2),
+            loshuPlanes.mentalPlane, jsonArray,
+            R.drawable.mental_plane_background, R.color.mental_plane_header, loshuPlaneItems
         )
 
-        loshuPlaneItems.add(
-            createLoshuGridPlaneAccordionItem(
-                "Emotional Plane(3, 5, 7)", "heart_plane", listOf(3, 5, 7),
-                loshuPlanes.emotionalPlane, jsonArray,
-                R.drawable.emotional_plane_background, R.color.emotional_plane_header
-            )
+        createLoshuGridPlaneAccordionItem(
+            "Emotional Plane(3, 5, 7)", "heart_plane", listOf(3, 5, 7),
+            loshuPlanes.emotionalPlane, jsonArray,
+            R.drawable.emotional_plane_background, R.color.emotional_plane_header, loshuPlaneItems
         )
 
-        loshuPlaneItems.add(
-            createLoshuGridPlaneAccordionItem(
-                "Practical Plane(8, 1, 6)", "practical_plane", listOf(8, 1, 6),
-                loshuPlanes.practicalPlane, jsonArray,
-                R.drawable.practical_plane_background, R.color.practical_plane_header
-            )
+        createLoshuGridPlaneAccordionItem(
+            "Practical Plane(8, 1, 6)", "practical_plane", listOf(8, 1, 6),
+            loshuPlanes.practicalPlane, jsonArray,
+            R.drawable.practical_plane_background, R.color.practical_plane_header, loshuPlaneItems
         )
 
-        loshuPlaneItems.add(
-            createLoshuGridPlaneAccordionItem(
-                "Thought Plane(4, 3, 8)", "vision_plane", listOf(4, 3, 8),
-                loshuPlanes.thoughtPlane, jsonArray,
-                R.drawable.thought_plane_background, R.color.thought_plane_header
-            )
+        createLoshuGridPlaneAccordionItem(
+            "Thought Plane(4, 3, 8)", "vision_plane", listOf(4, 3, 8),
+            loshuPlanes.thoughtPlane, jsonArray,
+            R.drawable.thought_plane_background, R.color.thought_plane_header, loshuPlaneItems
+        )
+        createLoshuGridPlaneAccordionItem(
+            "Will Plane(9, 5, 1)", "will_plane", listOf(9, 5, 1),
+            loshuPlanes.willPlane, jsonArray,
+            R.drawable.will_plane_background, R.color.will_plane_header, loshuPlaneItems
+        )
+        createLoshuGridPlaneAccordionItem(
+            "Action Plane(2, 7, 6)", "action_plane", listOf(2, 7, 6),
+            loshuPlanes.actionPlane, jsonArray,
+            R.drawable.action_plane_background, R.color.action_plane_header, loshuPlaneItems
+        )
+        createLoshuGridPlaneAccordionItem(
+            "Silver Success Plane(4, 5, 6)",
+            "silver_success_plane",
+            listOf(4, 5, 6),
+            loshuPlanes.silverSuccessPlane,
+            jsonArray,
+            R.drawable.silver_success_plane_background,
+            R.color.silver_success_plane_header,
+            loshuPlaneItems
+        )
+        createLoshuGridPlaneAccordionItem(
+            "Golden Success Plane(2, 5, 8)",
+            "golden_success_plane",
+            listOf(2, 5, 8),
+            loshuPlanes.goldenSuccessPlane,
+            jsonArray,
+            R.drawable.golden_success_plane_background,
+            R.color.golden_success_plane_header,
+            loshuPlaneItems
         )
 
-        loshuPlaneItems.add(
-            createLoshuGridPlaneAccordionItem(
-                "Will Plane(9, 5, 1)", "will_plane", listOf(9, 5, 1),
-                loshuPlanes.willPlane, jsonArray,
-                R.drawable.will_plane_background, R.color.will_plane_header
-            )
-        )
-
-        loshuPlaneItems.add(
-            createLoshuGridPlaneAccordionItem(
-                "Action Plane(2, 7, 6)", "action_plane", listOf(2, 7, 6),
-                loshuPlanes.actionPlane, jsonArray,
-                R.drawable.action_plane_background, R.color.action_plane_header
-            )
-        )
-
-        loshuPlaneItems.add(
-            createLoshuGridPlaneAccordionItem(
-                "Silver Success Plane(4, 5, 6)", "silver_success_plane", listOf(4, 5, 6),
-                loshuPlanes.silverSuccessPlane, jsonArray,
-                R.drawable.silver_success_plane_background, R.color.silver_success_plane_header
-            )
-        )
-
-        loshuPlaneItems.add(
-            createLoshuGridPlaneAccordionItem(
-                "Golden Success Plane(2, 5, 8)", "golden_success_plane", listOf(2, 5, 8),
-                loshuPlanes.goldenSuccessPlane, jsonArray,
-                R.drawable.golden_success_plane_background, R.color.golden_success_plane_header
-            )
-        )
         println(loshuPlaneItems)
         setupRecyclerView(binding.planeRecyclerView, loshuPlaneItems)
     }
-
 
 
     private fun updateCell(textView: TextView, number: Int, count: Int) {

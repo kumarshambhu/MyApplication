@@ -82,7 +82,23 @@
                 />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/loshuRecyclerView"
+                android:id="@+id/traitsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                style="@style/Theme.YourApp.CardText.Primary.Content"
+                android:id="@+id/remedyHeader"
+                android:layout_width="match_parent"
+                android:textColor="@color/colorAccent"
+                android:layout_height="wrap_content"
+                android:text="Remedies"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/remediesRecyclerView"
+                android:outlineAmbientShadowColor="@color/primary_text"
+                android:outlineSpotShadowColor="@color/primary_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

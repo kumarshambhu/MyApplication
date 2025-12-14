@@ -11,9 +11,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 
-class MaturityRepositoryImpl(
-    private val maturityService: MaturityService
-) : MaturityRepository {
+class MaturityRepositoryImpl(private val maturityService: MaturityService) : MaturityRepository {
     override fun getMaturityInterpretation(
         context: Context,
         maturityNumber: Int

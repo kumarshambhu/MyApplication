@@ -35,10 +35,22 @@ class LoshuGridPlaneRecyclerViewAdapter(
         } else {
             holder.binding.planePresentNumber.visibility = View.GONE
         }
-        //holder.binding.planeDescription.text = content
+        if(content.isNotEmpty()) {
+            holder.binding.planeDescription.text =content
+        } else{
+            holder.binding.planeDescription.visibility = View.GONE
+        }
+
         holder.binding.traitsHeader.text = traitsHeader
         if(traits.isNotEmpty()){
-            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(context, holder.binding.loshuRecyclerView, traits)
+            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(context, holder.binding.traitsRecyclerView, traits)
+        }
+
+        if(remedies.isNotEmpty()){
+            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(context, holder.binding.remediesRecyclerView, remedies)
+        } else{
+            holder.binding.remedyHeader.visibility = View.GONE
+            holder.binding.remediesRecyclerView.visibility = View.GONE
         }
 
         if (imageSource.isNotEmpty()) {
