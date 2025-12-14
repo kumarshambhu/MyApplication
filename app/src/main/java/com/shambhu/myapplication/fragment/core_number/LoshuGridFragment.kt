@@ -251,6 +251,29 @@ class LoshuGridFragment : Fragment() {
             .joinToString(", ")
     }
 
+    private fun createLoshuGridPlaneAccordionItem(
+        header: String,
+        planeName: String,
+        planeNumbers: List<Int>,
+        presentNumbers: List<Int>,
+        planesJsonArray: JSONArray,
+        backgroundColor: Int,
+        headerColor: Int
+    ): LoshuGridPlaneAccordionItem {
+        return LoshuGridPlaneAccordionItem(
+            header = header,
+            presentNumber = getPresentNumbers(planeNumbers, presentNumbers),
+            content = getPlaneMessage(planeName, presentNumbers, planesJsonArray),
+            traitsHeading = "Traits",
+            traits = getPlaneTraits(planeName, presentNumbers, planesJsonArray),
+            remedies = emptyList(),
+            imageSource = "ic_moon",
+            backgroundColor = backgroundColor,
+            headerColor = headerColor,
+            isExpanded = false
+        )
+    }
+
     private fun createLoshuPlaneItemForRecyclerView(loshuPlanes: LoshuGridPlanes) {
         val loshuPlaneItems = mutableListOf<LoshuGridPlaneAccordionItem>()
         val planeMeanings = CommonUtils.readAssetFile(requireContext(), "plane.json")
@@ -258,132 +281,66 @@ class LoshuGridFragment : Fragment() {
         val jsonArray = jsonObject.getJSONArray("planes")
 
         loshuPlaneItems.add(
-            LoshuGridPlaneAccordionItem(
-                "Mental Plane(4, 9, 2)",
-                getPresentNumbers(listOf(4, 9, 2), loshuPlanes.mentalPlane),
-                content = getPlaneMessage("mental_plane", loshuPlanes.mentalPlane, jsonArray),
-                traitsHeading = "Traits",
-                traits = getPlaneTraits("mental_plane", loshuPlanes.mentalPlane, jsonArray),
-                remedies = emptyList(),
-                imageSource = "ic_moon",
-                backgroundColor = R.drawable.mental_plane_background,
-                headerColor = R.color.mental_plane_header,
-                isExpanded = false
+            createLoshuGridPlaneAccordionItem(
+                "Mental Plane(4, 9, 2)", "mental_plane", listOf(4, 9, 2),
+                loshuPlanes.mentalPlane, jsonArray,
+                R.drawable.mental_plane_background, R.color.mental_plane_header
             )
         )
 
         loshuPlaneItems.add(
-            LoshuGridPlaneAccordionItem(
-                "Emotional Plane(3, 5, 7)",
-                getPresentNumbers(listOf(3, 5, 7), loshuPlanes.emotionalPlane),
-                content = getPlaneMessage("heart_plane", loshuPlanes.emotionalPlane, jsonArray),
-                traitsHeading = "Traits",
-                traits = getPlaneTraits("heart_plane", loshuPlanes.emotionalPlane, jsonArray),
-                remedies = emptyList(),
-                imageSource = "ic_moon",
-                backgroundColor = R.drawable.emotional_plane_background,
-                headerColor = R.color.emotional_plane_header,
-                isExpanded = false
+            createLoshuGridPlaneAccordionItem(
+                "Emotional Plane(3, 5, 7)", "heart_plane", listOf(3, 5, 7),
+                loshuPlanes.emotionalPlane, jsonArray,
+                R.drawable.emotional_plane_background, R.color.emotional_plane_header
             )
         )
 
         loshuPlaneItems.add(
-            LoshuGridPlaneAccordionItem(
-                "Practical Plane(8, 1, 6)",
-                getPresentNumbers(listOf(8, 1, 6), loshuPlanes.practicalPlane),
-                content = getPlaneMessage("practical_plane", loshuPlanes.practicalPlane, jsonArray),
-                traitsHeading = "Traits",
-                traits = getPlaneTraits("practical_plane", loshuPlanes.practicalPlane, jsonArray),
-                remedies = emptyList(),
-                imageSource = "ic_moon",
-                backgroundColor = R.drawable.practical_plane_background,
-                headerColor = R.color.practical_plane_header,
-                isExpanded = false
-            )
-        )
-        loshuPlaneItems.add(
-            LoshuGridPlaneAccordionItem(
-                "Thought Plane(4, 3, 8)",
-                getPresentNumbers(listOf(4, 3, 8), loshuPlanes.thoughtPlane),
-                content = getPlaneMessage("vision_plane", loshuPlanes.thoughtPlane, jsonArray),
-                traitsHeading = "Traits",
-                traits = getPlaneTraits("vision_plane", loshuPlanes.thoughtPlane, jsonArray),
-                remedies = emptyList(),
-                imageSource = "ic_moon",
-                backgroundColor = R.drawable.thought_plane_background,
-                headerColor = R.color.thought_plane_header,
-                isExpanded = false
-            )
-        )
-        loshuPlaneItems.add(
-            LoshuGridPlaneAccordionItem(
-                "Will Plane(9, 5, 1)",
-                getPresentNumbers(listOf(9, 5, 1), loshuPlanes.willPlane),
-                content = getPlaneMessage("will_plane", loshuPlanes.willPlane, jsonArray),
-                traitsHeading = "Traits",
-                traits = getPlaneTraits("will_plane", loshuPlanes.willPlane, jsonArray),
-                remedies = emptyList(),
-                imageSource = "ic_moon",
-                backgroundColor = R.drawable.will_plane_background,
-                headerColor = R.color.will_plane_header,
-                isExpanded = false
-            )
-        )
-        loshuPlaneItems.add(
-            LoshuGridPlaneAccordionItem(
-                "Action Plane(2, 7, 6)",
-                getPresentNumbers(listOf(2, 7, 6), loshuPlanes.actionPlane),
-                content = getPlaneMessage("action_plane", loshuPlanes.actionPlane, jsonArray),
-                traitsHeading = "Traits",
-                traits = getPlaneTraits("action_plane", loshuPlanes.actionPlane, jsonArray),
-                remedies = emptyList(),
-                imageSource = "ic_moon",
-                backgroundColor = R.drawable.action_plane_background,
-                headerColor = R.color.action_plane_header,
-                isExpanded = false
-            )
-        )
-        loshuPlaneItems.add(
-            LoshuGridPlaneAccordionItem(
-                "Silver Success Plane(4, 5, 6)",
-                getPresentNumbers(listOf(4, 5, 6), loshuPlanes.silverSuccessPlane),
-                content = getPlaneMessage(
-                    "silver_success_plane", loshuPlanes.silverSuccessPlane, jsonArray
-                ),
-                traitsHeading = "Traits",
-                traits = getPlaneTraits(
-                    "silver_success_plane",
-                    loshuPlanes.silverSuccessPlane,
-                    jsonArray
-                ),
-                remedies = emptyList(),
-                imageSource = "ic_moon",
-                backgroundColor = R.drawable.silver_success_plane_background,
-                headerColor = R.color.silver_success_plane_header,
-                isExpanded = false
+            createLoshuGridPlaneAccordionItem(
+                "Practical Plane(8, 1, 6)", "practical_plane", listOf(8, 1, 6),
+                loshuPlanes.practicalPlane, jsonArray,
+                R.drawable.practical_plane_background, R.color.practical_plane_header
             )
         )
 
         loshuPlaneItems.add(
-            LoshuGridPlaneAccordionItem(
-                "Golden Success Plane(2, 5, 8)",
-                getPresentNumbers(listOf(2, 5, 8), loshuPlanes.goldenSuccessPlane),
-                content = getPlaneMessage(
-                    "golden_success_plane",
-                    loshuPlanes.goldenSuccessPlane,
-                    jsonArray
-                ),
-                traitsHeading = "Traits",
-                traits = getPlaneTraits(
-                    "golden_success_plane",
-                    loshuPlanes.goldenSuccessPlane,
-                    jsonArray
-                ),
-                remedies = emptyList(),
-                imageSource = "ic_moon",
-                backgroundColor = R.drawable.golden_success_plane_background,
-                headerColor = R.color.golden_success_plane_header,
-                isExpanded = false
+            createLoshuGridPlaneAccordionItem(
+                "Thought Plane(4, 3, 8)", "vision_plane", listOf(4, 3, 8),
+                loshuPlanes.thoughtPlane, jsonArray,
+                R.drawable.thought_plane_background, R.color.thought_plane_header
+            )
+        )
+
+        loshuPlaneItems.add(
+            createLoshuGridPlaneAccordionItem(
+                "Will Plane(9, 5, 1)", "will_plane", listOf(9, 5, 1),
+                loshuPlanes.willPlane, jsonArray,
+                R.drawable.will_plane_background, R.color.will_plane_header
+            )
+        )
+
+        loshuPlaneItems.add(
+            createLoshuGridPlaneAccordionItem(
+                "Action Plane(2, 7, 6)", "action_plane", listOf(2, 7, 6),
+                loshuPlanes.actionPlane, jsonArray,
+                R.drawable.action_plane_background, R.color.action_plane_header
+            )
+        )
+
+        loshuPlaneItems.add(
+            createLoshuGridPlaneAccordionItem(
+                "Silver Success Plane(4, 5, 6)", "silver_success_plane", listOf(4, 5, 6),
+                loshuPlanes.silverSuccessPlane, jsonArray,
+                R.drawable.silver_success_plane_background, R.color.silver_success_plane_header
+            )
+        )
+
+        loshuPlaneItems.add(
+            createLoshuGridPlaneAccordionItem(
+                "Golden Success Plane(2, 5, 8)", "golden_success_plane", listOf(2, 5, 8),
+                loshuPlanes.goldenSuccessPlane, jsonArray,
+                R.drawable.golden_success_plane_background, R.color.golden_success_plane_header
             )
         )
         println(loshuPlaneItems)
