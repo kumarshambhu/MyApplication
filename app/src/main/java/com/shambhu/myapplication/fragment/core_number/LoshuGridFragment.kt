@@ -116,7 +116,10 @@ class LoshuGridFragment : Fragment() {
         }
     }
 
-    private fun createMissingNumberAccordionItems(numberCounts: IntArray, missingNumberData: MissingNumberData) {
+    private fun createMissingNumberAccordionItems(
+        numberCounts: IntArray,
+        missingNumberData: MissingNumberData
+    ) {
         val missingNumberItems = mutableListOf<LoshuGridPlaneAccordionItem>()
         val missingNumberMap = missingNumberData.missingNumbers.associateBy { it.number }
 
@@ -124,8 +127,14 @@ class LoshuGridFragment : Fragment() {
             if (numberCounts[i] == 0) {
                 missingNumberMap[i]?.let { missingNumber ->
                     var content = "<ul>"
+                    val traits = mutableListOf<String>()
                     missingNumber.impacts.forEach { impact ->
                         content += "<li>$impact</li>"
+                        traits.add(impact)
+                    }
+                    var remedies = mutableListOf<String>()
+                    missingNumber.remedies.forEach { impact ->
+                        remedies.add(impact)
                     }
                     content += "</ul>"
                     missingNumberItems.add(
@@ -133,6 +142,9 @@ class LoshuGridFragment : Fragment() {
                             "Missing Number: $i",
                             "",
                             content = convertToHtml(content),
+                            traitsHeading = "Impacts",
+                            traits = traits,
+                            remedies = emptyList(),
                             imageSource = "",
                             backgroundColor = R.drawable.missing_number_background,
                             headerColor = 0,
@@ -145,7 +157,10 @@ class LoshuGridFragment : Fragment() {
         setupRecyclerView(binding.missingNumberRecyclerView, missingNumberItems)
     }
 
-    private fun createRepeatingNumberAccordionItems(numberCounts: IntArray, repetitiveNumberData: RepetitiveNumberData) {
+    private fun createRepeatingNumberAccordionItems(
+        numberCounts: IntArray,
+        repetitiveNumberData: RepetitiveNumberData
+    ) {
         val repeatingNumberItems = mutableListOf<LoshuGridPlaneAccordionItem>()
         val repetitiveNumberMap = repetitiveNumberData.repetitiveNumbers.associateBy { it.number }
 
@@ -153,12 +168,15 @@ class LoshuGridFragment : Fragment() {
             val count = numberCounts[i]
             if (count > 1) {
                 repetitiveNumberMap[i]?.let { repetitiveNumber ->
-                    val foundOccurrence = repetitiveNumber.occurrences.find { it.count.matches(count) }
+                    val foundOccurrence =
+                        repetitiveNumber.occurrences.find { it.count.matches(count) }
 
                     foundOccurrence?.let { occurrence ->
                         var content = "<ul>"
+                        var traits = mutableListOf<String>()
                         occurrence.effects.forEach { effect ->
                             content += "<li>$effect</li>"
+                            traits.add(effect)
                         }
                         content += "</ul>"
                         repeatingNumberItems.add(
@@ -166,6 +184,9 @@ class LoshuGridFragment : Fragment() {
                                 "Repeating Number: $i (x$count)",
                                 "",
                                 content = convertToHtml(content),
+                                traitsHeading = "Effects",
+                                traits = traits,
+                                remedies = emptyList(),
                                 imageSource = "",
                                 backgroundColor = R.drawable.repeating_number_background,
                                 headerColor = 0,
@@ -211,6 +232,20 @@ class LoshuGridFragment : Fragment() {
         }
     }
 
+    private fun getPlaneTraits(
+        planeName: String,
+        availableNumbers: List<Int>,
+        planesJsonArray: JSONArray
+    ): List<String> {
+        val title = availableNumbers.joinToString(", ")
+        val section = searchPlane(planeName, title, planesJsonArray)
+        var traits = mutableListOf<String>()
+        section?.traits?.iterator()?.forEach {
+            traits.add(it)
+        }
+        return traits
+    }
+
     private fun getPresentNumbers(planeNumbers: List<Int>, missingNumbers: List<Int>): String {
         return "Present Number: " + planeNumbers.filter { missingNumbers.contains(it) }
             .joinToString(", ")
@@ -226,13 +261,13 @@ class LoshuGridFragment : Fragment() {
             LoshuGridPlaneAccordionItem(
                 "Mental Plane(4, 9, 2)",
                 getPresentNumbers(listOf(4, 9, 2), loshuPlanes.mentalPlane),
-                content = getPlaneMessage(
-                    "mental_plane",
-                    loshuPlanes.mentalPlane, jsonArray
-                ),
+                content = getPlaneMessage("mental_plane", loshuPlanes.mentalPlane, jsonArray),
+                traitsHeading = "Traits",
+                traits = getPlaneTraits("mental_plane", loshuPlanes.mentalPlane, jsonArray),
+                remedies = emptyList(),
                 imageSource = "ic_moon",
                 backgroundColor = R.drawable.mental_plane_background,
-                headerColor =  R.color.mental_plane_header,
+                headerColor = R.color.mental_plane_header,
                 isExpanded = false
             )
         )
@@ -242,6 +277,9 @@ class LoshuGridFragment : Fragment() {
                 "Emotional Plane(3, 5, 7)",
                 getPresentNumbers(listOf(3, 5, 7), loshuPlanes.emotionalPlane),
                 content = getPlaneMessage("heart_plane", loshuPlanes.emotionalPlane, jsonArray),
+                traitsHeading = "Traits",
+                traits = getPlaneTraits("heart_plane", loshuPlanes.emotionalPlane, jsonArray),
+                remedies = emptyList(),
                 imageSource = "ic_moon",
                 backgroundColor = R.drawable.emotional_plane_background,
                 headerColor = R.color.emotional_plane_header,
@@ -254,6 +292,9 @@ class LoshuGridFragment : Fragment() {
                 "Practical Plane(8, 1, 6)",
                 getPresentNumbers(listOf(8, 1, 6), loshuPlanes.practicalPlane),
                 content = getPlaneMessage("practical_plane", loshuPlanes.practicalPlane, jsonArray),
+                traitsHeading = "Traits",
+                traits = getPlaneTraits("practical_plane", loshuPlanes.practicalPlane, jsonArray),
+                remedies = emptyList(),
                 imageSource = "ic_moon",
                 backgroundColor = R.drawable.practical_plane_background,
                 headerColor = R.color.practical_plane_header,
@@ -264,7 +305,10 @@ class LoshuGridFragment : Fragment() {
             LoshuGridPlaneAccordionItem(
                 "Thought Plane(4, 3, 8)",
                 getPresentNumbers(listOf(4, 3, 8), loshuPlanes.thoughtPlane),
-                content = getPlaneMessage("vision_plane", loshuPlanes.thoughtPlane,jsonArray),
+                content = getPlaneMessage("vision_plane", loshuPlanes.thoughtPlane, jsonArray),
+                traitsHeading = "Traits",
+                traits = getPlaneTraits("vision_plane", loshuPlanes.thoughtPlane, jsonArray),
+                remedies = emptyList(),
                 imageSource = "ic_moon",
                 backgroundColor = R.drawable.thought_plane_background,
                 headerColor = R.color.thought_plane_header,
@@ -276,6 +320,9 @@ class LoshuGridFragment : Fragment() {
                 "Will Plane(9, 5, 1)",
                 getPresentNumbers(listOf(9, 5, 1), loshuPlanes.willPlane),
                 content = getPlaneMessage("will_plane", loshuPlanes.willPlane, jsonArray),
+                traitsHeading = "Traits",
+                traits = getPlaneTraits("will_plane", loshuPlanes.willPlane, jsonArray),
+                remedies = emptyList(),
                 imageSource = "ic_moon",
                 backgroundColor = R.drawable.will_plane_background,
                 headerColor = R.color.will_plane_header,
@@ -287,6 +334,9 @@ class LoshuGridFragment : Fragment() {
                 "Action Plane(2, 7, 6)",
                 getPresentNumbers(listOf(2, 7, 6), loshuPlanes.actionPlane),
                 content = getPlaneMessage("action_plane", loshuPlanes.actionPlane, jsonArray),
+                traitsHeading = "Traits",
+                traits = getPlaneTraits("action_plane", loshuPlanes.actionPlane, jsonArray),
+                remedies = emptyList(),
                 imageSource = "ic_moon",
                 backgroundColor = R.drawable.action_plane_background,
                 headerColor = R.color.action_plane_header,
@@ -297,7 +347,16 @@ class LoshuGridFragment : Fragment() {
             LoshuGridPlaneAccordionItem(
                 "Silver Success Plane(4, 5, 6)",
                 getPresentNumbers(listOf(4, 5, 6), loshuPlanes.silverSuccessPlane),
-                content = getPlaneMessage("silver_success_plane", loshuPlanes.silverSuccessPlane, jsonArray),
+                content = getPlaneMessage(
+                    "silver_success_plane", loshuPlanes.silverSuccessPlane, jsonArray
+                ),
+                traitsHeading = "Traits",
+                traits = getPlaneTraits(
+                    "silver_success_plane",
+                    loshuPlanes.silverSuccessPlane,
+                    jsonArray
+                ),
+                remedies = emptyList(),
                 imageSource = "ic_moon",
                 backgroundColor = R.drawable.silver_success_plane_background,
                 headerColor = R.color.silver_success_plane_header,
@@ -309,7 +368,18 @@ class LoshuGridFragment : Fragment() {
             LoshuGridPlaneAccordionItem(
                 "Golden Success Plane(2, 5, 8)",
                 getPresentNumbers(listOf(2, 5, 8), loshuPlanes.goldenSuccessPlane),
-                content = getPlaneMessage("golden_success_plane", loshuPlanes.goldenSuccessPlane, jsonArray),
+                content = getPlaneMessage(
+                    "golden_success_plane",
+                    loshuPlanes.goldenSuccessPlane,
+                    jsonArray
+                ),
+                traitsHeading = "Traits",
+                traits = getPlaneTraits(
+                    "golden_success_plane",
+                    loshuPlanes.goldenSuccessPlane,
+                    jsonArray
+                ),
+                remedies = emptyList(),
                 imageSource = "ic_moon",
                 backgroundColor = R.drawable.golden_success_plane_background,
                 headerColor = R.color.golden_success_plane_header,
@@ -320,6 +390,8 @@ class LoshuGridFragment : Fragment() {
         setupRecyclerView(binding.planeRecyclerView, loshuPlaneItems)
     }
 
+
+
     private fun updateCell(textView: TextView, number: Int, count: Int) {
         if (count > 0) {
             textView.text = number.toString().repeat(count)
@@ -328,7 +400,10 @@ class LoshuGridFragment : Fragment() {
         }
     }
 
-    private fun setupRecyclerView(recyclerView: androidx.recyclerview.widget.RecyclerView, gridItems: MutableList<LoshuGridPlaneAccordionItem>) {
+    private fun setupRecyclerView(
+        recyclerView: androidx.recyclerview.widget.RecyclerView,
+        gridItems: MutableList<LoshuGridPlaneAccordionItem>
+    ) {
         var expandedPosition = -1
         val adapter =
             LoshuGridPlaneRecyclerViewAdapter(gridItems, this.requireContext()) { position ->
@@ -379,6 +454,7 @@ class LoshuGridFragment : Fragment() {
                 if (!planeVisibility) binding.planeRecyclerView.visibility = View.VISIBLE
                 true
             }
+
             R.id.action_toggle_missing_number -> {
                 if (!missingVisibility) binding.missingNumberRecyclerView.visibility = View.VISIBLE
                 true
@@ -388,6 +464,7 @@ class LoshuGridFragment : Fragment() {
                 if (!repeatVisibility) binding.repeatNumberRecyclerView.visibility = View.VISIBLE
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }

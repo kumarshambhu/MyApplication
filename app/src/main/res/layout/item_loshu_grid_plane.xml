@@ -73,6 +73,18 @@
                 android:layout_height="wrap_content"
                 android:text="@string/interpretation"
                 />
+            <TextView
+                style="@style/Theme.YourApp.CardText.Primary.Content"
+                android:id="@+id/traitsHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/interpretation"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/loshuRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 

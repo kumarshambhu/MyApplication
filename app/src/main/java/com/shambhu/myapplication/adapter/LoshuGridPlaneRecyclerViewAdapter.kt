@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.shambhu.myapplication.databinding.ItemLoshuGridPlaneBinding
 import com.shambhu.myapplication.model.LoshuGridPlaneAccordionItem
+import com.shambhu.myapplication.utils.CommonUtils
 
 class LoshuGridPlaneRecyclerViewAdapter(
     private val coreNumbers: List<LoshuGridPlaneAccordionItem>,
@@ -27,14 +28,18 @@ class LoshuGridPlaneRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val (header, title, content, imageSource, backgroundColor, headerColor, expanded) = coreNumbers[position]
+        val (header, title, content,  traitsHeader, traits, remedies, imageSource, backgroundColor, headerColor, expanded) = coreNumbers[position]
         holder.binding.planeName.text = header
         if (title.isNotEmpty()) {
             holder.binding.planePresentNumber.text = title
         } else {
             holder.binding.planePresentNumber.visibility = View.GONE
         }
-        holder.binding.planeDescription.text = content
+        //holder.binding.planeDescription.text = content
+        holder.binding.traitsHeader.text = traitsHeader
+        if(traits.isNotEmpty()){
+            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(context, holder.binding.loshuRecyclerView, traits)
+        }
 
         if (imageSource.isNotEmpty()) {
             val resId = context.getDrawableResourceByName(imageSource)
