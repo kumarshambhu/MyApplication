@@ -69,6 +69,7 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                     2 -> getDrawable(R.drawable.ic_success)
                     3 -> getDrawable(R.drawable.ic_challenge)
                     4 -> getDrawable(R.drawable.ic_mobile)
+                    5 -> getDrawable(R.drawable.ic_grid)
                     else -> null
                 }
             )
@@ -79,6 +80,7 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                     2 -> "Success"
                     3 -> "Challenge"
                     4 -> "Mobile"
+                    5 -> "Careers"
                     else -> null
                 }
             }
