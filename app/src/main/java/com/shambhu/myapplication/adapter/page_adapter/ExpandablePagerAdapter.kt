@@ -30,7 +30,7 @@ class ExpandablePagerAdapter(
             2 -> SuccessNumberFragment.Companion.newInstance(dob, fullName)
             3 -> ChallengeNumberFragment.Companion.newInstance(dob, fullName)
             4 -> GridPairsFragment()
-            5 -> CareersFragment.newInstance(NumeroCalculator.getLifePathNumber(dob).first)
+            5 -> CareersFragment.newInstance(dob, fullName)
             else -> throw IllegalStateException("Invalid position: $position")
         }
     }

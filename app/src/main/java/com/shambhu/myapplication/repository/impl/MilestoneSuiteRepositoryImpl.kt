@@ -1,6 +1,7 @@
 package com.shambhu.myapplication.repository.impl
 
 import android.content.Context
+import com.shambhu.myapplication.model.CareerData
 import com.shambhu.myapplication.model.ChallengeNumberData
 import com.shambhu.myapplication.model.MaturityData
 import com.shambhu.myapplication.model.PinnacleNumberData
@@ -38,5 +39,9 @@ class MilestoneSuiteRepositoryImpl(private val milestoneSuiteService: MilestoneS
 
     override fun getSuccessNumberData(): Flow<SuccessNumberResponse> {
         return milestoneSuiteService.getSuccessNumberData()
+    }
+
+    override fun getCareers(number: Int): Flow<CareerData> {
+        return milestoneSuiteService.getCareers(number)
     }
 }
