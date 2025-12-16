@@ -1,6 +1,7 @@
 package com.shambhu.myapplication.fragment.others
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,9 +13,10 @@ import com.shambhu.myapplication.R
 import com.shambhu.myapplication.adapter.CommonAdapterUtil
 import com.shambhu.myapplication.adapter.recycler_adapter.CoreNumberRecyclerViewAdapter
 import com.shambhu.myapplication.databinding.FragmentCoreNameProfileBinding
-import com.shambhu.myapplication.model.BhagyankData
 import com.shambhu.myapplication.model.CoreNameDataModel
 import com.shambhu.myapplication.model.CoreNumberAccordionItem
+import com.shambhu.myapplication.model.MulankData
+import com.shambhu.myapplication.model.NameNumberDataModel
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
 import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
@@ -54,31 +56,31 @@ class CoreNameProfileFragment : Fragment() {
 
     private fun createRecycleView(coreNumbers: CoreNameDataModel) {
         val coreNumberItems = mutableListOf<CoreNumberAccordionItem>();
+        val soulUrge = getData("soul_urge.json",coreNumbers.soulUrgeNumber)
+        val personality = getData("personality.json",coreNumbers.soulUrgeNumber)
+        val destiny = getData("destiny.json",coreNumbers.soulUrgeNumber)
+
+
+        val listType = object : TypeToken<List<CoreNumberAccordionItem>>() {}.type
+        val mulankList:List<MulankData> = Gson().fromJson("soul_urge.json", listType)
+        val mulankData: MulankData = mulankList.filter { it.id == id }.first()
+
         val soulUrgeItem = CoreNumberAccordionItem(
             "${getString(R.string.soul_urge_number)} ${coreNumbers.soulUrgeNumber}",
             getString(R.string.soul_title),
-            CommonUtils.getDescriptionFromAssetFile
-                (this.requireContext(), "soul_urge.json", coreNumbers.soulUrgeNumber.toString()),
+            soulUrge,
             "ic_heart", false
         )
-
-
         val personalityItem = CoreNumberAccordionItem(
             "${getString(R.string.personality_number)} ${coreNumbers.personalityNumber}",
             getString(R.string.personality_title),
-            CommonUtils.getDescriptionFromAssetFile
-                (
-                this.requireContext(),
-                "personality.json",
-                coreNumbers.personalityNumber.toString()
-            ),
+            personality,
             "ic_mirrors", false
         )
         val destinyItem = CoreNumberAccordionItem(
             "${getString(R.string.destiny_number)} ${coreNumbers.destinyNumber}",
             getString(R.string.destiny_title),
-            CommonUtils.getDescriptionFromAssetFile
-                (this.requireContext(), "destiny.json", coreNumbers.destinyNumber.toString()),
+            destiny,
             "ic_mirrors", false
         )
 
@@ -121,6 +123,17 @@ class CoreNameProfileFragment : Fragment() {
             combinationList
         )
     }
+
+    private fun getData(jsonName: String, id: Int): NameNumberDataModel
+    {
+        val listType = object : TypeToken<List<NameNumberDataModel>>() {}.type
+        val mulankList:List<NameNumberDataModel> = Gson().fromJson(jsonName, listType)
+        val mulankData: NameNumberDataModel = mulankList.filter { it.id == id }.first()
+        Log.d(jsonName, "${mulankData}")
+
+        return mulankData
+    }
+
 
 
     companion object {
