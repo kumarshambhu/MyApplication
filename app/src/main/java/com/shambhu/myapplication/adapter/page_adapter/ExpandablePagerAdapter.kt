@@ -11,7 +11,9 @@ import com.shambhu.myapplication.fragment.others.CoreNumberProfileFragment
 import com.shambhu.myapplication.fragment.others.FaqFragment
 import com.shambhu.myapplication.fragment.others.MaturityFragment
 import com.shambhu.myapplication.fragment.others.NameGridFragment
+import com.shambhu.myapplication.fragment.others.CareersFragment
 import com.shambhu.myapplication.fragment.others.SuccessNumberFragment
+import com.shambhu.myapplication.utils.NumeroCalculator
 
 class ExpandablePagerAdapter(
     fa: FragmentActivity,
@@ -19,7 +21,7 @@ class ExpandablePagerAdapter(
     private val fullName: String
 ) : FragmentStateAdapter(fa) {
 
-    override fun getItemCount(): Int = 5
+    override fun getItemCount(): Int = 6
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
@@ -28,6 +30,7 @@ class ExpandablePagerAdapter(
             2 -> SuccessNumberFragment.Companion.newInstance(dob, fullName)
             3 -> ChallengeNumberFragment.Companion.newInstance(dob, fullName)
             4 -> GridPairsFragment()
+            5 -> CareersFragment.newInstance(dob, fullName)
             else -> throw IllegalStateException("Invalid position: $position")
         }
     }

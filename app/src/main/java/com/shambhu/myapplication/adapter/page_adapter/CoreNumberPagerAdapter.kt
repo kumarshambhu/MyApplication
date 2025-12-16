@@ -3,11 +3,8 @@ package com.shambhu.myapplication.adapter.page_adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.shambhu.myapplication.fragment.core_number.ChallengeNumberFragment
-import com.shambhu.myapplication.fragment.core_number.CoreNumberFragment
 import com.shambhu.myapplication.fragment.core_number.KarmicNumberFragment
 import com.shambhu.myapplication.fragment.core_number.LoshuGridFragment
-import com.shambhu.myapplication.fragment.core_number.PinnacleNumberFragment
 import com.shambhu.myapplication.fragment.others.CoreNameProfileFragment
 import com.shambhu.myapplication.fragment.others.CoreNumberProfileFragment
 import com.shambhu.myapplication.fragment.secondary_number.LuckyNumberFragment

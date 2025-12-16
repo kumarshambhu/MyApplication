@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.shambhu.myapplication.adapter.CommonAdapterUtil
 import com.shambhu.myapplication.databinding.ItemCoreNumberBinding
 import com.shambhu.myapplication.model.CoreNumberAccordionItem
 
@@ -25,13 +26,14 @@ class CoreNumberRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(header, title, content, imageSource, expanded) = coreNumbers[position]
+        val(header, title, list, imageSource, expanded) = coreNumbers[position]
         holder.binding.coreNumberValue.text = header
         holder.binding.coreNumberWhatItSays.text = title
-        holder.binding.coreNumberDescription.text = content
+        //holder.binding.coreNumberDescription.text = content
 
         val resId = context.getDrawableResourceByName(imageSource)
         holder.binding.numberImageData.setImageResource(resId)
+        CommonAdapterUtil.setupNumberRecyclerViewAdapter(context, holder.binding.coreNumberDetailsRecyclerView, list.details)
 
         if (expanded) {
             holder.binding.coreNumberContentLayout.visibility = View.VISIBLE
