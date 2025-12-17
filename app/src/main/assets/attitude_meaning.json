@@ -1,0 +1,233 @@
+[
+  {
+    "number": 1,
+    "details": [
+      {
+        "key": "Core Essence",
+        "details": "Leadership, independence, innovation, and new beginnings"
+      },
+      {
+        "key": "Strengths",
+        "details": "Pioneering spirit, determination, courage, originality"
+      },
+      {
+        "key": "Challenges",
+        "details": "Can be domineering, impatient, self-centered, stubborn"
+      },
+      {
+        "key": "Life Path",
+        "details": "To lead, initiate, and create new paths rather than follow"
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "details": [
+      {
+        "key": "Core Essence",
+        "details": "Cooperation, harmony, diplomacy, partnership"
+      },
+      {
+        "key": "Strengths",
+        "details": "Peacemaker, supportive, patient, intuitive, considerate"
+      },
+      {
+        "key": "Challenges",
+        "details": "Overly sensitive, indecisive, passive, dependent"
+      },
+      {
+        "key": "Life Path",
+        "details": "To bring balance, mediate conflicts, and create harmony"
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "details": [
+      {
+        "key": "Core Essence",
+        "details": "Creativity, self-expression, joy, communication"
+      },
+      {
+        "key": "Strengths",
+        "details": "Optimistic, artistic, charismatic, humorous, inspiring"
+      },
+      {
+        "key": "Challenges",
+        "details": "Scattered energy, superficial, exaggerated, dramatic"
+      },
+      {
+        "key": "Life Path",
+        "details": "To inspire others through creative expression and joy"
+      }
+    ]
+  },
+  {
+    "number": 4,
+    "details": [
+      {
+        "key": "Core Essence",
+        "details": "Stability, foundation, discipline, hard work"
+      },
+      {
+        "key": "Strengths",
+        "details": "Practical, reliable, organized, loyal, methodical"
+      },
+      {
+        "key": "Challenges",
+        "details": "Rigid, stubborn, boring, resistant to change"
+      },
+      {
+        "key": "Life Path",
+        "details": "To build solid foundations and bring order to chaos"
+      }
+    ]
+  },
+  {
+    "number": 5,
+    "details": [
+      {
+        "key": "Core Essence",
+        "details": "Freedom, adventure, change, versatility"
+      },
+      {
+        "key": "Strengths",
+        "details": "Adaptable, curious, progressive, multi-talented, energetic"
+      },
+      {
+        "key": "Challenges",
+        "details": "Restless, irresponsible, inconsistent, addictive"
+      },
+      {
+        "key": "Life Path",
+        "details": "To experience life fully and embrace change courageously"
+      }
+    ]
+  },
+  {
+    "number": 6,
+    "details": [
+      {
+        "key": "Core Essence",
+        "details": "Responsibility, nurturing, service, domesticity"
+      },
+      {
+        "key": "Strengths",
+        "details": "Caring, compassionate, protective, healing, responsible"
+      },
+      {
+        "key": "Challenges",
+        "details": "Perfectionist, meddling, self-righteous, worrier"
+      },
+      {
+        "key": "Life Path",
+        "details": "To serve others and create harmony in home and community"
+      }
+    ]
+  },
+  {
+    "number": 7,
+    "details": [
+      {
+        "key": "Core Essence",
+        "details": "Wisdom, spirituality, analysis, introspection"
+      },
+      {
+        "key": "Strengths",
+        "details": "Analytical, intuitive, spiritual, perceptive, scholarly"
+      },
+      {
+        "key": "Challenges",
+        "details": "Pessimistic, secretive, isolated, skeptical"
+      },
+      {
+        "key": "Life Path",
+        "details": "To seek truth, develop wisdom, and understand deeper mysteries"
+      }
+    ]
+  },
+  {
+    "number": 8,
+    "details": [
+      {
+        "key": "Core Essence",
+        "details": "Power, abundance, success, authority"
+      },
+      {
+        "key": "Strengths",
+        "details": "Ambitious, efficient, organized, authoritative, prosperous"
+      },
+      {
+        "key": "Challenges",
+        "details": "Materialistic, workaholic, ruthless, controlling"
+      },
+      {
+        "key": "Life Path",
+        "details": "To master the material world and create abundance"
+      }
+    ]
+  },
+  {
+    "number": 9,
+    "details": [
+      {
+        "key": "Core Essence",
+        "details": "Humanitarianism, completion, wisdom, global consciousness"
+      },
+      {
+        "key": "Strengths",
+        "details": "Compassionate, selfless, artistic, wise, idealistic"
+      },
+      {
+        "key": "Challenges",
+        "details": "Emotional, sacrificing, bitter, impractical"
+      },
+      {
+        "key": "Life Path",
+        "details": "To serve humanity and bring compassion to the world"
+      }
+    ]
+  },
+  {
+    "number": 11,
+    "details": [
+      {
+        "key": "Core Essence",
+        "details": "Illumination, spiritual messenger, intuition, inspiration"
+      },
+      {
+        "key": "Strengths",
+        "details": "Visionary, inspirational, intuitive, enlightened, idealistic"
+      },
+      {
+        "key": "Challenges",
+        "details": "Nervous, overwhelmed, impractical, overly sensitive"
+      },
+      {
+        "key": "Life Path",
+        "details": "To inspire spiritual awakening and bring light to others"
+      }
+    ]
+  },
+  {
+    "number": 22,
+    "details": [
+      {
+        "key": "Core Essence",
+        "details": "Master builder, practical visionary, grand scale manifestation"
+      },
+      {
+        "key": "Strengths",
+        "details": "Practical visionary, disciplined, powerful manifestor, idealistic"
+      },
+      {
+        "key": "Challenges",
+        "details": "Overwhelmed, controlling, workaholic, anxious"
+      },
+      {
+        "key": "Life Path",
+        "details": "To turn big dreams into reality for the benefit of humanity"
+      }
+    ]
+  }
+]
