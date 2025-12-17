@@ -15,8 +15,7 @@
         android:focusable="true"
         android:padding="8dp"
         android:text="Section Title"
-        android:textColor="@color/primary_text"
-        android:textSize="16sp"
+        android:textColor="@color/white_60"
         android:textStyle="bold" />
 
     <!--<TextView

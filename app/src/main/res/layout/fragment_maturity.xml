@@ -2,14 +2,13 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/maturity_background"
-        android:padding="8dp">
+        android:padding="16dp">
 
         <!-- Input Section -->
         <TextView
@@ -19,6 +18,7 @@
             android:text="Numerology Calculator"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:textColor="@color/gold"
             android:layout_marginBottom="1dp"/>
         <!-- Results Section -->
         <LinearLayout
@@ -28,15 +28,14 @@
             android:orientation="vertical"
             android:visibility="visible"
             android:layout_marginTop="1dp"
-            android:padding="16dp">
+            android:padding="1dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Results"
-                android:textColor="@color/primary_text"
+                android:textColor="@color/gold"
                 android:textStyle="bold"
-
                 android:layout_marginBottom="16dp"/>
 
             <!-- Life Path Number -->
@@ -70,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:textColor="@color/primary_text"
+                android:textColor="@color/gold"
                 android:text="Positive Traits"
                 android:layout_marginBottom="8dp"/>
 
@@ -89,7 +88,7 @@
                 android:textSize="20sp"
                 android:text="Challenges"
                 android:textStyle="bold"
-                android:textColor="@color/primary_text"
+                android:textColor="@color/gold"
                 android:layout_marginBottom="8dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -104,7 +103,7 @@
                 android:id="@+id/tvAdditionalInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/primary_text"
+                android:textColor="@color/gold"
                 android:text="Additional Info"
                 android:textStyle="bold"/>
 

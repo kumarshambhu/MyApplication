@@ -173,8 +173,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:gravity="center"
-            android:textSize="14sp" />
+            android:gravity="center" />
 
         <!-- Letter Distribution -->
         <TextView
@@ -182,7 +181,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#666666"
-            android:textSize="12sp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 

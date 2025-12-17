@@ -29,7 +29,7 @@
     <color name="info_color">#E3F2FD</color>
 
     <!-- ========== CARD STYLE ========== -->
-    <color name="card_background">#0B0018</color>
+    <color name="card_background">#330867</color>
     <color name="card_stroke">#41127F</color>
     <color name="card_header">#99FFFFFF</color>
     <color name="card_sub_header">#E3DCEC</color>

@@ -138,7 +138,7 @@ class CoreNumberProfileFragment : Fragment() {
             binding.bhagyankRecyclerView.visibility = if (isExpanded) View.GONE else View.VISIBLE
             binding.bhagyankToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_add else R.drawable.ic_remove)
         }
-        binding.mulankBhagyankCombinationLayout.cardDayInfo.setOnClickListener {
+        binding.mulankBhagyankCombinationLayout.combinationExpandableIcon.setOnClickListener {
             val isExpanded = binding.mulankBhagyankCombinationLayout.combinationDetailsRecyclerView.isVisible
             binding.mulankBhagyankCombinationLayout.combinationDetailsRecyclerView.visibility =
                 if (isExpanded) View.GONE else View.VISIBLE

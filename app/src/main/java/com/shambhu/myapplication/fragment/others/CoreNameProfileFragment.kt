@@ -69,6 +69,10 @@ class CoreNameProfileFragment : Fragment() {
 
 
     private fun setupCoreNumberRecyclerView(coreNumberItems: MutableList<CoreNumberAccordionItem>) {
+        coreNumberItems.forEach {
+            it->
+            Log.d("Core Number", "${it.numberDataModel}")
+        }
         coreNumberRecyclerViewAdapter =
             CoreNumberRecyclerViewAdapter(coreNumberItems, this.requireContext()) { position ->
                 val previousExpandedPosition = coreNumberItems.indexOfFirst { it.isExpanded }

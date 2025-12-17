@@ -49,9 +49,9 @@
         <!-- Row 2: Three Columns -->
         <TextView
             android:id="@+id/birth_number__year_title_col1"
-            app:layout_constraintEnd_toStartOf="@+id/birth_number__year_title_col2"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/birth_number__year_title_col2"
             app:layout_constraintTop_toBottomOf="@id/combinationNameSeparator"
             app:layout_constraintWidth_percent="0.33"
             android:layout_width="0dp"

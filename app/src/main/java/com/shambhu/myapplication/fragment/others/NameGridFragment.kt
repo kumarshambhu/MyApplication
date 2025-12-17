@@ -110,11 +110,11 @@ class NameGridFragment : Fragment() {
 
             // Set background color based on balance
             val backgroundColor = when {
-                isBalanced -> R.drawable.result_background
+                isBalanced -> R.drawable.mulank_background
                 hasSignificantImbalance -> R.color.warning_color
                 else -> R.color.info_color
             }
-            binding.nameAnalysisGrid.balanceResult.setBackgroundResource(backgroundColor)
+            //binding.nameAnalysisGrid.balanceResult.setBackgroundResource(backgroundColor)
         }
     }
 

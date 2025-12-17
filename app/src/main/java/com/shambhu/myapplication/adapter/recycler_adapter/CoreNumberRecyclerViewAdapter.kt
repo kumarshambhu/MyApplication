@@ -26,14 +26,23 @@ class CoreNumberRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val(header, title, list, imageSource, expanded) = coreNumbers[position]
+        val(header, title, numberDataModel, imageSource, expanded) = coreNumbers[position]
         holder.binding.coreNumberValue.text = header
         holder.binding.coreNumberWhatItSays.text = title
-        //holder.binding.coreNumberDescription.text = content
+        if (numberDataModel.header.isNotEmpty()) {
+            holder.binding.coreNumberDescription.text = numberDataModel.header
+        } else{
+            holder.binding.coreNumberDescription.visibility = View.GONE
+        }
+
 
         val resId = context.getDrawableResourceByName(imageSource)
         holder.binding.numberImageData.setImageResource(resId)
-        CommonAdapterUtil.setupNumberRecyclerViewAdapter(context, holder.binding.coreNumberDetailsRecyclerView, list.details)
+        val pairList = mutableListOf<Pair<String, String>>()
+        numberDataModel.details.forEach {
+            it-> pairList.add(Pair(it.key, it.details))
+        }
+        CommonAdapterUtil.setupNumberRecyclerViewAdapter(context, holder.binding.coreNumberDetailsRecyclerView, pairList)
 
         if (expanded) {
             holder.binding.coreNumberContentLayout.visibility = View.VISIBLE

@@ -64,7 +64,6 @@
 
     <style name="Theme.YourApp.CardText.Primary.Subheader" parent="">
         <item name="android:textColor">@color/card_sub_header</item>
-        <item name="android:textSize">15sp</item>
     </style>
 
     <style name="Theme.YourApp.CardText.Primary.Content" parent="">

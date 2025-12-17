@@ -3,26 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="1dp">
         <!-- Mulank Card -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/mulankCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="8dp"
+            style="@style/Theme.YourApp.Card.Primary"
+
             app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/mulank_background"
                 android:orientation="vertical"
                 android:padding="16dp">
 
@@ -30,7 +29,8 @@
                     android:id="@+id/mulankHeaderLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:requiresFadingEdge="vertical">
+                    android:requiresFadingEdge="vertical"
+                    style="@style/Theme.YourApp.CardText.Primary.Header">
 
                     <TextView
                         android:id="@+id/mulankTitle"
@@ -39,7 +39,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toStartOf="@+id/mulankToggleIcon"
                         android:text="Mulank"
-                        android:textColor="@color/primary_text"
+
                         android:textStyle="bold" />
 
                     <ImageView
@@ -76,13 +76,12 @@
             android:id="@+id/bhagyankCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="8dp"
+            style="@style/Theme.YourApp.Card.Primary"
             app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bhagyank_background"
                 android:orientation="vertical"
                 android:padding="16dp">
 
@@ -90,7 +89,8 @@
                     android:id="@+id/bhagyankHeaderLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:requiresFadingEdge="vertical">
+                    android:requiresFadingEdge="vertical"
+                    style="@style/Theme.YourApp.CardText.Primary.Header">
 
                     <TextView
                         android:id="@+id/bhagyankTitle"
@@ -99,7 +99,6 @@
                         android:layout_centerVertical="true"
                         android:layout_toStartOf="@+id/bhagyankToggleIcon"
                         android:text="Bhagyank"
-                        android:textColor="@color/primary_text"
                         android:textStyle="bold" />
 
                     <ImageView

@@ -1,89 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <!-- App Bar with Back Button -->
-
-
-    <!-- Day Info Card -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardDayInfo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="1dp"
-        app:cardBackgroundColor="@color/dark_gray"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="4dp"
+    <View
+        android:id="@+id/combinationNameSeparator"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/gold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16sp"
-            android:orientation="vertical">
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/topHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="10sp"
+        android:layout_marginTop="15dp"
+        android:gravity="start"
+        android:text="Day Combinations"
+        android:textColor="@color/dark_gold"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvTitle"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/combinationNameSeparator"
+        app:layout_constraintWidth_percent="0.6" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="00"
+        android:textAlignment="center"
+        android:textColor="@color/dark_gold"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/combinationExpandableIcon"
+        app:layout_constraintStart_toEndOf="@id/topHeader"
+        app:layout_constraintTop_toBottomOf="@id/combinationNameSeparator"
+        app:layout_constraintWidth_percent="0.3" />
+
+    <ImageView
+        android:id="@+id/combinationExpandableIcon"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="15dp"
+        android:outlineAmbientShadowColor="@color/dark_gold"
+        android:outlineSpotShadowColor="@color/dark_gold"
+        android:src="@drawable/ic_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvTitle"
+
+        app:layout_constraintTop_toBottomOf="@id/combinationNameSeparator"
+        app:layout_constraintWidth_percent="0.1" />
+
+    <TextView
+        android:id="@+id/tvRuler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/interpretation"
+        android:textAlignment="center"
+        android:textColor="@color/dark_gold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topHeader" />
 
 
-        <RelativeLayout
-            android:id="@+id/questionLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="50sp"
-            android:requiresFadingEdge="vertical">
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toStartOf="@+id/tvTitle"
-                android:text="Day Combinations"
-                android:textStyle="bold"
-                android:textColor="@color/primary_text"
-                android:gravity="start"
-                android:layout_marginStart="10sp"
-                android:layout_centerVertical="true"/>
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toStartOf="@+id/combinationExpandableIcon"
-                android:text="00"
-                android:textStyle="bold"
-                android:layout_marginEnd="30sp"
-                android:textColor="@color/primary_text"
-                android:layout_centerVertical="true"/>
-            <ImageView
-                android:id="@+id/combinationExpandableIcon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentEnd="true"
-                android:textColor="@color/primary_text"
-                android:layout_centerVertical="true"
-                android:textStyle="bold"
-                android:src="@drawable/ic_add"
-                android:layout_marginEnd="10sp"/>
-        </RelativeLayout>
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvRuler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/interpretation"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textColor="@color/teal_700" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/combinationDetailsRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:visibility="gone"/>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <!-- RecyclerView for Combinations -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/combinationDetailsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="all comination"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvRuler" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
