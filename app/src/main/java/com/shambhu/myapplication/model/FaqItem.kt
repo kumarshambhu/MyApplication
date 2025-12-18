@@ -1,7 +1,7 @@
 package com.shambhu.myapplication.model
 
-data class FaqItem(
-    val question: String,
-    val answer: String,
-    var isExpanded: Boolean = false
+data class FaqResponse(
+    val allFaq: List<FaqDefinition>
 )
+data class FaqInnerItem(val key: String, val details: List<String>)
+data class FaqDefinition(val name: String, val description: List<FaqInnerItem>, var isExpanded: Boolean)

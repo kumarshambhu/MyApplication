@@ -11,6 +11,7 @@ import com.shambhu.myapplication.adapter.FaqAdapter
 import com.shambhu.myapplication.databinding.FragmentFaqBinding
 import com.shambhu.myapplication.repository.FaqRepository
 import com.shambhu.myapplication.repository.impl.FaqRepositoryImpl
+import com.shambhu.myapplication.service.impl.FaqServiceImpl
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -18,7 +19,10 @@ class FaqFragment : Fragment() {
 
     private var _binding: FragmentFaqBinding? = null
     private val binding get() = _binding!!
-    private val repository: FaqRepository by lazy { FaqRepositoryImpl() }
+
+    private val repository: FaqRepository by lazy {
+        FaqRepositoryImpl(FaqServiceImpl(context = requireContext()))
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,7 +45,7 @@ class FaqFragment : Fragment() {
     private fun observeFaqData() {
         lifecycleScope.launch {
             repository.getFaqItems(requireContext()).collectLatest { faqList ->
-                binding.faqRecyclerView.adapter = FaqAdapter(faqList)
+                binding.faqRecyclerView.adapter = FaqAdapter(requireContext(), faqList)
             }
         }
     }

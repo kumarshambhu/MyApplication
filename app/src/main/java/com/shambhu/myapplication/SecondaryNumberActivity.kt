@@ -122,7 +122,7 @@ class SecondaryNumberActivity : AppCompatActivity(), NavigationView.OnNavigation
                 startActivity(i)
             }
             R.id.nav_mobile -> {
-                val i = Intent(applicationContext, MobileActivity::class.java)
+                val i = Intent(applicationContext, MobileNumerologyActivity::class.java)
                 startActivity(i)
             }
 

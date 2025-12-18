@@ -27,10 +27,6 @@
             android:exported="false"
             android:theme="@style/Theme.MyApplication" />
         <activity
-            android:name=".MobileActivity"
-            android:exported="false"
-            android:theme="@style/Theme.MyApplication" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

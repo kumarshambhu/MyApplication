@@ -68,8 +68,7 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                     1 -> getDrawable(R.drawable.ic_maturity)
                     2 -> getDrawable(R.drawable.ic_success)
                     3 -> getDrawable(R.drawable.ic_challenge)
-                    4 -> getDrawable(R.drawable.ic_mobile)
-                    5 -> getDrawable(R.drawable.ic_grid)
+                    4 -> getDrawable(R.drawable.ic_grid)
                     else -> null
                 }
             )
@@ -79,8 +78,7 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                     1 -> "Maturity"
                     2 -> "Success"
                     3 -> "Challenge"
-                    4 -> "Mobile"
-                    5 -> "Careers"
+                    4 -> "Careers"
                     else -> null
                 }
             }
@@ -120,7 +118,7 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 startActivity(i)
             }
             R.id.nav_mobile -> {
-                val i = Intent(applicationContext, MobileActivity::class.java)
+                val i = Intent(applicationContext, MobileNumerologyActivity::class.java)
                 startActivity(i)
             }
         }

@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.adapter.CommonAdapterUtil
-import com.shambhu.myapplication.adapter.page_adapter.NumeroAccordionAdapter
+import com.shambhu.myapplication.adapter.recycler_adapter.NumeroAccordionAdapter
 import com.shambhu.myapplication.databinding.FragmentCoreNumberProfileBinding
 import com.shambhu.myapplication.model.MulankBhagyankResponse
 import com.shambhu.myapplication.model.NumeroData
