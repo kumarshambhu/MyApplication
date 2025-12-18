@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.model.FaqDefinition
@@ -27,10 +28,15 @@ class FaqAdapter(private val context: Context, private val faqList: List<FaqDefi
 
     inner class FaqViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val questionTextView: TextView = itemView.findViewById(R.id.questionTextView)
-        private val answerTextView: TextView = itemView.findViewById(R.id.answerTextView)
+        private val innerRecyclerView: RecyclerView = itemView.findViewById(R.id.innerRecyclerView)
         private val toggleIcon: ImageView = itemView.findViewById(R.id.toggleIcon)
+        private val innerAdapter: FaqInnerAdapter
 
         init {
+            innerAdapter = FaqInnerAdapter(emptyList())
+            innerRecyclerView.layoutManager = LinearLayoutManager(context)
+            innerRecyclerView.adapter = innerAdapter
+
             itemView.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
@@ -43,9 +49,12 @@ class FaqAdapter(private val context: Context, private val faqList: List<FaqDefi
 
         fun bind(faqItem: FaqDefinition) {
             questionTextView.text = faqItem.name
-            answerTextView.text = faqItem.description[0].key
-            answerTextView.visibility = if (faqItem.isExpanded) View.VISIBLE else View.GONE
+            innerRecyclerView.visibility = if (faqItem.isExpanded) View.VISIBLE else View.GONE
             toggleIcon.rotation = if (faqItem.isExpanded) 45f else 0f
+
+            if (faqItem.isExpanded) {
+                innerAdapter.updateData(faqItem.description)
+            }
         }
     }
 }
