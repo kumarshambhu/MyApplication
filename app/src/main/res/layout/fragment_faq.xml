@@ -14,14 +14,6 @@
         android:textSize="28sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="24dp"
-        android:text="Find quick answers to common questions about our AI Scheduling Assistant."
-        android:textColor="#B0B0B0"/>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/faqRecyclerView"
         android:layout_width="match_parent"

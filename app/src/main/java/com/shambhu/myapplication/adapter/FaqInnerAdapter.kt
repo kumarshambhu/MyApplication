@@ -1,5 +1,6 @@
 package com.shambhu.myapplication.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.model.FaqInnerItem
 
-class FaqInnerAdapter(private var items: List<FaqInnerItem>) :
+class FaqInnerAdapter(private var context: Context, private var items: List<FaqInnerItem>) :
     RecyclerView.Adapter<FaqInnerAdapter.InnerViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InnerViewHolder {
@@ -31,12 +32,12 @@ class FaqInnerAdapter(private var items: List<FaqInnerItem>) :
 
     inner class InnerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
-        private val detailsTextView: TextView = itemView.findViewById(R.id.detailsTextView)
+        private val detailsTextView: RecyclerView = itemView.findViewById(R.id.faqInnerItemRecyclerView)
 
         fun bind(item: FaqInnerItem) {
             titleTextView.text = item.key
-            val detailsString = item.details.joinToString(separator = "\n") { "• $it" }
-            detailsTextView.text = detailsString
+            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(context, detailsTextView, item.details)
+            //detailsTextView.text = detailsString
         }
     }
 }

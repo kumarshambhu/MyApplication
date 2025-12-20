@@ -14,11 +14,15 @@
         android:textStyle="bold"
         tools:text="Core Meaning" />
 
-    <TextView
+   <!-- <TextView
         android:id="@+id/detailsTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        tools:text="- Detail 1\n- Detail 2" />
+        tools:text="- Detail 1\n- Detail 2" />-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/faqInnerItemRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

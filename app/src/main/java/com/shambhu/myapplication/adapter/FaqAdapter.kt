@@ -33,7 +33,7 @@ class FaqAdapter(private val context: Context, private val faqList: List<FaqDefi
         private val innerAdapter: FaqInnerAdapter
 
         init {
-            innerAdapter = FaqInnerAdapter(emptyList())
+            innerAdapter = FaqInnerAdapter(context, emptyList())
             innerRecyclerView.layoutManager = LinearLayoutManager(context)
             innerRecyclerView.adapter = innerAdapter
 
