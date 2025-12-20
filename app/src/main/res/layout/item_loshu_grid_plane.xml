@@ -86,6 +86,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+
+            <TextView
+                style="@style/Theme.YourApp.CardText.Primary.Content"
+                android:id="@+id/remediesHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Remedies"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/remediesRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
         </LinearLayout>
 
     </LinearLayout>

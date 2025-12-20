@@ -57,13 +57,13 @@
             android:padding="16dp"
             android:visibility="visible">
 
-            <TextView
+         <!--   <TextView
                 android:id="@+id/coreNumberWhatItSays"
                 style="@style/Theme.YourApp.CardText.Primary.Subheader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/interpretation" />
-
+-->
             <TextView
                 style="@style/Theme.YourApp.CardText.Primary.Content"
                 android:id="@+id/coreNumberDescription"

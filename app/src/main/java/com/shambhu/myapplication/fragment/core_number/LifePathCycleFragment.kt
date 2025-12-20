@@ -42,10 +42,10 @@ class LifePathCycleFragment : Fragment() {
 
     private fun loadLifePathCycles() {
         val sharedPref = requireActivity().getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
-        val dob = sharedPref.getString(Constants.PREF_DOB, null)
+        val dob = sharedPref.getString(Constants.PREFERENCE_DATE_OF_BIRTH, null)
 
         if (dob != null) {
-            val dateParts = dob.split("-").map { it.toInt() }
+            val dateParts = dob.split("/").map { it.toInt() }
             val day = dateParts[0]
             val month = dateParts[1]
             val year = dateParts[2]

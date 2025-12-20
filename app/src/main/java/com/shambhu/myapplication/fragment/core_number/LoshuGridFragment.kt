@@ -141,10 +141,10 @@ class LoshuGridFragment : Fragment() {
                         LoshuGridPlaneAccordionItem(
                             "Missing Number: $i",
                             "",
-                            content = convertToHtml(content),
+                            content = "",//convertToHtml(content),
                             traitsHeading = "Impacts",
                             traits = traits,
-                            remedies = emptyList(),
+                            remedies = remedies,
                             imageSource = "",
                             backgroundColor = R.drawable.missing_number_background,
                             headerColor = 0,
@@ -183,7 +183,7 @@ class LoshuGridFragment : Fragment() {
                             LoshuGridPlaneAccordionItem(
                                 "Repeating Number: $i (x$count)",
                                 "",
-                                content = convertToHtml(content),
+                                content = "",//convertToHtml(content),
                                 traitsHeading = "Effects",
                                 traits = traits,
                                 remedies = emptyList(),
@@ -263,7 +263,7 @@ class LoshuGridFragment : Fragment() {
         return LoshuGridPlaneAccordionItem(
             header = header,
             presentNumber = getPresentNumbers(planeNumbers, presentNumbers),
-            content = getPlaneMessage(planeName, presentNumbers, planesJsonArray),
+            content = "",//getPlaneMessage(planeName, presentNumbers, planesJsonArray),
             traitsHeading = "Traits",
             traits = getPlaneTraits(planeName, presentNumbers, planesJsonArray),
             remedies = emptyList(),

@@ -42,8 +42,8 @@ class MainActivity : AppCompatActivity() {
 
         // Handle button click
         binding.calculateButton.setOnClickListener {
-            val fullName = binding.nameEditText.text.toString().ifEmpty { "Shambhu Kumar" }
-            val dob = selectedDate ?: "17/03/1979"
+            val fullName = binding.nameEditText.text.toString().ifEmpty { "Swarnav Shubh" }
+            val dob = selectedDate ?: "27/08/2012"
             val time = binding.timeEditText.text.toString().ifEmpty { "01:45" }
             val location = binding.locationEditText.text.toString().ifEmpty { "Gaya" }
             val selectedGenderId = binding.genderRadioGroup.checkedRadioButtonId

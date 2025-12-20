@@ -28,7 +28,7 @@ class CoreNumberRecyclerViewAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val(header, title, numberDataModel, imageSource, expanded) = coreNumbers[position]
         holder.binding.coreNumberValue.text = header
-        holder.binding.coreNumberWhatItSays.text = title
+        //holder.binding.coreNumberWhatItSays.text = title
         if (numberDataModel.header.isNotEmpty()) {
             holder.binding.coreNumberDescription.text = numberDataModel.header
         } else{
