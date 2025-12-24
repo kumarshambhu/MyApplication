@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:padding="16dp">
+        android:padding="1dp">
 
         <TextView
             android:id="@+id/tv_title"
@@ -190,11 +190,6 @@
             app:layout_constraintStart_toEndOf="@id/loshu_grid_bhagyank_value"
             app:layout_constraintTop_toBottomOf="@id/loshu_grid_mulank_label"
             app:layout_constraintWidth_percent="0.33" />
-
-
-
-
-
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/planeRecyclerView"

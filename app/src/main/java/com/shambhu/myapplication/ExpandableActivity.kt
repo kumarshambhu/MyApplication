@@ -68,8 +68,8 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                     1 -> getDrawable(R.drawable.ic_maturity)
                     2 -> getDrawable(R.drawable.ic_success)
                     3 -> getDrawable(R.drawable.ic_challenge)
-                    4 -> getDrawable(R.drawable.ic_grid)
-                    5 -> getDrawable(R.drawable.ic_road)
+                    //4 -> getDrawable(R.drawable.ic_grid)
+                    4 -> getDrawable(R.drawable.ic_road)
                     else -> null
                 }
             )
@@ -79,8 +79,8 @@ class ExpandableActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                     1 -> "Maturity"
                     2 -> "Success"
                     3 -> "Challenge"
-                    4 -> "Careers"
-                    5 -> "Life Path Cycle"
+                    //4 -> "Careers"
+                    4 -> "LifePath Cycle"
                     else -> null
                 }
             }
