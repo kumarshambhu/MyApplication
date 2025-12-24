@@ -225,6 +225,17 @@
             android:textSize="18sp"
             android:textColor="@color/white"
             android:background="@drawable/mystical_button"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/mystical_font"/>
+
+        <Button
+            android:id="@+id/predictionButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Predictions"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@drawable/mystical_button"
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/mystical_font"/>
 

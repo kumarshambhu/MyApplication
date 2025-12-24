@@ -71,6 +71,11 @@ class MainActivity : AppCompatActivity() {
                 // Show error message for empty fields
             }
         }
+
+        binding.predictionButton.setOnClickListener {
+            val i = Intent(applicationContext, PredictionActivity::class.java)
+            startActivity(i)
+        }
     }
 
     private fun showDatePickerDialog() {
