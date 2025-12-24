@@ -5,36 +5,22 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.widget.RadioButton
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import com.shambhu.myapplication.databinding.ActivityMainBinding
-import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_DATE_OF_BIRTH
-import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_FULL_NAME
-import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_GENDER
-import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_NAME
-import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_PLACE_OF_BIRTH
-import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_TIME_OF_BIRTH
+import com.shambhu.myapplication.utils.Constants
 import java.util.Calendar
 
+class MainActivity : BaseActivity<ActivityMainBinding>() {
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
     private var selectedDate: String? = null
+    override val bindingInflater: (LayoutInflater) -> ActivityMainBinding
+        get() = ActivityMainBinding::inflate
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        enableEdgeToEdge()
-        //setSupportActionBar(binding.toolbar)
-        // Set up the back button
-        val actionBar = supportActionBar
-        actionBar?.setDisplayHomeAsUpEnabled(true)
-        actionBar?.setDisplayShowHomeEnabled(true)
-        actionBar?.title = "Enter Your Personal Details"
+        setupToolbar(binding.toolbar, "Enter Your Personal Details", true)
 
         binding.dobLayout.setOnClickListener {
             showDatePickerDialog()
@@ -57,13 +43,13 @@ class MainActivity : AppCompatActivity() {
             if (fullName.isNotEmpty() && dob.isNotEmpty() && time.isNotEmpty() && location.isNotEmpty()) {
                 Log.i("MainActivity", "Full Name: $fullName")
                 Log.i("MainActivity", "Date of Birth: $dob")
-                val sharedPref = this.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
+                val sharedPref = this.getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
                 sharedPref.edit {
-                    putString(PREFERENCE_FULL_NAME, fullName)
-                    putString(PREFERENCE_DATE_OF_BIRTH, dob)
-                    putString(PREFERENCE_TIME_OF_BIRTH, time)
-                    putString(PREFERENCE_PLACE_OF_BIRTH, location)
-                    putString(PREFERENCE_GENDER, gender)
+                    putString(Constants.PREFERENCE_FULL_NAME, fullName)
+                    putString(Constants.PREFERENCE_DATE_OF_BIRTH, dob)
+                    putString(Constants.PREFERENCE_TIME_OF_BIRTH, time)
+                    putString(Constants.PREFERENCE_PLACE_OF_BIRTH, location)
+                    putString(Constants.PREFERENCE_GENDER, gender)
                 }
                 val i = Intent(applicationContext, CoreNumberActivity::class.java)
                 startActivity(i)
@@ -95,10 +81,5 @@ class MainActivity : AppCompatActivity() {
             day
         )
         datePickerDialog.show()
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressedDispatcher.onBackPressed()
-        return true
     }
 }

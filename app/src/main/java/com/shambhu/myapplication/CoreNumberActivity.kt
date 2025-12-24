@@ -1,41 +1,41 @@
 package com.shambhu.myapplication
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
-import android.view.ViewGroup
+import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.GravityCompat
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.shambhu.myapplication.adapter.page_adapter.CoreNumberPagerAdapter
 import com.shambhu.myapplication.databinding.ActivityCoreNumberBinding
-import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_DATE_OF_BIRTH
-import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_FULL_NAME
-import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_NAME
+import com.shambhu.myapplication.utils.Constants
 
-class CoreNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class CoreNumberActivity : BaseDrawerActivity<ActivityCoreNumberBinding>() {
 
-    private lateinit var binding: ActivityCoreNumberBinding
+    override val bindingInflater: (LayoutInflater) -> ActivityCoreNumberBinding
+        get() = ActivityCoreNumberBinding::inflate
+
+    override val drawerLayout: DrawerLayout
+        get() = binding.drawerLayout
+    override val navView: NavigationView
+        get() = binding.navView
+    override val toolbar: Toolbar
+        get() = binding.toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCoreNumberBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        enableEdgeToEdge()
+        supportActionBar?.title = "Core Numbers"
 
         val viewPager = binding.viewPager
         val tabs = binding.tabs
 
-        val sharedPref = this.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
-        val fullName = sharedPref?.getString(PREFERENCE_FULL_NAME, "Guest").toString()
-        val dob = sharedPref?.getString(PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
+        val sharedPref = this.getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
+        val fullName = sharedPref?.getString(Constants.PREFERENCE_FULL_NAME, "Guest").toString()
+        val dob = sharedPref?.getString(Constants.PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
 
         viewPager.adapter = CoreNumberPagerAdapter(this, dob, fullName)
         TabLayoutMediator(tabs, viewPager) { tab, position ->
@@ -63,9 +63,6 @@ class CoreNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             )
         }.attach()
 
-        //adjustTabMargins(binding.tabs, -20)
-        supportActionBar?.title = "Core Numbers"
-
         binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val tabTextView = tab?.customView?.findViewById<TextView>(R.id.tab_text)
@@ -78,62 +75,5 @@ class CoreNumberActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             override fun onTabReselected(tab: TabLayout.Tab?) {
             }
         })
-        setSupportActionBar(binding.toolbar)
-        val toggle = ActionBarDrawerToggle(
-            this, binding.drawerLayout, binding.toolbar,
-            R.string.navigation_drawer_open, R.string.navigation_drawer_close
-        )
-        binding.drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        binding.navView.setNavigationItemSelectedListener(this)
-
-
-        val headerView = binding.navView.getHeaderView(0)
-        headerView.findViewById<TextView>(R.id.nav_header_full_name).text = fullName
-        headerView.findViewById<TextView>(R.id.nav_header_dob).text = dob
-
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here.
-        when (item.itemId) {
-            R.id.nav_logout -> {
-                val i = Intent(this, MainActivity::class.java)
-                startActivity(i)
-            }
-
-            R.id.nav_slideshow -> {
-                val i = Intent(this, SecondaryNumberActivity::class.java)
-                startActivity(i)
-            }
-
-            R.id.nav_personal -> {
-                val i = Intent(applicationContext, ExpandableActivity::class.java)
-                startActivity(i)
-            }
-            R.id.nav_mobile -> {
-                val i = Intent(applicationContext, MobileNumerologyActivity::class.java)
-                startActivity(i)
-            }
-        }
-        binding.drawerLayout.closeDrawer(GravityCompat.START)
-        return true
-    }
-
-    private fun adjustTabMargins(tabLayout: TabLayout, marginEndPx: Int) {
-        val tabs = tabLayout.getChildAt(0) as ViewGroup
-        for (i in 0 until tabs.childCount) {
-            val tab = tabs.getChildAt(i)
-            val layoutParams = tab.layoutParams as ViewGroup.MarginLayoutParams
-
-            // Set the end margin (right margin for LTR)
-            layoutParams.marginEnd = marginEndPx
-            // Optionally set start margin as well if needed
-            // layoutParams.marginStart = marginEndPx
-
-            tab.layoutParams = layoutParams
-            tab.requestLayout() // Request a new layout pass
-        }
     }
 }

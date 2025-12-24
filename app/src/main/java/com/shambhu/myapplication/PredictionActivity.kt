@@ -1,21 +1,21 @@
 package com.shambhu.myapplication
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.shambhu.myapplication.adapter.page_adapter.PredictionPagerAdapter
 import com.shambhu.myapplication.databinding.ActivityPredictionBinding
 
-class PredictionActivity : AppCompatActivity() {
+class PredictionActivity : BaseActivity<ActivityPredictionBinding>() {
 
-    private lateinit var binding: ActivityPredictionBinding
+    override val bindingInflater: (LayoutInflater) -> ActivityPredictionBinding
+        get() = ActivityPredictionBinding::inflate
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityPredictionBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setupToolbar(binding.toolbar, "Daily Prediction")
 
         val viewPager = binding.viewPager
         val tabs = binding.tabs
@@ -33,9 +33,6 @@ class PredictionActivity : AppCompatActivity() {
                 else -> null
             }
         }.attach()
-
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.title = "Daily Prediction"
 
         binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
