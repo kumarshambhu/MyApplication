@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.shambhu.myapplication.fragment.core_number.ChallengeNumberFragment
+import com.shambhu.myapplication.fragment.core_number.LifePathCycleFragment
 import com.shambhu.myapplication.fragment.core_number.PinnacleNumberFragment
 import com.shambhu.myapplication.fragment.mobile.GridPairsFragment
 import com.shambhu.myapplication.fragment.others.CoreNameProfileFragment
@@ -21,7 +22,7 @@ class ExpandablePagerAdapter(
     private val fullName: String
 ) : FragmentStateAdapter(fa) {
 
-    override fun getItemCount(): Int = 5
+    override fun getItemCount(): Int = 6
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
@@ -30,6 +31,7 @@ class ExpandablePagerAdapter(
             2 -> SuccessNumberFragment.Companion.newInstance(dob, fullName)
             3 -> ChallengeNumberFragment.Companion.newInstance(dob, fullName)
             4 -> CareersFragment.newInstance(dob, fullName)
+            5 -> LifePathCycleFragment()
             else -> throw IllegalStateException("Invalid position: $position")
         }
     }

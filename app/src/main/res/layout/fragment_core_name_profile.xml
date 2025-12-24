@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="1sp">
 
 
         <!-- Row 1 -->
@@ -17,8 +18,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/mystical_font"
             android:text="Name Combination"
             android:textAlignment="center"
             android:textColor="@color/gold"
@@ -33,27 +32,23 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/birth_number_title"/>
+            app:layout_constraintTop_toBottomOf="@id/birth_number_title" />
+
         <View
             android:id="@+id/combinationNameSeparator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/coreNameRecyclerView"
             android:layout_width="wrap_content"
             android:layout_height="1dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="15dp"
             android:background="@color/gold"
             android:fontFamily="@font/mystical_font"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/coreNameRecyclerView" />
         <!-- Row 2: Three Columns -->
         <TextView
             android:id="@+id/birth_number__year_title_col1"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/birth_number__year_title_col2"
-            app:layout_constraintTop_toBottomOf="@id/combinationNameSeparator"
-            app:layout_constraintWidth_percent="0.33"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -62,14 +57,15 @@
             android:text="Personality"
             android:textAlignment="center"
             android:textColor="@color/gold"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/birth_number__year_title_col2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/combinationNameSeparator"
+            app:layout_constraintWidth_percent="0.33" />
 
         <TextView
             android:id="@+id/birth_number__year_title_col2"
-            app:layout_constraintEnd_toStartOf="@id/birth_number__year_title_col3"
-            app:layout_constraintStart_toEndOf="@id/birth_number__year_title_col1"
-            app:layout_constraintTop_toBottomOf="@id/combinationNameSeparator"
-            app:layout_constraintWidth_percent="0.33"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -77,14 +73,14 @@
             android:text="Soul"
             android:textAlignment="center"
             android:textColor="@color/gold"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@id/birth_number__year_title_col3"
+            app:layout_constraintStart_toEndOf="@id/birth_number__year_title_col1"
+            app:layout_constraintTop_toBottomOf="@id/combinationNameSeparator"
+            app:layout_constraintWidth_percent="0.33" />
 
         <TextView
             android:id="@+id/birth_number__year_title_col3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/birth_number__year_title_col2"
-            app:layout_constraintTop_toBottomOf="@id/combinationNameSeparator"
-            app:layout_constraintWidth_percent="0.33"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -92,66 +88,65 @@
             android:text="Destiny"
             android:textAlignment="center"
             android:textColor="@color/gold"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/birth_number__year_title_col2"
+            app:layout_constraintTop_toBottomOf="@id/combinationNameSeparator"
+            app:layout_constraintWidth_percent="0.33" />
 
         <!-- Row 3: Three Columns -->
         <TextView
             android:id="@+id/tvPersonalityValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mystical_font"
+            android:text="00"
+            android:textAlignment="center"
+            android:textColor="@color/gold"
+            android:textSize="30sp"
             app:layout_constraintEnd_toStartOf="@id/tvSoulValue"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
-            app:layout_constraintWidth_percent="0.33"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/mystical_font"
-            android:text="00"
-            android:textAlignment="center"
-            android:textColor="@color/gold"
-            android:textSize="30sp" />
+            app:layout_constraintWidth_percent="0.33" />
 
         <TextView
             android:id="@+id/tvSoulValue"
-            app:layout_constraintEnd_toStartOf="@id/tvDestinyValue"
-            app:layout_constraintStart_toEndOf="@id/tvPersonalityValue"
-            app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
-            app:layout_constraintWidth_percent="0.33"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mystical_font"
             android:text="00"
             android:textAlignment="center"
             android:textColor="@color/gold"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:layout_constraintEnd_toStartOf="@id/tvDestinyValue"
+            app:layout_constraintStart_toEndOf="@id/tvPersonalityValue"
+            app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
+            app:layout_constraintWidth_percent="0.33" />
 
 
         <TextView
             android:id="@+id/tvDestinyValue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvSoulValue"
-            app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
-            app:layout_constraintWidth_percent="0.33"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mystical_font"
             android:text="0000"
             android:textAlignment="center"
             android:textColor="@color/gold"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvSoulValue"
+            app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
+            app:layout_constraintWidth_percent="0.33" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tvCombinationValueRecyclerView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPersonalityValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_margin="15sp"
             android:text="all comination"
-            android:textSize="20sp" />
-
-
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPersonalityValue" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

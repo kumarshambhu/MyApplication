@@ -9,6 +9,7 @@ import com.shambhu.myapplication.model.ElementAnalysisResult
 import com.shambhu.myapplication.model.ElementData
 import com.shambhu.myapplication.model.KarmicDebtItem
 import com.shambhu.myapplication.model.KarmicLessonItem
+import com.shambhu.myapplication.model.LifePathCycle
 import com.shambhu.myapplication.model.LoshuGridPlanes
 import com.shambhu.myapplication.utils.Constants.Companion.LETTER_VALUES
 import org.json.JSONObject
@@ -562,5 +563,55 @@ object NumerologyCalculationUtils {
 
     fun calculateMaturityNumber(lifePath: Int, destiny: Int): Int {
         return CommonUtils.reduceNumber(lifePath + destiny)
+    }
+
+    fun calculateLifePathCycles(
+        context: Context,
+        day: Int,
+        month: Int,
+        year: Int
+    ): List<LifePathCycle> {
+        val lifePathNumber = calculateLifePath(day, month, year)
+
+        val firstCycleNumber = CommonUtils.reduceNumber(month)
+        val secondCycleNumber = CommonUtils.reduceNumber(day)
+        val thirdCycleNumber = CommonUtils.reduceNumber(year)
+
+        val endOfFirstCycle = 36 - lifePathNumber
+        val startOfSecondCycle = endOfFirstCycle + 1
+        val endOfSecondCycle = endOfFirstCycle + 27
+        val startOfThirdCycle = endOfSecondCycle + 1
+
+        val cyclesJson = CommonUtils.readAssetFile(context, "life_path_cycle.json")
+        val cyclesObject = org.json.JSONObject(cyclesJson)
+
+        val cycles = mutableListOf<LifePathCycle>()
+
+        cycles.add(
+            LifePathCycle(
+                title = "First Life Cycle",
+                ageRange = "Ages 0 - $endOfFirstCycle",
+                cycleNumber = firstCycleNumber,
+                description = cyclesObject.optString(firstCycleNumber.toString())
+            )
+        )
+        cycles.add(
+            LifePathCycle(
+                title = "Second Life Cycle",
+                ageRange = "Ages $startOfSecondCycle - $endOfSecondCycle",
+                cycleNumber = secondCycleNumber,
+                description = cyclesObject.optString(secondCycleNumber.toString())
+            )
+        )
+        cycles.add(
+            LifePathCycle(
+                title = "Third Life Cycle",
+                ageRange = "Ages $startOfThirdCycle onwards",
+                cycleNumber = thirdCycleNumber,
+                description = cyclesObject.optString(thirdCycleNumber.toString())
+            )
+        )
+
+        return cycles
     }
 }
