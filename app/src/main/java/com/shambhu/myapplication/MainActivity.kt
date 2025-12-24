@@ -20,7 +20,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupToolbar(binding.toolbar, "Enter Your Personal Details", true)
+       // setupToolbar(binding.toolbar, "Enter Your Personal Details", true)
 
         binding.dobLayout.setOnClickListener {
             showDatePickerDialog()
