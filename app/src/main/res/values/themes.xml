@@ -47,7 +47,7 @@
 
     <!-- ========== CARD THEMES ========== -->
     <!-- Primary Card Text Styles -->
-    <style name="Theme.YourApp.Card.Primary" parent="">
+    <style name="Theme.MyApplication.CardPrimary" parent="">
         <item name="cardBackgroundColor">@color/card_background</item>
         <item name="strokeColor">@color/card_stroke</item>
         <item name="strokeWidth">1dp</item>
@@ -67,6 +67,32 @@
     </style>
 
     <style name="Theme.YourApp.CardText.Primary.Content" parent="">
+        <item name="android:textColor">@color/card_content</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+
+    <style name="Theme.MyApplication.CardSecondary" parent="">
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="strokeColor">@color/card_stroke</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="elevation">5dp</item>
+        <item name="cardCornerRadius">0dp</item>
+    </style>
+
+    <style name="Theme.YourApp.CardText.Secondary.Header" parent="">
+        <item name="android:textColor">@color/card_header</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="Theme.YourApp.CardText.Secondary.Subheader" parent="">
+        <item name="android:textColor">@color/card_sub_header</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Theme.YourApp.CardText.Secondary.Content" parent="">
         <item name="android:textColor">@color/card_content</item>
         <item name="android:textSize">20sp</item>
     </style>

@@ -1,26 +1,44 @@
 package com.shambhu.myapplication
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.shambhu.myapplication.adapter.page_adapter.PredictionPagerAdapter
 import com.shambhu.myapplication.databinding.ActivityPredictionBinding
+import com.shambhu.myapplication.utils.Constants
 
-class PredictionActivity : BaseActivity<ActivityPredictionBinding>() {
+class PredictionActivity : BaseDrawerActivity<ActivityPredictionBinding>() {
 
     override val bindingInflater: (LayoutInflater) -> ActivityPredictionBinding
         get() = ActivityPredictionBinding::inflate
+    override val drawerLayout: DrawerLayout
+        get() = binding.drawerLayout
+    override val navView: NavigationView
+        get() = binding.navView
+    override val toolbar: Toolbar
+        get() = binding.toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupToolbar(binding.toolbar, "Daily Prediction")
+        supportActionBar?.title = "Daily Prediction"
+
+        //setupToolbar(binding.toolbar, "Daily Prediction")
+        val sharedPref =
+            this.getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
+        val fullName = sharedPref?.getString(Constants.PREFERENCE_OFFICIAL_NAME, "Guest").toString()
+        val dob = sharedPref?.getString(Constants.PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
+
 
         val viewPager = binding.viewPager
         val tabs = binding.tabs
 
-        viewPager.adapter = PredictionPagerAdapter(this)
+        viewPager.adapter = PredictionPagerAdapter(this, dob, fullName)
         TabLayoutMediator(tabs, viewPager) { tab, position ->
             tab.setCustomView(R.layout.custom_tab)
             val tabText = tab.customView?.findViewById<TextView>(R.id.tab_text)

@@ -31,7 +31,7 @@ class SecondaryNumberActivity : BaseDrawerActivity<ActivitySecondaryNumberBindin
 
         val sharedPref =
             this.getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
-        val fullName = sharedPref?.getString(Constants.PREFERENCE_FULL_NAME, "Guest").toString()
+        val fullName = sharedPref?.getString(Constants.PREFERENCE_OFFICIAL_NAME, "Guest").toString()
         val dob = sharedPref?.getString(Constants.PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
 
         val viewPager = binding.viewPager
@@ -75,17 +75,5 @@ class SecondaryNumberActivity : BaseDrawerActivity<ActivitySecondaryNumberBindin
             override fun onTabReselected(tab: TabLayout.Tab?) {
             }
         })
-    }
-
-    override fun populateNavHeader() {
-        super.populateNavHeader()
-        val sharedPref =
-            this.getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
-        val time = sharedPref?.getString(Constants.PREFERENCE_TIME_OF_BIRTH, "00:00")
-        val location = sharedPref?.getString(Constants.PREFERENCE_PLACE_OF_BIRTH, "Unknown Location")
-
-        val headerView = binding.navView.getHeaderView(0)
-        headerView.findViewById<TextView>(R.id.nav_header_time).text = time
-        headerView.findViewById<TextView>(R.id.nav_header_location).text = location
     }
 }

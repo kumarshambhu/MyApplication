@@ -14,7 +14,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/searchLayout"
-            style="@style/Theme.YourApp.Card.Primary"
+            style="@style/Theme.MyApplication.CardPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -87,7 +87,7 @@
         </com.google.android.material.appbar.MaterialToolbar>
 
         <com.google.android.material.card.MaterialCardView
-            style="@style/Theme.YourApp.Card.Primary"
+            style="@style/Theme.MyApplication.CardPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

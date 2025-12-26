@@ -8,7 +8,11 @@ import com.shambhu.myapplication.fragment.prediction.MonthlyPredictionFragment
 import com.shambhu.myapplication.fragment.prediction.YearlyPredictionFragment
 import com.shambhu.myapplication.fragment.prediction.LifePredictionFragment
 
-class PredictionPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
+class PredictionPagerAdapter(
+    fa: FragmentActivity,
+    private val dob: String,
+    private val fullName: String
+) : FragmentStateAdapter(fa) {
 
     override fun getItemCount(): Int = 4
 

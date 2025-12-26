@@ -34,7 +34,7 @@ class CoreNumberActivity : BaseDrawerActivity<ActivityCoreNumberBinding>() {
         val tabs = binding.tabs
 
         val sharedPref = this.getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
-        val fullName = sharedPref?.getString(Constants.PREFERENCE_FULL_NAME, "Guest").toString()
+        val fullName = sharedPref?.getString(Constants.PREFERENCE_OFFICIAL_NAME, "Guest").toString()
         val dob = sharedPref?.getString(Constants.PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
 
         viewPager.adapter = CoreNumberPagerAdapter(this, dob, fullName)

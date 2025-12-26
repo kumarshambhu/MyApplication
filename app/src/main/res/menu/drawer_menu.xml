@@ -2,7 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-    <group android:checkableBehavior="single">
+    <item android:title="Categories">
+    <menu>
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/twotone_home_24"
@@ -18,10 +19,16 @@
             android:title="Other" />
 
         <item
+            android:id="@+id/nav_prediction"
+            android:icon="@drawable/twotone_app_blocking_24"
+            android:title="Prediction" />
+
+        <item
             android:id="@+id/nav_mobile"
             android:icon="@drawable/twotone_app_blocking_24"
             android:title="Mobile" />
-    </group>
+    </menu>
+    </item>
     <group android:checkableBehavior="none"
         >
         <item

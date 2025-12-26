@@ -52,7 +52,7 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
 
     protected open fun populateNavHeader() {
         val sharedPref = getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
-        val fullName = sharedPref?.getString(Constants.PREFERENCE_FULL_NAME, "Guest").toString()
+        val fullName = sharedPref?.getString(Constants.PREFERENCE_OFFICIAL_NAME, "Guest").toString()
         val dob = sharedPref?.getString(Constants.PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
 
         val headerView = navView.getHeaderView(0)
@@ -65,6 +65,9 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
             R.id.nav_logout -> {
                 startActivity(Intent(this, MainActivity::class.java))
             }
+            R.id.nav_home -> {
+                startActivity(Intent(this, CoreNumberActivity::class.java))
+            }
             R.id.nav_slideshow -> {
                 startActivity(Intent(this, SecondaryNumberActivity::class.java))
             }
@@ -73,6 +76,10 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
             }
             R.id.nav_mobile -> {
                 startActivity(Intent(this, MobileNumerologyActivity::class.java))
+            }
+
+            R.id.nav_prediction -> {
+                startActivity(Intent(this, PredictionActivity::class.java))
             }
         }
         drawerLayout.closeDrawer(GravityCompat.START)

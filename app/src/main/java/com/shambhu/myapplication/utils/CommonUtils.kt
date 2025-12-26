@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.ZoneId
 import java.util.Locale
+import kotlin.toString
 
 object CommonUtils {
     // Helper function to parse date
@@ -25,7 +26,7 @@ object CommonUtils {
 
 
     fun parseDateTriple(dateString: String): Triple<Int, Int, Int> {
-        val d: LocalDate =  try {
+        val d: LocalDate = try {
             val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
             sdf.parse(dateString)?.let { sdf.format(it) } ?: "Invalid Date"
             val sdfParse = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
@@ -40,7 +41,7 @@ object CommonUtils {
 
     fun reduceNumber(numerologyNumber: Int, ignore33: Boolean = true): Int {
         /** Reduce number to single digit unless it's a master number. */
-        if(ignore33 and (numerologyNumber in listOf(11, 22)) ){
+        if (ignore33 and (numerologyNumber in listOf(11, 22))) {
             return numerologyNumber
         }
         if (numerologyNumber in listOf(11, 22, 33)) {
@@ -62,7 +63,7 @@ object CommonUtils {
     }
 
     fun readAssetFile(context: Context, filename: String): String {
-        val inputStream =context.assets.open(filename)
+        val inputStream = context.assets.open(filename)
         val size = inputStream.available()
         val buffer = ByteArray(size)
         inputStream.read(buffer)
@@ -89,5 +90,40 @@ object CommonUtils {
             "malefic combinations" -> Color.parseColor("#F44336")
             else -> Color.parseColor("#9E9E9E")
         }
+    }
+
+    data class NumerologyResult(
+        val lifePathNumber: NumerologyReducer.NumerologyValue,
+        val attitude: NumerologyReducer.NumerologyValue,
+        val birthDay: NumerologyReducer.NumerologyValue,
+        val soul: NumerologyReducer.NumerologyValue,
+        val personality: NumerologyReducer.NumerologyValue,
+        val destiny: NumerologyReducer.NumerologyValue,
+        val maturity: NumerologyReducer.NumerologyValue,
+        val power: NumerologyReducer.NumerologyValue,
+        val personalYear: NumerologyReducer.NumerologyValue
+    )
+
+
+    fun allMostFrequent(numbers: List<Int>): Map<Int, Int> {
+        val freq = numbers.groupingBy { it }.eachCount()
+        val maxCount = freq.values.max()
+        return freq.filterValues { it == maxCount }
+    }
+
+    fun karmicOrMasterCount(list: List<String>): Map<String, Int> {
+        return list
+            .filter { it != NumerologyReducer.ResultType.OTHER.toString() }
+            .groupingBy { it }
+            .eachCount()
+
+    }
+
+    fun repeatedNumbersDesc(numbers: List<Int>): Map<Int, Int> {
+        return numbers
+            .groupingBy { it }
+            .eachCount()
+            .filterValues { it > 1 }
+            .toSortedMap(compareByDescending { it })
     }
 }

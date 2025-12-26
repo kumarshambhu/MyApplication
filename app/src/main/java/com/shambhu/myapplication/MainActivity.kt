@@ -28,10 +28,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
         // Handle button click
         binding.calculateButton.setOnClickListener {
-            val fullName = binding.nameEditText.text.toString().ifEmpty { "Swarnav Shubh" }
+            val currentName = binding.currentNameEditText.text.toString().ifEmpty { "Shubhu" }
+            val officialName = binding.officialNameEditText.text.toString().ifEmpty { "Swarnav Shubh" }
             val dob = selectedDate ?: "27/08/2012"
-            val time = binding.timeEditText.text.toString().ifEmpty { "01:45" }
-            val location = binding.locationEditText.text.toString().ifEmpty { "Gaya" }
+            //val time = binding.timeEditText.text.toString().ifEmpty { "01:45" }
+            //val location = binding.locationEditText.text.toString().ifEmpty { "Gaya" }
             val selectedGenderId = binding.genderRadioGroup.checkedRadioButtonId
             val gender = if (selectedGenderId != -1) {
                 findViewById<RadioButton>(selectedGenderId).text.toString()
@@ -40,15 +41,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
 
             // Validate inputs
-            if (fullName.isNotEmpty() && dob.isNotEmpty() && time.isNotEmpty() && location.isNotEmpty()) {
-                Log.i("MainActivity", "Full Name: $fullName")
+            if (officialName.isNotEmpty() && dob.isNotEmpty() && currentName.isNotEmpty()) {
+                Log.i("MainActivity", "Full Name: $officialName")
                 Log.i("MainActivity", "Date of Birth: $dob")
                 val sharedPref = this.getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
                 sharedPref.edit {
-                    putString(Constants.PREFERENCE_FULL_NAME, fullName)
+                    putString(Constants.PREFERENCE_OFFICIAL_NAME, officialName)
                     putString(Constants.PREFERENCE_DATE_OF_BIRTH, dob)
-                    putString(Constants.PREFERENCE_TIME_OF_BIRTH, time)
-                    putString(Constants.PREFERENCE_PLACE_OF_BIRTH, location)
+                    putString(Constants.PREFERENCE_CURRENT_NAME, currentName)
                     putString(Constants.PREFERENCE_GENDER, gender)
                 }
                 val i = Intent(applicationContext, CoreNumberActivity::class.java)
@@ -56,11 +56,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             } else {
                 // Show error message for empty fields
             }
-        }
-
-        binding.predictionButton.setOnClickListener {
-            val i = Intent(applicationContext, PredictionActivity::class.java)
-            startActivity(i)
         }
     }
 

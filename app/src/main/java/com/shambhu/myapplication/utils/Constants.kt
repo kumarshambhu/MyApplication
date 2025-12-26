@@ -1,14 +1,12 @@
 package com.shambhu.myapplication.utils
 
-import org.json.JSONObject
-
 class Constants {
     companion object {
 
-        const val PREFERENCE_FULL_NAME = "full_name"
+        const val PREFERENCE_OFFICIAL_NAME = "full_name"
         const val PREFERENCE_GENDER = "gender"
         const val PREFERENCE_DATE_OF_BIRTH = "date_of_birth"
-        const val PREFERENCE_TIME_OF_BIRTH = "time_of_birth"
+        const val PREFERENCE_CURRENT_NAME = "time_of_birth"
         const val PREFERENCE_PLACE_OF_BIRTH = "place_of_birth"
         const val PREFERENCE_NAME = "PREFERENCE_NAME"
 

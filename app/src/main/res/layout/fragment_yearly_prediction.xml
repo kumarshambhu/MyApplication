@@ -1,16 +1,635 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/mystical_gradient_background"
+    android:fillViewport="true">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Yearly Prediction Fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:padding="1dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/header_background"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:text="Multi-Layered Relationship Numerology Blueprint"
+            android:textColor="#e94560"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Layer 1 Container -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="#16213e"
+            app:cardCornerRadius="12dp"
+            android:visibility="gone"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Layer 1"
+                    android:textColor="#0fcca6"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!-- Current Names -->
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:text="Current Name"
+                            android:textColor="#8d99ae"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:text="John Legend"
+                            android:textColor="#ffffff" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:text="Christy Teigen"
+                            android:textColor="#ffffff" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:text="Birthday (MM/DD)"
+                            android:textColor="#8d99ae"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:text="12/28"
+                            android:textColor="#ffffff" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:text="11/30"
+                            android:textColor="#ffffff" />
+                    </TableRow>
+                </TableLayout>
+
+                <!-- Numbers Grid -->
+                <GridLayout
+                    style="@style/Theme.MyApplication.CardPrimary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:columnCount="3"
+                    android:rowCount="5">
+
+                    <!-- Headers -->
+                    <TextView
+                        style="@style/Theme.YourApp.CardText.Primary.Header"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="Category"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        style="@style/Theme.YourApp.CardText.Primary.Header"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="Person 1"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        style="@style/Theme.YourApp.CardText.Primary.Header"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="Person 2"
+                        android:textStyle="bold" />
+
+                    <!-- POWER Row -->
+                    <TextView
+                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="start"
+                        android:padding="8dp"
+                        android:text="POWER" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="4\n49"
+                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="8\n71"
+                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+
+                    <!-- ATTITUDE Row -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="start"
+                        android:padding="8dp"
+                        android:text="ATTITUDE"
+                        android:textColor="#8d99ae" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="4\n13"
+                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="5\n5"
+                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+
+                    <!-- BIRTH DAY Row -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="start"
+                        android:padding="8dp"
+                        android:text="BIRTH DAY"
+                        android:textColor="#8d99ae" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="1\n28/10"
+                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="3\n30"
+                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+
+                    <!-- PERIS YEAR 2025 Row -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="start"
+                        android:padding="8dp"
+                        android:text="PERIS YEAR 2025"
+                        android:textColor="#8d99ae" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="4"
+                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="5"
+                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+
+                </GridLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Layer 2 Container -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            style="@style/Theme.MyApplication.CardSecondary"
+            app:cardCornerRadius="12dp"
+            android:visibility="gone"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Layer 2"
+                    style="@style/Theme.YourApp.CardText.Secondary.Header"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:text="Date of Birth"
+                            style="@style/Theme.YourApp.CardText.Secondary.Header" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:text="12/28/1978"
+                            style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:text="11/30/1985"
+                            style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="LIFE PATH"
+                            style="@style/Theme.YourApp.CardText.Secondary.Header" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:text="11/2"
+                            style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:text="28/10"
+                            style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                    </TableRow>
+
+                </TableLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Layer 3 Container -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            style="@style/Theme.MyApplication.CardSecondary"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Layer 3"
+                   style="@style/Theme.YourApp.CardText.Secondary.Header" />
+
+                <!-- Official Names -->
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+
+                    <TableRow>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:text="OFF. B. NAME"
+                            style="@style/Theme.YourApp.CardText.Secondary.Header" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:padding="8dp"
+                            android:text="John Roger Stephens"
+                            style="@style/Theme.YourApp.CardText.Secondary.Subheader" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:padding="8dp"
+                            android:text="Christine Diane Teigen"
+                            style="@style/Theme.YourApp.CardText.Secondary.Subheader" />
+                    </TableRow>
+                </TableLayout>
+
+                <!-- Layer 3 Numbers Grid -->
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="3"
+                    android:rowCount="5">
+
+                    <!-- Headers -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="Category"
+                        android:textColor="#0fcca6"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="Person 1"
+                        android:textColor="#0fcca6"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="Person 2"
+                        android:textColor="#0fcca6"
+                        android:textStyle="bold" />
+
+                    <!-- SOUL Row -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="start"
+                        android:padding="8dp"
+                        android:text="SOUL"
+                        style="@style/Theme.YourApp.CardText.Secondary.Subheader" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="9/27"
+                        style="@style/Theme.YourApp.CardText.Secondary.Subheader" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="3/57"
+                        android:textColor="#ffffff" />
+
+                    <!-- PERSONALITY Row -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="start"
+                        android:padding="8dp"
+                        android:text="PERSONALITY"
+                        style="@style/Theme.YourApp.CardText.Secondary.Subheader" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="9\n63"
+                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="6\n51"
+                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+
+                    <!-- DESTINY Row -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="start"
+                        android:padding="8dp"
+                        android:text="DESTINY"
+                        style="@style/Theme.YourApp.CardText.Secondary.Subheader" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="9\n90"
+                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="9\n108"
+                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+
+                    <!-- MATURITY Row -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="start"
+                        android:padding="8dp"
+                        android:text="MATURITY"
+                        style="@style/Theme.YourApp.CardText.Secondary.Subheader" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="11/2\n128"
+                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="1\n134/10"
+                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+
+                </GridLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Notes Section -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#16213e"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="Patterns/Insights"
+                    android:textColor="#e94560"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/notesTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="4dp"
+                    android:text="Note any patterns/interstates within a person's numbers including concords, as well as between each other."
+                    android:textColor="#8d99ae"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>

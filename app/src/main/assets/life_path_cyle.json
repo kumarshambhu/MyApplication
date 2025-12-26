@@ -1,0 +1,76 @@
+{
+  "cycles_table": [
+    {
+      "life_path_number": "1",
+      "formative_cycle": "0 to 26",
+      "productive_cycle": "26 to 53",
+      "harvest_cycle": "53+"
+    },
+    {
+      "life_path_number": "2",
+      "formative_cycle": "0 to 25",
+      "productive_cycle": "25 to 52",
+      "harvest_cycle": "52+"
+    },
+    {
+      "life_path_number": "3",
+      "formative_cycle": "0 to 33",
+      "productive_cycle": "33 to 60",
+      "harvest_cycle": "60+"
+    },
+    {
+      "life_path_number": "4",
+      "formative_cycle": "0 to 32",
+      "productive_cycle": "32 to 59",
+      "harvest_cycle": "59+"
+    },
+    {
+      "life_path_number": "5",
+      "formative_cycle": "0 to 31",
+      "productive_cycle": "31 to 58",
+      "harvest_cycle": "58+"
+    },
+    {
+      "life_path_number": "6",
+      "formative_cycle": "0 to 30",
+      "productive_cycle": "30 to 57",
+      "harvest_cycle": "57+"
+    },
+    {
+      "life_path_number": "7",
+      "formative_cycle": "0 to 29",
+      "productive_cycle": "29 to 56",
+      "harvest_cycle": "56+"
+    },
+    {
+      "life_path_number": "8",
+      "formative_cycle": "0 to 28",
+      "productive_cycle": "28 to 55",
+      "harvest_cycle": "55+"
+    },
+    {
+      "life_path_number": "9",
+      "formative_cycle": "0 to 27",
+      "productive_cycle": "27 to 54",
+      "harvest_cycle": "54+"
+    },
+    {
+      "life_path_number": "11",
+      "formative_cycle": "0 to 25",
+      "productive_cycle": "25 to 52",
+      "harvest_cycle": "52+"
+    },
+    {
+      "life_path_number": "22",
+      "formative_cycle": "0 to 32",
+      "productive_cycle": "32 to 59",
+      "harvest_cycle": "59+"
+    },
+    {
+      "life_path_number": "33",
+      "formative_cycle": "0 to 30",
+      "productive_cycle": "30 to 57",
+      "harvest_cycle": "57+"
+    }
+  ]
+}

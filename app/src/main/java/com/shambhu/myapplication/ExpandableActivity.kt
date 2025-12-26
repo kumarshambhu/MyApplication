@@ -30,7 +30,7 @@ class ExpandableActivity : BaseDrawerActivity<ActivityExpandableBinding>() {
 
         val sharedPref =
             this.getSharedPreferences(Constants.PREFERENCE_NAME, android.content.Context.MODE_PRIVATE)
-        val fullName = sharedPref?.getString(Constants.PREFERENCE_FULL_NAME, "Guest").toString()
+        val fullName = sharedPref?.getString(Constants.PREFERENCE_OFFICIAL_NAME, "Guest").toString()
         val dob = sharedPref?.getString(Constants.PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
 
         val viewPager = binding.viewPager
@@ -84,7 +84,7 @@ class ExpandableActivity : BaseDrawerActivity<ActivityExpandableBinding>() {
         super.populateNavHeader()
         val sharedPref =
             this.getSharedPreferences(Constants.PREFERENCE_NAME, android.content.Context.MODE_PRIVATE)
-        val time = sharedPref?.getString(Constants.PREFERENCE_TIME_OF_BIRTH, "00:00")
+        val time = sharedPref?.getString(Constants.PREFERENCE_CURRENT_NAME, "00:00")
         val location = sharedPref?.getString(Constants.PREFERENCE_PLACE_OF_BIRTH, "Unknown Location")
 
         val headerView = binding.navView.getHeaderView(0)

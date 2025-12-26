@@ -15,7 +15,7 @@
             android:id="@+id/mulankCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Theme.YourApp.Card.Primary"
+            style="@style/Theme.MyApplication.CardPrimary"
 
             app:cardElevation="4dp">
 
@@ -76,7 +76,7 @@
             android:id="@+id/bhagyankCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Theme.YourApp.Card.Primary"
+            style="@style/Theme.MyApplication.CardPrimary"
             app:cardElevation="4dp">
 
             <LinearLayout
