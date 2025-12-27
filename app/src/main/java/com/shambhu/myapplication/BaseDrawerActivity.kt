@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -48,6 +49,22 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         navView.setNavigationItemSelectedListener(this)
+
+        val switchItem = navView.menu.findItem(R.id.nav_setting)
+        val switchView = switchItem.actionView as com.google.android.material.switchmaterial.SwitchMaterial
+        val sharedPref = getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
+        switchView.isChecked = sharedPref.getBoolean(Constants.PREFERENCE_THEME, false)
+        switchView.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+            with(sharedPref.edit()) {
+                putBoolean(Constants.PREFERENCE_THEME, isChecked)
+                apply()
+            }
+        }
     }
 
     protected open fun populateNavHeader() {
@@ -80,9 +97,6 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
 
             R.id.nav_prediction -> {
                 startActivity(Intent(this, PredictionActivity::class.java))
-            }
-            R.id.nav_setting -> {
-                startActivity(Intent(this, SettingsActivity::class.java))
             }
         }
         drawerLayout.closeDrawer(GravityCompat.START)

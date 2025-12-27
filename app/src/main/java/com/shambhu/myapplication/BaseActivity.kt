@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.viewbinding.ViewBinding
+import com.shambhu.myapplication.utils.Constants
 
 abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
 
@@ -19,8 +20,8 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val sharedPref = getSharedPreferences(com.shambhu.myapplication.utils.Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
-        val isDarkMode = sharedPref.getBoolean(com.shambhu.myapplication.utils.Constants.PREFERENCE_THEME, false)
+        val sharedPref = getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
+        val isDarkMode = sharedPref.getBoolean(Constants.PREFERENCE_THEME, false)
         if (isDarkMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
