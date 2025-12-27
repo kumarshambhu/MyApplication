@@ -98,15 +98,11 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
         switchTheme?.isChecked = isDarkMode
 
         switchTheme?.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            }
             with(sharedPref.edit()) {
                 putBoolean(Constants.PREFERENCE_THEME, isChecked)
                 apply()
             }
+            recreate()
         }
     }
 }
