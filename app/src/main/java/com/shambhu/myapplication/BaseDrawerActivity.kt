@@ -7,11 +7,13 @@ import android.view.MenuItem
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.switchmaterial.SwitchMaterial
 import com.shambhu.myapplication.utils.Constants
 
 abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), NavigationView.OnNavigationItemSelectedListener {
@@ -25,6 +27,7 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
         setupDrawer()
         populateNavHeader()
         setupBackButton()
+        setupThemeToggle()
     }
 
     private fun setupBackButton() {
@@ -84,5 +87,26 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun setupThemeToggle() {
+        val sharedPref = getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
+        val themeMenuItem = navView.menu.findItem(R.id.nav_theme)
+        val switchTheme = themeMenuItem.actionView?.findViewById<SwitchMaterial>(R.id.switch_theme)
+
+        val isDarkMode = sharedPref.getBoolean(Constants.PREFERENCE_THEME, false)
+        switchTheme?.isChecked = isDarkMode
+
+        switchTheme?.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+            with(sharedPref.edit()) {
+                putBoolean(Constants.PREFERENCE_THEME, isChecked)
+                apply()
+            }
+        }
     }
 }
