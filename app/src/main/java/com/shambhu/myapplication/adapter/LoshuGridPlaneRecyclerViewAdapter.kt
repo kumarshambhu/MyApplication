@@ -47,7 +47,7 @@ class LoshuGridPlaneRecyclerViewAdapter(
         }
 
         if(remedies.isNotEmpty()){
-            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(context, holder.binding.remediesRecyclerView, traits)
+            CommonAdapterUtil.setupNumberBulletRecyclerViewAdapter(context, holder.binding.remediesRecyclerView, remedies)
         }else{
             holder.binding.remediesHeader.visibility = View.GONE
             holder.binding.remediesRecyclerView.visibility = View.GONE
