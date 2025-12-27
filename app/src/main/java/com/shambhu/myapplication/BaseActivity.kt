@@ -1,9 +1,11 @@
 package com.shambhu.myapplication
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.viewbinding.ViewBinding
 
@@ -16,6 +18,15 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val sharedPref = getSharedPreferences(com.shambhu.myapplication.utils.Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
+        val isDarkMode = sharedPref.getBoolean(com.shambhu.myapplication.utils.Constants.PREFERENCE_THEME, false)
+        if (isDarkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+
         enableEdgeToEdge()
         _binding = bindingInflater.invoke(layoutInflater)
         setContentView(binding.root)

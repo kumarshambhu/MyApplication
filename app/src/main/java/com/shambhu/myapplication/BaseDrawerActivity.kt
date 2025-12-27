@@ -81,6 +81,9 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
             R.id.nav_prediction -> {
                 startActivity(Intent(this, PredictionActivity::class.java))
             }
+            R.id.nav_setting -> {
+                startActivity(Intent(this, SettingsActivity::class.java))
+            }
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
