@@ -3,7 +3,7 @@ package com.shambhu.myapplication.adapter.page_adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.shambhu.myapplication.fragment.prediction.DailyPredictionFragment
+import com.shambhu.myapplication.fragment.prediction.CreateCyclesFragment
 import com.shambhu.myapplication.fragment.prediction.MonthlyPredictionFragment
 import com.shambhu.myapplication.fragment.prediction.YearlyPredictionFragment
 import com.shambhu.myapplication.fragment.prediction.LifePredictionFragment
@@ -18,7 +18,7 @@ class PredictionPagerAdapter(
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> DailyPredictionFragment()
+            0 -> CreateCyclesFragment()
             1 -> MonthlyPredictionFragment()
             2 -> YearlyPredictionFragment()
             3 -> LifePredictionFragment()

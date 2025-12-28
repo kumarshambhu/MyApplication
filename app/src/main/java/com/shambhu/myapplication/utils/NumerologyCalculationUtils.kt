@@ -232,10 +232,10 @@ object NumerologyCalculationUtils {
         val endOfThirdChallenge = endOfSecondChallenge + 9
 
         return listOf(
-            "Ages 0 - $endOfFirstChallenge",
-            "Ages $endOfFirstChallenge - $endOfSecondChallenge",
-            "Ages $endOfSecondChallenge - $endOfThirdChallenge",
-            "Ages $endOfThirdChallenge onwards"
+            "0 - $endOfFirstChallenge",
+            "$endOfFirstChallenge - $endOfSecondChallenge",
+            "$endOfSecondChallenge - $endOfThirdChallenge",
+            "$endOfThirdChallenge+"
         )
     }
 
@@ -259,10 +259,10 @@ object NumerologyCalculationUtils {
         val endOfThirdPinnacle = endOfSecondPinnacle + 9
 
         return listOf(
-            "Ages 0 - $endOfFirstPinnacle",
-            "Ages $endOfFirstPinnacle - $endOfSecondPinnacle",
-            "Ages $endOfSecondPinnacle - $endOfThirdPinnacle",
-            "Ages $endOfThirdPinnacle onwards"
+            "0 - $endOfFirstPinnacle",
+            "$endOfFirstPinnacle - $endOfSecondPinnacle",
+            "$endOfSecondPinnacle - $endOfThirdPinnacle",
+            "$endOfThirdPinnacle+"
         )
     }
 

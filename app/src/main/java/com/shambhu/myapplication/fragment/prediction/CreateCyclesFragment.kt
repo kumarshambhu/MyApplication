@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.gson.Gson
-import com.shambhu.myapplication.databinding.FragmentDailyPredictionBinding
+import com.shambhu.myapplication.databinding.FragmentCreateCyclesBinding
 import com.shambhu.myapplication.model.LifeCycleDataResponse
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_DATE_OF_BIRTH
@@ -16,9 +16,9 @@ import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_OFFICIAL_N
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_NAME
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 
-class DailyPredictionFragment : Fragment() {
+class CreateCyclesFragment : Fragment() {
 
-    private var _binding: FragmentDailyPredictionBinding? = null
+    private var _binding: FragmentCreateCyclesBinding? = null
     private val binding get() = _binding!!
     private lateinit var officialName: String
     private lateinit var dob: String
@@ -26,7 +26,7 @@ class DailyPredictionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentDailyPredictionBinding.inflate(inflater, container, false)
+        _binding = FragmentCreateCyclesBinding.inflate(inflater, container, false)
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
