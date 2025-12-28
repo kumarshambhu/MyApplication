@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 import com.shambhu.myapplication.databinding.FragmentCreateCyclesBinding
 import com.shambhu.myapplication.model.LifeCycleDataResponse
+import com.shambhu.myapplication.model.PersonalYearPredictionResponse
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_DATE_OF_BIRTH
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_OFFICIAL_NAME
@@ -67,7 +68,9 @@ class CreateCyclesFragment : Fragment() {
 
         val personalYear = NumerologyCalculationUtils.calculatePersonalYear(day, month, yearText.toInt())
         binding.tvPersonalYear.text = personalYear.toString()
+        calculatePersonalYearPrediction(personalYear)
     }
+
     private fun calculateAllNumbers() {
         val(day, month, year) = CommonUtils.parseDateTriple(dob)
         val lifePath = NumerologyCalculationUtils.calculateLifePath(day, month, year)
@@ -148,6 +151,29 @@ class CreateCyclesFragment : Fragment() {
     private fun calculateMaturityNumber(lifePath: Int, destiny: Int) {
         val maturityNumber = NumerologyCalculationUtils.calculateMaturityNumber(lifePath, destiny)
         binding.tvMaturityNumber.text = if (maturityNumber == 0) "9" else maturityNumber.toString()
+    }
+
+    private fun calculatePersonalYearPrediction(personalYear: Int) {
+        val personalYearPredictionJson = CommonUtils.readAssetFile(requireContext(), "personal_year.json")
+        val personalYearPredictionResponse = Gson().fromJson(personalYearPredictionJson, PersonalYearPredictionResponse::class.java)
+        val prediction = personalYearPredictionResponse.personal_years.find { it.year_number == personalYear }
+
+        if (prediction != null) {
+            binding.predictionCard.visibility = View.VISIBLE
+            binding.tvPredictionTitle.text = prediction.title
+            val content = StringBuilder()
+            content.append("Positive Outcomes:\n")
+            prediction.positive_outcomes.forEach {
+                content.append("• $it\n")
+            }
+            content.append("\nNegative Impacts:\n")
+            prediction.negative_impacts.forEach {
+                content.append("• $it\n")
+            }
+            binding.tvPredictionContent.text = content.toString()
+        } else {
+            binding.predictionCard.visibility = View.GONE
+        }
     }
 
     override fun onDestroyView() {
