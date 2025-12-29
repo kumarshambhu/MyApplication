@@ -32,7 +32,6 @@
             android:layout_marginBottom="20dp"
             app:cardBackgroundColor="#16213e"
             app:cardCornerRadius="12dp"
-            android:visibility="gone"
             app:cardElevation="8dp">
 
             <LinearLayout
@@ -292,7 +291,6 @@
             android:layout_marginBottom="20dp"
             style="@style/Theme.MyApplication.CardSecondary"
             app:cardCornerRadius="12dp"
-            android:visibility="gone"
             app:cardElevation="8dp">
 
             <LinearLayout

@@ -63,7 +63,11 @@
 
 
 
-
+    <color name="background1">#F8F9FA</color>
+    <color name="primary">#6A11CB</color>
+    <color name="secondary">#666666</color>
+    <color name="text_primary">#333333</color>
+    <color name="divider">#E0E0E0</color>
 
 
 
