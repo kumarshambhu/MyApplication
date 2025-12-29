@@ -11,9 +11,11 @@ import com.google.gson.Gson
 import com.shambhu.myapplication.databinding.FragmentCreateCyclesBinding
 import com.shambhu.myapplication.model.LifeCycleDataResponse
 import com.shambhu.myapplication.utils.CommonUtils
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_DATE_OF_BIRTH
-import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_OFFICIAL_NAME
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_NAME
+import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_OFFICIAL_NAME
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 
 class CreateCyclesFragment : Fragment() {
@@ -153,6 +155,17 @@ class CreateCyclesFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        fun newInstance(dob: String, fullName: String): CreateCyclesFragment {
+            val fragment = CreateCyclesFragment()
+            val args = Bundle()
+            args.putString(ARG_DOB, dob)
+            args.putString(ARG_FULL_NAME, fullName)
+            fragment.arguments = args
+            return fragment
+        }
     }
 }
 

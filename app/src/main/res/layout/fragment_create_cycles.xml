@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Numerology Storyboards Worksheet"
-               style="@style/Theme.YourApp.CardText.Primary.Header"
+               style="@style/Theme.MyApplicationApp.CardText.Primary.Header"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -51,7 +51,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    style="@style/Theme.YourApp.CardText.Primary.Header"
+                    style="@style/Theme.MyApplicationApp.CardText.Primary.Header"
                     android:text="Personal Information"
                     android:textStyle="bold" />
 
@@ -63,7 +63,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -73,7 +73,7 @@
 
                     <TextView
                         android:id="@+id/etName"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -89,7 +89,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -99,7 +99,7 @@
 
                     <TextView
                         android:id="@+id/etDob"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -126,7 +126,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    style="@style/Theme.YourApp.CardText.Primary.Header"
+                    style="@style/Theme.MyApplicationApp.CardText.Primary.Header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
@@ -148,7 +148,7 @@
                         android:padding="8dp">
 
                         <TextView
-                            style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                            style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Life Path"
@@ -156,7 +156,7 @@
 
                         <TextView
                             android:id="@+id/tvLifePath"
-                            style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                            style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="--" />
@@ -171,7 +171,7 @@
                         android:padding="8dp">
 
                         <TextView
-                            style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                            style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Destiny"
@@ -179,7 +179,7 @@
 
                         <TextView
                             android:id="@+id/tvDestiny"
-                            style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                            style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="--" />
@@ -194,7 +194,7 @@
                         android:padding="8dp">
 
                         <TextView
-                            style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                            style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Soul"
@@ -202,7 +202,7 @@
 
                         <TextView
                             android:id="@+id/tvSoul"
-                            style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                            style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="--" />
@@ -244,7 +244,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
                     android:text="MAJOR CYCLES (age range #)"
-                    style="@style/Theme.YourApp.CardText.Primary.Header" />
+                    style="@style/Theme.MyApplicationApp.CardText.Primary.Header" />
 
                 <!-- Cycle 1 -->
                 <LinearLayout
@@ -259,7 +259,7 @@
                         android:layout_weight="1"
                         android:padding="12dp"
                         android:text="Cycle 1"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                         android:textStyle="bold" />
 
                     <TextView
@@ -270,7 +270,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <TextView
                         android:id="@+id/tvCycle1Value"
@@ -280,7 +280,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
                 </LinearLayout>
 
                 <!-- Cycle 2 -->
@@ -296,7 +296,7 @@
                         android:layout_weight="1"
                         android:padding="12dp"
                         android:text="Cycle 2"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                         android:textStyle="bold" />
 
                     <TextView
@@ -307,7 +307,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                          />
 
                     <TextView
@@ -318,7 +318,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                          />
                 </LinearLayout>
 
@@ -334,7 +334,7 @@
                         android:layout_weight="1"
                         android:padding="12dp"
                         android:text="Cycle 3"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                         android:textStyle="bold" />
 
                     <TextView
@@ -345,7 +345,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <TextView
                         android:id="@+id/tvCycle3Value"
@@ -355,7 +355,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -381,7 +381,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
                     android:text="PINNACLES (age range #)"
-                    style="@style/Theme.YourApp.CardText.Primary.Header"
+                    style="@style/Theme.MyApplicationApp.CardText.Primary.Header"
                     android:textStyle="bold" />
 
                 <!-- Pinnacle 1 -->
@@ -397,7 +397,7 @@
                         android:layout_weight="1"
                         android:padding="12dp"
                         android:text="Period 1"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                         android:textStyle="bold" />
 
                     <TextView
@@ -408,7 +408,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
 
                     <TextView
@@ -419,7 +419,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
                 </LinearLayout>
 
                 <!-- Pinnacle 2 -->
@@ -436,7 +436,7 @@
                         android:layout_weight="1"
                         android:padding="12dp"
                         android:text="Period 2"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                         android:textStyle="bold" />
 
                     <TextView
@@ -447,7 +447,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <TextView
                         android:id="@+id/tvPinnacle2Value"
@@ -457,7 +457,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
                 </LinearLayout>
 
                 <!-- Pinnacle 3 -->
@@ -473,7 +473,7 @@
                         android:layout_weight="1"
                         android:padding="12dp"
                         android:text="Period 3"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                         android:textStyle="bold" />
 
                     <TextView
@@ -484,7 +484,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <TextView
                         android:id="@+id/tvPinnacle3Value"
@@ -494,7 +494,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
                 </LinearLayout>
 
                 <!-- Pinnacle 4 -->
@@ -509,7 +509,7 @@
                         android:layout_weight="1"
                         android:padding="12dp"
                         android:text="Period 4"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                         android:textStyle="bold" />
 
                     <TextView
@@ -520,7 +520,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <TextView
                         android:id="@+id/tvPinnacle4Value"
@@ -530,7 +530,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -556,7 +556,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"                   
                     android:text="CHALLENGES (age range #)"
-                    style="@style/Theme.YourApp.CardText.Primary.Header"
+                    style="@style/Theme.MyApplicationApp.CardText.Primary.Header"
                     android:textStyle="bold" />
 
                 <!-- Challenge 1 -->
@@ -572,7 +572,7 @@
                         android:layout_weight="1"
                         android:padding="12dp"
                         android:text="Period 1"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                         android:textStyle="bold"
                          />
 
@@ -584,7 +584,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <TextView
                         android:id="@+id/tvChallenge1Value"
@@ -594,7 +594,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
                 </LinearLayout>
 
                 <!-- Challenge 2 -->
@@ -611,7 +611,7 @@
                         android:layout_weight="1"
                         android:padding="12dp"
                         android:text="Period 2"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                         android:textStyle="bold" />
 
                     <TextView
@@ -622,7 +622,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <TextView
                         android:id="@+id/tvChallenge2Value"
@@ -632,7 +632,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
                 </LinearLayout>
 
                 <!-- Challenge 3 -->
@@ -648,7 +648,7 @@
                         android:layout_weight="1"
                         android:padding="12dp"
                         android:text="Period 3"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                         android:textStyle="bold" />
 
                     <TextView
@@ -659,7 +659,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <TextView
                         android:id="@+id/tvChallenge3Value"
@@ -669,7 +669,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
                 </LinearLayout>
 
                 <!-- Challenge 4 -->
@@ -685,7 +685,7 @@
                         android:layout_weight="1"
                         android:padding="12dp"
                         android:text="Period 4"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                         android:textStyle="bold" />
 
                     <TextView
@@ -696,7 +696,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <TextView
                         android:id="@+id/tvChallenge4Value"
@@ -706,7 +706,7 @@
                         android:padding="12dp"
                         android:text="--"
                         android:textAlignment="center"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -738,7 +738,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:text="Maturity # (age 35+)"
-                        style="@style/Theme.YourApp.CardText.Primary.Header"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Header"
                         android:textStyle="bold" />
 
                     <TextView
@@ -748,7 +748,7 @@
                         android:layout_gravity="center"
                         android:text="#"
                         android:textSize="36sp"
-                        style="@style/Theme.YourApp.CardText.Primary.Header"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Header"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -764,7 +764,7 @@
                         android:layout_marginBottom="12dp"
                         android:text="Predictive - Personal Year # (for year of)"
                         android:textSize="18sp"
-                       style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                       style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

@@ -31,7 +31,7 @@
 
             <TextView
                 android:id="@+id/planeName"
-                style="@style/Theme.YourApp.CardText.Primary.Header"
+                style="@style/Theme.MyApplicationApp.CardText.Primary.Header"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -59,20 +59,20 @@
 
             <TextView
                 android:id="@+id/planePresentNumber"
-                style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/present_number" />
 
             <TextView
-                style="@style/Theme.YourApp.CardText.Primary.Content"
+                style="@style/Theme.MyApplicationApp.CardText.Primary.Content"
                 android:id="@+id/planeDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/interpretation"
                 />
             <TextView
-                style="@style/Theme.YourApp.CardText.Primary.Content"
+                style="@style/Theme.MyApplicationApp.CardText.Primary.Content"
                 android:id="@+id/traitsHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
 
 
             <TextView
-                style="@style/Theme.YourApp.CardText.Primary.Content"
+                style="@style/Theme.MyApplicationApp.CardText.Primary.Content"
                 android:id="@+id/remediesHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

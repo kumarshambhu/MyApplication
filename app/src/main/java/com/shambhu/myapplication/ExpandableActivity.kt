@@ -28,10 +28,9 @@ class ExpandableActivity : BaseDrawerActivity<ActivityExpandableBinding>() {
         super.onCreate(savedInstanceState)
         supportActionBar?.title = "Loshu Grid"
 
-        val sharedPref =
-            this.getSharedPreferences(Constants.PREFERENCE_NAME, android.content.Context.MODE_PRIVATE)
-        val fullName = sharedPref?.getString(Constants.PREFERENCE_OFFICIAL_NAME, "Guest").toString()
-        val dob = sharedPref?.getString(Constants.PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
+
+        val fullName = sharedPreferences?.getString(Constants.PREFERENCE_OFFICIAL_NAME, "Guest").toString()
+        val dob = sharedPreferences?.getString(Constants.PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
 
         val viewPager = binding.viewPager
         val tabLayout = binding.tabs
@@ -82,10 +81,8 @@ class ExpandableActivity : BaseDrawerActivity<ActivityExpandableBinding>() {
 
     override fun populateNavHeader() {
         super.populateNavHeader()
-        val sharedPref =
-            this.getSharedPreferences(Constants.PREFERENCE_NAME, android.content.Context.MODE_PRIVATE)
-        val time = sharedPref?.getString(Constants.PREFERENCE_CURRENT_NAME, "00:00")
-        val location = sharedPref?.getString(Constants.PREFERENCE_PLACE_OF_BIRTH, "Unknown Location")
+        val time = sharedPreferences?.getString(Constants.PREFERENCE_CURRENT_NAME, "00:00")
+        val location = sharedPreferences?.getString(Constants.PREFERENCE_PLACE_OF_BIRTH, "Unknown Location")
 
         val headerView = binding.navView.getHeaderView(0)
         headerView.findViewById<TextView>(R.id.nav_header_time).text = time

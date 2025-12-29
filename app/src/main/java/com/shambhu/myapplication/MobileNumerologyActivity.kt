@@ -74,10 +74,8 @@ class MobileNumerologyActivity : BaseDrawerActivity<ActivityMobileNumerologyBind
 
     override fun populateNavHeader() {
         super.populateNavHeader()
-        val sharedPref =
-            this.getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
-        val time = sharedPref?.getString(Constants.PREFERENCE_CURRENT_NAME, "00:00")
-        val location = sharedPref?.getString(Constants.PREFERENCE_PLACE_OF_BIRTH, "Unknown Location")
+        val time = sharedPreferences?.getString(Constants.PREFERENCE_CURRENT_NAME, "00:00")
+        val location = sharedPreferences?.getString(Constants.PREFERENCE_PLACE_OF_BIRTH, "Unknown Location")
 
         val headerView = binding.navView.getHeaderView(0)
         headerView.findViewById<TextView>(R.id.nav_header_time).text = time

@@ -1,40 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view">
     <item android:title="Categories">
-    <menu>
-        <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/twotone_home_24"
-            android:iconTint="@color/white_60"
-            android:title="@string/core_number" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_moon"
-            android:title="@string/secondary_number" />
-        <item
-            android:id="@+id/nav_personal"
-            android:icon="@drawable/ic_personality"
-            android:title="Other" />
+        <menu>
+            <item
+                android:id="@+id/nav_home"
+                android:icon="@drawable/twotone_home_24"
+                android:iconTint="@color/white_60"
+                android:title="@string/core_number" />
+            <item
+                android:id="@+id/nav_slideshow"
+                android:icon="@drawable/ic_moon"
+                android:title="@string/secondary_number" />
+            <item
+                android:id="@+id/nav_personal"
+                android:icon="@drawable/ic_personality"
+                android:title="Other" />
 
-        <item
-            android:id="@+id/nav_prediction"
-            android:icon="@drawable/twotone_app_blocking_24"
-            android:title="Prediction" />
+            <item
+                android:id="@+id/nav_prediction"
+                android:icon="@drawable/twotone_app_blocking_24"
+                android:title="Prediction" />
 
-        <item
-            android:id="@+id/nav_mobile"
-            android:icon="@drawable/twotone_app_blocking_24"
-            android:title="Mobile" />
-    </menu>
+            <item
+                android:id="@+id/nav_mobile"
+                android:icon="@drawable/twotone_app_blocking_24"
+                android:title="Mobile" />
+        </menu>
     </item>
-    <group android:checkableBehavior="none"
-        >
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_theme_toggle"
+            android:icon="@drawable/ic_theme"
+            android:title="Dark Mode"
+            app:showAsAction="ifRoom" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_logout"
-
             android:title="Logout" />
     </group>
 </menu>

@@ -29,11 +29,11 @@
     <color name="info_color">#E3F2FD</color>
 
     <!-- ========== CARD STYLE ========== -->
-    <color name="card_background">#99FFFFFF</color>
-    <color name="card_stroke">#330867</color>
+    <color name="card_background">#330867</color>
+    <color name="card_stroke">#41127F</color>
     <color name="card_header">#99FFFFFF</color>
-    <color name="card_sub_header">#0A36AF</color>
-    <color name="card_content">#0A36AF</color>
+    <color name="card_sub_header">#E3DCEC</color>
+    <color name="card_content">#E3DCEC</color>
 
     <color name="white_60">#99FFFFFF</color>
     <color name="missing_number_header">#4B0082</color>

@@ -124,7 +124,7 @@
 
                     <!-- Headers -->
                     <TextView
-                        style="@style/Theme.YourApp.CardText.Primary.Header"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Header"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -135,7 +135,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        style="@style/Theme.YourApp.CardText.Primary.Header"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Header"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -146,7 +146,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        style="@style/Theme.YourApp.CardText.Primary.Header"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Header"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -158,7 +158,7 @@
 
                     <!-- POWER Row -->
                     <TextView
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -175,7 +175,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="4\n49"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -185,7 +185,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="8\n71"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <!-- ATTITUDE Row -->
                     <TextView
@@ -206,7 +206,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="4\n13"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -216,7 +216,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="5\n5"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <!-- BIRTH DAY Row -->
                     <TextView
@@ -237,7 +237,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="1\n28/10"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -247,7 +247,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="3\n30"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <!-- PERIS YEAR 2025 Row -->
                     <TextView
@@ -268,7 +268,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="4"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -278,7 +278,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="5"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                 </GridLayout>
 
@@ -306,7 +306,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:text="Layer 2"
-                    style="@style/Theme.YourApp.CardText.Secondary.Header"
+                    style="@style/Theme.MyApplicationApp.CardText.Secondary.Header"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -322,7 +322,7 @@
                             android:layout_weight="1"
                             android:padding="8dp"
                             android:text="Date of Birth"
-                            style="@style/Theme.YourApp.CardText.Secondary.Header" />
+                            style="@style/Theme.MyApplicationApp.CardText.Secondary.Header" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -330,7 +330,7 @@
                             android:layout_weight="1"
                             android:padding="8dp"
                             android:text="12/28/1978"
-                            style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                            style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -338,7 +338,7 @@
                             android:layout_weight="1"
                             android:padding="8dp"
                             android:text="11/30/1985"
-                            style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                            style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
                     </TableRow>
 
                     <TableRow>
@@ -348,7 +348,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="LIFE PATH"
-                            style="@style/Theme.YourApp.CardText.Secondary.Header" />
+                            style="@style/Theme.MyApplicationApp.CardText.Secondary.Header" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -356,7 +356,7 @@
                             android:layout_weight="1"
                             android:padding="8dp"
                             android:text="11/2"
-                            style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                            style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -364,7 +364,7 @@
                             android:layout_weight="1"
                             android:padding="8dp"
                             android:text="28/10"
-                            style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                            style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
                     </TableRow>
 
                 </TableLayout>
@@ -391,7 +391,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:text="Layer 3"
-                   style="@style/Theme.YourApp.CardText.Secondary.Header" />
+                   style="@style/Theme.MyApplicationApp.CardText.Secondary.Header" />
 
                 <!-- Official Names -->
                 <TableLayout
@@ -406,7 +406,7 @@
                             android:layout_weight="1"
                             android:padding="8dp"
                             android:text="OFF. B. NAME"
-                            style="@style/Theme.YourApp.CardText.Secondary.Header" />
+                            style="@style/Theme.MyApplicationApp.CardText.Secondary.Header" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -414,7 +414,7 @@
                             android:layout_weight="2"
                             android:padding="8dp"
                             android:text="John Roger Stephens"
-                            style="@style/Theme.YourApp.CardText.Secondary.Subheader" />
+                            style="@style/Theme.MyApplicationApp.CardText.Secondary.Subheader" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -422,7 +422,7 @@
                             android:layout_weight="2"
                             android:padding="8dp"
                             android:text="Christine Diane Teigen"
-                            style="@style/Theme.YourApp.CardText.Secondary.Subheader" />
+                            style="@style/Theme.MyApplicationApp.CardText.Secondary.Subheader" />
                     </TableRow>
                 </TableLayout>
 
@@ -476,7 +476,7 @@
                         android:gravity="start"
                         android:padding="8dp"
                         android:text="SOUL"
-                        style="@style/Theme.YourApp.CardText.Secondary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Secondary.Subheader" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -486,7 +486,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="9/27"
-                        style="@style/Theme.YourApp.CardText.Secondary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Secondary.Subheader" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -507,7 +507,7 @@
                         android:gravity="start"
                         android:padding="8dp"
                         android:text="PERSONALITY"
-                        style="@style/Theme.YourApp.CardText.Secondary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Secondary.Subheader" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -517,7 +517,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="9\n63"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -527,7 +527,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="6\n51"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <!-- DESTINY Row -->
                     <TextView
@@ -538,7 +538,7 @@
                         android:gravity="start"
                         android:padding="8dp"
                         android:text="DESTINY"
-                        style="@style/Theme.YourApp.CardText.Secondary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Secondary.Subheader" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -548,7 +548,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="9\n90"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -558,7 +558,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="9\n108"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <!-- MATURITY Row -->
                     <TextView
@@ -569,7 +569,7 @@
                         android:gravity="start"
                         android:padding="8dp"
                         android:text="MATURITY"
-                        style="@style/Theme.YourApp.CardText.Secondary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Secondary.Subheader" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -579,7 +579,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="11/2\n128"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -589,7 +589,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="1\n134/10"
-                        style="@style/Theme.YourApp.CardText.Primary.Subheader" />
+                        style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader" />
 
                 </GridLayout>
 

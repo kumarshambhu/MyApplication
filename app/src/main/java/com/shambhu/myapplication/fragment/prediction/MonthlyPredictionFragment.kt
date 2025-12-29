@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentMonthlyPredictionBinding
 import com.shambhu.myapplication.utils.CommonUtils
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
+import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_CURRENT_NAME
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_DATE_OF_BIRTH
 import com.shambhu.myapplication.utils.Constants.Companion.PREFERENCE_OFFICIAL_NAME
@@ -21,6 +23,17 @@ class MonthlyPredictionFragment : Fragment() {
 
     private var _binding: FragmentMonthlyPredictionBinding? = null
     private val binding get() = _binding!!
+
+    companion object {
+        fun newInstance(dob: String, fullName: String): MonthlyPredictionFragment {
+            val fragment = MonthlyPredictionFragment()
+            val args = Bundle()
+            args.putString(ARG_DOB, dob)
+            args.putString(ARG_FULL_NAME, fullName)
+            fragment.arguments = args
+            return fragment
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

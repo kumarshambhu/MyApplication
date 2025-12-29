@@ -25,7 +25,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                style="@style/Theme.YourApp.CardText.Primary.Header"
+                style="@style/Theme.MyApplicationApp.CardText.Primary.Header"
                 android:text="@string/title_number" />
 
             <ImageView
@@ -47,7 +47,7 @@
             android:padding="16dp">
 
             <TextView
-                style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                 android:id="@+id/tvKarmicDebtSource"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
                 android:text="@string/interpretation" />
 
             <TextView
-                style="@style/Theme.YourApp.CardText.Primary.Content"
+                style="@style/Theme.MyApplicationApp.CardText.Primary.Content"
                 android:id="@+id/karmicLessonDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

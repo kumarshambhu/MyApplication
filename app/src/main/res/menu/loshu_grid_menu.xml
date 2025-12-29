@@ -18,4 +18,9 @@
         android:title="@string/toggle_planes"
         android:icon="@drawable/ic_repeat"
         app:showAsAction="ifRoom" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/theme_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </menu>

@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Predictive Numerology Storyboards"
-            style="@style/Theme.YourApp.CardText.Primary.Header"
+            style="@style/Theme.MyApplicationApp.CardText.Primary.Header"
             android:textStyle="bold" />
 
 

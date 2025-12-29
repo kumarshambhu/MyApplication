@@ -29,10 +29,8 @@ class PredictionActivity : BaseDrawerActivity<ActivityPredictionBinding>() {
         supportActionBar?.title = "Daily Prediction"
 
         //setupToolbar(binding.toolbar, "Daily Prediction")
-        val sharedPref =
-            this.getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
-        val fullName = sharedPref?.getString(Constants.PREFERENCE_OFFICIAL_NAME, "Guest").toString()
-        val dob = sharedPref?.getString(Constants.PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
+        val fullName = sharedPreferences?.getString(Constants.PREFERENCE_OFFICIAL_NAME, "Guest").toString()
+        val dob = sharedPreferences?.getString(Constants.PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
 
 
         val viewPager = binding.viewPager

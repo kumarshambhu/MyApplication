@@ -22,7 +22,7 @@
 
             <TextView
                 android:id="@+id/tvKarmicDebtNumber"
-                style="@style/Theme.YourApp.CardText.Primary.Header"
+                style="@style/Theme.MyApplicationApp.CardText.Primary.Header"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -49,7 +49,7 @@
 
             <TextView
                 android:id="@+id/tvKarmicDebtSource"
-                style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/interpretation" />

@@ -55,18 +55,18 @@
         <item name="cardCornerRadius">0dp</item>
     </style>
 
-    <style name="Theme.YourApp.CardText.Primary.Header" parent="">
+    <style name="Theme.MyApplicationApp.CardText.Primary.Header" parent="">
         <item name="android:textColor">@color/card_header</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
 
-    <style name="Theme.YourApp.CardText.Primary.Subheader" parent="">
+    <style name="Theme.MyApplicationApp.CardText.Primary.Subheader" parent="">
         <item name="android:textColor">@color/card_sub_header</item>
     </style>
 
-    <style name="Theme.YourApp.CardText.Primary.Content" parent="">
+    <style name="Theme.MyApplicationApp.CardText.Primary.Content" parent="">
         <item name="android:textColor">@color/card_content</item>
         <item name="android:textSize">20sp</item>
     </style>
@@ -80,19 +80,19 @@
         <item name="cardCornerRadius">0dp</item>
     </style>
 
-    <style name="Theme.YourApp.CardText.Secondary.Header" parent="">
+    <style name="Theme.MyApplicationApp.CardText.Secondary.Header" parent="">
         <item name="android:textColor">@color/card_header</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
 
-    <style name="Theme.YourApp.CardText.Secondary.Subheader" parent="">
+    <style name="Theme.MyApplicationApp.CardText.Secondary.Subheader" parent="">
         <item name="android:textColor">@color/card_sub_header</item>
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="Theme.YourApp.CardText.Secondary.Content" parent="">
+    <style name="Theme.MyApplicationApp.CardText.Secondary.Content" parent="">
         <item name="android:textColor">@color/card_content</item>
         <item name="android:textSize">20sp</item>
     </style>

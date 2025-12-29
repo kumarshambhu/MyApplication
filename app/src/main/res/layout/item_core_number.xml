@@ -32,7 +32,7 @@
 
             <TextView
                 android:id="@+id/coreNumberValue"
-                style="@style/Theme.YourApp.CardText.Primary.Header"
+                style="@style/Theme.MyApplicationApp.CardText.Primary.Header"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -59,13 +59,13 @@
 
          <!--   <TextView
                 android:id="@+id/coreNumberWhatItSays"
-                style="@style/Theme.YourApp.CardText.Primary.Subheader"
+                style="@style/Theme.MyApplicationApp.CardText.Primary.Subheader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/interpretation" />
 -->
             <TextView
-                style="@style/Theme.YourApp.CardText.Primary.Content"
+                style="@style/Theme.MyApplicationApp.CardText.Primary.Content"
                 android:id="@+id/coreNumberDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

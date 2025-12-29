@@ -2,17 +2,21 @@ package com.shambhu.myapplication
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.switchmaterial.SwitchMaterial
 import com.shambhu.myapplication.utils.Constants
+import com.shambhu.myapplication.utils.ThemeManager
 
 abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -20,11 +24,16 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
     protected abstract val navView: NavigationView
     protected abstract val toolbar: Toolbar
 
+    protected lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        ThemeManager.applyTheme(this)
         super.onCreate(savedInstanceState)
+        sharedPreferences = getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
         setupDrawer()
         populateNavHeader()
         setupBackButton()
+        setupThemeToggle()
     }
 
     private fun setupBackButton() {
@@ -51,9 +60,9 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
     }
 
     protected open fun populateNavHeader() {
-        val sharedPref = getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
-        val fullName = sharedPref?.getString(Constants.PREFERENCE_OFFICIAL_NAME, "Guest").toString()
-        val dob = sharedPref?.getString(Constants.PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
+        //val sharedPref = getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
+        val fullName = sharedPreferences?.getString(Constants.PREFERENCE_OFFICIAL_NAME, "Guest").toString()
+        val dob = sharedPreferences?.getString(Constants.PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
 
         val headerView = navView.getHeaderView(0)
         headerView.findViewById<TextView>(R.id.nav_header_full_name).text = fullName
@@ -84,5 +93,69 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+
+    private fun setupThemeToggle() {
+        // Check if theme toggle is in the menu
+        val themeMenuItem = navView.menu.findItem(R.id.nav_theme_toggle)
+
+        if (themeMenuItem != null) {
+            setupMenuThemeToggle(themeMenuItem)
+        } else {
+            // Check if theme toggle is in header
+            val headerView = navView.getHeaderView(0)
+            val themeSwitch = headerView.findViewById<SwitchMaterial>(R.id.theme_switch)
+            if (themeSwitch != null) {
+                setupHeaderThemeToggle(themeSwitch)
+            }
+        }
+    }
+
+    private fun setupMenuThemeToggle(menuItem: MenuItem) {
+        menuItem.setOnMenuItemClickListener {
+            ThemeManager.toggleTheme(this)
+            recreate() // Recreate activity to apply theme
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
+        }
+
+        // Update menu item title based on current theme
+        updateThemeMenuItem(menuItem)
+    }
+
+    private fun setupHeaderThemeToggle(switch: SwitchMaterial) {
+        switch.isChecked = ThemeManager.isDarkMode(this)
+
+        switch.setOnCheckedChangeListener { _, isChecked ->
+            ThemeManager.setDarkMode(this, isChecked)
+            recreate()
+        }
+    }
+
+    private fun updateThemeMenuItem(menuItem: MenuItem) {
+        val isDarkMode = ThemeManager.isDarkMode(this)
+        menuItem.title = if (isDarkMode) "Light Mode" else "Dark Mode"
+        menuItem.icon = if (isDarkMode) {
+            ContextCompat.getDrawable(this, R.drawable.ic_light_mode)
+        } else {
+            ContextCompat.getDrawable(this, R.drawable.ic_dark_mode)
+        }
+    }
+    override fun onResume() {
+        super.onResume()
+        // Update theme toggle state when activity resumes
+        updateThemeToggleState()
+    }
+
+    private fun updateThemeToggleState() {
+        val themeMenuItem = navView.menu.findItem(R.id.nav_theme_toggle)
+        if (themeMenuItem != null) {
+            updateThemeMenuItem(themeMenuItem)
+        }
+
+        val headerView = navView.getHeaderView(0)
+        val themeSwitch = headerView.findViewById<SwitchMaterial>(R.id.theme_switch)
+        themeSwitch?.isChecked = ThemeManager.isDarkMode(this)
     }
 }

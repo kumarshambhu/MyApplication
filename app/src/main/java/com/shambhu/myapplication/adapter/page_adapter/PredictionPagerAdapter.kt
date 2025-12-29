@@ -18,8 +18,8 @@ class PredictionPagerAdapter(
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> CreateCyclesFragment()
-            1 -> MonthlyPredictionFragment()
+            0 -> CreateCyclesFragment.Companion.newInstance(dob, fullName)
+            1 -> MonthlyPredictionFragment.Companion.newInstance(dob, fullName)
             2 -> YearlyPredictionFragment()
             3 -> LifePredictionFragment()
             else -> throw IllegalStateException("Invalid position: $position")
