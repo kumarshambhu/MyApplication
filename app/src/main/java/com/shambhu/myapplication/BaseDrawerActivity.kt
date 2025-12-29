@@ -113,7 +113,7 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
         }
         updateThemeMenuItem(menuItem)
     }
-    
+
     private fun updateThemeToggleSwitch(themeMenuItem: MenuItem) {
         val switchView = themeMenuItem.actionView as FrameLayout
         val switch = switchView.findViewById<SwitchMaterial>(R.id.theme_switch)
