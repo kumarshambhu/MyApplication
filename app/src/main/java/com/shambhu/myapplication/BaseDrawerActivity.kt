@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -60,7 +61,6 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
     }
 
     protected open fun populateNavHeader() {
-        //val sharedPref = getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
         val fullName = sharedPreferences?.getString(Constants.PREFERENCE_OFFICIAL_NAME, "Guest").toString()
         val dob = sharedPreferences?.getString(Constants.PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
 
@@ -99,16 +99,8 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
     private fun setupThemeToggle() {
         // Check if theme toggle is in the menu
         val themeMenuItem = navView.menu.findItem(R.id.nav_theme_toggle)
-
         if (themeMenuItem != null) {
             setupMenuThemeToggle(themeMenuItem)
-        } else {
-            // Check if theme toggle is in header
-            val headerView = navView.getHeaderView(0)
-            val themeSwitch = headerView.findViewById<SwitchMaterial>(R.id.theme_switch)
-            if (themeSwitch != null) {
-                setupHeaderThemeToggle(themeSwitch)
-            }
         }
     }
 
@@ -119,20 +111,14 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
             drawerLayout.closeDrawer(GravityCompat.START)
             true
         }
-
-        // Update menu item title based on current theme
         updateThemeMenuItem(menuItem)
     }
-
-    private fun setupHeaderThemeToggle(switch: SwitchMaterial) {
+    
+    private fun updateThemeToggleSwitch(themeMenuItem: MenuItem) {
+        val switchView = themeMenuItem.actionView as FrameLayout
+        val switch = switchView.findViewById<SwitchMaterial>(R.id.theme_switch)
         switch.isChecked = ThemeManager.isDarkMode(this)
-
-        switch.setOnCheckedChangeListener { _, isChecked ->
-            ThemeManager.setDarkMode(this, isChecked)
-            recreate()
-        }
     }
-
     private fun updateThemeMenuItem(menuItem: MenuItem) {
         val isDarkMode = ThemeManager.isDarkMode(this)
         menuItem.title = if (isDarkMode) "Light Mode" else "Dark Mode"
@@ -141,10 +127,10 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
         } else {
             ContextCompat.getDrawable(this, R.drawable.ic_dark_mode)
         }
+        updateThemeToggleSwitch(menuItem)
     }
     override fun onResume() {
         super.onResume()
-        // Update theme toggle state when activity resumes
         updateThemeToggleState()
     }
 
@@ -153,9 +139,5 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
         if (themeMenuItem != null) {
             updateThemeMenuItem(themeMenuItem)
         }
-
-        val headerView = navView.getHeaderView(0)
-        val themeSwitch = headerView.findViewById<SwitchMaterial>(R.id.theme_switch)
-        themeSwitch?.isChecked = ThemeManager.isDarkMode(this)
     }
 }

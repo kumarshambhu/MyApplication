@@ -79,6 +79,7 @@
 
 
     <color name="state_color">#4CAF50</color>
+    <color name="switch_color">#99FFFFFF</color>
     <color name="chip_background">#2196F3</color>
     <color name="universal_benefic">#4CAF50</color>
     <color name="neutral_combinations">#FF9800</color>

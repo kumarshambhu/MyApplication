@@ -31,11 +31,19 @@
         </menu>
     </item>
     <group android:checkableBehavior="none">
+       <!-- <item
+            android:id="@+id/nav_theme_toggle"
+            android:icon="@drawable/ic_theme"
+            android:title="Dark Mode"
+            app:showAsAction="ifRoom" />-->
+
         <item
             android:id="@+id/nav_theme_toggle"
             android:icon="@drawable/ic_theme"
             android:title="Dark Mode"
-            app:showAsAction="ifRoom" />
+            app:showAsAction="ifRoom"
+            app:actionLayout="@layout/drawer_switch">
+        </item>
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_logout"
