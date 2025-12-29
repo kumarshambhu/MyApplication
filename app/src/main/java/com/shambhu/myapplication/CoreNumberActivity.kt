@@ -53,7 +53,7 @@ class CoreNumberActivity : BaseDrawerActivity<ActivityCoreNumberBinding>() {
             }
             tabIcon?.setImageDrawable(
                 when (position) {
-                    0 -> getDrawable(R.drawable.ic_dob)
+                    0 -> getDrawable(R.drawable.ic_calendar_today)
                     1 -> getDrawable(R.drawable.ic_name)
                     2 -> getDrawable(R.drawable.ic_karmic)
                     3 -> getDrawable(R.drawable.ic_moon)

@@ -8,8 +8,8 @@
 
     <!-- Custom colors -->
 
-    <color name="colorAccent1">#2196F3</color>
-    <color name="toggle_bg_color">#1A2196F3</color>
+
+
     <color name="toggle_button_background">#200000</color>
     <color name="dark_background">#1F1F30</color>
 
@@ -29,9 +29,9 @@
     <color name="info_color">#E3F2FD</color>
 
     <!-- ========== CARD STYLE ========== -->
-    <color name="card_background">#99FFFFFF</color>
+    <color name="card_background">#F5F5F5</color>
     <color name="card_stroke">#330867</color>
-    <color name="card_header">#99FFFFFF</color>
+    <color name="card_header">#6A11CB</color>
     <color name="card_sub_header">#0A36AF</color>
     <color name="card_content">#0A36AF</color>
 
@@ -46,7 +46,7 @@
     <color name="action_plane_header">#FFA500</color>
     <color name="silver_success_plane_header">#C0C0C0</color>
     <color name="golden_success_plane_header">#FFD700</color>
-    <color name="primary_text">#4B0082</color>
+    <color name="primary_text">#EBEBEB</color>
     <color name="secondary_text">#FF7F50</color>
 
 

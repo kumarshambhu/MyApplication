@@ -8,14 +8,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <!-- App Bar -->
-    <androidx.appcompat.widget.Toolbar
-        android="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@drawable/mystical_gradient"
-        android:elevation="4dp"
-        app:title="Enter Your Personal Details" />
 
 
     <TextView
