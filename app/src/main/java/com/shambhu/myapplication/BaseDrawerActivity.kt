@@ -105,14 +105,11 @@ abstract class BaseDrawerActivity<VB : ViewBinding> : BaseActivity<VB>(), Naviga
     }
 
     private fun setupMenuThemeToggle(menuItem: MenuItem) {
-        val switchView = menuItem.actionView as FrameLayout
-        val switch = switchView.findViewById<SwitchMaterial>(R.id.theme_switch)
-        switch.setOnCheckedChangeListener { _, isChecked ->
-            val isDarkMode = ThemeManager.isDarkMode(this)
-            if (isChecked != isDarkMode) {
-                ThemeManager.toggleTheme(this)
-                recreate()
-            }
+        menuItem.setOnMenuItemClickListener {
+            ThemeManager.toggleTheme(this)
+            recreate() // Recreate activity to apply theme
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
         }
         updateThemeMenuItem(menuItem)
     }
