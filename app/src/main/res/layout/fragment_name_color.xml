@@ -27,7 +27,9 @@
             app:layout_constraintBottom_toTopOf="@+id/individualColorCountLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"
+            />
         <!-- Row 2 - Horizontal Chain -->
 
         <TextView
@@ -36,7 +38,7 @@
             android:layout_height="wrap_content"
             android:text="Individual Color Counts:"
             android:textStyle="bold"
-            android:textColor="@color/gold"
+            android:textColor="@color/secondary"
             app:layout_constraintTop_toBottomOf="@id/multiline_row1"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="16dp"/>
@@ -56,7 +58,7 @@
             android:layout_height="wrap_content"
             android:text="Matched Color Groups:"
             android:textStyle="bold"
-            android:textColor="@color/gold"
+            android:textColor="@color/secondary"
             app:layout_constraintTop_toBottomOf="@id/individualColorCountsValue"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="16dp"/>
@@ -76,7 +78,7 @@
             android:layout_height="wrap_content"
             android:text="Maximum match Color Group:"
             android:textStyle="bold"
-            android:textColor="@color/gold"
+            android:textColor="@color/secondary"
             app:layout_constraintTop_toBottomOf="@id/matchedColorGroupsValue"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="16dp"/>
@@ -97,7 +99,7 @@
             android:layout_height="wrap_content"
             android:text="Number of Colors Matched:"
             android:textStyle="bold"
-            android:textColor="@color/gold"
+            android:textColor="@color/secondary"
             app:layout_constraintTop_toBottomOf="@id/colorGroupNameValue"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="16dp"/>
@@ -118,7 +120,7 @@
             android:layout_height="wrap_content"
             android:text="Matched Colors:"
             android:textStyle="bold"
-            android:textColor="@color/gold"
+            android:textColor="@color/secondary"
             app:layout_constraintTop_toBottomOf="@id/numberOfColorsMatchedValue"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="16dp"/>
@@ -139,7 +141,7 @@
             android:layout_height="wrap_content"
             android:text="Description:"
             android:textStyle="bold"
-            android:textColor="@color/gold"
+            android:textColor="@color/secondary"
             app:layout_constraintTop_toBottomOf="@id/colorGroupMatchedColorValue"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="16dp"/>
@@ -148,7 +150,7 @@
             android:id="@+id/colorGroupDescriptionValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/gold"
+            android:textColor="@color/secondary"
             android:text="22222"
             android:textSize="16sp"
             android:textAllCaps="true"

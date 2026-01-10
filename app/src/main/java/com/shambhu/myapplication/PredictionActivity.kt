@@ -46,6 +46,7 @@ class PredictionActivity : BaseDrawerActivity<ActivityPredictionBinding>() {
                 1 -> "Monthly"
                 2 -> "Yearly"
                 3 -> "Life"
+                4 -> "Psychic"
                 else -> null
             }
         }.attach()

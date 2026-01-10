@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ages 0 - 30"
-            android:textColor="@color/white_60"
+            android:textColor="@color/secondary"
             android:textAppearance="?attr/textAppearanceSubtitle1" />
 
         <TextView
@@ -41,6 +41,7 @@
             android:id="@+id/tvDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/secondary"
             android:layout_marginTop="8dp"
             android:text="Description of the life path cycle."
             android:textAppearance="?attr/textAppearanceBody2" />

@@ -7,6 +7,7 @@ import com.shambhu.myapplication.fragment.prediction.CreateCyclesFragment
 import com.shambhu.myapplication.fragment.prediction.MonthlyPredictionFragment
 import com.shambhu.myapplication.fragment.prediction.YearlyPredictionFragment
 import com.shambhu.myapplication.fragment.prediction.LifePredictionFragment
+import com.shambhu.myapplication.fragment.prediction.PsychicNumbersFragment
 
 class PredictionPagerAdapter(
     fa: FragmentActivity,
@@ -14,7 +15,7 @@ class PredictionPagerAdapter(
     private val fullName: String
 ) : FragmentStateAdapter(fa) {
 
-    override fun getItemCount(): Int = 4
+    override fun getItemCount(): Int = 5
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
@@ -22,6 +23,7 @@ class PredictionPagerAdapter(
             1 -> MonthlyPredictionFragment.Companion.newInstance(dob, fullName)
             2 -> YearlyPredictionFragment()
             3 -> LifePredictionFragment()
+            4 -> PsychicNumbersFragment()
             else -> throw IllegalStateException("Invalid position: $position")
         }
     }

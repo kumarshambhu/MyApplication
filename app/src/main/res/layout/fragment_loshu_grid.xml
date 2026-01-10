@@ -23,7 +23,7 @@
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:textColor="@color/gold"
+            android:textColor="@color/primary"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginBottom="16dp"/>
 
@@ -77,16 +77,66 @@
                 style="@style/LoshuGridCellStyle"
                 android:text="6"/>
         </GridLayout>
+        <GridLayout
+            android:id="@+id/loshu_grid_element"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="3"
+            app:layout_constraintTop_toBottomOf="@id/loshu_grid"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.9"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            android:background="@drawable/grid_border">
 
+            <TextView
+                android:id="@+id/cell_element_4"
+                style="@style/LoshuGridCellStyle"
+                android:text="4\nWood"/>
+            <TextView
+                android:id="@+id/cell_element_9"
+                style="@style/LoshuGridCellStyle"
+                android:text="9\nFire"/>
+            <TextView
+                android:id="@+id/cell_element_2"
+                style="@style/LoshuGridCellStyle"
+                android:text="2\nEarth"/>
+            <TextView
+                android:id="@+id/cell_element_3"
+                style="@style/LoshuGridCellStyle"
+                android:text="3\nWood"/>
+            <TextView
+                android:id="@+id/cell_element_5"
+                style="@style/LoshuGridCellStyle"
+                android:text="5\nEarth"/>
+            <TextView
+                android:id="@+id/cell_element_7"
+                style="@style/LoshuGridCellStyle"
+                android:text="7\nSilver"/>
+            <TextView
+                android:id="@+id/cell_element_8"
+                style="@style/LoshuGridCellStyle"
+                android:text="8\nEarth"/>
+            <TextView
+                android:id="@+id/cell_element_1"
+                style="@style/LoshuGridCellStyle"
+                android:text="1\nWater"/>
+            <TextView
+                android:id="@+id/cell_element_6"
+                style="@style/LoshuGridCellStyle"
+                android:text="6\nGold"/>
+        </GridLayout>
         <TextView
             android:id="@+id/loshu_grid_dob_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date of Birth:"
-            android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/gold"
-            app:layout_constraintTop_toBottomOf="@id/loshu_grid"
+            android:layout_marginStart="20sp"
+            android:textColor="@color/secondary"
+            app:layout_constraintTop_toBottomOf="@id/loshu_grid_element"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="16dp"/>
         <TextView
@@ -94,7 +144,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:textColor="@color/white"
+            android:textColor="@color/secondary"
             app:layout_constraintTop_toTopOf="@id/loshu_grid_dob_label"
             app:layout_constraintStart_toEndOf="@id/loshu_grid_dob_label"
             android:layout_marginStart="8dp"/>
@@ -109,8 +159,8 @@
             android:fontFamily="@font/mystical_font"
             android:text="Mulank"
             android:textAlignment="center"
-            android:textColor="@color/gold"
-            android:textSize="18sp"
+            android:textColor="@color/secondary"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/loshu_grid_bhagyank_label"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -125,8 +175,8 @@
             android:fontFamily="@font/mystical_font"
             android:text="Bhagyank"
             android:textAlignment="center"
-            android:textColor="@color/gold"
-            android:textSize="18sp"
+            android:textColor="@color/secondary"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/loshu_grid_kua_number_label"
             app:layout_constraintStart_toEndOf="@id/loshu_grid_mulank_label"
             app:layout_constraintTop_toBottomOf="@id/loshu_grid_dob_label"
@@ -140,8 +190,8 @@
             android:fontFamily="@font/mystical_font"
             android:text="Kua"
             android:textAlignment="center"
-            android:textColor="@color/gold"
-            android:textSize="18sp"
+            android:textColor="@color/secondary"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/loshu_grid_bhagyank_label"
             app:layout_constraintTop_toBottomOf="@id/loshu_grid_dob_label"
@@ -155,8 +205,7 @@
             android:fontFamily="@font/mystical_font"
             android:text="00"
             android:textAlignment="center"
-            android:textColor="@color/gold"
-            android:textSize="30sp"
+            android:textColor="@color/secondary"
             app:layout_constraintEnd_toStartOf="@id/loshu_grid_bhagyank_value"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/loshu_grid_mulank_label"
@@ -169,8 +218,7 @@
             android:fontFamily="@font/mystical_font"
             android:text="00"
             android:textAlignment="center"
-            android:textColor="@color/gold"
-            android:textSize="30sp"
+            android:textColor="@color/secondary"
             app:layout_constraintEnd_toStartOf="@id/loshuGridKuaNumberValue"
             app:layout_constraintStart_toEndOf="@id/loshuGridMulankValue"
             app:layout_constraintTop_toBottomOf="@id/loshu_grid_mulank_label"
@@ -184,8 +232,7 @@
             android:fontFamily="@font/mystical_font"
             android:text="0000"
             android:textAlignment="center"
-            android:textColor="@color/gold"
-            android:textSize="30sp"
+            android:textColor="@color/secondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/loshu_grid_bhagyank_value"
             app:layout_constraintTop_toBottomOf="@id/loshu_grid_mulank_label"

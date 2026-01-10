@@ -405,7 +405,8 @@ class LoshuGridFragment : Fragment() {
         binding.planeRecyclerView.visibility = View.GONE
         binding.missingNumberRecyclerView.visibility = View.GONE
         binding.repeatNumberRecyclerView.visibility = View.GONE
-
+        binding.loshuGridElement.visibility = View.GONE
+        binding.loshuGrid.visibility = View.VISIBLE
         return when (item.itemId) {
             R.id.action_toggle_planes -> {
                 if (!planeVisibility) binding.planeRecyclerView.visibility = View.VISIBLE
@@ -414,6 +415,8 @@ class LoshuGridFragment : Fragment() {
 
             R.id.action_toggle_missing_number -> {
                 if (!missingVisibility) binding.missingNumberRecyclerView.visibility = View.VISIBLE
+                binding.loshuGridElement.visibility = View.VISIBLE
+                binding.loshuGrid.visibility = View.GONE
                 true
             }
 

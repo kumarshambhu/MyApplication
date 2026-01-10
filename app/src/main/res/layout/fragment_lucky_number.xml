@@ -41,7 +41,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Common Lucky Numbers"
-                        android:textColor="@color/green_700"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -123,7 +122,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:text="Planet Information"
-                        android:textColor="@color/purple_700"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -157,7 +155,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Lucky: "
-                                android:textColor="@color/green_700"
                                 android:textSize="12sp" />
 
                             <TextView
@@ -210,7 +207,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Lucky: "
-                                android:textColor="@color/green_700"
                                 android:textSize="12sp" />
 
                             <TextView

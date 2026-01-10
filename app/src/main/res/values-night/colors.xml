@@ -8,25 +8,12 @@
 
     <!-- Custom colors -->
 
-    <color name="colorAccent1">#2196F3</color>
-    <color name="toggle_bg_color">#1A2196F3</color>
     <color name="toggle_button_background">#200000</color>
-    <color name="dark_background">#1F1F30</color>
+    <color name="chip_background">#200000</color>
 
     <!-- ========== TAB STYLE ========== -->
-    <color name="dark_tab">#2A2B37</color>
-    <color name="tab_background">#D3C5E5</color>
-    <color name="tab_title">#E6E6FA</color>
-    <color name="tab_indicator">#2A2B37</color>
-    <color name="tab_text_color">#FFFFFF</color>
     <color name="dark_gold">#E2C792</color>
-    <color name="dark_test">#0B0018</color>
-    <color name="dark_text">#E3DCEC</color>
-    <color name="dark_tab_bg">#41127F</color>
-    <color name="dark_tab_text">#6D5493</color>
     <color name="dark_gray">#ABB0B8</color>
-    <color name="warning_color">#FFF3E0</color>
-    <color name="info_color">#E3F2FD</color>
 
     <!-- ========== CARD STYLE ========== -->
     <color name="card_background">#330867</color>
@@ -47,42 +34,26 @@
     <color name="silver_success_plane_header">#C0C0C0</color>
     <color name="golden_success_plane_header">#FFD700</color>
     <color name="primary_text">#4B0082</color>
-    <color name="secondary_text">#FF7F50</color>
 
 
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_700">#FF018786</color>
     <color name="gray">#FF757575</color>
     <color name="gray_light">#FFE0E0E0</color>
-    <color name="green">#FF4CAF50</color>
-    <color name="red">#FFF44336</color>
-    <color name="orange">#FFFF9800</color>
-    <color name="background">#FFF5F5F5</color>
-    <color name="light_purple">#FFE8EAF6</color>
+     <color name="background">#FFF5F5F5</color>
 
 
 
-
-
-
-
-
-
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="green_700">#FF2E7D32</color>
     <color name="red_600">#FFE53935</color>
     <color name="blue_600">#FF1E88E5</color>
-    <color name="gray_600">#FF757575</color>
 
+    <color name="primary">#99FFFFFF</color>
+    <color name="secondary">#FFFFFF</color>
 
 
     <color name="state_color">#4CAF50</color>
     <color name="switch_color">#99FFFFFF</color>
-    <color name="chip_background">#2196F3</color>
-    <color name="universal_benefic">#4CAF50</color>
-    <color name="neutral_combinations">#FF9800</color>
-    <color name="malefic_combinations">#F44336</color>
+    <color name="toolbar_bg_color">#2A2B37</color>
+    <color name="toolbar_text_color">#99FFFFFF</color>
+    <color name="mystical_gradient_start_color">#8649D6</color>
+    <color name="mystical_gradient_end_color">#090013</color>
 
 </resources>

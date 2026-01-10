@@ -22,7 +22,7 @@ class ExpandableActivity : BaseDrawerActivity<ActivityExpandableBinding>() {
     override val navView: NavigationView
         get() = binding.navView
     override val toolbar: Toolbar
-        get() = binding.toolbar
+        get() = binding.activityBaseDesign.toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,8 +32,8 @@ class ExpandableActivity : BaseDrawerActivity<ActivityExpandableBinding>() {
         val fullName = sharedPreferences?.getString(Constants.PREFERENCE_OFFICIAL_NAME, "Guest").toString()
         val dob = sharedPreferences?.getString(Constants.PREFERENCE_DATE_OF_BIRTH, "0000-00-00").toString()
 
-        val viewPager = binding.viewPager
-        val tabLayout = binding.tabs
+        val viewPager = binding.activityBaseDesign.viewPager
+        val tabLayout = binding.activityBaseDesign.tabs
 
         viewPager.adapter = ExpandablePagerAdapter(this, dob, fullName)
 
@@ -65,7 +65,7 @@ class ExpandableActivity : BaseDrawerActivity<ActivityExpandableBinding>() {
             }
         }.attach()
 
-        binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+        binding.activityBaseDesign.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val tabTextView = tab?.customView?.findViewById<TextView>(R.id.tab_text)
                 supportActionBar?.title = tabTextView?.text

@@ -15,20 +15,8 @@
         android:focusable="true"
         android:padding="8dp"
         android:text="Section Title"
-        android:textColor="@color/white_60"
+        android:textColor="@color/secondary"
         android:textStyle="bold" />
-
-    <!--<TextView
-        android:id="@+id/sectionContent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="8dp"
-        android:paddingTop="4dp"
-        android:paddingEnd="8dp"
-        android:paddingBottom="8dp"
-        android:text="Section Content"
-        android:textColor="@color/secondary_text"
-        android:textSize="14sp" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sectionContentRecyclerView"

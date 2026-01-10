@@ -24,14 +24,14 @@ class CoreNumberActivity : BaseDrawerActivity<ActivityCoreNumberBinding>() {
     override val navView: NavigationView
         get() = binding.navView
     override val toolbar: Toolbar
-        get() = binding.toolbar
+        get() = binding.activityBaseDesign.toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.title = "Core Numbers"
 
-        val viewPager = binding.viewPager
-        val tabs = binding.tabs
+        val viewPager = binding.activityBaseDesign.viewPager
+        val tabs = binding.activityBaseDesign.tabs
 
         //val sharedPref = this.getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
         val fullName = sharedPreferences?.getString(Constants.PREFERENCE_OFFICIAL_NAME, "Guest").toString()
@@ -63,7 +63,7 @@ class CoreNumberActivity : BaseDrawerActivity<ActivityCoreNumberBinding>() {
             )
         }.attach()
 
-        binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+        binding.activityBaseDesign.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val tabTextView = tab?.customView?.findViewById<TextView>(R.id.tab_text)
                 supportActionBar?.title = "${tabTextView?.text} Numbers"

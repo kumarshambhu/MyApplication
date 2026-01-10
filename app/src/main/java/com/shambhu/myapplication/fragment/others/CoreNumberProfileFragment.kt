@@ -22,6 +22,7 @@ import com.shambhu.myapplication.repository.impl.CoreNumberRepositoryImpl
 import com.shambhu.myapplication.service.impl.CoreNumberServiceImpl
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.NumeroCalculator
+import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.zip
@@ -70,9 +71,9 @@ class CoreNumberProfileFragment : Fragment() {
 
     private fun calculateNumerology() {
         // Calculate Mulank and Bhagyank from birth date
-        val calculator = NumeroCalculator()
-        val mulankNumber = calculator.calculateMulank(birthDate)
-        val bhagyankNumber = calculator.calculateBhagyank(birthDate)
+        val (day, month, year) = CommonUtils.parseDateTriple(birthDate)
+        val mulankNumber = NumerologyCalculationUtils.calculateBirthdayNumber(day)
+        val bhagyankNumber = NumerologyCalculationUtils.calculateLifePath(day, month, year)
 
         getMulankBhagyankSections(mulankNumber, bhagyankNumber)
 
@@ -111,14 +112,14 @@ class CoreNumberProfileFragment : Fragment() {
     }
 
     private fun updateMulankUi(mulankNumber: Int) {
-        binding.mulankTitle.text = "${mulankData?.name} (Number $mulankNumber)"
+        binding.mulankTitle.text = "${mulankData?.name}"
         val mulankDesc = "Ruling Planet: ${mulankData?.rulingPlanet}\n" +
                 "Birth Dates: ${mulankData?.birthDates?.joinToString(", ")}"
         binding.mulankDetails.text = mulankDesc
     }
 
     private fun updateBhagyankUi(bhagyankNumber: Int) {
-        binding.bhagyankTitle.text = "${bhagyankData?.name} (Number $bhagyankNumber)"
+        binding.bhagyankTitle.text = "${bhagyankData?.name}"
         val bhagyankDesc = "Ruling Planet: ${bhagyankData?.rulingPlanet}"
         binding.bhagyankDetails.text = bhagyankDesc
     }
@@ -199,16 +200,24 @@ class CoreNumberProfileFragment : Fragment() {
 
 
     private fun getMulankBhagyankSections(mulank: Int, bhagyank: Int) {
+        var mulankData = mulank
+        var bhagyankData = bhagyank
+        if(mulank > 0){
+            mulankData = CommonUtils.reduceNumberIgnoreMasterNumber(bhagyank)
+        }
+        if(bhagyank > 0){
+            bhagyankData = CommonUtils.reduceNumberIgnoreMasterNumber(mulank)
+        }
         val data = Gson().fromJson(
             CommonUtils.readAssetFile(requireContext(), "dob_combination.json"),
             MulankBhagyankResponse::class.java
         )
         val data1 = data.mulank_bhagyank_combinations
-        val data2 = data1.stream().filter { it -> it.day_number == mulank }.findFirst().get()
+        val data2 = data1.stream().filter { it -> it.day_number == mulankData }.findFirst().get()
 
         val data3 = data2.combinations
         val data4 =
-            data3.stream().filter { it -> it.combination.contains(bhagyank.toString()) }.findFirst()
+            data3.stream().filter { it -> it.combination.contains(bhagyankData.toString()) }.findFirst()
                 .get()
         binding.mulankBhagyankCombinationLayout.tvTitle.text = data4.combination
         binding.mulankBhagyankCombinationLayout.tvRuler.text = "Ruled by ${data4.planets}"
