@@ -5,5 +5,6 @@ data class ElementAnalysisResult(
     val dominantExcessDescription: String,
     val dominantDefinitionDescription: String,
     val dominantDefinitionDetail: String,
-    val elementScores: Map<String, Double>
+    val elementScores: Map<String, Double>,
+    val elementMatching: Map<String, List<Int>>
 )
