@@ -282,7 +282,6 @@ object NumerologyCalculationUtils {
     }
 
     fun calculateElements(fullName: String, elementData: ElementData): ElementAnalysisResult {
-        val nameNumbers = nameToIntArray(fullName)
         var dominantElementDescription = ""
         var dominantElementKey = ""
         var dominantDefinitionDescription = ""
@@ -290,7 +289,7 @@ object NumerologyCalculationUtils {
         val elementScores =
             mutableMapOf("AIR" to 0.0, "EARTH" to 0.0, "FIRE" to 0.0, "WATER" to 0.0)
         val elementMatching =
-            mutableMapOf<String, MutableList<Int>>("AIR" to mutableListOf(), "EARTH" to mutableListOf(), "FIRE" to mutableListOf(), "WATER" to mutableListOf())
+            mutableMapOf<String, MutableList<String>>("AIR" to mutableListOf(), "EARTH" to mutableListOf(), "FIRE" to mutableListOf(), "WATER" to mutableListOf())
 
 
         val elementMap = elementData.element
@@ -298,28 +297,30 @@ object NumerologyCalculationUtils {
         val definitionMap = elementData.definition
 
 
-        for (number in nameNumbers) {
-            elementMap[number.toString()]?.forEach { elementInfo ->
-                val elementName = elementInfo.element
-                val quantity = elementInfo.quantity
-                elementScores[elementName] =
-                    elementScores.getOrDefault(elementName, 0.0) + quantity
-                elementMatching[elementName]?.add(number)
-
-
-                val highestElement = elementScores.maxByOrNull { it.value }?.key
-                if (highestElement != null && excessMap.containsKey(highestElement)) {
-                    dominantElementKey = highestElement
-                    dominantElementDescription =
-                        excessMap[highestElement]?.details ?: "No dominant element found."
-                    dominantDefinitionDescription =
-                        definitionMap[highestElement]?.description ?: "No dominant element found."
-                    dominantDefinitionDetail =
-                        definitionMap[highestElement]?.details ?: "No dominant element found."
-                } else {
-                    dominantElementDescription = "No dominant element found."
+        for (character in fullName.uppercase()) {
+            val number = LETTER_VALUES[character]
+            if (number != null) {
+                elementMap[number.toString()]?.forEach { elementInfo ->
+                    val elementName = elementInfo.element
+                    val quantity = elementInfo.quantity
+                    elementScores[elementName] =
+                        elementScores.getOrDefault(elementName, 0.0) + quantity
+                    elementMatching[elementName]?.add("$character($number)")
                 }
             }
+        }
+
+        val highestElement = elementScores.maxByOrNull { it.value }?.key
+        if (highestElement != null && excessMap.containsKey(highestElement)) {
+            dominantElementKey = highestElement
+            dominantElementDescription =
+                excessMap[highestElement]?.details ?: "No dominant element found."
+            dominantDefinitionDescription =
+                definitionMap[highestElement]?.description ?: "No dominant element found."
+            dominantDefinitionDetail =
+                definitionMap[highestElement]?.details ?: "No dominant element found."
+        } else {
+            dominantElementDescription = "No dominant element found."
         }
         return ElementAnalysisResult(
             dominantElementKey,
