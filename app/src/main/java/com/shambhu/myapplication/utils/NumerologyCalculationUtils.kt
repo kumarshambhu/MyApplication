@@ -289,6 +289,9 @@ object NumerologyCalculationUtils {
         var dominantDefinitionDetail = ""
         val elementScores =
             mutableMapOf("AIR" to 0.0, "EARTH" to 0.0, "FIRE" to 0.0, "WATER" to 0.0)
+        val elementMatching =
+            mutableMapOf<String, MutableList<Int>>("AIR" to mutableListOf(), "EARTH" to mutableListOf(), "FIRE" to mutableListOf(), "WATER" to mutableListOf())
+
 
         val elementMap = elementData.element
         val excessMap = elementData.excess
@@ -301,6 +304,8 @@ object NumerologyCalculationUtils {
                 val quantity = elementInfo.quantity
                 elementScores[elementName] =
                     elementScores.getOrDefault(elementName, 0.0) + quantity
+                elementMatching[elementName]?.add(number)
+
 
                 val highestElement = elementScores.maxByOrNull { it.value }?.key
                 if (highestElement != null && excessMap.containsKey(highestElement)) {
@@ -321,7 +326,8 @@ object NumerologyCalculationUtils {
             dominantElementDescription,
             dominantDefinitionDescription,
             dominantDefinitionDetail,
-            elementScores
+            elementScores,
+            elementMatching
         )
     }
 
