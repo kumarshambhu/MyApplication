@@ -71,10 +71,10 @@ class LoshuGridPlaneRecyclerViewAdapter(
         holder.itemView.setOnClickListener {
             onItemClick(position)
         }
-        (holder.binding.root).background = ContextCompat.getDrawable(context, backgroundColor)
-        if (headerColor != 0) {
+        //(holder.binding.root).background = ContextCompat.getDrawable(context, backgroundColor)
+       /* if (headerColor != 0) {
             holder.binding.headerLayout.background = ContextCompat.getDrawable(context, headerColor)
-        }
+        }*/
     }
 
     override fun getItemCount(): Int = coreNumbers.size

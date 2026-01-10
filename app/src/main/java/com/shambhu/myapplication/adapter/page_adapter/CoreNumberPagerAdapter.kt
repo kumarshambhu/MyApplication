@@ -19,11 +19,11 @@ class CoreNumberPagerAdapter(
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> CoreNumberProfileFragment.Companion.newInstance(dob)
-            1 -> CoreNameProfileFragment.Companion.newInstance(dob,fullName)
-            2 -> KarmicNumberFragment.Companion.newInstance(dob, fullName)
-            3 -> LuckyNumberFragment.Companion.newInstance(dob, fullName)
-            4 -> LoshuGridFragment.Companion.newInstance(dob, fullName)
+            0 -> CoreNumberProfileFragment.newInstance(dob)
+            1 -> CoreNameProfileFragment.newInstance(dob,fullName)
+            2 -> KarmicNumberFragment.newInstance(dob, fullName)
+            3 -> LuckyNumberFragment.newInstance(dob, fullName)
+            4 -> LoshuGridFragment.newInstance(dob, fullName)
             else -> throw IllegalStateException("Invalid position: $position")
         }
     }

@@ -1,6 +1,7 @@
 package com.shambhu.myapplication.fragment.core_number
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -19,6 +20,7 @@ import com.shambhu.myapplication.databinding.FragmentLoshuGridBinding
 import com.shambhu.myapplication.model.LoshuGridPlaneAccordionItem
 import com.shambhu.myapplication.model.LoshuGridPlanes
 import com.shambhu.myapplication.model.MissingNumberData
+import com.shambhu.myapplication.model.MissingNumberImpact
 import com.shambhu.myapplication.model.Plane
 import com.shambhu.myapplication.model.RepetitiveNumberData
 import com.shambhu.myapplication.model.Section
@@ -38,6 +40,7 @@ class LoshuGridFragment : Fragment() {
 
     private var _binding: FragmentLoshuGridBinding? = null
     private val binding get() = _binding!!
+    protected var missingNumbers: List<Int> = mutableListOf()
     private val loshuGridRepository: LoshuGridRepository by lazy {
         LoshuGridRepositoryImpl(LoshuGridServiceImpl(requireContext()))
     }
@@ -106,8 +109,10 @@ class LoshuGridFragment : Fragment() {
                         Pair(missingData, repetitiveData)
                     }
                     .collect { (missingData, repetitiveData) ->
-                        createMissingNumberAccordionItems(numberCounts, missingData)
-                        createRepeatingNumberAccordionItems(numberCounts, repetitiveData)
+                            createMissingNumberAccordionItems(numberCounts, missingData)
+                            updateMissingNumberCell(numberCounts)
+                            createRepeatingNumberAccordionItems(numberCounts, repetitiveData)
+
                     }
             }
             binding.planeRecyclerView.visibility = View.VISIBLE
@@ -116,6 +121,36 @@ class LoshuGridFragment : Fragment() {
         }
     }
 
+    private fun updateMissingNumberCell(numberCounts: IntArray) {
+        // Check if count is 0 for each number (1-9)
+        if (numberCounts[1] == 0) {
+            binding.cellElement1.setBackgroundResource(R.color.warning_color)
+        }
+        if (numberCounts[2] == 0) {
+            binding.cellElement2.setBackgroundResource(R.color.warning_color)
+        }
+        if (numberCounts[3] == 0) {
+            binding.cellElement3.setBackgroundResource(R.color.warning_color)
+        }
+        if (numberCounts[4] == 0) {
+            binding.cellElement4.setBackgroundResource(R.color.warning_color)
+        }
+        if (numberCounts[5] == 0) {
+            binding.cellElement5.setBackgroundResource(R.color.warning_color)
+        }
+        if (numberCounts[6] == 0) {
+            binding.cellElement6.setBackgroundResource(R.color.warning_color)
+        }
+        if (numberCounts[7] == 0) {
+            binding.cellElement7.setBackgroundResource(R.color.warning_color)
+        }
+        if (numberCounts[8] == 0) {
+            binding.cellElement8.setBackgroundResource(R.color.warning_color)
+        }
+        if (numberCounts[9] == 0) {
+            binding.cellElement9.setBackgroundResource(R.color.warning_color)
+        }
+    }
     private fun createMissingNumberAccordionItems(
         numberCounts: IntArray,
         missingNumberData: MissingNumberData
