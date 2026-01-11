@@ -314,25 +314,36 @@ object NumerologyCalculationUtils {
         for (number in nameNumbers) {
             elementMap[number.toString()]?.forEach { elementInfo ->
                 val elementName = elementInfo.element
-                val quantity = elementInfo.quantity
-                elementScores[elementName] =
-                    elementScores.getOrDefault(elementName, 0.0) + quantity
                 elementValueMatching[elementName]?.add(number)
-
-
-                val highestElement = elementScores.maxByOrNull { it.value }?.key
-                if (highestElement != null && excessMap.containsKey(highestElement)) {
-                    dominantElementKey = highestElement
-                    dominantElementDescription =
-                        excessMap[highestElement]?.details ?: "No dominant element found."
-                    dominantDefinitionDescription =
-                        definitionMap[highestElement]?.description ?: "No dominant element found."
-                    dominantDefinitionDetail =
-                        definitionMap[highestElement]?.details ?: "No dominant element found."
-                } else {
-                    dominantElementDescription = "No dominant element found."
-                }
             }
+        }
+        val dominantElement = elementScores.maxByOrNull { it.value }
+        if (dominantElement != null) {
+            val highestElement = dominantElement.key
+            if (excessMap.containsKey(highestElement)) {
+                dominantElementKey = highestElement
+                dominantElementDescription =
+                    excessMap[highestElement]?.details ?: "No dominant element found."
+                dominantDefinitionDescription =
+                    definitionMap[highestElement]?.description ?: "No dominant element found."
+                dominantDefinitionDetail =
+                    definitionMap[highestElement]?.details ?: "No dominant element found."
+            } else {
+                dominantElementDescription = "No dominant element found."
+            }
+        }
+
+        fun <T> formatMatchingList(list: List<T>): List<String> {
+            return list.groupingBy { it }.eachCount().map { (item, count) ->
+                "$item($count)"
+            }
+        }
+
+        val formattedValueMatching = elementValueMatching.mapValues { (_, values) ->
+            formatMatchingList(values)
+        }
+        val formattedLetterMatching = elementLetterMatching.mapValues { (_, values) ->
+            formatMatchingList(values)
         }
         return ElementAnalysisResult(
             dominantElementKey,
@@ -340,8 +351,8 @@ object NumerologyCalculationUtils {
             dominantDefinitionDescription,
             dominantDefinitionDetail,
             elementScores,
-            elementValueMatching,
-            elementLetterMatching
+            formattedValueMatching,
+            formattedLetterMatching
         )
     }
 
