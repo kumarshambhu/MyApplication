@@ -289,22 +289,35 @@ object NumerologyCalculationUtils {
         var dominantDefinitionDetail = ""
         val elementScores =
             mutableMapOf("AIR" to 0.0, "EARTH" to 0.0, "FIRE" to 0.0, "WATER" to 0.0)
-        val elementMatching =
+        val elementValueMatching =
             mutableMapOf<String, MutableList<Int>>("AIR" to mutableListOf(), "EARTH" to mutableListOf(), "FIRE" to mutableListOf(), "WATER" to mutableListOf())
+        val elementLetterMatching =
+            mutableMapOf<String, MutableList<String>>("AIR" to mutableListOf(), "EARTH" to mutableListOf(), "FIRE" to mutableListOf(), "WATER" to mutableListOf())
 
 
         val elementMap = elementData.element
         val excessMap = elementData.excess
         val definitionMap = elementData.definition
 
-
+        for (character in fullName.uppercase()) {
+            val number = LETTER_VALUES[character]
+            if (number != null) {
+                elementMap[number.toString()]?.forEach { elementInfo ->
+                    val elementName = elementInfo.element
+                    val quantity = elementInfo.quantity
+                    elementScores[elementName] =
+                        elementScores.getOrDefault(elementName, 0.0) + quantity
+                    elementLetterMatching[elementName]?.add("$character($number)")
+                }
+            }
+        }
         for (number in nameNumbers) {
             elementMap[number.toString()]?.forEach { elementInfo ->
                 val elementName = elementInfo.element
                 val quantity = elementInfo.quantity
                 elementScores[elementName] =
                     elementScores.getOrDefault(elementName, 0.0) + quantity
-                elementMatching[elementName]?.add(number)
+                elementValueMatching[elementName]?.add(number)
 
 
                 val highestElement = elementScores.maxByOrNull { it.value }?.key
@@ -327,7 +340,8 @@ object NumerologyCalculationUtils {
             dominantDefinitionDescription,
             dominantDefinitionDetail,
             elementScores,
-            elementMatching
+            elementValueMatching,
+            elementLetterMatching
         )
     }
 

@@ -115,7 +115,7 @@
 
 
             <TextView
-                android:id="@+id/airElementMatching"
+                android:id="@+id/air_element_value_matching"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -124,7 +124,7 @@
                 android:textColor="@color/secondary" />
 
             <TextView
-                android:id="@+id/earthElementMatching"
+                android:id="@+id/earth_element_value_matching"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -133,7 +133,7 @@
                 android:textColor="@color/secondary" />
 
             <TextView
-                android:id="@+id/fireElementMatching"
+                android:id="@+id/fire_element_value_matching"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -142,7 +142,43 @@
                 android:textColor="@color/secondary" />
 
             <TextView
-                android:id="@+id/waterElementMatching"
+                android:id="@+id/water_element_value_matching"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/secondary" />
+
+            <TextView
+                android:id="@+id/air_element_letter_matching"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/secondary" />
+
+            <TextView
+                android:id="@+id/earth_element_letter_matching"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/secondary" />
+
+            <TextView
+                android:id="@+id/fire_element_letter_matching"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/secondary" />
+
+            <TextView
+                android:id="@+id/water_element_letter_matching"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"

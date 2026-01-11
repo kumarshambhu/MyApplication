@@ -55,18 +55,34 @@ class NameElementFragment : Fragment() {
                     binding.waterElementValue.text =
                         elementAnalysisResult.elementScores[Constants.Companion.ELEMENT_KEY_WATER].toString()
 
-                    binding.airElementMatching.text =
-                        elementAnalysisResult.elementMatching[Constants.Companion.ELEMENT_KEY_AIR]?.joinToString(", ")
+                    binding.airElementValueMatching.text =
+                        elementAnalysisResult.elementValueMatching[Constants.Companion.ELEMENT_KEY_AIR]?.joinToString(", ")
                             ?: ""
-                    binding.earthElementMatching.text =
-                        elementAnalysisResult.elementMatching[Constants.Companion.ELEMENT_KEY_EARTH]?.joinToString(", ")
+                    binding.earthElementValueMatching.text =
+                        elementAnalysisResult.elementValueMatching[Constants.Companion.ELEMENT_KEY_EARTH]?.joinToString(", ")
                             ?: ""
-                    binding.fireElementMatching.text =
-                        elementAnalysisResult.elementMatching[Constants.Companion.ELEMENT_KEY_FIRE]?.joinToString(", ")
+                    binding.fireElementValueMatching.text =
+                        elementAnalysisResult.elementValueMatching[Constants.Companion.ELEMENT_KEY_FIRE]?.joinToString(", ")
                             ?: ""
-                    binding.waterElementMatching.text =
-                        elementAnalysisResult.elementMatching[Constants.Companion.ELEMENT_KEY_WATER]?.joinToString(", ")
+                    binding.waterElementValueMatching.text =
+                        elementAnalysisResult.elementValueMatching[Constants.Companion.ELEMENT_KEY_WATER]?.joinToString(", ")
                             ?: ""
+
+
+                    binding.airElementLetterMatching.text =
+                        elementAnalysisResult.elementLetterMatching[Constants.Companion.ELEMENT_KEY_AIR]?.joinToString(", ")
+                            ?: ""
+                    binding.earthElementLetterMatching.text =
+                        elementAnalysisResult.elementLetterMatching[Constants.Companion.ELEMENT_KEY_EARTH]?.joinToString(", ")
+                            ?: ""
+                    binding.fireElementLetterMatching.text =
+                        elementAnalysisResult.elementLetterMatching[Constants.Companion.ELEMENT_KEY_FIRE]?.joinToString(", ")
+                            ?: ""
+                    binding.waterElementLetterMatching.text =
+                        elementAnalysisResult.elementLetterMatching[Constants.Companion.ELEMENT_KEY_WATER]?.joinToString(", ")
+                            ?: ""
+
+
 
                     Log.i("score", elementAnalysisResult.elementScores.toString())
                     Log.i("score", elementAnalysisResult.dominantElementKey)
