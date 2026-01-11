@@ -314,6 +314,9 @@ object NumerologyCalculationUtils {
         for (number in nameNumbers) {
             elementMap[number.toString()]?.forEach { elementInfo ->
                 val elementName = elementInfo.element
+                val quantity = elementInfo.quantity
+                elementScores[elementName] =
+                    elementScores.getOrDefault(elementName, 0.0) + quantity
                 elementValueMatching[elementName]?.add(number)
             }
         }
