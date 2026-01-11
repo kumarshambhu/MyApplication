@@ -33,6 +33,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:background="@drawable/grid_border"
+            android:padding="8dp"
             android:columnCount="4"
             android:rowCount="3"
             app:layout_constraintEnd_toEndOf="parent"
