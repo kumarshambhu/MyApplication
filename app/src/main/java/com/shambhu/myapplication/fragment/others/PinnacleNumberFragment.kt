@@ -1,23 +1,21 @@
-package com.shambhu.myapplication.fragment.core_number
+package com.shambhu.myapplication.fragment.others
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentPinnacleNumberBinding
 import com.shambhu.myapplication.model.PinnacleNumber
-import com.shambhu.myapplication.utils.CommonUtils
-import com.shambhu.myapplication.utils.Constants
-import com.shambhu.myapplication.utils.NumerologyCalculationUtils
-import android.util.Log
 import com.shambhu.myapplication.repository.MilestoneSuiteRepository
 import com.shambhu.myapplication.repository.impl.MilestoneSuiteRepositoryImpl
 import com.shambhu.myapplication.service.impl.MilestoneSuiteServiceImpl
+import com.shambhu.myapplication.utils.CommonUtils
+import com.shambhu.myapplication.utils.Constants
+import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class PinnacleNumberFragment : Fragment() {
@@ -38,7 +36,7 @@ class PinnacleNumberFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let {
-            val date = CommonUtils.parseDate(it.getString(Constants.ARG_DOB).toString())
+            val date = CommonUtils.parseDate(it.getString(Constants.Companion.ARG_DOB).toString())
             val day = date.dayOfMonth
             val month = date.monthValue
             val year = date.year

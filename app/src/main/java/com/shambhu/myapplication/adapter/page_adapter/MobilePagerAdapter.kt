@@ -6,7 +6,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.shambhu.myapplication.fragment.mobile.GridPairsFragment
 import com.shambhu.myapplication.fragment.mobile.MainFragment
 import com.shambhu.myapplication.fragment.mobile.MobileNumerologyFragment
-import com.shambhu.myapplication.fragment.others.FaqFragment
+import com.shambhu.myapplication.fragment.mobile.FaqFragment
 
 class MobilePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 

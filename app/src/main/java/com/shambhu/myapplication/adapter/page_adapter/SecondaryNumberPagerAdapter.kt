@@ -3,9 +3,7 @@ package com.shambhu.myapplication.adapter.page_adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.shambhu.myapplication.fragment.others.NameGridFragment
-import com.shambhu.myapplication.fragment.secondary_number.FontTestFragment
-import com.shambhu.myapplication.fragment.secondary_number.LuckyNumberFragment
+import com.shambhu.myapplication.fragment.secondary_number.NameGridFragment
 import com.shambhu.myapplication.fragment.secondary_number.NameColorFragment
 import com.shambhu.myapplication.fragment.secondary_number.NameElementFragment
 import com.shambhu.myapplication.fragment.secondary_number.PersonalFortuneFragment

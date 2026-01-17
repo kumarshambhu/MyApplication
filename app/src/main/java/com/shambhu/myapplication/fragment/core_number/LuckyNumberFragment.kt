@@ -1,20 +1,17 @@
-package com.shambhu.myapplication.fragment.secondary_number
+package com.shambhu.myapplication.fragment.core_number
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.shambhu.myapplication.R
 import com.shambhu.myapplication.databinding.FragmentLuckyNumberBinding
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
-import java.time.LocalDate
 
 class LuckyNumberFragment : Fragment() {
 
@@ -34,8 +31,8 @@ class LuckyNumberFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         loadNumerologyData()
         arguments?.let {
-            val dob = it.getString(Constants.ARG_DOB)
-            val fullName = it.getString(Constants.ARG_FULL_NAME)
+            val dob = it.getString(Constants.Companion.ARG_DOB)
+            val fullName = it.getString(Constants.Companion.ARG_FULL_NAME)
             if (dob != null && fullName != null) {
                 bindLuckyUnluckyNumbers(dob, fullName)
             }
@@ -63,8 +60,8 @@ class LuckyNumberFragment : Fragment() {
         fun newInstance(dob: String, fullName: String): LuckyNumberFragment {
             val fragment = LuckyNumberFragment()
             val args = Bundle()
-            args.putString(Constants.ARG_DOB, dob)
-            args.putString(Constants.ARG_FULL_NAME, fullName)
+            args.putString(Constants.Companion.ARG_DOB, dob)
+            args.putString(Constants.Companion.ARG_FULL_NAME, fullName)
             fragment.arguments = args
             return fragment
         }

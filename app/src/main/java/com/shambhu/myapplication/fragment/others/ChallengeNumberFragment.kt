@@ -1,7 +1,7 @@
-package com.shambhu.myapplication.fragment.core_number
-
+package com.shambhu.myapplication.fragment.others
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +15,6 @@ import com.shambhu.myapplication.service.impl.MilestoneSuiteServiceImpl
 import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
-import android.util.Log
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 
@@ -38,7 +37,7 @@ class ChallengeNumberFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let {
-            val date = CommonUtils.parseDate(it.getString(Constants.ARG_DOB).toString())
+            val date = CommonUtils.parseDate(it.getString(Constants.Companion.ARG_DOB).toString())
             val day = date.dayOfMonth
             val month = date.monthValue
             val year = date.year

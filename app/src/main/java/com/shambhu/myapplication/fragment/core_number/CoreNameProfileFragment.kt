@@ -1,4 +1,4 @@
-package com.shambhu.myapplication.fragment.others
+package com.shambhu.myapplication.fragment.core_number
 
 import android.os.Bundle
 import android.util.Log
@@ -15,8 +15,7 @@ import com.shambhu.myapplication.model.CoreNumberAccordionItem
 import com.shambhu.myapplication.repository.CoreNameProfileRepository
 import com.shambhu.myapplication.repository.impl.CoreNameProfileRepositoryImpl
 import com.shambhu.myapplication.service.impl.CoreNameProfileServiceImpl
-import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
-import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
+import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
@@ -40,7 +39,7 @@ class CoreNameProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let {
-            val fullName = it.getString(ARG_FULL_NAME)
+            val fullName = it.getString(Constants.Companion.ARG_FULL_NAME)
             if (fullName != null) {
                 lifecycleScope.launch {
                     repository.getCoreNameProfileData(requireContext(), fullName)
@@ -91,8 +90,8 @@ class CoreNameProfileFragment : Fragment() {
         fun newInstance(dob: String, fullName: String): CoreNameProfileFragment {
             val fragment = CoreNameProfileFragment()
             val args = Bundle()
-            args.putString(ARG_DOB, dob)
-            args.putString(ARG_FULL_NAME, fullName)
+            args.putString(Constants.Companion.ARG_DOB, dob)
+            args.putString(Constants.Companion.ARG_FULL_NAME, fullName)
             fragment.arguments = args
             return fragment
         }

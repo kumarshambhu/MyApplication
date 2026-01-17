@@ -1,4 +1,4 @@
-package com.shambhu.myapplication.fragment.secondary_number
+package com.shambhu.myapplication.fragment.random
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

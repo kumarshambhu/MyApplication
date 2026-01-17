@@ -1,4 +1,4 @@
-package com.shambhu.myapplication.fragment.others
+package com.shambhu.myapplication.fragment.random
 
 import android.os.Bundle
 import android.util.Log
@@ -7,15 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.shambhu.myapplication.adapter.CommonAdapterUtil
 import com.shambhu.myapplication.databinding.FragmentCareersBinding
 import com.shambhu.myapplication.repository.MilestoneSuiteRepository
 import com.shambhu.myapplication.repository.impl.MilestoneSuiteRepositoryImpl
 import com.shambhu.myapplication.service.impl.MilestoneSuiteServiceImpl
 import com.shambhu.myapplication.utils.CommonUtils
-import com.shambhu.myapplication.utils.Constants.Companion.ARG_DOB
-import com.shambhu.myapplication.utils.Constants.Companion.ARG_FULL_NAME
+import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
@@ -47,7 +45,7 @@ class CareersFragment : Fragment() {
     private fun loadCareers() {
         // For now, let's just use a hardcoded number. This can be passed as an argument later.
         arguments?.let {
-            val dob = it.getString(ARG_DOB)
+            val dob = it.getString(Constants.Companion.ARG_DOB)
             val (day, month, year) = CommonUtils.parseDateTriple(dob.toString())
             val lifepath = NumerologyCalculationUtils.calculateLifePath(day, month, year)
             lifecycleScope.launch {
@@ -78,8 +76,8 @@ class CareersFragment : Fragment() {
         fun newInstance(dob: String, fullName: String): CareersFragment {
             val fragment = CareersFragment()
             val args = Bundle()
-            args.putString(ARG_DOB, dob)
-            args.putString(ARG_FULL_NAME, fullName)
+            args.putString(Constants.Companion.ARG_DOB, dob)
+            args.putString(Constants.Companion.ARG_FULL_NAME, fullName)
             fragment.arguments = args
             return fragment
         }

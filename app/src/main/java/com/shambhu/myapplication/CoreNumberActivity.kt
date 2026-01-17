@@ -49,6 +49,7 @@ class CoreNumberActivity : BaseDrawerActivity<ActivityCoreNumberBinding>() {
                 2 -> "Karmic"
                 3 -> "Lucky"
                 4 -> "Grid"
+                5 -> "Correction"
                 else -> null
             }
             tabIcon?.setImageDrawable(
@@ -58,6 +59,7 @@ class CoreNumberActivity : BaseDrawerActivity<ActivityCoreNumberBinding>() {
                     2 -> getDrawable(R.drawable.ic_karmic)
                     3 -> getDrawable(R.drawable.ic_moon)
                     4 -> getDrawable(R.drawable.ic_grid)
+                    5 -> getDrawable(R.drawable.ic_grid)
                     else -> null
                 }
             )

@@ -1,4 +1,4 @@
-package com.shambhu.myapplication.fragment.core_number
+package com.shambhu.myapplication.fragment.others
 
 import android.content.Context
 import android.os.Bundle
@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.shambhu.myapplication.adapter.LifePathCycleAdapter
 import com.shambhu.myapplication.databinding.FragmentLifePathCycleBinding
-import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import com.shambhu.myapplication.utils.Constants
+import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 
 class LifePathCycleFragment : Fragment() {
 
@@ -41,8 +41,8 @@ class LifePathCycleFragment : Fragment() {
     }
 
     private fun loadLifePathCycles() {
-        val sharedPref = requireActivity().getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
-        val dob = sharedPref.getString(Constants.PREFERENCE_DATE_OF_BIRTH, null)
+        val sharedPref = requireActivity().getSharedPreferences(Constants.Companion.PREFERENCE_NAME, Context.MODE_PRIVATE)
+        val dob = sharedPref.getString(Constants.Companion.PREFERENCE_DATE_OF_BIRTH, null)
 
         if (dob != null) {
             val dateParts = dob.split("/").map { it.toInt() }

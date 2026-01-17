@@ -1,23 +1,18 @@
-package com.shambhu.myapplication.fragment.others
+package com.shambhu.myapplication.fragment.secondary_number
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.example.myapplication.NameAnalyzer
 import com.shambhu.myapplication.R
-import com.shambhu.myapplication.databinding.FragmentLuckyNumberBinding
 import com.shambhu.myapplication.databinding.FragmentNameGridBinding
-import com.shambhu.myapplication.fragment.secondary_number.LuckyNumberFragment
-import com.shambhu.myapplication.utils.CommonUtils
 import com.shambhu.myapplication.utils.Constants
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 
-
 /**
- * A simple [Fragment] subclass.
+ * A simple [androidx.fragment.app.Fragment] subclass.
  * Use the [NameGridFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
@@ -37,8 +32,8 @@ class NameGridFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let {
-            val dob = it.getString(Constants.ARG_DOB)
-            val fullName = it.getString(Constants.ARG_FULL_NAME)
+            val dob = it.getString(Constants.Companion.ARG_DOB)
+            val fullName = it.getString(Constants.Companion.ARG_FULL_NAME)
             if (fullName != null) {
                 setupNameAnalysisGrid( fullName)
             }
@@ -149,8 +144,8 @@ class NameGridFragment : Fragment() {
         fun newInstance(dob: String, fullName: String): NameGridFragment {
             val fragment = NameGridFragment()
             val args = Bundle()
-            args.putString(Constants.ARG_DOB, dob)
-            args.putString(Constants.ARG_FULL_NAME, fullName)
+            args.putString(Constants.Companion.ARG_DOB, dob)
+            args.putString(Constants.Companion.ARG_FULL_NAME, fullName)
             fragment.arguments = args
             return fragment
         }

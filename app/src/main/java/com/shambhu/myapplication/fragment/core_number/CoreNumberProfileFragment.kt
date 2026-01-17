@@ -1,5 +1,4 @@
-package com.shambhu.myapplication.fragment.others
-
+package com.shambhu.myapplication.fragment.core_number
 
 import android.os.Bundle
 import android.util.Log
@@ -21,7 +20,6 @@ import com.shambhu.myapplication.repository.CoreNumberRepository
 import com.shambhu.myapplication.repository.impl.CoreNumberRepositoryImpl
 import com.shambhu.myapplication.service.impl.CoreNumberServiceImpl
 import com.shambhu.myapplication.utils.CommonUtils
-import com.shambhu.myapplication.utils.NumeroCalculator
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach

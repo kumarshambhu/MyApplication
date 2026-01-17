@@ -3,16 +3,16 @@ package com.shambhu.myapplication.adapter.page_adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.shambhu.myapplication.fragment.core_number.ChallengeNumberFragment
-import com.shambhu.myapplication.fragment.core_number.LifePathCycleFragment
-import com.shambhu.myapplication.fragment.core_number.PinnacleNumberFragment
+import com.shambhu.myapplication.fragment.others.ChallengeNumberFragment
+import com.shambhu.myapplication.fragment.others.LifePathCycleFragment
+import com.shambhu.myapplication.fragment.others.PinnacleNumberFragment
 import com.shambhu.myapplication.fragment.mobile.GridPairsFragment
-import com.shambhu.myapplication.fragment.others.CoreNameProfileFragment
-import com.shambhu.myapplication.fragment.others.CoreNumberProfileFragment
-import com.shambhu.myapplication.fragment.others.FaqFragment
+import com.shambhu.myapplication.fragment.core_number.CoreNameProfileFragment
+import com.shambhu.myapplication.fragment.core_number.CoreNumberProfileFragment
+import com.shambhu.myapplication.fragment.mobile.FaqFragment
 import com.shambhu.myapplication.fragment.others.MaturityFragment
-import com.shambhu.myapplication.fragment.others.NameGridFragment
-import com.shambhu.myapplication.fragment.others.CareersFragment
+import com.shambhu.myapplication.fragment.secondary_number.NameGridFragment
+import com.shambhu.myapplication.fragment.random.CareersFragment
 import com.shambhu.myapplication.fragment.others.SuccessNumberFragment
 import com.shambhu.myapplication.utils.NumeroCalculator
 
