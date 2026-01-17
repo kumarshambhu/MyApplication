@@ -33,15 +33,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@drawable/grid_border"
-            android:padding="8dp"
-            android:columnCount="7"
-            android:rowCount="4"
+            android:columnCount="4"
+            android:rowCount="3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/multiline_row1">
 
-            <!-- Row 1: Headers -->
+            <!-- Air Element -->
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -50,11 +48,6 @@
                 android:text="Air"
                 android:textColor="@color/primary"
                 android:textStyle="bold" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="?android:attr/listDivider" />
 
             <TextView
                 android:layout_width="0dp"
@@ -65,11 +58,6 @@
                 android:textColor="@color/primary"
                 android:textStyle="bold" />
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="?android:attr/listDivider" />
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -78,11 +66,6 @@
                 android:text="Fire"
                 android:textColor="@color/primary"
                 android:textStyle="bold" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="?android:attr/listDivider" />
 
             <TextView
                 android:layout_width="0dp"
@@ -93,7 +76,6 @@
                 android:textColor="@color/primary"
                 android:textStyle="bold" />
 
-            <!-- Row 2: Values -->
             <TextView
                 android:id="@+id/airElementValue"
                 android:layout_width="0dp"
@@ -104,11 +86,6 @@
                 android:text="0.0"
                 android:textColor="@color/secondary" />
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="?android:attr/listDivider" />
-
             <TextView
                 android:id="@+id/earthElementValue"
                 android:layout_width="0dp"
@@ -117,11 +94,6 @@
                 android:gravity="center"
                 android:text="0.0"
                 android:textColor="@color/secondary" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="?android:attr/listDivider" />
 
             <TextView
                 android:id="@+id/fireElementValue"
@@ -132,11 +104,6 @@
                 android:text="0.0"
                 android:textColor="@color/secondary" />
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="?android:attr/listDivider" />
-
             <TextView
                 android:id="@+id/waterElementValue"
                 android:layout_width="0dp"
@@ -146,7 +113,7 @@
                 android:text="0.0"
                 android:textColor="@color/secondary" />
 
-            <!-- Row 3: Value Matching -->
+
             <TextView
                 android:id="@+id/air_element_value_matching"
                 android:layout_width="0dp"
@@ -155,11 +122,6 @@
                 android:gravity="center"
                 android:text=""
                 android:textColor="@color/secondary" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="?android:attr/listDivider" />
 
             <TextView
                 android:id="@+id/earth_element_value_matching"
@@ -170,11 +132,6 @@
                 android:text=""
                 android:textColor="@color/secondary" />
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="?android:attr/listDivider" />
-
             <TextView
                 android:id="@+id/fire_element_value_matching"
                 android:layout_width="0dp"
@@ -183,11 +140,6 @@
                 android:gravity="center"
                 android:text=""
                 android:textColor="@color/secondary" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="?android:attr/listDivider" />
 
             <TextView
                 android:id="@+id/water_element_value_matching"
@@ -198,7 +150,6 @@
                 android:text=""
                 android:textColor="@color/secondary" />
 
-            <!-- Row 4: Letter Matching -->
             <TextView
                 android:id="@+id/air_element_letter_matching"
                 android:layout_width="0dp"
@@ -207,11 +158,6 @@
                 android:gravity="center"
                 android:text=""
                 android:textColor="@color/secondary" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="?android:attr/listDivider" />
 
             <TextView
                 android:id="@+id/earth_element_letter_matching"
@@ -222,11 +168,6 @@
                 android:text=""
                 android:textColor="@color/secondary" />
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="?android:attr/listDivider" />
-
             <TextView
                 android:id="@+id/fire_element_letter_matching"
                 android:layout_width="0dp"
@@ -235,11 +176,6 @@
                 android:gravity="center"
                 android:text=""
                 android:textColor="@color/secondary" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="?android:attr/listDivider" />
 
             <TextView
                 android:id="@+id/water_element_letter_matching"
