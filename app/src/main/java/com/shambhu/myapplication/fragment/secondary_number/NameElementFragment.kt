@@ -47,42 +47,40 @@ class NameElementFragment : Fragment() {
             .onEach { result ->
                 result.onSuccess { elementAnalysisResult ->
                     binding.airElementValue.text =
-                        elementAnalysisResult.elementScores[Constants.Companion.ELEMENT_KEY_AIR].toString()
+                        elementAnalysisResult.elementScores[Constants.ELEMENT_KEY_AIR].toString()
                     binding.earthElementValue.text =
-                        elementAnalysisResult.elementScores[Constants.Companion.ELEMENT_KEY_EARTH].toString()
+                        elementAnalysisResult.elementScores[Constants.ELEMENT_KEY_EARTH].toString()
                     binding.fireElementValue.text =
-                        elementAnalysisResult.elementScores[Constants.Companion.ELEMENT_KEY_FIRE].toString()
+                        elementAnalysisResult.elementScores[Constants.ELEMENT_KEY_FIRE].toString()
                     binding.waterElementValue.text =
-                        elementAnalysisResult.elementScores[Constants.Companion.ELEMENT_KEY_WATER].toString()
+                        elementAnalysisResult.elementScores[Constants.ELEMENT_KEY_WATER].toString()
 
                     binding.airElementValueMatching.text =
-                        elementAnalysisResult.elementValueMatching[Constants.Companion.ELEMENT_KEY_AIR]?.joinToString(", ")
+                        elementAnalysisResult.elementValueMatching[Constants.ELEMENT_KEY_AIR]?.joinToString(", ")
                             ?: ""
                     binding.earthElementValueMatching.text =
-                        elementAnalysisResult.elementValueMatching[Constants.Companion.ELEMENT_KEY_EARTH]?.joinToString(", ")
+                        elementAnalysisResult.elementValueMatching[Constants.ELEMENT_KEY_EARTH]?.joinToString(", ")
                             ?: ""
                     binding.fireElementValueMatching.text =
-                        elementAnalysisResult.elementValueMatching[Constants.Companion.ELEMENT_KEY_FIRE]?.joinToString(", ")
+                        elementAnalysisResult.elementValueMatching[Constants.ELEMENT_KEY_FIRE]?.joinToString(", ")
                             ?: ""
                     binding.waterElementValueMatching.text =
-                        elementAnalysisResult.elementValueMatching[Constants.Companion.ELEMENT_KEY_WATER]?.joinToString(", ")
+                        elementAnalysisResult.elementValueMatching[Constants.ELEMENT_KEY_WATER]?.joinToString(", ")
                             ?: ""
 
 
                     binding.airElementLetterMatching.text =
-                        elementAnalysisResult.elementLetterMatching[Constants.Companion.ELEMENT_KEY_AIR]?.joinToString(", ")
+                        elementAnalysisResult.elementLetterMatching[Constants.ELEMENT_KEY_AIR]?.joinToString(", ")
                             ?: ""
                     binding.earthElementLetterMatching.text =
-                        elementAnalysisResult.elementLetterMatching[Constants.Companion.ELEMENT_KEY_EARTH]?.joinToString(", ")
+                        elementAnalysisResult.elementLetterMatching[Constants.ELEMENT_KEY_EARTH]?.joinToString(", ")
                             ?: ""
                     binding.fireElementLetterMatching.text =
-                        elementAnalysisResult.elementLetterMatching[Constants.Companion.ELEMENT_KEY_FIRE]?.joinToString(", ")
+                        elementAnalysisResult.elementLetterMatching[Constants.ELEMENT_KEY_FIRE]?.joinToString(", ")
                             ?: ""
                     binding.waterElementLetterMatching.text =
-                        elementAnalysisResult.elementLetterMatching[Constants.Companion.ELEMENT_KEY_WATER]?.joinToString(", ")
+                        elementAnalysisResult.elementLetterMatching[Constants.ELEMENT_KEY_WATER]?.joinToString(", ")
                             ?: ""
-
-
 
                     Log.i("score", elementAnalysisResult.elementScores.toString())
                     Log.i("score", elementAnalysisResult.dominantElementKey)

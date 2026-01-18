@@ -1,6 +1,8 @@
 package com.shambhu.myapplication.repository.impl
 
 import android.content.Context
+import android.util.Log
+import com.google.gson.Gson
 import com.shambhu.myapplication.model.ColorAnalysisResult
 import com.shambhu.myapplication.model.ElementAnalysisResult
 import com.shambhu.myapplication.repository.NameAnalysisRepository
@@ -28,6 +30,7 @@ class NameAnalysisRepositoryImpl(private val nameAnalysisService: NameAnalysisSe
     ): Flow<Result<ElementAnalysisResult>> = flow {
         try {
             val elements = nameAnalysisService.getElements(context, fullName)
+            Log.d("Element", Gson().toJson(elements))
             emit(Result.success(elements))
         } catch (e: Exception) {
             emit(Result.failure(e))
