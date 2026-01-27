@@ -1,6 +1,7 @@
 package com.shambhu.myapplication.repository.impl
 
 import com.shambhu.myapplication.model.MissingNumberData
+import com.shambhu.myapplication.model.Plane
 import com.shambhu.myapplication.model.RepetitiveNumberData
 import com.shambhu.myapplication.repository.LoshuGridRepository
 import com.shambhu.myapplication.service.LoshuGridService
@@ -14,5 +15,9 @@ class LoshuGridRepositoryImpl(private val loshuGridService: LoshuGridService) : 
 
     override fun getRepetitiveNumberData(): Flow<RepetitiveNumberData> {
         return loshuGridService.getRepetitiveNumberData()
+    }
+
+    override fun getPlaneData(): Flow<List<Plane>> {
+        return loshuGridService.getPlaneData()
     }
 }

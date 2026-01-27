@@ -39,17 +39,27 @@ object CommonUtils {
         return Triple(d.dayOfMonth, d.monthValue, d.year)
     }
 
+    fun sumDigits(number: Int): Int {
+        var n = Math.abs(number)
+        var sum = 0
+        while (n > 0) {
+            sum += n % 10
+            n /= 10
+        }
+        return sum
+    }
+
     fun reduceNumber(numerologyNumber: Int, ignore33: Boolean = true): Int {
         /** Reduce number to single digit unless it's a master number. */
-        if (ignore33 and (numerologyNumber in listOf(11, 22))) {
+        if (ignore33 && (numerologyNumber == 11 || numerologyNumber == 22)) {
             return numerologyNumber
         }
-        if (numerologyNumber in listOf(11, 22, 33)) {
+        if (numerologyNumber == 11 || numerologyNumber == 22 || numerologyNumber == 33) {
             return numerologyNumber
         }
         var number = numerologyNumber
         while (number > 9) {
-            number = number.toString().map { it.toString().toInt() }.sum()
+            number = sumDigits(number)
         }
         return number
     }
@@ -57,18 +67,13 @@ object CommonUtils {
     fun reduceNumberIgnoreMasterNumber(n: Int): Int {
         var number = n
         while (number > 9) {
-            number = number.toString().map { it.toString().toInt() }.sum()
+            number = sumDigits(number)
         }
         return number
     }
 
     fun readAssetFile(context: Context, filename: String): String {
-        val inputStream = context.assets.open(filename)
-        val size = inputStream.available()
-        val buffer = ByteArray(size)
-        inputStream.read(buffer)
-        inputStream.close()
-        return String(buffer, Charset.defaultCharset())
+        return context.assets.open(filename).bufferedReader().use { it.readText() }
     }
 
     fun getDescriptionFromAssetFile(context: Context, filename: String, key: String): String {
