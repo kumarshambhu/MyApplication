@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Main background -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white" />
+        </shape>
+    </item>
+
+    <!-- Right border - adjust width via android:width -->
+    <item android:right="-1dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#E0E0E0" /> <!-- Border color -->
+        </shape>
+    </item>
+</layer-list>
