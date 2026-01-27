@@ -68,9 +68,11 @@ class LuckyNumberFragment : Fragment() {
     }
 
     private fun calculateNumerology(mulank: Int, bhagyank: Int) {
+        var mulank1 = CommonUtils.reduceNumberIgnoreMasterNumber(mulank)
+        var bhagyank1 = CommonUtils.reduceNumberIgnoreMasterNumber(bhagyank)
 
-        val mulankData = numerologyData.find { it.number == mulank }
-        val bhagyankData = numerologyData.find { it.number == bhagyank }
+        val mulankData = numerologyData.find { it.number == mulank1 }
+        val bhagyankData = numerologyData.find { it.number == bhagyank1 }
 
         if (mulankData == null || bhagyankData == null) {
             showError("Invalid numerology data")
