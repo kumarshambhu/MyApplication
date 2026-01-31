@@ -12,297 +12,244 @@
         android:background="@drawable/mystical_gradient_background"
         android:padding="16dp">
 
-
-        <GridLayout
+        <TextView
             android:id="@+id/multiline_row1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:columnCount="3"
-            android:rowCount="2"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/gridLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            >
-
-            <!-- Row 1 -->
-            <TextView
-                android:layout_column="0"
-                android:layout_row="0"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:background="@drawable/right_border"
-                android:text="A1"
-                android:gravity="center"
-                android:padding="16dp" />
-
-            <TextView
-                android:layout_column="1"
-                android:layout_row="0"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:background="@drawable/right_border"
-                android:text="A2"
-                android:gravity="center"
-                android:padding="16dp" />
-
-            <TextView
-                android:layout_column="2"
-                android:layout_row="0"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:background="@drawable/bottom_border_only"
-            android:text="A3"
-            android:gravity="center"
-            android:padding="16dp" />
-
-            <!-- Row 2 -->
-            <TextView
-                android:layout_column="0"
-                android:layout_row="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:background="@drawable/bottom_right_border"
-                android:text="B1"
-                android:gravity="center"
-                android:padding="16dp" />
-
-            <TextView
-                android:layout_column="1"
-                android:layout_row="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:background="@drawable/bottom_right_border"
-                android:text="B2"
-                android:gravity="center"
-                android:padding="16dp" />
-
-            <TextView
-                android:layout_column="2"
-                android:layout_row="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:background="@drawable/bottom_border_only"
-                android:text="B3"
-                android:gravity="center"
-                android:padding="16dp" />
-        </GridLayout>
-
-       <!-- <TextView
-            android:id="@+id/multiline_row1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="Elements"
-            android:textAlignment="center"
-            android:textColor="@color/primary"
-            android:textSize="28sp"
-            app:layout_constraintBottom_toTopOf="@+id/gridLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />-->
-
-        <GridLayout
-            android:id="@+id/gridLayout"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:columnCount="4"
-            android:rowCount="3"
+            android:fontFamily="@font/mystical_font"
+            android:text="Name Element Analysis"
+            android:textColor="@color/primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_element_grid"
+            style="@style/Widget.Material3.CardView.Elevated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
             app:layout_constraintTop_toBottomOf="@id/multiline_row1">
 
-            <!-- Air Element -->
-            <TextView
-                android:layout_width="0dp"
+            <GridLayout
+                android:id="@+id/gridLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:text="Air"
-                android:background="@drawable/bottom_right_border"
-                android:textColor="@color/primary"
-                android:textStyle="bold" />
+                android:columnCount="4"
+                android:padding="8dp"
+                android:rowCount="3">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:text="Earth"
-                android:textColor="@color/primary"
-                android:background="@drawable/bottom_right_border"
-                android:textStyle="bold" />
+                <!-- Air Element -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text="Air"
+                    android:background="@drawable/bottom_right_border"
+                    android:textColor="@color/primary"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:text="Fire"
-                android:textColor="@color/primary"
-                android:background="@drawable/bottom_right_border"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text="Earth"
+                    android:textColor="@color/primary"
+                    android:background="@drawable/bottom_right_border"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:text="Water"
-                android:textColor="@color/primary"
-                android:background="@drawable/bottom_border_only"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text="Fire"
+                    android:textColor="@color/primary"
+                    android:background="@drawable/bottom_right_border"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/airElementValue"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:text="0.0"
-                android:textColor="@color/secondary" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text="Water"
+                    android:textColor="@color/primary"
+                    android:background="@drawable/bottom_border_only"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/earthElementValue"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:text="0.0"
-                android:textColor="@color/secondary" />
+                <TextView
+                    android:id="@+id/airElementValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text="0.0"
+                    android:textColor="@color/secondary" />
 
-            <TextView
-                android:id="@+id/fireElementValue"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:text="0.0"
-                android:textColor="@color/secondary" />
+                <TextView
+                    android:id="@+id/earthElementValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text="0.0"
+                    android:textColor="@color/secondary" />
 
-            <TextView
-                android:id="@+id/waterElementValue"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:text="0.0"
-                android:textColor="@color/secondary" />
+                <TextView
+                    android:id="@+id/fireElementValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text="0.0"
+                    android:textColor="@color/secondary" />
+
+                <TextView
+                    android:id="@+id/waterElementValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text="0.0"
+                    android:textColor="@color/secondary" />
 
 
-            <TextView
-                android:id="@+id/air_element_value_matching"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:text=""
-                android:textColor="@color/secondary" />
+                <TextView
+                    android:id="@+id/air_element_value_matching"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/secondary" />
 
-            <TextView
-                android:id="@+id/earth_element_value_matching"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:text=""
-                android:textColor="@color/secondary" />
+                <TextView
+                    android:id="@+id/earth_element_value_matching"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/secondary" />
 
-            <TextView
-                android:id="@+id/fire_element_value_matching"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:text=""
-                android:textColor="@color/secondary" />
+                <TextView
+                    android:id="@+id/fire_element_value_matching"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/secondary" />
 
-            <TextView
-                android:id="@+id/water_element_value_matching"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:text=""
-                android:textColor="@color/secondary" />
+                <TextView
+                    android:id="@+id/water_element_value_matching"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/secondary" />
 
-            <TextView
-                android:id="@+id/air_element_letter_matching"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:text=""
-                android:textColor="@color/secondary" />
+                <TextView
+                    android:id="@+id/air_element_letter_matching"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/secondary" />
 
-            <TextView
-                android:id="@+id/earth_element_letter_matching"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:text=""
-                android:textColor="@color/secondary" />
+                <TextView
+                    android:id="@+id/earth_element_letter_matching"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/secondary" />
 
-            <TextView
-                android:id="@+id/fire_element_letter_matching"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:text=""
-                android:textColor="@color/secondary" />
+                <TextView
+                    android:id="@+id/fire_element_letter_matching"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/secondary" />
 
-            <TextView
-                android:id="@+id/water_element_letter_matching"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:text=""
-                android:textColor="@color/secondary" />
+                <TextView
+                    android:id="@+id/water_element_letter_matching"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/secondary" />
+            </GridLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-        </GridLayout>
-
-        <!-- Row 4 -->
-        <TextView
-            android:id="@+id/elementDescription"
-            android:layout_width="0dp"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_element_details"
+            style="@style/Widget.Material3.CardView.Elevated"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Row 4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gridLayout" />
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:layout_constraintTop_toBottomOf="@id/card_element_grid">
 
-        <TextView
-            android:id="@+id/elementDetails"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Row 4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/elementDescription" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-        <TextView
-            android:id="@+id/elementSummary"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Row 4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/elementDetails" />
+                <TextView
+                    android:id="@+id/elementDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mystical_font"
+                    android:gravity="center"
+                    android:text="Dominant Element"
+                    android:textColor="@color/primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
+                <TextView
+                    android:id="@+id/elementDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Details"
+                    android:textColor="@color/secondary"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:id="@+id/elementSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Summary"
+                    android:textColor="@color/secondary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

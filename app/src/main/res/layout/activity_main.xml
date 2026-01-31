@@ -1,158 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2a2a5a"
-    android:orientation="vertical"
+    android:fillViewport="true"
     tools:context=".MainActivity">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/mystical_font"
-        android:text="Your Birth Details"
-        android:textColor="@color/gold"
-        android:textSize="24sp" />
 
-    <!-- Input Fields -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="24dp">
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/mystical_font"
+            android:text="Your Birth Details"
+            android:textColor="@color/gold"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <!-- Current Name -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:orientation="horizontal">
+            android:hint="Current Name"
+            android:textColorHint="@color/white_60"
+            app:boxStrokeColor="@color/gold"
+            app:hintTextColor="@color/gold"
+            app:startIconDrawable="@drawable/ic_person"
+            app:startIconTint="@color/gold">
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_person" />
-
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/currentNameEditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/mystical_input_field"
-                android:fontFamily="@font/mystical_font"
-                android:hint="Current Name"
-                android:inputType="textPersonName"
-                android:padding="16dp"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="20sp" />
-        </LinearLayout>
-        <!-- Full Name -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_personal" />
-
-            <EditText
-                android:id="@+id/officialNameEditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/mystical_input_field"
-                android:fontFamily="@font/mystical_font"
-                android:hint="Official Name"
-                android:inputType="textPersonName"
-                android:padding="16dp"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <!-- Date of Birth -->
-        <LinearLayout
-            android:id="@+id/dobLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:background="?attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_calendar" />
-
-            <TextView
-                android:id="@+id/dobTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/mystical_input_field"
-                android:fontFamily="@font/mystical_font"
-                android:padding="16dp"
-                android:text="Date of Birth (DD/MM/YYYY)"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/genderLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:background="?attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/outline_agender_24" />
-            <!-- Gender -->
-            <RadioGroup
-                android:id="@+id/genderRadioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0sp"
-                android:layout_marginBottom="0dp"
-                android:orientation="horizontal"
-                android:textSize="20sp">
+                android:fontFamily="@font/mystical_font"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <RadioButton
-                    android:id="@+id/maleRadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/mystical_font"
-                    android:paddingEnd="25sp"
-                    android:text="Male"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
+        <!-- Official Name -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Official Name"
+            android:textColorHint="@color/white_60"
+            app:boxStrokeColor="@color/gold"
+            app:hintTextColor="@color/gold"
+            app:startIconDrawable="@drawable/ic_personal"
+            app:startIconTint="@color/gold">
 
-                <RadioButton
-                    android:id="@+id/femaleRadioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/mystical_font"
-                    android:text="Female"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
-            </RadioGroup>
-        </LinearLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/officialNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mystical_font"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Date of Birth -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dobLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:hint="Date of Birth"
+            android:textColorHint="@color/white_60"
+            app:boxStrokeColor="@color/gold"
+            app:hintTextColor="@color/gold"
+            app:startIconDrawable="@drawable/ic_calendar"
+            app:startIconTint="@color/gold">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dobTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:fontFamily="@font/mystical_font"
+                android:text="DD/MM/YYYY"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/mystical_font"
+            android:text="Gender"
+            android:textColor="@color/gold"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:id="@+id/genderRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/maleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/mystical_font"
+                android:text="Male"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:buttonTint="@color/gold" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/femaleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mystical_font"
+                android:text="Female"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:buttonTint="@color/gold" />
+        </RadioGroup>
         <!-- Time of Birth -->
         <!-- <LinearLayout
              android:layout_width="match_parent"
@@ -210,36 +193,28 @@
         </LinearLayout>
     </LinearLayout>-->
 
-        <!-- Action Button -->
-        <LinearLayout
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/calculateButton"
+            style="@style/Widget.Material3.Button.TonalButton"
             android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/gold"
+            android:fontFamily="@font/mystical_font"
+            android:text="Calculate My Numbers"
+            android:textColor="#2a2a5a"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:cornerRadius="32dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:layout_gravity="center"
+            android:fontFamily="@font/mystical_font"
+            android:text="Your birth details are sacred"
+            android:textColor="@color/white_60"
+            android:textSize="14sp" />
 
-            <Button
-                android:id="@+id/calculateButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/mystical_button"
-                android:fontFamily="@font/mystical_font"
-                android:text="Calculate My Numbers"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="0dp"
-                android:text="Your birth details are sacred"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <!-- Floating mystical elements -->
-        <!-- Add ImageViews for floating orbs and symbols -->
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

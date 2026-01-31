@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="300dp"
+    android:background="#2a2a5a"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -32,7 +33,8 @@
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:contentDescription="@string/full_name"
-            android:src="@drawable/ic_person" />
+            android:src="@drawable/ic_person"
+            app:tint="@color/gold" />
 
         <TextView
             android:id="@+id/nav_header_full_name"
@@ -43,7 +45,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/mystical_font"
             android:text="@string/full_name"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/gold"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -59,7 +61,8 @@
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:contentDescription="@string/date_of_birth"
-            android:src="@drawable/ic_calendar" />
+            android:src="@drawable/ic_calendar"
+            app:tint="@color/gold" />
 
         <TextView
             android:id="@+id/nav_header_dob"
@@ -70,7 +73,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/mystical_font"
             android:text="@string/date_of_birth"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/gold"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -86,7 +89,8 @@
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:contentDescription="@string/time_of_birth"
-            android:src="@drawable/ic_clock" />
+            android:src="@drawable/ic_clock"
+            app:tint="@color/gold" />
 
         <TextView
             android:id="@+id/nav_header_time"
@@ -97,7 +101,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/mystical_font"
             android:text="@string/time_of_birth"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/gold"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -113,7 +117,8 @@
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:contentDescription="@string/location"
-            android:src="@drawable/ic_map_marker" />
+            android:src="@drawable/ic_map_marker"
+            app:tint="@color/gold" />
 
         <TextView
             android:id="@+id/nav_header_location"
@@ -124,7 +129,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/mystical_font"
             android:text="@string/location"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/gold"
             android:textSize="16sp" />
     </LinearLayout>
 

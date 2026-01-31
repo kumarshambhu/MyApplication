@@ -11,254 +11,333 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:padding="1dp">
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/mystical_font"
             android:text="Loshu Grid"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             android:textColor="@color/primary"
+            android:textSize="28sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="16dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <GridLayout
-            android:id="@+id/loshu_grid"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_loshu_grid"
+            style="@style/Widget.Material3.CardView.Elevated"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:columnCount="3"
-            android:rowCount="3"
-            app:layout_constraintTop_toBottomOf="@id/tv_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="0.9"
             android:layout_marginTop="16dp"
-            android:background="@drawable/grid_border">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintWidth_percent="0.95">
 
-            <TextView
-                android:id="@+id/cell_4"
-                style="@style/LoshuGridCellStyle"
-                android:text="4"/>
-            <TextView
-                android:id="@+id/cell_9"
-                style="@style/LoshuGridCellStyle"
-                android:text="9"/>
-            <TextView
-                android:id="@+id/cell_2"
-                style="@style/LoshuGridCellStyle"
-                android:text="2"/>
-            <TextView
-                android:id="@+id/cell_3"
-                style="@style/LoshuGridCellStyle"
-                android:text="3"/>
-            <TextView
-                android:id="@+id/cell_5"
-                style="@style/LoshuGridCellStyle"
-                android:text="5"/>
-            <TextView
-                android:id="@+id/cell_7"
-                style="@style/LoshuGridCellStyle"
-                android:text="7"/>
-            <TextView
-                android:id="@+id/cell_8"
-                style="@style/LoshuGridCellStyle"
-                android:text="8"/>
-            <TextView
-                android:id="@+id/cell_1"
-                style="@style/LoshuGridCellStyle"
-                android:text="1"/>
-            <TextView
-                android:id="@+id/cell_6"
-                style="@style/LoshuGridCellStyle"
-                android:text="6"/>
-        </GridLayout>
-        <GridLayout
-            android:id="@+id/loshu_grid_element"
+            <GridLayout
+                android:id="@+id/loshu_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="3"
+                android:padding="8dp"
+                android:rowCount="3">
+
+                <TextView
+                    android:id="@+id/cell_4"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="4" />
+
+                <TextView
+                    android:id="@+id/cell_9"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="9" />
+
+                <TextView
+                    android:id="@+id/cell_2"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="2" />
+
+                <TextView
+                    android:id="@+id/cell_3"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="3" />
+
+                <TextView
+                    android:id="@+id/cell_5"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="5" />
+
+                <TextView
+                    android:id="@+id/cell_7"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="7" />
+
+                <TextView
+                    android:id="@+id/cell_8"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="8" />
+
+                <TextView
+                    android:id="@+id/cell_1"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="1" />
+
+                <TextView
+                    android:id="@+id/cell_6"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="6" />
+            </GridLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_loshu_grid_element"
+            style="@style/Widget.Material3.CardView.Elevated"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:columnCount="3"
-            android:rowCount="3"
-            app:layout_constraintTop_toBottomOf="@id/loshu_grid"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="0.9"
             android:layout_marginTop="16dp"
             android:visibility="gone"
-            android:background="@drawable/grid_border">
-
-            <TextView
-                android:id="@+id/cell_element_4"
-                style="@style/LoshuGridCellStyle"
-                android:text="4\nWood"/>
-            <TextView
-                android:id="@+id/cell_element_9"
-                style="@style/LoshuGridCellStyle"
-                android:text="9\nFire"/>
-            <TextView
-                android:id="@+id/cell_element_2"
-                style="@style/LoshuGridCellStyle"
-                android:text="2\nEarth"/>
-            <TextView
-                android:id="@+id/cell_element_3"
-                style="@style/LoshuGridCellStyle"
-                android:text="3\nWood"/>
-            <TextView
-                android:id="@+id/cell_element_5"
-                style="@style/LoshuGridCellStyle"
-                android:text="5\nEarth"/>
-            <TextView
-                android:id="@+id/cell_element_7"
-                style="@style/LoshuGridCellStyle"
-                android:text="7\nSilver"/>
-            <TextView
-                android:id="@+id/cell_element_8"
-                style="@style/LoshuGridCellStyle"
-                android:text="8\nEarth"/>
-            <TextView
-                android:id="@+id/cell_element_1"
-                style="@style/LoshuGridCellStyle"
-                android:text="1\nWater"/>
-            <TextView
-                android:id="@+id/cell_element_6"
-                style="@style/LoshuGridCellStyle"
-                android:text="6\nGold"/>
-        </GridLayout>
-        <TextView
-            android:id="@+id/loshu_grid_dob_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Date of Birth:"
-            android:textStyle="bold"
-            android:layout_marginStart="20sp"
-            android:textColor="@color/secondary"
-            app:layout_constraintTop_toBottomOf="@id/loshu_grid_element"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp"/>
-        <TextView
-            android:id="@+id/loshu_grid_dob_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="@color/secondary"
-            app:layout_constraintTop_toTopOf="@id/loshu_grid_dob_label"
-            app:layout_constraintStart_toEndOf="@id/loshu_grid_dob_label"
-            android:layout_marginStart="8dp"/>
-        
-        
-        <TextView
-            android:id="@+id/loshu_grid_mulank_label"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/mystical_font"
-            android:text="Mulank"
-            android:textAlignment="center"
-            android:textColor="@color/secondary"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/loshu_grid_bhagyank_label"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loshu_grid_dob_label"
-            app:layout_constraintWidth_percent="0.33" />
-
-        <TextView
-            android:id="@+id/loshu_grid_bhagyank_label"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/mystical_font"
-            android:text="Bhagyank"
-            android:textAlignment="center"
-            android:textColor="@color/secondary"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/loshu_grid_kua_number_label"
-            app:layout_constraintStart_toEndOf="@id/loshu_grid_mulank_label"
-            app:layout_constraintTop_toBottomOf="@id/loshu_grid_dob_label"
-            app:layout_constraintWidth_percent="0.33" />
-
-        <TextView
-            android:id="@+id/loshu_grid_kua_number_label"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/mystical_font"
-            android:text="Kua"
-            android:textAlignment="center"
-            android:textColor="@color/secondary"
-            android:textStyle="bold"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/loshu_grid_bhagyank_label"
-            app:layout_constraintTop_toBottomOf="@id/loshu_grid_dob_label"
-            app:layout_constraintWidth_percent="0.33" />
-
-        <!-- Row 3: Three Columns -->
-        <TextView
-            android:id="@+id/loshuGridMulankValue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/mystical_font"
-            android:text="00"
-            android:textAlignment="center"
-            android:textColor="@color/secondary"
-            app:layout_constraintEnd_toStartOf="@id/loshu_grid_bhagyank_value"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loshu_grid_mulank_label"
-            app:layout_constraintWidth_percent="0.33" />
+            app:layout_constraintTop_toBottomOf="@id/card_loshu_grid"
+            app:layout_constraintWidth_percent="0.95">
 
-        <TextView
-            android:id="@+id/loshu_grid_bhagyank_value"
+            <GridLayout
+                android:id="@+id/loshu_grid_element"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="3"
+                android:padding="8dp"
+                android:rowCount="3">
+
+                <TextView
+                    android:id="@+id/cell_element_4"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="4\nWood" />
+
+                <TextView
+                    android:id="@+id/cell_element_9"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="9\nFire" />
+
+                <TextView
+                    android:id="@+id/cell_element_2"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="2\nEarth" />
+
+                <TextView
+                    android:id="@+id/cell_element_3"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="3\nWood" />
+
+                <TextView
+                    android:id="@+id/cell_element_5"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="5\nEarth" />
+
+                <TextView
+                    android:id="@+id/cell_element_7"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="7\nSilver" />
+
+                <TextView
+                    android:id="@+id/cell_element_8"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="8\nEarth" />
+
+                <TextView
+                    android:id="@+id/cell_element_1"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="1\nWater" />
+
+                <TextView
+                    android:id="@+id/cell_element_6"
+                    style="@style/LoshuGridCellStyle"
+                    android:layout_margin="4dp"
+                    android:text="6\nGold" />
+            </GridLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_summary"
+            style="@style/Widget.Material3.CardView.Elevated"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mystical_font"
-            android:text="00"
-            android:textAlignment="center"
-            android:textColor="@color/secondary"
-            app:layout_constraintEnd_toStartOf="@id/loshuGridKuaNumberValue"
-            app:layout_constraintStart_toEndOf="@id/loshuGridMulankValue"
-            app:layout_constraintTop_toBottomOf="@id/loshu_grid_mulank_label"
-            app:layout_constraintWidth_percent="0.33" />
-
-
-        <TextView
-            android:id="@+id/loshuGridKuaNumberValue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/mystical_font"
-            android:text="0000"
-            android:textAlignment="center"
-            android:textColor="@color/secondary"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/loshu_grid_bhagyank_value"
-            app:layout_constraintTop_toBottomOf="@id/loshu_grid_mulank_label"
-            app:layout_constraintWidth_percent="0.33" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_loshu_grid_element"
+            app:layout_constraintWidth_percent="0.95">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/loshu_grid_dob_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mystical_font"
+                    android:text="Date of Birth:"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/loshu_grid_dob_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/mystical_font"
+                    android:textColor="@color/secondary"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/loshu_grid_dob_label"
+                    app:layout_constraintStart_toEndOf="@id/loshu_grid_dob_label"
+                    app:layout_constraintTop_toTopOf="@id/loshu_grid_dob_label" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/loshu_grid_dob_label">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/loshu_grid_mulank_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/mystical_font"
+                            android:text="Mulank"
+                            android:textColor="@color/primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/loshuGridMulankValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/mystical_font"
+                            android:text="00"
+                            android:textColor="@color/secondary"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/loshu_grid_bhagyank_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/mystical_font"
+                            android:text="Bhagyank"
+                            android:textColor="@color/primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/loshu_grid_bhagyank_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/mystical_font"
+                            android:text="00"
+                            android:textColor="@color/secondary"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/loshu_grid_kua_number_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/mystical_font"
+                            android:text="Kua"
+                            android:textColor="@color/primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/loshuGridKuaNumberValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/mystical_font"
+                            android:text="0000"
+                            android:textColor="@color/secondary"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/planeRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15sp"
-            app:layout_constraintTop_toBottomOf="@id/loshuGridMulankValue"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_summary" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/missingNumberRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/planeRecyclerView"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/planeRecyclerView" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/repeatNumberRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/missingNumberRecyclerView"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/missingNumberRecyclerView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
