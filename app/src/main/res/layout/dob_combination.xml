@@ -30,7 +30,7 @@
                 style="@style/AccordionTitleStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Day Combination" />
+                android:text="Combination Analysis" />
 
             <TextView
                 android:id="@+id/tvTitle"
@@ -38,10 +38,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="12dp"
                 android:fontFamily="@font/mystical_font"
-                android:textColor="@color/secondary"
-                android:textSize="16sp"
+                android:textColor="@color/gold"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                tools:text="1/1" />
+                tools:text="1 &amp; 1" />
 
             <ImageView
                 android:id="@+id/combinationExpandableIcon"

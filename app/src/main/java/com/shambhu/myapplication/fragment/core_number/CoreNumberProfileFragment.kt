@@ -113,14 +113,14 @@ class CoreNumberProfileFragment : Fragment() {
     }
 
     private fun updateMulankUi(mulankNumber: Int) {
-        binding.mulankTitle.text = "${mulankData?.name}"
+        binding.mulankTitle.text = "Mulank: ${mulankData?.name} ($mulankNumber)"
         val mulankDesc = "Ruling Planet: ${mulankData?.rulingPlanet}\n" +
                 "Birth Dates: ${mulankData?.birthDates?.joinToString(", ")}"
         binding.mulankDetails.text = mulankDesc
     }
 
     private fun updateBhagyankUi(bhagyankNumber: Int) {
-        binding.bhagyankTitle.text = "${bhagyankData?.name}"
+        binding.bhagyankTitle.text = "Bhagyank: ${bhagyankData?.name} ($bhagyankNumber)"
         val bhagyankDesc = "Ruling Planet: ${bhagyankData?.rulingPlanet}"
         binding.bhagyankDetails.text = bhagyankDesc
     }
@@ -221,63 +221,42 @@ class CoreNumberProfileFragment : Fragment() {
 
 
     private fun getMulankBhagyankSections(mulank: Int, bhagyank: Int) {
-        var mulankData = mulank
-        var bhagyankData = bhagyank
-        if(mulank > 0){
-            mulankData = CommonUtils.reduceNumberIgnoreMasterNumber(bhagyank)
-        }
-        if(bhagyank > 0){
-            bhagyankData = CommonUtils.reduceNumberIgnoreMasterNumber(mulank)
-        }
-        val data = Gson().fromJson(
-            CommonUtils.readAssetFile(requireContext(), "dob_combination.json"),
-            MulankBhagyankResponse::class.java
-        )
-        val data1 = data.mulank_bhagyank_combinations
-        val data2 = data1.stream().filter { it -> it.day_number == mulankData }.findFirst().get()
+        val reducedMulank = CommonUtils.reduceNumberIgnoreMasterNumber(mulank)
+        val reducedBhagyank = CommonUtils.reduceNumberIgnoreMasterNumber(bhagyank)
 
-        val data3 = data2.combinations
-        val data4 =
-            data3.stream().filter { it -> it.combination.contains(bhagyankData.toString()) }.findFirst()
-                .get()
-        binding.mulankBhagyankCombinationLayout.tvTitle.text = data4.combination
-        binding.mulankBhagyankCombinationLayout.tvRuler.text = "Ruled by ${data4.planets}"
-        val items = mutableListOf<Pair<String, String>>()
-        if (!data4.luck.isNullOrEmpty()) {
-            items.add(Pair("Luck %", data4.luck))
+        val jsonString = CommonUtils.readAssetFile(requireContext(), "dob_combination.json")
+        val response = Gson().fromJson(jsonString, MulankBhagyankResponse::class.java)
+
+        val mulankCombination = response.mulank_bhagyank_combinations.find {
+            it.day_number == reducedMulank
         }
 
-        if (!data4.remark.isNullOrEmpty()) {
-            items.add(Pair("Remark", data4.remark))
+        val combinationDetail = mulankCombination?.combinations?.find {
+            it.combination.contains(reducedBhagyank.toString())
         }
 
-        if (!data4.character.isNullOrEmpty()) {
-            items.add(Pair("Character", data4.character))
-        }
+        if (combinationDetail != null) {
+            binding.mulankBhagyankCombinationLayout.tvTitle.text = combinationDetail.combination
+            binding.mulankBhagyankCombinationLayout.tvRuler.text =
+                "Ruled by ${combinationDetail.planets}"
+            val items = mutableListOf<Pair<String, String>>()
+            with(combinationDetail) {
+                if (!luck.isNullOrEmpty()) items.add(Pair("Luck %", luck))
+                if (!remark.isNullOrEmpty()) items.add(Pair("Remark", remark))
+                if (!character.isNullOrEmpty()) items.add(Pair("Character", character))
+                if (!health.isNullOrEmpty()) items.add(Pair("Health", health))
+                if (!traits.isNullOrEmpty()) items.add(Pair("Traits", traits))
+                if (!warning.isNullOrEmpty()) items.add(Pair("Warning", warning))
+                if (!lucky.isNullOrEmpty()) items.add(Pair("Luck status", lucky))
+                if (!career.isNullOrEmpty()) items.add(Pair("Career", career))
+                if (!solution.isNullOrEmpty()) items.add(Pair("Solution", solution))
+            }
 
-        if (!data4.health.isNullOrEmpty()) {
-            items.add(Pair("Health", data4.health))
+            CommonAdapterUtil.setupNumberRecyclerViewAdapter(
+                requireContext(),
+                binding.mulankBhagyankCombinationLayout.combinationDetailsRecyclerView,
+                items
+            )
         }
-
-        if (!data4.traits.isNullOrEmpty()) {
-            items.add(Pair("Traits", data4.traits))
-        }
-
-        if (!data4.warning.isNullOrEmpty()) {
-            items.add(Pair("Warning", data4.warning))
-        }
-        if (!data4.lucky.isNullOrEmpty()) {
-            items.add(Pair("Luck status", data4.lucky))
-        }
-        if (!data4.career.isNullOrEmpty()) {
-            items.add(Pair("Career", data4.career))
-        }
-        if (!data4.solution.isNullOrEmpty()) {
-            items.add(Pair("Solution", data4.solution))
-        }
-
-        CommonAdapterUtil.setupNumberRecyclerViewAdapter(requireContext(),
-            binding.mulankBhagyankCombinationLayout.combinationDetailsRecyclerView,items)
-
     }
 }
