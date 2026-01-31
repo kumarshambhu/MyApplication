@@ -1,40 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/accordionCard"
+    style="@style/AccordionCardStyle"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@drawable/accordion_item_background"
-    android:layout_marginBottom="16dp"
-    android:padding="16dp">
+    android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:id="@+id/questionLayout"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:requiresFadingEdge="vertical">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/questionTextView"
+        <!-- Header -->
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            style="@style/AccordionHeaderStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toStartOf="@+id/toggleIcon"
-            android:text="What is the AI Scheduling Assistant?"
-            android:layout_centerVertical="true"/>
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/toggleIcon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_plus" />
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/questionTextView"
+                style="@style/AccordionTitleStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Question" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/innerRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:visibility="gone" />
+            <ImageView
+                android:id="@+id/toggleIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/expand"
+                android:src="@drawable/ic_arrow_down"
+                app:tint="@color/secondary" />
+        </LinearLayout>
 
-</LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/innerRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
