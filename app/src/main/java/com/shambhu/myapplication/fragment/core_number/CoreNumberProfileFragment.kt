@@ -1,10 +1,13 @@
 package com.shambhu.myapplication.fragment.core_number
 
 import android.os.Bundle
+import android.transition.AutoTransition
+import android.transition.TransitionManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -126,22 +129,46 @@ class CoreNumberProfileFragment : Fragment() {
     private fun setupAccordion() {
         // Mulank accordion
         binding.mulankHeaderLayout.setOnClickListener {
-            val isExpanded = binding.mulankRecyclerView.isVisible
-            binding.mulankRecyclerView.visibility = if (isExpanded) View.GONE else View.VISIBLE
-            binding.mulankToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_add else R.drawable.ic_remove)
+            TransitionManager.beginDelayedTransition(binding.mulankCard, AutoTransition())
+            val isExpanded = binding.mulankContentLayout.isVisible
+            binding.mulankContentLayout.visibility = if (isExpanded) View.GONE else View.VISIBLE
+            binding.mulankToggleIcon.rotation = if (isExpanded) 0f else 180f
+            binding.mulankCard.strokeColor = ContextCompat.getColor(
+                requireContext(),
+                if (isExpanded) R.color.divider else R.color.gold
+            )
+            binding.mulankCard.cardElevation = if (isExpanded) 2f else 8f
         }
 
         // Bhagyank accordion
         binding.bhagyankHeaderLayout.setOnClickListener {
-            val isExpanded = binding.bhagyankRecyclerView.isVisible
-            binding.bhagyankRecyclerView.visibility = if (isExpanded) View.GONE else View.VISIBLE
-            binding.bhagyankToggleIcon.setImageResource(if (isExpanded) R.drawable.ic_add else R.drawable.ic_remove)
+            TransitionManager.beginDelayedTransition(binding.bhagyankCard, AutoTransition())
+            val isExpanded = binding.bhagyankContentLayout.isVisible
+            binding.bhagyankContentLayout.visibility = if (isExpanded) View.GONE else View.VISIBLE
+            binding.bhagyankToggleIcon.rotation = if (isExpanded) 0f else 180f
+            binding.bhagyankCard.strokeColor = ContextCompat.getColor(
+                requireContext(),
+                if (isExpanded) R.color.divider else R.color.gold
+            )
+            binding.bhagyankCard.cardElevation = if (isExpanded) 2f else 8f
         }
-        binding.mulankBhagyankCombinationLayout.combinationExpandableIcon.setOnClickListener {
-            val isExpanded = binding.mulankBhagyankCombinationLayout.combinationDetailsRecyclerView.isVisible
-            binding.mulankBhagyankCombinationLayout.combinationDetailsRecyclerView.visibility =
+
+        // Combination accordion
+        binding.mulankBhagyankCombinationLayout.combinationHeaderLayout.setOnClickListener {
+            TransitionManager.beginDelayedTransition(
+                binding.mulankBhagyankCombinationLayout.accordionCard,
+                AutoTransition()
+            )
+            val isExpanded = binding.mulankBhagyankCombinationLayout.combinationContentLayout.isVisible
+            binding.mulankBhagyankCombinationLayout.combinationContentLayout.visibility =
                 if (isExpanded) View.GONE else View.VISIBLE
-            binding.mulankBhagyankCombinationLayout.combinationExpandableIcon.setImageResource(if (isExpanded) R.drawable.ic_add else R.drawable.ic_remove)
+            binding.mulankBhagyankCombinationLayout.combinationExpandableIcon.rotation =
+                if (isExpanded) 0f else 180f
+            binding.mulankBhagyankCombinationLayout.accordionCard.strokeColor = ContextCompat.getColor(
+                requireContext(),
+                if (isExpanded) R.color.divider else R.color.gold
+            )
+            binding.mulankBhagyankCombinationLayout.accordionCard.cardElevation = if (isExpanded) 2f else 8f
         }
 
         // Setup RecyclerViews
@@ -157,10 +184,6 @@ class CoreNumberProfileFragment : Fragment() {
             val adapter = NumeroAccordionAdapter(requireContext(), getBhagyankSections(it))
             binding.bhagyankRecyclerView.adapter = adapter
         }
-
-        // Initially collapse both
-        binding.mulankRecyclerView.visibility = View.GONE
-        binding.bhagyankRecyclerView.visibility = View.GONE
     }
 
     private fun getMulankSections(data: NumeroData): List<NumeroAccordionAdapter.Section> {

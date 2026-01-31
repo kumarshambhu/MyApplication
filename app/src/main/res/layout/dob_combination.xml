@@ -1,87 +1,81 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/accordionCard"
+    style="@style/AccordionCardStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <View
-        android:id="@+id/combinationNameSeparator"
-        android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="5dp"
-        android:background="@color/primary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/topHeader"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="10sp"
-        android:layout_marginTop="15dp"
-        android:gravity="start"
-        android:text="Day Combinations"
-        android:textColor="@color/secondary"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/tvTitle"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/combinationNameSeparator"
-        app:layout_constraintWidth_percent="0.6" />
-
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="00"
-        android:textAlignment="center"
-        android:textColor="@color/secondary"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/combinationExpandableIcon"
-        app:layout_constraintStart_toEndOf="@id/topHeader"
-        app:layout_constraintTop_toBottomOf="@id/combinationNameSeparator"
-        app:layout_constraintWidth_percent="0.3" />
-
-    <ImageView
-        android:id="@+id/combinationExpandableIcon"
-        android:layout_width="0dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="15dp"
-        android:outlineAmbientShadowColor="@color/dark_gold"
-        android:outlineSpotShadowColor="@color/dark_gold"
-        android:src="@drawable/ic_add"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tvTitle"
-
-        app:layout_constraintTop_toBottomOf="@id/combinationNameSeparator"
-        app:layout_constraintWidth_percent="0.1" />
-
-    <TextView
-        android:id="@+id/tvRuler"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/interpretation"
-        android:textAlignment="center"
-        android:textColor="@color/secondary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topHeader" />
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:id="@+id/combinationHeaderLayout"
+            style="@style/AccordionHeaderStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/combinationDetailsRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvRuler" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/ic_grid"
+                app:tint="@color/primary" />
 
+            <TextView
+                android:id="@+id/topHeader"
+                style="@style/AccordionTitleStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Day Combination" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/mystical_font"
+                android:textColor="@color/secondary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="1/1" />
+
+            <ImageView
+                android:id="@+id/combinationExpandableIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_arrow_down"
+                app:tint="@color/secondary" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/combinationContentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/tvRuler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/secondary"
+                android:textSize="14sp"
+                tools:text="Ruled by Sun" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/combinationDetailsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
