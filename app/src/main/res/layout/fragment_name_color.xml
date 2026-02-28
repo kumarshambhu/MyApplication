@@ -14,157 +14,206 @@
 
         <TextView
             android:id="@+id/multiline_row1"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/mystical_font"
-            android:gravity="center"
-            android:text="Colors"
-            android:textAlignment="center"
-            android:textColor="@color/gold"
-            android:textSize="28sp"
-            app:layout_constraintBottom_toTopOf="@+id/individualColorCountLabel"
+            android:text="Name Color Analysis"
+            android:textColor="@color/primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:visibility="gone"
-            />
-        <!-- Row 2 - Horizontal Chain -->
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/individualColorCountLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Individual Color Counts:"
-            android:textStyle="bold"
-            android:textColor="@color/secondary"
-            app:layout_constraintTop_toBottomOf="@id/multiline_row1"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp"/>
-
-        <TextView
-            android:id="@+id/individualColorCountsValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="44444"
-            app:layout_constraintTop_toBottomOf="@id/individualColorCountLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
-        <!-- Row 3 - Horizontal Chain -->
-        <TextView
-            android:id="@+id/matchedColorGroupLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Matched Color Groups:"
-            android:textStyle="bold"
-            android:textColor="@color/secondary"
-            app:layout_constraintTop_toBottomOf="@id/individualColorCountsValue"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp"/>
-
-        <TextView
-            android:id="@+id/matchedColorGroupsValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="55555555"
-            app:layout_constraintTop_toBottomOf="@id/matchedColorGroupLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
-        <!-- Row 4 - Horizontal Chain -->
-        <TextView
-            android:id="@+id/colorGroupNameLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Maximum match Color Group:"
-            android:textStyle="bold"
-            android:textColor="@color/secondary"
-            app:layout_constraintTop_toBottomOf="@id/matchedColorGroupsValue"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp"/>
-
-        <TextView
-            android:id="@+id/colorGroupNameValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="6666"
-            app:layout_constraintTop_toBottomOf="@id/colorGroupNameLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
-
-        <!-- Row 5 - Horizontal Chain -->
-        <TextView
-            android:id="@+id/numberOfColorsMatchedLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Number of Colors Matched:"
-            android:textStyle="bold"
-            android:textColor="@color/secondary"
-            app:layout_constraintTop_toBottomOf="@id/colorGroupNameValue"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp"/>
-
-        <TextView
-            android:id="@+id/numberOfColorsMatchedValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1111"
-            app:layout_constraintTop_toBottomOf="@id/numberOfColorsMatchedLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
-
-        <!-- Row 6 - Horizontal Chain -->
-        <TextView
-            android:id="@+id/colorGroupMatchedColorLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Matched Colors:"
-            android:textStyle="bold"
-            android:textColor="@color/secondary"
-            app:layout_constraintTop_toBottomOf="@id/numberOfColorsMatchedValue"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp"/>
-
-        <TextView
-            android:id="@+id/colorGroupMatchedColorValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="22222"
-            app:layout_constraintTop_toBottomOf="@id/colorGroupMatchedColorLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
-
-        <!-- Row 7 - Horizontal Chain -->
-        <TextView
-            android:id="@+id/colorGroupDetailsLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Description:"
-            android:textStyle="bold"
-            android:textColor="@color/secondary"
-            app:layout_constraintTop_toBottomOf="@id/colorGroupMatchedColorValue"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp"/>
-
-        <TextView
-            android:id="@+id/colorGroupDescriptionValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/secondary"
-            android:text="22222"
-            android:textSize="16sp"
-            android:textAllCaps="true"
-            app:layout_constraintTop_toBottomOf="@id/colorGroupDetailsLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
-
-        <TextView
-            android:id="@+id/colorGroupDetailsValue"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_color_counts"
+            style="@style/Widget.Material3.CardView.Elevated"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sample"
-            app:layout_constraintTop_toBottomOf="@id/colorGroupDescriptionValue"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:layout_constraintTop_toBottomOf="@id/multiline_row1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/individualColorCountLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mystical_font"
+                    android:text="Individual Color Counts"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/individualColorCountsValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="--"
+                    android:textColor="@color/secondary"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:id="@+id/matchedColorGroupLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mystical_font"
+                    android:text="Matched Color Groups"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/matchedColorGroupsValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="--"
+                    android:textColor="@color/secondary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_dominant_color"
+            style="@style/Widget.Material3.CardView.Elevated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:layout_constraintTop_toBottomOf="@id/card_color_counts">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/colorGroupNameLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mystical_font"
+                    android:text="Dominant Color Group"
+                    android:textColor="@color/primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/colorGroupNameValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/mystical_font"
+                    android:text="--"
+                    android:textColor="@color/gold"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/numberOfColorsMatchedLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Colors Matched: "
+                        android:textColor="@color/primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/numberOfColorsMatchedValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="0"
+                        android:textColor="@color/secondary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/colorGroupMatchedColorLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Matched Colors:"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/colorGroupMatchedColorValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="--"
+                    android:textColor="@color/secondary"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:id="@+id/colorGroupDetailsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mystical_font"
+                    android:text="Description"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/colorGroupDescriptionValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="--"
+                    android:textAllCaps="true"
+                    android:textColor="@color/secondary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/colorGroupDetailsValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="--"
+                    android:textColor="@color/secondary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

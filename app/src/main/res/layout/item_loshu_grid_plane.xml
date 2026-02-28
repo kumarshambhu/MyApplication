@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Theme.MyApplication.CardPrimary"
+    android:id="@+id/accordionCard"
+    style="@style/AccordionCardStyle"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,37 +15,34 @@
         <!-- Header -->
         <LinearLayout
             android:id="@+id/headerLayout"
+            style="@style/AccordionHeaderStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/planeImage"
-                android:layout_width="30sp"
-                android:layout_height="30sp"
-                android:layout_marginEnd="10dp"
-                android:layout_gravity="center_vertical"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="12dp"
                 android:contentDescription="@string/logo_image"
-                android:src="@drawable/ic_arrow_down"
-                tools:ignore="RtlSymmetry" />
+                android:src="@drawable/ic_grid"
+                app:tint="@color/primary" />
 
             <TextView
                 android:id="@+id/planeName"
-                style="@style/Theme.MyApplicationApp.CardText.Primary.Header"
+                style="@style/AccordionTitleStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/plane_name"
-                android:textStyle="bold" />
+                android:text="@string/plane_name" />
 
             <ImageView
                 android:id="@+id/ivExpand"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:contentDescription="@string/expand"
-                android:src="@drawable/ic_arrow_down" />
+                android:src="@drawable/ic_arrow_down"
+                app:tint="@color/secondary" />
 
         </LinearLayout>
 
@@ -54,8 +52,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:visibility="visible">
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:visibility="gone"
+            tools:visibility="visible">
 
             <TextView
                 android:id="@+id/planePresentNumber"

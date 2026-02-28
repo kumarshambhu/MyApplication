@@ -69,7 +69,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             this,
             { _, selectedYear, selectedMonth, selectedDay ->
                 selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
-                binding.dobTextView.text = selectedDate
+                binding.dobTextView.setText(selectedDate)
             },
             year,
             month,

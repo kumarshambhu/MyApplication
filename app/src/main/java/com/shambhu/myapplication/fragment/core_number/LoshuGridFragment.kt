@@ -12,8 +12,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.adapter.LoshuGridPlaneRecyclerViewAdapter
 import com.shambhu.myapplication.databinding.FragmentLoshuGridBinding
@@ -33,9 +31,6 @@ import com.shambhu.myapplication.utils.NumerologyCalculationUtils
 import com.shambhu.myapplication.utils.NumerologyCalculationUtils.convertToHtml
 import kotlinx.coroutines.flow.zip
 import kotlinx.coroutines.launch
-import org.json.JSONArray
-import org.json.JSONObject
-
 class LoshuGridFragment : Fragment() {
 
     private var _binding: FragmentLoshuGridBinding? = null
@@ -101,18 +96,16 @@ class LoshuGridFragment : Fragment() {
             updateCell(binding.cell9, 9, numberCounts[9])
 
             val loshuPlanes = NumerologyCalculationUtils.calculateLoshuGridPlanes(numberCounts)
-            createLoshuPlaneItemForRecyclerView(loshuPlanes)
 
             lifecycleScope.launch {
                 loshuGridRepository.getMissingNumberData()
-                    .zip(loshuGridRepository.getRepetitiveNumberData()) { missingData, repetitiveData ->
-                        Pair(missingData, repetitiveData)
-                    }
-                    .collect { (missingData, repetitiveData) ->
-                            createMissingNumberAccordionItems(numberCounts, missingData)
-                            updateMissingNumberCell(numberCounts)
-                            createRepeatingNumberAccordionItems(numberCounts, repetitiveData)
-
+                    .zip(loshuGridRepository.getRepetitiveNumberData()) { m, r -> Pair(m, r) }
+                    .zip(loshuGridRepository.getPlaneData()) { pair, p -> Triple(pair.first, pair.second, p) }
+                    .collect { (missingData, repetitiveData, planeData) ->
+                        createLoshuPlaneItemForRecyclerView(loshuPlanes, planeData)
+                        createMissingNumberAccordionItems(numberCounts, missingData)
+                        updateMissingNumberCell(numberCounts)
+                        createRepeatingNumberAccordionItems(numberCounts, repetitiveData)
                     }
             }
             binding.planeRecyclerView.visibility = View.VISIBLE
@@ -235,11 +228,7 @@ class LoshuGridFragment : Fragment() {
         setupRecyclerView(binding.repeatNumberRecyclerView, repeatingNumberItems)
     }
 
-    fun searchPlane(name: String, title: String, planesJsonArray: JSONArray): Section? {
-        val gson = Gson()
-        val planeListType = object : TypeToken<List<Plane>>() {}.type
-        val planes: List<Plane> = gson.fromJson(planesJsonArray.toString(), planeListType)
-
+    fun searchPlane(name: String, title: String, planes: List<Plane>): Section? {
         return planes
             .firstOrNull { it.name.equals(name, ignoreCase = true) }
             ?.sections
@@ -249,19 +238,19 @@ class LoshuGridFragment : Fragment() {
     private fun getPlaneMessage(
         planeName: String,
         availableNumbers: List<Int>,
-        planesJsonArray: JSONArray
+        planes: List<Plane>
     ): String {
         val title = availableNumbers.joinToString(", ")
-        val section = searchPlane(planeName, title, planesJsonArray)
+        val section = searchPlane(planeName, title, planes)
 
         if (section != null) {
-            var traits = "<ul>"
-            section.traits.iterator().forEach {
-                traits += ("<li>$it</li>")
+            val traits = StringBuilder("<ul>")
+            section.traits.forEach {
+                traits.append("<li>").append(it).append("</li>")
             }
-            traits += ("</ul")
+            traits.append("</ul>")
 
-            return convertToHtml(traits)
+            return convertToHtml(traits.toString())
         } else {
             return ""
         }
@@ -270,15 +259,11 @@ class LoshuGridFragment : Fragment() {
     private fun getPlaneTraits(
         planeName: String,
         availableNumbers: List<Int>,
-        planesJsonArray: JSONArray
+        planes: List<Plane>
     ): List<String> {
         val title = availableNumbers.joinToString(", ")
-        val section = searchPlane(planeName, title, planesJsonArray)
-        var traits = mutableListOf<String>()
-        section?.traits?.iterator()?.forEach {
-            traits.add(it)
-        }
-        return traits
+        val section = searchPlane(planeName, title, planes)
+        return section?.traits ?: emptyList()
     }
 
     private fun getPresentNumbers(planeNumbers: List<Int>, missingNumbers: List<Int>): String {
@@ -291,16 +276,16 @@ class LoshuGridFragment : Fragment() {
         planeName: String,
         planeNumbers: List<Int>,
         presentNumbers: List<Int>,
-        planesJsonArray: JSONArray,
+        planes: List<Plane>,
         backgroundColor: Int,
         headerColor: Int
     ): LoshuGridPlaneAccordionItem {
         return LoshuGridPlaneAccordionItem(
             header = header,
             presentNumber = getPresentNumbers(planeNumbers, presentNumbers),
-            content = "",//getPlaneMessage(planeName, presentNumbers, planesJsonArray),
+            content = "",//getPlaneMessage(planeName, presentNumbers, planes),
             traitsHeading = "Traits",
-            traits = getPlaneTraits(planeName, presentNumbers, planesJsonArray),
+            traits = getPlaneTraits(planeName, presentNumbers, planes),
             remedies = emptyList(),
             imageSource = "ic_moon",
             backgroundColor = backgroundColor,
@@ -309,16 +294,13 @@ class LoshuGridFragment : Fragment() {
         )
     }
 
-    private fun createLoshuPlaneItemForRecyclerView(loshuPlanes: LoshuGridPlanes) {
+    private fun createLoshuPlaneItemForRecyclerView(loshuPlanes: LoshuGridPlanes, planeData: List<Plane>) {
         val loshuPlaneItems = mutableListOf<LoshuGridPlaneAccordionItem>()
-        val planeMeanings = CommonUtils.readAssetFile(requireContext(), "plane.json")
-        val jsonObject = JSONObject(planeMeanings)
-        val jsonArray = jsonObject.getJSONArray("planes")
 
         loshuPlaneItems.add(
             createLoshuGridPlaneAccordionItem(
                 "Mental Plane(4, 9, 2)", "mental_plane", listOf(4, 9, 2),
-                loshuPlanes.mentalPlane, jsonArray,
+                loshuPlanes.mentalPlane, planeData,
                 R.drawable.mental_plane_background, R.color.mental_plane_header
             )
         )
@@ -326,7 +308,7 @@ class LoshuGridFragment : Fragment() {
         loshuPlaneItems.add(
             createLoshuGridPlaneAccordionItem(
                 "Emotional Plane(3, 5, 7)", "heart_plane", listOf(3, 5, 7),
-                loshuPlanes.emotionalPlane, jsonArray,
+                loshuPlanes.emotionalPlane, planeData,
                 R.drawable.emotional_plane_background, R.color.emotional_plane_header
             )
         )
@@ -334,7 +316,7 @@ class LoshuGridFragment : Fragment() {
         loshuPlaneItems.add(
             createLoshuGridPlaneAccordionItem(
                 "Practical Plane(8, 1, 6)", "practical_plane", listOf(8, 1, 6),
-                loshuPlanes.practicalPlane, jsonArray,
+                loshuPlanes.practicalPlane, planeData,
                 R.drawable.practical_plane_background, R.color.practical_plane_header
             )
         )
@@ -342,7 +324,7 @@ class LoshuGridFragment : Fragment() {
         loshuPlaneItems.add(
             createLoshuGridPlaneAccordionItem(
                 "Thought Plane(4, 3, 8)", "vision_plane", listOf(4, 3, 8),
-                loshuPlanes.thoughtPlane, jsonArray,
+                loshuPlanes.thoughtPlane, planeData,
                 R.drawable.thought_plane_background, R.color.thought_plane_header
             )
         )
@@ -350,7 +332,7 @@ class LoshuGridFragment : Fragment() {
         loshuPlaneItems.add(
             createLoshuGridPlaneAccordionItem(
                 "Will Plane(9, 5, 1)", "will_plane", listOf(9, 5, 1),
-                loshuPlanes.willPlane, jsonArray,
+                loshuPlanes.willPlane, planeData,
                 R.drawable.will_plane_background, R.color.will_plane_header
             )
         )
@@ -358,7 +340,7 @@ class LoshuGridFragment : Fragment() {
         loshuPlaneItems.add(
             createLoshuGridPlaneAccordionItem(
                 "Action Plane(2, 7, 6)", "action_plane", listOf(2, 7, 6),
-                loshuPlanes.actionPlane, jsonArray,
+                loshuPlanes.actionPlane, planeData,
                 R.drawable.action_plane_background, R.color.action_plane_header
             )
         )
@@ -366,7 +348,7 @@ class LoshuGridFragment : Fragment() {
         loshuPlaneItems.add(
             createLoshuGridPlaneAccordionItem(
                 "Silver Success Plane(4, 5, 6)", "silver_success_plane", listOf(4, 5, 6),
-                loshuPlanes.silverSuccessPlane, jsonArray,
+                loshuPlanes.silverSuccessPlane, planeData,
                 R.drawable.silver_success_plane_background, R.color.silver_success_plane_header
             )
         )
@@ -374,11 +356,10 @@ class LoshuGridFragment : Fragment() {
         loshuPlaneItems.add(
             createLoshuGridPlaneAccordionItem(
                 "Golden Success Plane(2, 5, 8)", "golden_success_plane", listOf(2, 5, 8),
-                loshuPlanes.goldenSuccessPlane, jsonArray,
+                loshuPlanes.goldenSuccessPlane, planeData,
                 R.drawable.golden_success_plane_background, R.color.golden_success_plane_header
             )
         )
-        println(loshuPlaneItems)
         setupRecyclerView(binding.planeRecyclerView, loshuPlaneItems)
     }
 

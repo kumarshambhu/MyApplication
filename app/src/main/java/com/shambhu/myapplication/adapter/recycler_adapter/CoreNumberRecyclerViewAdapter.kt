@@ -1,10 +1,14 @@
 package com.shambhu.myapplication.adapter.recycler_adapter
 
 import android.content.Context
+import android.transition.AutoTransition
+import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.shambhu.myapplication.R
 import com.shambhu.myapplication.adapter.CommonAdapterUtil
 import com.shambhu.myapplication.databinding.ItemCoreNumberBinding
 import com.shambhu.myapplication.model.CoreNumberAccordionItem
@@ -47,12 +51,17 @@ class CoreNumberRecyclerViewAdapter(
         if (expanded) {
             holder.binding.coreNumberContentLayout.visibility = View.VISIBLE
             holder.binding.ivExpand.rotation = 180f
+            holder.binding.accordionCard.strokeColor = ContextCompat.getColor(context, R.color.gold)
+            holder.binding.accordionCard.cardElevation = 8f
         } else {
             holder.binding.coreNumberContentLayout.visibility = View.GONE
             holder.binding.ivExpand.rotation = 0f
+            holder.binding.accordionCard.strokeColor = ContextCompat.getColor(context, R.color.divider)
+            holder.binding.accordionCard.cardElevation = 2f
         }
 
-        holder.itemView.setOnClickListener {
+        holder.binding.headerLayout.setOnClickListener {
+            TransitionManager.beginDelayedTransition(holder.binding.accordionCard, AutoTransition())
             onItemClick(position)
         }
     }

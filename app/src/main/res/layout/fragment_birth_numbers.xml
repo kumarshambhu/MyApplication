@@ -11,292 +11,264 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- Row 1 -->
         <TextView
             android:id="@+id/birth_number_title"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/mystical_font"
             android:text="@string/birth_numbers"
-            android:textColor="@color/gold"
-            android:textAlignment="center"
-            android:textSize="28sp" />
-
-        <!-- Row 2: Three Columns -->
-        <TextView
-            android:id="@+id/birth_number__year_title_col1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/mystical_font"
-            android:text="@string/birth_day"
-            android:textColor="@color/gold"
-            android:textSize="18sp"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toStartOf="@+id/birth_number__year_title_col2"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/birth_number_title"
-            app:layout_constraintWidth_percent="0.33" />
-
-        <TextView
-            android:id="@+id/birth_number__year_title_col2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/birth_number_title"
-            app:layout_constraintStart_toEndOf="@id/birth_number__year_title_col1"
-            app:layout_constraintEnd_toStartOf="@id/birth_number__year_title_col3"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/mystical_font"
-            android:text="@string/birth_month"
-            android:textColor="@color/gold"
-            android:textSize="18sp"
-            android:textAlignment="center"
-            app:layout_constraintWidth_percent="0.33" />
-
-        <TextView
-            android:id="@+id/birth_number__year_title_col3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/birth_number_title"
-            app:layout_constraintStart_toEndOf="@id/birth_number__year_title_col2"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/birth_year"
-            android:fontFamily="@font/mystical_font"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/gold"
-            android:textSize="18sp"
-            android:textAlignment="center"
-            app:layout_constraintWidth_percent="0.33" />
-
-        <!-- Row 3: Three Columns -->
-        <TextView
-            android:id="@+id/tvBirthDayNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="00"
-            app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tvBirthMonthNumber"
-            android:fontFamily="@font/mystical_font"
-            android:textColor="@color/gold"
-            android:textSize="30sp"
-            android:textAlignment="center"
-            app:layout_constraintWidth_percent="0.33" />
-
-        <TextView
-            android:id="@+id/tvBirthMonthNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="00"
-            app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
-            app:layout_constraintStart_toEndOf="@id/tvBirthDayNumber"
-            app:layout_constraintEnd_toStartOf="@id/tvBirthYearNumber"
-            android:fontFamily="@font/mystical_font"
-            android:textColor="@color/gold"
-            android:textSize="30sp"
-            android:textAlignment="center"
-            app:layout_constraintWidth_percent="0.33" />
-
-
-        <TextView
-            android:id="@+id/tvBirthYearNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="0000"
-            app:layout_constraintTop_toBottomOf="@id/birth_number__year_title_col1"
-            app:layout_constraintStart_toEndOf="@id/tvBirthMonthNumber"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:fontFamily="@font/mystical_font"
-            android:textColor="@color/gold"
-            android:textSize="30sp"
-            android:textAlignment="center"
-            app:layout_constraintWidth_percent="0.33" />
-
-        <View
-            android:id="@+id/seperator1"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/gold"
-            app:layout_constraintTop_toBottomOf="@id/tvBirthDayNumber"
-            app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/mystical_font"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/gold"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-
-        <ImageView
-            android:id="@+id/sun_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:contentDescription="Sun"
-            app:layout_constraintTop_toBottomOf="@id/seperator1"
-            android:src="@drawable/ic_earth"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:ignore="MissingConstraints" />
-
-        <!-- Row 4 -->
-        <TextView
-            android:id="@+id/birth_number__title_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/birth_cycles_text"
-            app:layout_constraintTop_toBottomOf="@id/sun_image"
-            app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/mystical_font"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <View
-            android:id="@+id/seperator2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/gold"
-            app:layout_constraintTop_toBottomOf="@id/birth_number__title_title"
-            app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/mystical_font"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/gold"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <!-- Row 5 -->
-        <TextView
-            android:id="@+id/tvBirthDayInterpretation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/interpretation"
-            app:layout_constraintTop_toBottomOf="@id/seperator2"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <View
-            android:id="@+id/seperator3"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/tvBirthDayInterpretation"
-            app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/mystical_font"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-
-
-        <TextView
-            android:id="@+id/tvBirthMonthInterpretation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/interpretation"
-            app:layout_constraintTop_toBottomOf="@id/seperator3"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <View
-            android:id="@+id/seperator4"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/tvBirthMonthInterpretation"
-            app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/mystical_font"
-            android:textSize="14sp"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <TextView
-            android:id="@+id/tvBirthYearInterpretation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/interpretation"
-            app:layout_constraintTop_toBottomOf="@id/seperator4"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <View
-            android:id="@+id/seperator5"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/gold"
-            app:layout_constraintTop_toBottomOf="@id/tvBirthYearInterpretation"
-            app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/mystical_font"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/gold"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <TextView
-            android:id="@+id/tvLuckyNumberLabel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/lucky_number"
-            app:layout_constraintTop_toBottomOf="@id/seperator5"
-            app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/mystical_font"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/gold"
+            android:textColor="@color/primary"
             android:textSize="28sp"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <TextView
-            android:id="@+id/tvLuckyNumberValue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="0"
-            app:layout_constraintTop_toBottomOf="@id/tvLuckyNumberLabel"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/mystical_font"
-            android:textColor="@color/gold"
-            android:textSize="30sp"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvLuckyNumberMeaning"
-            android:layout_width="0dp"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_birth_values"
+            style="@style/Widget.Material3.CardView.Elevated"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/lucky_number_meaning"
-            app:layout_constraintTop_toBottomOf="@id/tvLuckyNumberValue"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:layout_constraintTop_toBottomOf="@id/birth_number_title">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mystical_font"
+                        android:text="@string/birth_day"
+                        android:textColor="@color/primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvBirthDayNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mystical_font"
+                        android:text="00"
+                        android:textColor="@color/secondary"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mystical_font"
+                        android:text="@string/birth_month"
+                        android:textColor="@color/primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvBirthMonthNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mystical_font"
+                        android:text="00"
+                        android:textColor="@color/secondary"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mystical_font"
+                        android:text="@string/birth_year"
+                        android:textColor="@color/primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvBirthYearNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mystical_font"
+                        android:text="0000"
+                        android:textColor="@color/secondary"
+                        android:textSize="24sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_cycles"
+            style="@style/Widget.Material3.CardView.Elevated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:layout_constraintTop_toBottomOf="@id/card_birth_values">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/sun_image"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:contentDescription="Sun"
+                    android:src="@drawable/ic_earth"
+                    app:tint="@color/primary" />
+
+                <TextView
+                    android:id="@+id/birth_number__title_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/mystical_font"
+                    android:text="@string/birth_cycles_text"
+                    android:textColor="@color/primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_interpretation"
+            style="@style/Widget.Material3.CardView.Elevated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:layout_constraintTop_toBottomOf="@id/card_cycles">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvBirthDayInterpretation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@string/interpretation"
+                    android:textColor="@color/secondary"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:id="@+id/tvBirthMonthInterpretation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@string/interpretation"
+                    android:textColor="@color/secondary"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:id="@+id/tvBirthYearInterpretation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@string/interpretation"
+                    android:textColor="@color/secondary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_lucky_summary"
+            style="@style/Widget.Material3.CardView.Elevated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:layout_constraintTop_toBottomOf="@id/card_interpretation">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tvLuckyNumberLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mystical_font"
+                    android:text="@string/lucky_number"
+                    android:textColor="@color/primary"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvLuckyNumberValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/mystical_font"
+                    android:text="0"
+                    android:textColor="@color/gold"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvLuckyNumberMeaning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:text="@string/lucky_number_meaning"
+                    android:textColor="@color/secondary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
         <TextView
             android:id="@+id/adding_blank_space"
             android:layout_width="0dp"

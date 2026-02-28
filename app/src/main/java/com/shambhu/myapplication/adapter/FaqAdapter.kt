@@ -1,13 +1,17 @@
 package com.shambhu.myapplication.adapter
 
 import android.content.Context
+import android.transition.AutoTransition
+import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.card.MaterialCardView
 import com.shambhu.myapplication.R
 import com.shambhu.myapplication.model.FaqDefinition
 
@@ -30,6 +34,8 @@ class FaqAdapter(private val context: Context, private val faqList: List<FaqDefi
         private val questionTextView: TextView = itemView.findViewById(R.id.questionTextView)
         private val innerRecyclerView: RecyclerView = itemView.findViewById(R.id.innerRecyclerView)
         private val toggleIcon: ImageView = itemView.findViewById(R.id.toggleIcon)
+        private val headerLayout: View = itemView.findViewById(R.id.headerLayout)
+        private val accordionCard: MaterialCardView = itemView.findViewById(R.id.accordionCard)
         private val innerAdapter: FaqInnerAdapter
 
         init {
@@ -37,9 +43,10 @@ class FaqAdapter(private val context: Context, private val faqList: List<FaqDefi
             innerRecyclerView.layoutManager = LinearLayoutManager(context)
             innerRecyclerView.adapter = innerAdapter
 
-            itemView.setOnClickListener {
+            headerLayout.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
+                    TransitionManager.beginDelayedTransition(accordionCard, AutoTransition())
                     val faqItem = faqList[position]
                     faqItem.isExpanded = !faqItem.isExpanded
                     notifyItemChanged(position)
@@ -49,11 +56,17 @@ class FaqAdapter(private val context: Context, private val faqList: List<FaqDefi
 
         fun bind(faqItem: FaqDefinition) {
             questionTextView.text = faqItem.name
-            innerRecyclerView.visibility = if (faqItem.isExpanded) View.VISIBLE else View.GONE
-            toggleIcon.rotation = if (faqItem.isExpanded) 45f else 0f
-
             if (faqItem.isExpanded) {
+                innerRecyclerView.visibility = View.VISIBLE
+                toggleIcon.rotation = 180f
+                accordionCard.strokeColor = ContextCompat.getColor(context, R.color.gold)
+                accordionCard.cardElevation = 8f
                 innerAdapter.updateData(faqItem.description)
+            } else {
+                innerRecyclerView.visibility = View.GONE
+                toggleIcon.rotation = 0f
+                accordionCard.strokeColor = ContextCompat.getColor(context, R.color.divider)
+                accordionCard.cardElevation = 2f
             }
         }
     }
